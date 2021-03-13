@@ -12,6 +12,5 @@ namespace SymphonyWebApp.Data.Entities
         public string Gmail { get; set; }
         public string PhoneNumber { get; set; }
         public string Question { get; set; }
-
     }
 }
