@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace SymphonyWebApp.Data
+namespace SymphonyWebApp.Data.Entities
 {
     public class Customer
     {

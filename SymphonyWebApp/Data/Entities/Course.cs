@@ -10,6 +10,7 @@ namespace SymphonyWebApp.Data.Entities
 {
     public class Course
     {
+        public int Id { get; set; }
         public int CourseId { get; set; }
 
         public string CourseName { get; set; }
@@ -25,8 +26,13 @@ namespace SymphonyWebApp.Data.Entities
         public Level level { get; set; }
         public FeeStatus FeeStatus { get; set; }
 
+        [DataType(DataType.Date)]
         public DateTime TrainingTime { get; set; }
+
+        [DataType(DataType.Date)]
         public DateTime StartTime { get; set; }
+
+        [DataType(DataType.Date)]
         public DateTime EndTime { get; set; }
     }
 }
