@@ -18,6 +18,10 @@ namespace SymphonyWebApp.Data.Entities
         [Column(TypeName = "decimal(18,2)")]
         public decimal Fee { get; set; }
 
+        [DataType(DataType.Currency)]
+        [Column(TypeName = "decimal(18,2)")]
+        public decimal SubFee { get; set; }
+
         public Level level { get; set; }
         public FeeStatus FeeStatus { get; set; }
 
