@@ -8,7 +8,7 @@ namespace SymphonyWebApp.Data
 {
     public class Customer
     {
-        public int CustomerId { get; set; }
+        public int Id { get; set; }
         public string Gmail { get; set; }
 
         [DataType(DataType.PhoneNumber)]
