@@ -7,7 +7,7 @@ namespace SymphonyWebApp.Data.Entities
 {
     public class Centre
     {
-        public int CentreId { get; set; }
+        public int Id { get; set; }
         public string Address { get; set; }
 
     }
