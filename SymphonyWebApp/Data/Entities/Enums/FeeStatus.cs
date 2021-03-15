@@ -8,6 +8,6 @@ namespace SymphonyWebApp.Data.Entities.Enums
     public enum FeeStatus
     {
         Paid,
-        UnPaid
+        Unpaid
     }
 }
