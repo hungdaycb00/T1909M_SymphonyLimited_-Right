@@ -428,3 +428,5 @@ D:\Users\SymphonyWebApp\obj\Debug\net5.0\SymphonyWebApp.dll
 D:\Users\SymphonyWebApp\obj\Debug\net5.0\ref\SymphonyWebApp.dll
 D:\Users\SymphonyWebApp\obj\Debug\net5.0\SymphonyWebApp.pdb
 D:\Users\SymphonyWebApp\obj\Debug\net5.0\SymphonyWebApp.genruntimeconfig.cache
+D:\Users\SymphonyWebApp\obj\Debug\net5.0\Razor\Views\Home\Contact.cshtml.g.cs
+D:\Users\SymphonyWebApp\obj\Debug\net5.0\Razor\Views\Shared\_PageLayout.cshtml.g.cs
