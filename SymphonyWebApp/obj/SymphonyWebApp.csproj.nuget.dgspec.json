@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Users\\RightTeam\\T1909M_SymphonyLimited_-Right\\SymphonyWebApp\\SymphonyWebApp.csproj": {}
+    "D:\\Users\\T1909M_SymphonyLimited_-Right\\SymphonyWebApp\\SymphonyWebApp.csproj": {}
   },
   "projects": {
-    "D:\\Users\\RightTeam\\T1909M_SymphonyLimited_-Right\\SymphonyWebApp\\SymphonyWebApp.csproj": {
+    "D:\\Users\\T1909M_SymphonyLimited_-Right\\SymphonyWebApp\\SymphonyWebApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Users\\RightTeam\\T1909M_SymphonyLimited_-Right\\SymphonyWebApp\\SymphonyWebApp.csproj",
+        "projectUniqueName": "D:\\Users\\T1909M_SymphonyLimited_-Right\\SymphonyWebApp\\SymphonyWebApp.csproj",
         "projectName": "SymphonyWebApp",
-        "projectPath": "D:\\Users\\RightTeam\\T1909M_SymphonyLimited_-Right\\SymphonyWebApp\\SymphonyWebApp.csproj",
+        "projectPath": "D:\\Users\\T1909M_SymphonyLimited_-Right\\SymphonyWebApp\\SymphonyWebApp.csproj",
         "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "D:\\Users\\RightTeam\\T1909M_SymphonyLimited_-Right\\SymphonyWebApp\\obj\\",
+        "outputPath": "D:\\Users\\T1909M_SymphonyLimited_-Right\\SymphonyWebApp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
