@@ -15,7 +15,7 @@ namespace SymphonyWebApp.Data.Configurations
             builder.ToTable("Courses");
             builder.HasKey(x => x.CourseId);
             builder.Property(x => x.Id).UseIdentityColumn();
-            builder.Property(x => x.CourseId).IsRequired().HasMaxLength(10);
+            builder.Property(x => x.CourseId).IsRequired().HasMaxLength(5).IsUnicode(false);
             builder.Property(x => x.CourseName).IsRequired().HasMaxLength(10);
             builder.Property(x => x.TrainingTime).IsRequired();
             builder.Property(x => x.Fee).IsRequired();

@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace SymphonyWebApp.Migrations
 {
-    public partial class CreateInitial : Migration
+    public partial class firstMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -63,7 +63,7 @@ namespace SymphonyWebApp.Migrations
                 name: "ClassStudies",
                 columns: table => new
                 {
-                    ClassId = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    ClassId = table.Column<string>(type: "varchar(5)", unicode: false, maxLength: 5, nullable: false),
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
@@ -79,7 +79,7 @@ namespace SymphonyWebApp.Migrations
                 name: "Courses",
                 columns: table => new
                 {
-                    CourseId = table.Column<string>(type: "nvarchar(10)", maxLength: 10, nullable: false),
+                    CourseId = table.Column<string>(type: "varchar(5)", unicode: false, maxLength: 5, nullable: false),
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     CourseName = table.Column<string>(type: "nvarchar(10)", maxLength: 10, nullable: false),
@@ -232,8 +232,8 @@ namespace SymphonyWebApp.Migrations
                 name: "ClassStudyCourse",
                 columns: table => new
                 {
-                    ClassStudiesClassId = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    CoursesCourseId = table.Column<string>(type: "nvarchar(10)", nullable: false)
+                    ClassStudiesClassId = table.Column<string>(type: "varchar(5)", nullable: false),
+                    CoursesCourseId = table.Column<string>(type: "varchar(5)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -256,7 +256,7 @@ namespace SymphonyWebApp.Migrations
                 name: "Students",
                 columns: table => new
                 {
-                    RollNumber = table.Column<string>(type: "nvarchar(10)", maxLength: 10, nullable: false),
+                    RollNumber = table.Column<string>(type: "varchar(5)", unicode: false, maxLength: 5, nullable: false),
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     LastName = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
@@ -269,21 +269,21 @@ namespace SymphonyWebApp.Migrations
                     SubFee = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     FeeStatus = table.Column<int>(type: "int", nullable: false),
                     StudentStatus = table.Column<int>(type: "int", nullable: false, defaultValue: 0),
-                    CourseId = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    ClassId = table.Column<int>(type: "int", nullable: false)
+                    CourseId = table.Column<string>(type: "varchar(5)", unicode: false, maxLength: 5, nullable: false),
+                    ClassId = table.Column<string>(type: "varchar(5)", unicode: false, maxLength: 5, nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Students", x => x.RollNumber);
                     table.ForeignKey(
-                        name: "FK_Students_ClassStudies_RollNumber",
-                        column: x => x.RollNumber,
+                        name: "FK_Students_ClassStudies_ClassId",
+                        column: x => x.ClassId,
                         principalTable: "ClassStudies",
                         principalColumn: "ClassId",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Students_Courses_RollNumber",
-                        column: x => x.RollNumber,
+                        name: "FK_Students_Courses_CourseId",
+                        column: x => x.CourseId,
                         principalTable: "Courses",
                         principalColumn: "CourseId",
                         onDelete: ReferentialAction.Cascade);
@@ -359,6 +359,16 @@ namespace SymphonyWebApp.Migrations
                 table: "RegistrationTests",
                 column: "CustomerId",
                 unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Students_ClassId",
+                table: "Students",
+                column: "ClassId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Students_CourseId",
+                table: "Students",
+                column: "CourseId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

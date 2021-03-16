@@ -15,17 +15,17 @@ namespace SymphonyWebApp.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .UseIdentityColumns()
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
-                .HasAnnotation("ProductVersion", "5.0.1");
+                .HasAnnotation("ProductVersion", "5.0.4")
+                .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
             modelBuilder.Entity("ClassStudyCourse", b =>
                 {
                     b.Property<string>("ClassStudiesClassId")
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("varchar(5)");
 
                     b.Property<string>("CoursesCourseId")
-                        .HasColumnType("nvarchar(10)");
+                        .HasColumnType("varchar(5)");
 
                     b.HasKey("ClassStudiesClassId", "CoursesCourseId");
 
@@ -66,7 +66,7 @@ namespace SymphonyWebApp.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
-                        .UseIdentityColumn();
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("ClaimType")
                         .HasColumnType("nvarchar(max)");
@@ -155,7 +155,7 @@ namespace SymphonyWebApp.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
-                        .UseIdentityColumn();
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("ClaimType")
                         .HasColumnType("nvarchar(max)");
@@ -239,7 +239,7 @@ namespace SymphonyWebApp.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
-                        .UseIdentityColumn();
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Address")
                         .IsRequired()
@@ -254,7 +254,9 @@ namespace SymphonyWebApp.Migrations
             modelBuilder.Entity("SymphonyWebApp.Data.Entities.ClassStudy", b =>
                 {
                     b.Property<string>("ClassId")
-                        .HasColumnType("nvarchar(450)");
+                        .HasMaxLength(5)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(5)");
 
                     b.Property<DateTime>("EndTime")
                         .HasColumnType("datetime2");
@@ -262,7 +264,9 @@ namespace SymphonyWebApp.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
-                        .UseIdentityColumn();
+                        .HasAnnotation("SqlServer:IdentityIncrement", 1)
+                        .HasAnnotation("SqlServer:IdentitySeed", 1)
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -280,8 +284,9 @@ namespace SymphonyWebApp.Migrations
             modelBuilder.Entity("SymphonyWebApp.Data.Entities.Course", b =>
                 {
                     b.Property<string>("CourseId")
-                        .HasMaxLength(10)
-                        .HasColumnType("nvarchar(10)");
+                        .HasMaxLength(5)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(5)");
 
                     b.Property<string>("CourseName")
                         .IsRequired()
@@ -294,7 +299,9 @@ namespace SymphonyWebApp.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
-                        .UseIdentityColumn();
+                        .HasAnnotation("SqlServer:IdentityIncrement", 1)
+                        .HasAnnotation("SqlServer:IdentitySeed", 1)
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<DateTime>("TrainingTime")
                         .HasColumnType("datetime2");
@@ -312,7 +319,9 @@ namespace SymphonyWebApp.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
-                        .UseIdentityColumn();
+                        .HasAnnotation("SqlServer:IdentityIncrement", 1)
+                        .HasAnnotation("SqlServer:IdentitySeed", 1)
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Contents")
                         .IsRequired()
@@ -342,7 +351,7 @@ namespace SymphonyWebApp.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
-                        .UseIdentityColumn();
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Answer")
                         .IsRequired()
@@ -364,7 +373,9 @@ namespace SymphonyWebApp.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
-                        .UseIdentityColumn();
+                        .HasAnnotation("SqlServer:IdentityIncrement", 1)
+                        .HasAnnotation("SqlServer:IdentitySeed", 1)
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("CourseName")
                         .IsRequired()
@@ -387,19 +398,26 @@ namespace SymphonyWebApp.Migrations
             modelBuilder.Entity("SymphonyWebApp.Data.Entities.Student", b =>
                 {
                     b.Property<string>("RollNumber")
-                        .HasMaxLength(10)
-                        .HasColumnType("nvarchar(10)");
+                        .HasMaxLength(5)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(5)");
 
                     b.Property<string>("Address")
                         .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
-                    b.Property<int>("ClassId")
-                        .HasColumnType("int");
+                    b.Property<string>("ClassId")
+                        .IsRequired()
+                        .HasMaxLength(5)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(5)");
 
                     b.Property<string>("CourseId")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(5)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(5)");
 
                     b.Property<DateTime>("Dob")
                         .HasColumnType("datetime2");
@@ -420,7 +438,9 @@ namespace SymphonyWebApp.Migrations
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
-                        .UseIdentityColumn();
+                        .HasAnnotation("SqlServer:IdentityIncrement", 1)
+                        .HasAnnotation("SqlServer:IdentitySeed", 1)
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("IdentityCard")
                         .IsRequired()
@@ -446,6 +466,10 @@ namespace SymphonyWebApp.Migrations
                         .HasColumnType("decimal(18,2)");
 
                     b.HasKey("RollNumber");
+
+                    b.HasIndex("ClassId");
+
+                    b.HasIndex("CourseId");
 
                     b.ToTable("Students");
                 });
@@ -531,13 +555,13 @@ namespace SymphonyWebApp.Migrations
                 {
                     b.HasOne("SymphonyWebApp.Data.Entities.ClassStudy", "ClassStudy")
                         .WithMany("Students")
-                        .HasForeignKey("RollNumber")
+                        .HasForeignKey("ClassId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("SymphonyWebApp.Data.Entities.Course", "Course")
                         .WithMany("Students")
-                        .HasForeignKey("RollNumber")
+                        .HasForeignKey("CourseId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

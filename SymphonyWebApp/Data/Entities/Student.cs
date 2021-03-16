@@ -38,7 +38,7 @@ namespace SymphonyWebApp.Data.Entities
         public string CourseId { get; set; }
         public Course Course { get; set; }
 
-        public int ClassId { get; set; }
+        public string ClassId { get; set; }
         public ClassStudy ClassStudy { get; set; }
     }
 }
