@@ -14,7 +14,7 @@ namespace SymphonyWebApp.Data.Configurations
         public void Configure(EntityTypeBuilder<Student> builder)
         {
             builder.ToTable("Students");
-            builder.HasKey(x => x.RollNumber);
+            builder.HasKey(x => x.Id);
             builder.Property(x => x.Id).UseIdentityColumn();
             builder.Property(x => x.RollNumber).IsRequired().HasMaxLength(10).IsUnicode(false);
             builder.Property(x => x.FirstName).IsRequired().HasMaxLength(100);
