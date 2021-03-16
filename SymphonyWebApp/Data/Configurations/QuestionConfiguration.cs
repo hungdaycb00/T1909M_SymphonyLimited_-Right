@@ -8,14 +8,14 @@ using System.Threading.Tasks;
 
 namespace SymphonyWebApp.Data.Configurations
 {
-    public class QuestionConfigurations : IEntityTypeConfiguration<Question>
+    public class QuestionConfiguration : IEntityTypeConfiguration<Question>
     {
         public void Configure(EntityTypeBuilder<Question> builder)
         {
             builder.ToTable("Questions");
             builder.HasKey(x => x.Id);
-            builder.Property(x => x.Title).IsRequired().HasMaxLength(50);
-            builder.Property(x => x.Answer).IsRequired().HasMaxLength(100);
+            builder.Property(x => x.Title).IsRequired().HasMaxLength(100);
+            builder.Property(x => x.Answer).IsRequired().HasMaxLength(300);
         }
     }
 }
