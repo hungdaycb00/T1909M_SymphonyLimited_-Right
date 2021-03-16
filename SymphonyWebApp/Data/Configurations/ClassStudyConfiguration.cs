@@ -14,7 +14,7 @@ namespace SymphonyWebApp.Data.Configurations
         {
             builder.ToTable("ClassStudies");
             builder.HasKey(x => x.ClassId);
-            builder.Property(x => x.ClassId).IsRequired();
+            builder.Property(x => x.ClassId).IsRequired().HasMaxLength(5).IsUnicode(false);
             builder.Property(x => x.Id).UseIdentityColumn().IsRequired();
             builder.Property(x => x.Name).IsRequired().HasMaxLength(50);
 
