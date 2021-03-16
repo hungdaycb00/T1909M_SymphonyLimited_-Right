@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\SEM3\\T1909M_SymphonyLimited_-Right\\SymphonyWebApp\\SymphonyWebApp.csproj": {}
+    "D:\\Users\\T1909M_SymphonyLimited_-Right\\SymphonyWebApp\\SymphonyWebApp.csproj": {}
   },
   "projects": {
-    "D:\\SEM3\\T1909M_SymphonyLimited_-Right\\SymphonyWebApp\\SymphonyWebApp.csproj": {
+    "D:\\Users\\T1909M_SymphonyLimited_-Right\\SymphonyWebApp\\SymphonyWebApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\SEM3\\T1909M_SymphonyLimited_-Right\\SymphonyWebApp\\SymphonyWebApp.csproj",
+        "projectUniqueName": "D:\\Users\\T1909M_SymphonyLimited_-Right\\SymphonyWebApp\\SymphonyWebApp.csproj",
         "projectName": "SymphonyWebApp",
-        "projectPath": "D:\\SEM3\\T1909M_SymphonyLimited_-Right\\SymphonyWebApp\\SymphonyWebApp.csproj",
-        "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
-        "outputPath": "D:\\SEM3\\T1909M_SymphonyLimited_-Right\\SymphonyWebApp\\obj\\",
+        "projectPath": "D:\\Users\\T1909M_SymphonyLimited_-Right\\SymphonyWebApp\\SymphonyWebApp.csproj",
+        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+        "outputPath": "D:\\Users\\T1909M_SymphonyLimited_-Right\\SymphonyWebApp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -79,7 +79,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     }
