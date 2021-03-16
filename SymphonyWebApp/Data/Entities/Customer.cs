@@ -17,5 +17,7 @@ namespace SymphonyWebApp.Data.Entities
         public string PhoneNumber { get; set; }
 
         public string Contents { get; set; }
+
+        public RegistrationTest RegistrationTest { get; set; }
     }
 }
