@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -26,10 +27,18 @@ namespace SymphonyWebApp.Data.Entities
         public string PhoneNumber { get; set; }
 
         public string Address { get; set; }
+
+        [DataType(DataType.Currency)]
+        [Column(TypeName = "decimal(18,2)")]
         public decimal SubFee { get; set; }
 
+        public FeeStatus FeeStatus { get; set; }
         public StudentStatus StudentStatus { get; set; }
 
-        public ICollection<ClassStudy> ClassStudies { get; set; }
+        public string CourseId { get; set; }
+        public Course Course { get; set; }
+
+        public string ClassId { get; set; }
+        public ClassStudy ClassStudy { get; set; }
     }
 }

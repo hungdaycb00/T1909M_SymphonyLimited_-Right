@@ -26,8 +26,15 @@ using SymphonyWebApp.Models;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 4 "D:\Users\SymphonyWebApp\Views\_ViewImports.cshtml"
+using SymphonyWebApp.Data.Entities.Enums;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"d8ddb6bffa5a9b264bf8f89038bf03c234083fd3", @"/Views/Home/Privacy.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"f62cc29301ba72b2b6fc9594b5fda47e23d9c853", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"daefde9b7f6b1a3a5f8ffe88d7270cb0e57c31aa", @"/Views/_ViewImports.cshtml")]
     public class Views_Home_Privacy : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         #pragma warning disable 1998
