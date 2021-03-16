@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SymphonyWebApp.Data.Entities.Enums;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -25,5 +26,10 @@ namespace SymphonyWebApp.Data.Entities
         public string PhoneNumber { get; set; }
 
         public string Address { get; set; }
+        public decimal SubFee { get; set; }
+
+        public StudentStatus StudentStatus { get; set; }
+
+        public ICollection<ClassStudy> ClassStudies { get; set; }
     }
 }
