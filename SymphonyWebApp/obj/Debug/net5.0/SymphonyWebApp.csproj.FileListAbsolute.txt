@@ -544,3 +544,8 @@ D:\Users\SymphonyWebApp\obj\Debug\net5.0\Razor\Views\Students\Delete.cshtml.g.cs
 D:\Users\SymphonyWebApp\obj\Debug\net5.0\Razor\Views\Students\Details.cshtml.g.cs
 D:\Users\SymphonyWebApp\obj\Debug\net5.0\Razor\Views\Students\Edit.cshtml.g.cs
 D:\Users\SymphonyWebApp\obj\Debug\net5.0\Razor\Views\Students\Index.cshtml.g.cs
+D:\Users\SymphonyWebApp\obj\Debug\net5.0\Razor\Views\Questions\Create.cshtml.g.cs
+D:\Users\SymphonyWebApp\obj\Debug\net5.0\Razor\Views\Questions\Delete.cshtml.g.cs
+D:\Users\SymphonyWebApp\obj\Debug\net5.0\Razor\Views\Questions\Details.cshtml.g.cs
+D:\Users\SymphonyWebApp\obj\Debug\net5.0\Razor\Views\Questions\Edit.cshtml.g.cs
+D:\Users\SymphonyWebApp\obj\Debug\net5.0\Razor\Views\Questions\Index.cshtml.g.cs
