@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\SEM3\\T1909M_SymphonyLimited_-Right\\SymphonyWebApp\\SymphonyWebApp.csproj": {}
+    "C:\\Users\\ASUS\\Documents\\GitHub\\T1909M_SymphonyLimited_-Right\\SymphonyWebApp\\SymphonyWebApp.csproj": {}
   },
   "projects": {
-    "D:\\SEM3\\T1909M_SymphonyLimited_-Right\\SymphonyWebApp\\SymphonyWebApp.csproj": {
+    "C:\\Users\\ASUS\\Documents\\GitHub\\T1909M_SymphonyLimited_-Right\\SymphonyWebApp\\SymphonyWebApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\SEM3\\T1909M_SymphonyLimited_-Right\\SymphonyWebApp\\SymphonyWebApp.csproj",
+        "projectUniqueName": "C:\\Users\\ASUS\\Documents\\GitHub\\T1909M_SymphonyLimited_-Right\\SymphonyWebApp\\SymphonyWebApp.csproj",
         "projectName": "SymphonyWebApp",
-        "projectPath": "D:\\SEM3\\T1909M_SymphonyLimited_-Right\\SymphonyWebApp\\SymphonyWebApp.csproj",
+        "projectPath": "C:\\Users\\ASUS\\Documents\\GitHub\\T1909M_SymphonyLimited_-Right\\SymphonyWebApp\\SymphonyWebApp.csproj",
         "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
-        "outputPath": "D:\\SEM3\\T1909M_SymphonyLimited_-Right\\SymphonyWebApp\\obj\\",
+        "outputPath": "C:\\Users\\ASUS\\Documents\\GitHub\\T1909M_SymphonyLimited_-Right\\SymphonyWebApp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config",
