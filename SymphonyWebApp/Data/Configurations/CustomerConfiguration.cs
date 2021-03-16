@@ -16,7 +16,7 @@ namespace SymphonyWebApp.Data.Configurations
             builder.HasKey(x => x.Id);
             builder.Property(x => x.Id).UseIdentityColumn();
             builder.Property(x => x.Gmail).IsRequired().HasMaxLength(50);
-            builder.Property(x => x.PhoneNumber).IsRequired().HasMaxLength(11);
+            builder.Property(x => x.PhoneNumber).IsRequired().HasMaxLength(12);
             builder.Property(x => x.Contents).HasMaxLength(200).IsRequired();
         }
     }

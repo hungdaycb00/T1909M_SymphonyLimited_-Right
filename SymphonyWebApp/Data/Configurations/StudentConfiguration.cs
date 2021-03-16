@@ -16,19 +16,19 @@ namespace SymphonyWebApp.Data.Configurations
             builder.ToTable("Students");
             builder.HasKey(x => x.RollNumber);
             builder.Property(x => x.Id).UseIdentityColumn();
-            builder.Property(x => x.RollNumber).IsRequired().HasMaxLength(5).IsUnicode(false);
+            builder.Property(x => x.RollNumber).IsRequired().HasMaxLength(10).IsUnicode(false);
             builder.Property(x => x.FirstName).IsRequired().HasMaxLength(100);
             builder.Property(x => x.LastName).IsRequired().HasMaxLength(100);
             builder.Property(x => x.Address).IsRequired().HasMaxLength(100);
             builder.Property(x => x.Gmail).IsRequired().HasMaxLength(100);
             builder.Property(x => x.IdentityCard).IsRequired().HasMaxLength(20);
             builder.Property(x => x.StudentStatus).IsRequired().HasDefaultValue(StudentStatus.Active);
-            builder.Property(x => x.PhoneNumber).IsRequired().HasMaxLength(13);
+            builder.Property(x => x.PhoneNumber).IsRequired().HasMaxLength(12);
             builder.Property(x => x.Dob).IsRequired();
             builder.Property(x => x.SubFee).IsRequired();
 
-            builder.Property(x => x.ClassId).IsRequired().HasMaxLength(5).IsUnicode(false);
-            builder.Property(x => x.CourseId).IsRequired().HasMaxLength(5).IsUnicode(false);
+            builder.Property(x => x.ClassId).IsRequired().HasMaxLength(10).IsUnicode(false);
+            builder.Property(x => x.CourseId).IsRequired().HasMaxLength(10).IsUnicode(false);
 
             builder.HasOne(x => x.ClassStudy).WithMany(x => x.Students).HasForeignKey(x => x.ClassId);
             builder.HasOne(x => x.Course).WithMany(x => x.Students).HasForeignKey(x => x.CourseId);

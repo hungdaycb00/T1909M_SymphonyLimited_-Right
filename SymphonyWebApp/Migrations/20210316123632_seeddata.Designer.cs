@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SymphonyWebApp.Data;
 
 namespace SymphonyWebApp.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210316123632_seeddata")]
+    partial class seeddata
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -22,10 +24,10 @@ namespace SymphonyWebApp.Migrations
             modelBuilder.Entity("ClassStudyCourse", b =>
                 {
                     b.Property<string>("ClassStudiesClassId")
-                        .HasColumnType("varchar(10)");
+                        .HasColumnType("varchar(5)");
 
                     b.Property<string>("CoursesCourseId")
-                        .HasColumnType("varchar(10)");
+                        .HasColumnType("varchar(5)");
 
                     b.HasKey("ClassStudiesClassId", "CoursesCourseId");
 
@@ -254,9 +256,9 @@ namespace SymphonyWebApp.Migrations
             modelBuilder.Entity("SymphonyWebApp.Data.Entities.ClassStudy", b =>
                 {
                     b.Property<string>("ClassId")
-                        .HasMaxLength(10)
+                        .HasMaxLength(5)
                         .IsUnicode(false)
-                        .HasColumnType("varchar(10)");
+                        .HasColumnType("varchar(5)");
 
                     b.Property<DateTime>("EndTime")
                         .HasColumnType("datetime2");
@@ -284,9 +286,9 @@ namespace SymphonyWebApp.Migrations
             modelBuilder.Entity("SymphonyWebApp.Data.Entities.Course", b =>
                 {
                     b.Property<string>("CourseId")
-                        .HasMaxLength(10)
+                        .HasMaxLength(5)
                         .IsUnicode(false)
-                        .HasColumnType("varchar(10)");
+                        .HasColumnType("varchar(5)");
 
                     b.Property<string>("CourseName")
                         .IsRequired()
@@ -418,9 +420,9 @@ namespace SymphonyWebApp.Migrations
             modelBuilder.Entity("SymphonyWebApp.Data.Entities.Student", b =>
                 {
                     b.Property<string>("RollNumber")
-                        .HasMaxLength(10)
+                        .HasMaxLength(5)
                         .IsUnicode(false)
-                        .HasColumnType("varchar(10)");
+                        .HasColumnType("varchar(5)");
 
                     b.Property<string>("Address")
                         .IsRequired()
@@ -429,15 +431,15 @@ namespace SymphonyWebApp.Migrations
 
                     b.Property<string>("ClassId")
                         .IsRequired()
-                        .HasMaxLength(10)
+                        .HasMaxLength(5)
                         .IsUnicode(false)
-                        .HasColumnType("varchar(10)");
+                        .HasColumnType("varchar(5)");
 
                     b.Property<string>("CourseId")
                         .IsRequired()
-                        .HasMaxLength(10)
+                        .HasMaxLength(5)
                         .IsUnicode(false)
-                        .HasColumnType("varchar(10)");
+                        .HasColumnType("varchar(5)");
 
                     b.Property<DateTime>("Dob")
                         .HasColumnType("datetime2");
