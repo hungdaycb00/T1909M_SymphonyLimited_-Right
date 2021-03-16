@@ -22,5 +22,7 @@ namespace SymphonyWebApp.Data.Entities
 
         [DataType(DataType.Date)]
         public DateTime TrainingTime { get; set; }
+
+        public ICollection<ClassStudy> ClassStudies { get; set; }
     }
 }

@@ -25,5 +25,7 @@ namespace SymphonyWebApp.Data.Entities
 
         public string StudentId { get; set; }
         public ICollection<Student> Students { get; set; }
+
+        public ICollection<Course> Courses { get; set; }
     }
 }
