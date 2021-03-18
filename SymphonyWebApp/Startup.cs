@@ -1,3 +1,5 @@
+using FluentValidation;
+using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -8,6 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using SymphonyWebApp.Data;
+using SymphonyWebApp.Data.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,7 +37,9 @@ namespace SymphonyWebApp
 
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
-            services.AddControllersWithViews();
+            services.AddControllersWithViews().AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<ClassStudyValidator>());
+
+            services.AddTransient<IValidator<ClassStudy>, ClassStudyValidator>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

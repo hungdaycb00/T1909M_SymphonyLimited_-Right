@@ -26,7 +26,7 @@ namespace SymphonyWebApp.Controllers
         }
 
         // GET: ClassStudies/Details/5
-        public async Task<IActionResult> Details(string id)
+        public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
             {
@@ -34,7 +34,7 @@ namespace SymphonyWebApp.Controllers
             }
 
             var classStudy = await _context.ClassStudies
-                .FirstOrDefaultAsync(m => m.ClassId == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
             if (classStudy == null)
             {
                 return NotFound();
@@ -56,17 +56,20 @@ namespace SymphonyWebApp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,ClassId,Name,StartTime,EndTime")] ClassStudy classStudy)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
-                _context.Add(classStudy);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return View("Create", classStudy);
             }
+
+            _context.Add(classStudy);
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+
             return View(classStudy);
         }
 
         // GET: ClassStudies/Edit/5
-        public async Task<IActionResult> Edit(string id)
+        public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
             {
@@ -86,9 +89,9 @@ namespace SymphonyWebApp.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("Id,ClassId,Name,StartTime,EndTime")] ClassStudy classStudy)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,ClassId,Name,StartTime,EndTime")] ClassStudy classStudy)
         {
-            if (id != classStudy.ClassId)
+            if (id != classStudy.Id)
             {
                 return NotFound();
             }
@@ -102,7 +105,7 @@ namespace SymphonyWebApp.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!ClassStudyExists(classStudy.ClassId))
+                    if (!ClassStudyExists(classStudy.Id))
                     {
                         return NotFound();
                     }
@@ -117,7 +120,7 @@ namespace SymphonyWebApp.Controllers
         }
 
         // GET: ClassStudies/Delete/5
-        public async Task<IActionResult> Delete(string id)
+        public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
             {
@@ -125,7 +128,7 @@ namespace SymphonyWebApp.Controllers
             }
 
             var classStudy = await _context.ClassStudies
-                .FirstOrDefaultAsync(m => m.ClassId == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
             if (classStudy == null)
             {
                 return NotFound();
@@ -137,7 +140,7 @@ namespace SymphonyWebApp.Controllers
         // POST: ClassStudies/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(string id)
+        public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var classStudy = await _context.ClassStudies.FindAsync(id);
             _context.ClassStudies.Remove(classStudy);
@@ -145,9 +148,9 @@ namespace SymphonyWebApp.Controllers
             return RedirectToAction(nameof(Index));
         }
 
-        private bool ClassStudyExists(string id)
+        private bool ClassStudyExists(int id)
         {
-            return _context.ClassStudies.Any(e => e.ClassId == id);
+            return _context.ClassStudies.Any(e => e.Id == id);
         }
     }
 }
