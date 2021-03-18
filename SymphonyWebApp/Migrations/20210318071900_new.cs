@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace SymphonyWebApp.Migrations
 {
-    public partial class firstMigration : Migration
+    public partial class @new : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -63,33 +63,33 @@ namespace SymphonyWebApp.Migrations
                 name: "ClassStudies",
                 columns: table => new
                 {
-                    ClassId = table.Column<string>(type: "varchar(5)", unicode: false, maxLength: 5, nullable: false),
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    ClassId = table.Column<string>(type: "varchar(10)", unicode: false, maxLength: 10, nullable: false),
                     Name = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     StartTime = table.Column<DateTime>(type: "datetime2", nullable: false),
                     EndTime = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ClassStudies", x => x.ClassId);
+                    table.PrimaryKey("PK_ClassStudies", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
                 name: "Courses",
                 columns: table => new
                 {
-                    CourseId = table.Column<string>(type: "varchar(5)", unicode: false, maxLength: 5, nullable: false),
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    CourseName = table.Column<string>(type: "nvarchar(10)", maxLength: 10, nullable: false),
+                    CourseId = table.Column<string>(type: "varchar(10)", unicode: false, maxLength: 10, nullable: false),
+                    CourseName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Fee = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     level = table.Column<int>(type: "int", nullable: false),
-                    TrainingTime = table.Column<int>(type: "int", nullable: false),
+                    TrainingTime = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Courses", x => x.CourseId);
+                    table.PrimaryKey("PK_Courses", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -100,7 +100,7 @@ namespace SymphonyWebApp.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Gmail = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    PhoneNumber = table.Column<string>(type: "nvarchar(11)", maxLength: 11, nullable: false),
+                    PhoneNumber = table.Column<string>(type: "nvarchar(12)", maxLength: 12, nullable: false),
                     Contents = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false)
                 },
                 constraints: table =>
@@ -114,8 +114,8 @@ namespace SymphonyWebApp.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Title = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
-                    Answer = table.Column<string>(type: "nvarchar(300)", maxLength: 300, nullable: false)
+                    Title = table.Column<string>(type: "nvarchar(300)", maxLength: 100, nullable: false),
+                    Answer = table.Column<string>(type: "nvarchar(max)", maxLength: 300, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -232,23 +232,23 @@ namespace SymphonyWebApp.Migrations
                 name: "ClassStudyCourse",
                 columns: table => new
                 {
-                    ClassStudiesClassId = table.Column<string>(type: "varchar(5)", nullable: false),
-                    CoursesCourseId = table.Column<string>(type: "varchar(5)", nullable: false)
+                    ClassStudiesId = table.Column<int>(type: "int", nullable: false),
+                    CoursesId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ClassStudyCourse", x => new { x.ClassStudiesClassId, x.CoursesCourseId });
+                    table.PrimaryKey("PK_ClassStudyCourse", x => new { x.ClassStudiesId, x.CoursesId });
                     table.ForeignKey(
-                        name: "FK_ClassStudyCourse_ClassStudies_ClassStudiesClassId",
-                        column: x => x.ClassStudiesClassId,
+                        name: "FK_ClassStudyCourse_ClassStudies_ClassStudiesId",
+                        column: x => x.ClassStudiesId,
                         principalTable: "ClassStudies",
-                        principalColumn: "ClassId",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_ClassStudyCourse_Courses_CoursesCourseId",
-                        column: x => x.CoursesCourseId,
+                        name: "FK_ClassStudyCourse_Courses_CoursesId",
+                        column: x => x.CoursesId,
                         principalTable: "Courses",
-                        principalColumn: "CourseId",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -256,36 +256,36 @@ namespace SymphonyWebApp.Migrations
                 name: "Students",
                 columns: table => new
                 {
-                    RollNumber = table.Column<string>(type: "varchar(5)", unicode: false, maxLength: 5, nullable: false),
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    RollNumber = table.Column<string>(type: "varchar(10)", unicode: false, maxLength: 10, nullable: false),
                     LastName = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     FirstName = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     Gmail = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     Dob = table.Column<DateTime>(type: "datetime2", nullable: false),
                     IdentityCard = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
-                    PhoneNumber = table.Column<string>(type: "nvarchar(13)", maxLength: 13, nullable: false),
+                    PhoneNumber = table.Column<string>(type: "nvarchar(12)", maxLength: 12, nullable: false),
                     Address = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     SubFee = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     FeeStatus = table.Column<int>(type: "int", nullable: false),
                     StudentStatus = table.Column<int>(type: "int", nullable: false, defaultValue: 0),
-                    CourseId = table.Column<string>(type: "varchar(5)", unicode: false, maxLength: 5, nullable: false),
-                    ClassId = table.Column<string>(type: "varchar(5)", unicode: false, maxLength: 5, nullable: false)
+                    CourseId = table.Column<int>(type: "int", unicode: false, maxLength: 10, nullable: false),
+                    ClassId = table.Column<int>(type: "int", unicode: false, maxLength: 10, nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Students", x => x.RollNumber);
+                    table.PrimaryKey("PK_Students", x => x.Id);
                     table.ForeignKey(
                         name: "FK_Students_ClassStudies_ClassId",
                         column: x => x.ClassId,
                         principalTable: "ClassStudies",
-                        principalColumn: "ClassId",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Students_Courses_CourseId",
                         column: x => x.CourseId,
                         principalTable: "Courses",
-                        principalColumn: "CourseId",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -308,6 +308,68 @@ namespace SymphonyWebApp.Migrations
                         principalTable: "Customers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.InsertData(
+                table: "Centres",
+                columns: new[] { "Id", "Address" },
+                values: new object[,]
+                {
+                    { 1, "Phu Xuyen-Ha Noi" },
+                    { 2, "5 Nguyen Van Loc- Ha Dong- Ha Noi" },
+                    { 3, "56-Van Phu-Ha Dong" },
+                    { 4, "119 Thanh Xuan-Ha Dong " },
+                    { 5, "5 Pham Hung- My Dinh-Ha Noi" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "ClassStudies",
+                columns: new[] { "Id", "ClassId", "EndTime", "Name", "StartTime" },
+                values: new object[,]
+                {
+                    { 1, "CT207", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Basic Java", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 2, "CT208", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Basic Python", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 3, "CT209", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Basic SQL", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 4, "CT210", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Basic JavaScript ", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 5, "CT211", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Bacic Network Security", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Courses",
+                columns: new[] { "Id", "CourseId", "CourseName", "Fee", "TrainingTime", "level" },
+                values: new object[,]
+                {
+                    { 5, "Security", "Basic Network Security", 6000m, 6, 0 },
+                    { 4, "JavaScript", "Basic JavaScript", 6000m, 6, 0 },
+                    { 1, "Java", "Basic Java", 6000m, 6, 1 },
+                    { 2, "Python", "Basic Python", 6000m, 6, 1 },
+                    { 3, "SQL", " Basic SQL", 6000m, 6, 0 }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Questions",
+                columns: new[] { "Id", "Answer", "Title" },
+                values: new object[,]
+                {
+                    { 6, "Ans: Yes there will be and it will be available on the application form", "Will there be any fees for the entrance exam? " },
+                    { 1, "On this the admin should be able to enter or update the procedures for joining the course that the institute offers", "How to join the course?" },
+                    { 2, "The various benefits that the student can gain by joining the institution is to be provided", "Why to join the institute? " },
+                    { 3, "Once in 6 months, and one need to check the website for knowing when is the entrance exam entitled, the fees for the entrance exam (admin will decide and displayed on the application form)", "When will be Entrance Examinations Conducted? " },
+                    { 4, "Will there be any extra hidden charges? (Ans: Yes, you can use the lab sessions even after your class hours. There will be no charges during the course days (i.e., during the course period if you want to use the lab sessions after the class hours we do provide the lab session and the labs will be kept opened till 9 PM in the evening. But yes if you want to use the lab session after your course completion, then it will be charged based on the scenario (like 1000$ if opted at the time of registering and 1500$ if opted after the completion of the course)", "Can I use the Lab facilities after my class hours? " },
+                    { 5, "Ans: once the entrance exams are entitled, one need to visit the centre for applying it through paper and fill all the necessary details through online. On the application form one should chose which course he/she wanted to pursue.", "How can I apply for the entrance exam? " },
+                    { 7, "Ans: payment can be done through draft, or through cheque or through cash. For making the payment through cash, one needs to come to one of the centre of the institute, and make the payment there itself. Once the payment is done (through cash or through DD), the student will be provided with the receipt with a receipt number. This receipt number is to be inputted in the application form. For the payments done through cheque and DD, one need to enter the DD number and the cheque number, bank details, etc. are to be entered on the application form and the cheque is to be pinned to the application form. Only once the payment is received the student’s application will be accepted. Once the application is accepted, the student is mailed with the acknowledgement form along with the details of the examination, subject chosen, date and time of exam, and the roll number", "How to make the payment? " }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Students",
+                columns: new[] { "Id", "Address", "ClassId", "CourseId", "Dob", "FeeStatus", "FirstName", "Gmail", "IdentityCard", "LastName", "PhoneNumber", "RollNumber", "SubFee" },
+                values: new object[,]
+                {
+                    { 1, "Gia Lai", 1, 1, new DateTime(2020, 2, 13, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "Ha", "havanvu18@gmail.com", "001201303446", "Van Vu", "0825894329", "21304", 1000m },
+                    { 2, "Lao Cai", 2, 2, new DateTime(2020, 3, 14, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "Pham", "phamlamlc14@gmail.com", "002302446301", "Tung Lam", "0328658580", "21404", 1000m },
+                    { 3, "Cao Bang", 3, 3, new DateTime(2020, 4, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "Nong", "nongphanmanhhung93@gmail.com", "0002304664303", "Manh Hung", "0654871956", "21504", 1000m },
+                    { 4, "Ha Noi", 4, 4, new DateTime(2020, 5, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "Nguyen", "nguyentrunganh@gmail.com", "002404356766", "Trung Anh", "0546871264", "21604", 1000m },
+                    { 5, "Ha Noi", 5, 5, new DateTime(2020, 6, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "Do", "huucong473@gmail.com", "001201072112", "Huu Cong", "0889567661", "21704", 1000m }
                 });
 
             migrationBuilder.CreateIndex(
@@ -350,9 +412,9 @@ namespace SymphonyWebApp.Migrations
                 filter: "[NormalizedUserName] IS NOT NULL");
 
             migrationBuilder.CreateIndex(
-                name: "IX_ClassStudyCourse_CoursesCourseId",
+                name: "IX_ClassStudyCourse_CoursesId",
                 table: "ClassStudyCourse",
-                column: "CoursesCourseId");
+                column: "CoursesId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_RegistrationTests_CustomerId",
