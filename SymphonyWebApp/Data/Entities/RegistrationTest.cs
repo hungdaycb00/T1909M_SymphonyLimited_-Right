@@ -10,11 +10,18 @@ namespace SymphonyWebApp.Data.Entities
     public class RegistrationTest
     {
         public int Id { get; set; }
+
+        [Display(Name = "Course Name")]
         public string CourseName { get; set; }
+
+
 
         [DataType(DataType.Currency)]
         [Column(TypeName = "decimal(18,2)")]
+        [Display(Name = "Registration Fee")]
         public decimal RegistrationFee { get; set; }
+
+
 
         public int CustomerId { get; set; }
         public Customer Customer { get; set; }

@@ -13,7 +13,10 @@ namespace SymphonyWebApp.Data.Entities
 
         public string Gmail { get; set; }
 
+
+
         [DataType(DataType.PhoneNumber)]
+        [Display(Name = "Phone Number")]
         public string PhoneNumber { get; set; }
 
         public string Contents { get; set; }

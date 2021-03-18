@@ -10,12 +10,16 @@ namespace SymphonyWebApp.Data.Entities
     public class ClassStudy
     {
         public int Id { get; set; }
+        [Display(Name = "Class Id")]
         public string ClassId { get; set; }
         public string Name { get; set; }
 
+        [Display(Name = "Start Time")]
         [DataType(DataType.Date)]
         public DateTime StartTime { get; set; }
 
+
+        [Display(Name = "End Time")]
         [DataType(DataType.Date)]
         public DateTime EndTime { get; set; }
 
