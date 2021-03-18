@@ -23,6 +23,36 @@ namespace SymphonyWebApp.Controllers
             return View();
         }
 
+        public IActionResult About()
+        {
+            return View();
+        }
+
+        public IActionResult Crouse()
+        {
+            return View();
+        }
+
+        public IActionResult FAQ()
+        {
+            return View();
+        }
+
+        public IActionResult Entrance()
+        {
+            return View();
+        }
+
+        public IActionResult Contact()
+        {
+            return View();
+        }
+
+        public IActionResult Instructor()
+        {
+            return View();
+        }
+
         public IActionResult Privacy()
         {
             return View();
