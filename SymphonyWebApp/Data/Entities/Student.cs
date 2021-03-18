@@ -1,4 +1,5 @@
-﻿using SymphonyWebApp.Data.Entities.Enums;
+﻿using FluentValidation;
+using SymphonyWebApp.Data.Entities.Enums;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -54,5 +55,24 @@ namespace SymphonyWebApp.Data.Entities
 
         public int ClassId { get; set; }
         public ClassStudy ClassStudy { get; set; }
+    }
+    public class ClassStudentValidator : AbstractValidator<Student>
+    {
+        public ClassStudentValidator()
+        {
+            RuleFor(x => x.RollNumber).NotNull().MinimumLength(5).MaximumLength(10);
+            RuleFor(x => x.LastName).NotNull();
+            RuleFor(x => x.FirstName).NotNull();
+            RuleFor(x => x.Gmail).EmailAddress();
+            RuleFor(x => x.Dob).LessThan(DateTime.Now.AddYears(10));
+            RuleFor(x => x.IdentityCard).Length(10);
+            RuleFor(x => x.PhoneNumber).NotNull();
+            RuleFor(x => x.Address).NotEmpty();
+            RuleFor(x => x.SubFee).ScalePrecision(0, 4);
+            RuleFor(x => x.FeeStatus).NotNull();
+            RuleFor(x => x.CourseId).NotNull();
+            RuleFor(x => x.ClassId).NotNull();
+
+        }
     }
 }
