@@ -549,3 +549,6 @@ D:\Users\SymphonyWebApp\obj\Debug\net5.0\Razor\Views\Students\Delete.cshtml.g.cs
 D:\Users\SymphonyWebApp\obj\Debug\net5.0\Razor\Views\Students\Details.cshtml.g.cs
 D:\Users\SymphonyWebApp\obj\Debug\net5.0\Razor\Views\Students\Edit.cshtml.g.cs
 D:\Users\SymphonyWebApp\obj\Debug\net5.0\Razor\Views\Students\Index.cshtml.g.cs
+D:\Users\SymphonyWebApp\bin\Debug\net5.0\FluentValidation.dll
+D:\Users\SymphonyWebApp\bin\Debug\net5.0\FluentValidation.AspNetCore.dll
+D:\Users\SymphonyWebApp\bin\Debug\net5.0\FluentValidation.DependencyInjectionExtensions.dll
