@@ -13,8 +13,8 @@ namespace SymphonyWebApp.Data.Configurations
         public void Configure(EntityTypeBuilder<ClassStudy> builder)
         {
             builder.ToTable("ClassStudies");
-            builder.HasKey(x => x.ClassId);
-            builder.Property(x => x.ClassId).IsRequired().HasMaxLength(5).IsUnicode(false);
+            builder.HasKey(x => x.Id);
+            builder.Property(x => x.ClassId).IsRequired().HasMaxLength(10).IsUnicode(false);
             builder.Property(x => x.Id).UseIdentityColumn().IsRequired();
             builder.Property(x => x.Name).IsRequired().HasMaxLength(50);
 

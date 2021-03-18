@@ -20,8 +20,7 @@ namespace SymphonyWebApp.Data.Entities
 
         public Level level { get; set; }
 
-        [DataType(DataType.Date)]
-        public DateTime TrainingTime { get; set; }
+        public int TrainingTime { get; set; }
 
         public ICollection<Student> Students { get; set; }
         public ICollection<ClassStudy> ClassStudies { get; set; }

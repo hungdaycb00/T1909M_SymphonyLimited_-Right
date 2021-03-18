@@ -35,10 +35,10 @@ namespace SymphonyWebApp.Data.Entities
         public FeeStatus FeeStatus { get; set; }
         public StudentStatus StudentStatus { get; set; }
 
-        public string CourseId { get; set; }
+        public int CourseId { get; set; }
         public Course Course { get; set; }
 
-        public string ClassId { get; set; }
+        public int ClassId { get; set; }
         public ClassStudy ClassStudy { get; set; }
     }
 }

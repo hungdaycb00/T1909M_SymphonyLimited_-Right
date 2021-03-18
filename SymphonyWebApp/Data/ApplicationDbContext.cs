@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using SymphonyWebApp.Data.Configurations;
 using SymphonyWebApp.Data.Entities;
+using SymphonyWebApp.Data.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -25,6 +26,7 @@ namespace SymphonyWebApp.Data
             modelBuilder.ApplyConfiguration(new RegistrationTestConfiguration());
             modelBuilder.ApplyConfiguration(new CentreConfiguration());
 
+            modelBuilder.Seed();
             base.OnModelCreating(modelBuilder);
         }
 

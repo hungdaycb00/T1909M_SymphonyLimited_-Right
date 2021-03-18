@@ -85,7 +85,7 @@ namespace SymphonyWebApp.Migrations
                     CourseName = table.Column<string>(type: "nvarchar(10)", maxLength: 10, nullable: false),
                     Fee = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     level = table.Column<int>(type: "int", nullable: false),
-                    TrainingTime = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    TrainingTime = table.Column<int>(type: "int", nullable: false),
                 },
                 constraints: table =>
                 {
