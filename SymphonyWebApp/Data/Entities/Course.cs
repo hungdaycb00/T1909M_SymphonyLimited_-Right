@@ -11,8 +11,10 @@ namespace SymphonyWebApp.Data.Entities
     public class Course
     {
         public int Id { get; set; }
+
         [Display(Name = "Course Id")]
         public string CourseId { get; set; }
+
         [Display(Name = "Course Name")]
         public string CourseName { get; set; }
 
