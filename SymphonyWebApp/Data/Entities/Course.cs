@@ -11,7 +11,9 @@ namespace SymphonyWebApp.Data.Entities
     public class Course
     {
         public int Id { get; set; }
+        [Display(Name = "Course Id")]
         public string CourseId { get; set; }
+        [Display(Name = "Course Name")]
         public string CourseName { get; set; }
 
         [DataType(DataType.Currency)]
@@ -20,6 +22,7 @@ namespace SymphonyWebApp.Data.Entities
 
         public Level level { get; set; }
 
+        [Display(Name = "Training Time")]
         public int TrainingTime { get; set; }
 
         public ICollection<Student> Students { get; set; }
