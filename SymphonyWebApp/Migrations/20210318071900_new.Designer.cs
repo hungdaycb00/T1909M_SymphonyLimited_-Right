@@ -10,8 +10,8 @@ using SymphonyWebApp.Data;
 namespace SymphonyWebApp.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210316165238_fix")]
-    partial class fix
+    [Migration("20210318071900_new")]
+    partial class @new
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -251,6 +251,33 @@ namespace SymphonyWebApp.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Centres");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Address = "Phu Xuyen-Ha Noi"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Address = "5 Nguyen Van Loc- Ha Dong- Ha Noi"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Address = "56-Van Phu-Ha Dong"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Address = "119 Thanh Xuan-Ha Dong "
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Address = "5 Pham Hung- My Dinh-Ha Noi"
+                        });
                 });
 
             modelBuilder.Entity("SymphonyWebApp.Data.Entities.ClassStudy", b =>
@@ -282,6 +309,48 @@ namespace SymphonyWebApp.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("ClassStudies");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            ClassId = "CT207",
+                            EndTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "Basic Java",
+                            StartTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 2,
+                            ClassId = "CT208",
+                            EndTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "Basic Python",
+                            StartTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 3,
+                            ClassId = "CT209",
+                            EndTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "Basic SQL",
+                            StartTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 4,
+                            ClassId = "CT210",
+                            EndTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "Basic JavaScript ",
+                            StartTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 5,
+                            ClassId = "CT211",
+                            EndTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "Bacic Network Security",
+                            StartTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        });
                 });
 
             modelBuilder.Entity("SymphonyWebApp.Data.Entities.Course", b =>
@@ -324,13 +393,40 @@ namespace SymphonyWebApp.Migrations
                             CourseName = "Basic Java",
                             Fee = 6000m,
                             TrainingTime = 6,
-                            level = 0
+                            level = 1
                         },
                         new
                         {
                             Id = 2,
                             CourseId = "Python",
                             CourseName = "Basic Python",
+                            Fee = 6000m,
+                            TrainingTime = 6,
+                            level = 1
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CourseId = "SQL",
+                            CourseName = " Basic SQL",
+                            Fee = 6000m,
+                            TrainingTime = 6,
+                            level = 0
+                        },
+                        new
+                        {
+                            Id = 4,
+                            CourseId = "JavaScript",
+                            CourseName = "Basic JavaScript",
+                            Fee = 6000m,
+                            TrainingTime = 6,
+                            level = 0
+                        },
+                        new
+                        {
+                            Id = 5,
+                            CourseId = "Security",
+                            CourseName = "Basic Network Security",
                             Fee = 6000m,
                             TrainingTime = 6,
                             level = 0
@@ -389,6 +485,50 @@ namespace SymphonyWebApp.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Questions");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Answer = "On this the admin should be able to enter or update the procedures for joining the course that the institute offers",
+                            Title = "How to join the course?"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Answer = "The various benefits that the student can gain by joining the institution is to be provided",
+                            Title = "Why to join the institute? "
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Answer = "Once in 6 months, and one need to check the website for knowing when is the entrance exam entitled, the fees for the entrance exam (admin will decide and displayed on the application form)",
+                            Title = "When will be Entrance Examinations Conducted? "
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Answer = "Will there be any extra hidden charges? (Ans: Yes, you can use the lab sessions even after your class hours. There will be no charges during the course days (i.e., during the course period if you want to use the lab sessions after the class hours we do provide the lab session and the labs will be kept opened till 9 PM in the evening. But yes if you want to use the lab session after your course completion, then it will be charged based on the scenario (like 1000$ if opted at the time of registering and 1500$ if opted after the completion of the course)",
+                            Title = "Can I use the Lab facilities after my class hours? "
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Answer = "Ans: once the entrance exams are entitled, one need to visit the centre for applying it through paper and fill all the necessary details through online. On the application form one should chose which course he/she wanted to pursue.",
+                            Title = "How can I apply for the entrance exam? "
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Answer = "Ans: Yes there will be and it will be available on the application form",
+                            Title = "Will there be any fees for the entrance exam? "
+                        },
+                        new
+                        {
+                            Id = 7,
+                            Answer = "Ans: payment can be done through draft, or through cheque or through cash. For making the payment through cash, one needs to come to one of the centre of the institute, and make the payment there itself. Once the payment is done (through cash or through DD), the student will be provided with the receipt with a receipt number. This receipt number is to be inputted in the application form. For the payments done through cheque and DD, one need to enter the DD number and the cheque number, bank details, etc. are to be entered on the application form and the cheque is to be pinned to the application form. Only once the payment is received the student’s application will be accepted. Once the application is accepted, the student is mailed with the acknowledgement form along with the details of the examination, subject chosen, date and time of exam, and the roll number",
+                            Title = "How to make the payment? "
+                        });
                 });
 
             modelBuilder.Entity("SymphonyWebApp.Data.Entities.RegistrationTest", b =>
@@ -494,6 +634,93 @@ namespace SymphonyWebApp.Migrations
                     b.HasIndex("CourseId");
 
                     b.ToTable("Students");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Address = "Gia Lai",
+                            ClassId = 1,
+                            CourseId = 1,
+                            Dob = new DateTime(2020, 2, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FeeStatus = 0,
+                            FirstName = "Ha",
+                            Gmail = "havanvu18@gmail.com",
+                            IdentityCard = "001201303446",
+                            LastName = "Van Vu",
+                            PhoneNumber = "0825894329",
+                            RollNumber = "21304",
+                            StudentStatus = 0,
+                            SubFee = 1000m
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Address = "Lao Cai",
+                            ClassId = 2,
+                            CourseId = 2,
+                            Dob = new DateTime(2020, 3, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FeeStatus = 0,
+                            FirstName = "Pham",
+                            Gmail = "phamlamlc14@gmail.com",
+                            IdentityCard = "002302446301",
+                            LastName = "Tung Lam",
+                            PhoneNumber = "0328658580",
+                            RollNumber = "21404",
+                            StudentStatus = 0,
+                            SubFee = 1000m
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Address = "Cao Bang",
+                            ClassId = 3,
+                            CourseId = 3,
+                            Dob = new DateTime(2020, 4, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FeeStatus = 0,
+                            FirstName = "Nong",
+                            Gmail = "nongphanmanhhung93@gmail.com",
+                            IdentityCard = "0002304664303",
+                            LastName = "Manh Hung",
+                            PhoneNumber = "0654871956",
+                            RollNumber = "21504",
+                            StudentStatus = 0,
+                            SubFee = 1000m
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Address = "Ha Noi",
+                            ClassId = 4,
+                            CourseId = 4,
+                            Dob = new DateTime(2020, 5, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FeeStatus = 0,
+                            FirstName = "Nguyen",
+                            Gmail = "nguyentrunganh@gmail.com",
+                            IdentityCard = "002404356766",
+                            LastName = "Trung Anh",
+                            PhoneNumber = "0546871264",
+                            RollNumber = "21604",
+                            StudentStatus = 0,
+                            SubFee = 1000m
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Address = "Ha Noi",
+                            ClassId = 5,
+                            CourseId = 5,
+                            Dob = new DateTime(2020, 6, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FeeStatus = 0,
+                            FirstName = "Do",
+                            Gmail = "huucong473@gmail.com",
+                            IdentityCard = "001201072112",
+                            LastName = "Huu Cong",
+                            PhoneNumber = "0889567661",
+                            RollNumber = "21704",
+                            StudentStatus = 0,
+                            SubFee = 1000m
+                        });
                 });
 
             modelBuilder.Entity("ClassStudyCourse", b =>
