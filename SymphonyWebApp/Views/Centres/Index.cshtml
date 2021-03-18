@@ -10,6 +10,19 @@
 <p>
     <a asp-action="Create">Create New</a>
 </p>
+<div class="col-md-6 col-sm-12">
+    <form asp-action="Index" method="get">
+        <div class="row">
+            <div class="col-md-8">
+                <input method="get" type="text" name="keyword" class="form-control" value="@ViewBag.Keyword" />
+            </div>
+            <div class="col-md-4">
+                <button class="btn btn-success" type="submit">Find</button>
+                <button class="btn btn-dark" type="button" onclick="window.location.href='Centres/Index'">Reset</button>
+            </div>
+        </div>
+    </form>
+</div>
 <table class="table">
     <thead>
         <tr>
