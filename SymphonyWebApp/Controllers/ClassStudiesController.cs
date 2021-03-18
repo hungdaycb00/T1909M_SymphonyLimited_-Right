@@ -58,7 +58,7 @@ namespace SymphonyWebApp.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return View(ModelState);
+                return View("Create", classStudy);
             }
 
             _context.Add(classStudy);
