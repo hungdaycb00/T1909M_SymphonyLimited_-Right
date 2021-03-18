@@ -53,6 +53,11 @@ namespace SymphonyWebApp.Controllers
             return View();
         }
 
+        public IActionResult FinalResult()
+        {
+            return View();
+        }
+
         public IActionResult Privacy()
         {
             return View();
