@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FluentValidation;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -25,5 +26,16 @@ namespace SymphonyWebApp.Data.Entities
 
         public int CustomerId { get; set; }
         public Customer Customer { get; set; }
+
+    }
+
+    public class ClassRegistrationTestValidator : AbstractValidator<RegistrationTest>
+    {
+        public ClassRegistrationTestValidator()
+        {
+            RuleFor(x => x.CourseName).NotNull();
+            RuleFor(x => x.RegistrationFee).ScalePrecision(0, 4);
+            RuleFor(x => x.CustomerId).NotNull();
+        }
     }
 }

@@ -35,10 +35,10 @@ namespace SymphonyWebApp.Data.Entities
         public ClassStudyValidator()
         {
             DateTime dateNow = DateTime.Now;
-            RuleFor(x => x.ClassId).Length(0, 10).NotNull();
+            RuleFor(x => x.ClassId).MinimumLength(5).MaximumLength(10).NotNull();
             RuleFor(x => x.Name).NotNull();
             RuleFor(x => x.StartTime).GreaterThan(dateNow).WithMessage("Start Time must be greater than now");
-            RuleFor(x => x.EndTime).GreaterThan(d => d.StartTime.AddMonths(4)).WithMessage("");
+            RuleFor(x => x.EndTime).GreaterThan(d => d.StartTime.AddMonths(4)).WithMessage("End Time must be greater than the start time of 4 months");
         }
     }
 }
