@@ -10,8 +10,8 @@ using SymphonyWebApp.Data;
 namespace SymphonyWebApp.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210318071900_new")]
-    partial class @new
+    [Migration("20210322085859_first")]
+    partial class first
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -393,7 +393,7 @@ namespace SymphonyWebApp.Migrations
                             CourseName = "Basic Java",
                             Fee = 6000m,
                             TrainingTime = 6,
-                            level = 1
+                            level = 0
                         },
                         new
                         {
@@ -402,15 +402,15 @@ namespace SymphonyWebApp.Migrations
                             CourseName = "Basic Python",
                             Fee = 6000m,
                             TrainingTime = 6,
-                            level = 1
+                            level = 0
                         },
                         new
                         {
                             Id = 3,
                             CourseId = "SQL",
                             CourseName = " Basic SQL",
-                            Fee = 6000m,
-                            TrainingTime = 6,
+                            Fee = 4275m,
+                            TrainingTime = 4,
                             level = 0
                         },
                         new
@@ -427,8 +427,8 @@ namespace SymphonyWebApp.Migrations
                             Id = 5,
                             CourseId = "Security",
                             CourseName = "Basic Network Security",
-                            Fee = 6000m,
-                            TrainingTime = 6,
+                            Fee = 4275m,
+                            TrainingTime = 4,
                             level = 0
                         });
                 });
@@ -463,6 +463,48 @@ namespace SymphonyWebApp.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Customers");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Contents = "What is the school's facilities and teaching quality like?",
+                            Gmail = "tuyettranlc4@gmail.com",
+                            Name = "Tran Thi Tuyet",
+                            PhoneNumber = "0395761476"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Contents = "What will I get during my studies? ",
+                            Gmail = "ngocdra@gmail.com",
+                            Name = "Nguyen Van Ngoc",
+                            PhoneNumber = "0956137845"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Contents = "Can I take other experiential sessions outside the main school hours?",
+                            Gmail = "namot@gmail.com",
+                            Name = "Nguyen Hoai Nam",
+                            PhoneNumber = "0986176340"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Contents = "Can I make a reservation if I miss a midterm?",
+                            Gmail = "maioklc@gmail.com",
+                            Name = "Pham Tuyet Mai",
+                            PhoneNumber = "0296753186"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Contents = "Can I leave the course for the next semester too?",
+                            Gmail = "thobeo8@gmail.com",
+                            Name = "Le Quang Tho",
+                            PhoneNumber = "0364781029"
+                        });
                 });
 
             modelBuilder.Entity("SymphonyWebApp.Data.Entities.Question", b =>
@@ -474,8 +516,7 @@ namespace SymphonyWebApp.Migrations
 
                     b.Property<string>("Answer")
                         .IsRequired()
-                        .HasMaxLength(300)
-                        .HasColumnType("nvarchar(300)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Title")
                         .IsRequired()
@@ -556,6 +597,43 @@ namespace SymphonyWebApp.Migrations
                         .IsUnique();
 
                     b.ToTable("RegistrationTests");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CourseName = "Basic Java",
+                            CustomerId = 1,
+                            RegistrationFee = 100m
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CourseName = "Basic Python",
+                            CustomerId = 2,
+                            RegistrationFee = 100m
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CourseName = "Basic SQL",
+                            CustomerId = 3,
+                            RegistrationFee = 100m
+                        },
+                        new
+                        {
+                            Id = 4,
+                            CourseName = "Basic JavaScript",
+                            CustomerId = 4,
+                            RegistrationFee = 100m
+                        },
+                        new
+                        {
+                            Id = 5,
+                            CourseName = "Basic Network Security",
+                            CustomerId = 5,
+                            RegistrationFee = 100m
+                        });
                 });
 
             modelBuilder.Entity("SymphonyWebApp.Data.Entities.Student", b =>

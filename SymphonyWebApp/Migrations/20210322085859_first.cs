@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace SymphonyWebApp.Migrations
 {
-    public partial class @new : Migration
+    public partial class first : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -114,8 +114,8 @@ namespace SymphonyWebApp.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Title = table.Column<string>(type: "nvarchar(300)", maxLength: 100, nullable: false),
-                    Answer = table.Column<string>(type: "nvarchar(max)", maxLength: 300, nullable: false)
+                    Title = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    Answer = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -339,11 +339,23 @@ namespace SymphonyWebApp.Migrations
                 columns: new[] { "Id", "CourseId", "CourseName", "Fee", "TrainingTime", "level" },
                 values: new object[,]
                 {
-                    { 5, "Security", "Basic Network Security", 6000m, 6, 0 },
+                    { 5, "Security", "Basic Network Security", 4275m, 4, 0 },
+                    { 3, "SQL", " Basic SQL", 4275m, 4, 0 },
                     { 4, "JavaScript", "Basic JavaScript", 6000m, 6, 0 },
-                    { 1, "Java", "Basic Java", 6000m, 6, 1 },
-                    { 2, "Python", "Basic Python", 6000m, 6, 1 },
-                    { 3, "SQL", " Basic SQL", 6000m, 6, 0 }
+                    { 1, "Java", "Basic Java", 6000m, 6, 0 },
+                    { 2, "Python", "Basic Python", 6000m, 6, 0 }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Customers",
+                columns: new[] { "Id", "Contents", "Gmail", "Name", "PhoneNumber" },
+                values: new object[,]
+                {
+                    { 1, "What is the school's facilities and teaching quality like?", "tuyettranlc4@gmail.com", "Tran Thi Tuyet", "0395761476" },
+                    { 2, "What will I get during my studies? ", "ngocdra@gmail.com", "Nguyen Van Ngoc", "0956137845" },
+                    { 3, "Can I take other experiential sessions outside the main school hours?", "namot@gmail.com", "Nguyen Hoai Nam", "0986176340" },
+                    { 4, "Can I make a reservation if I miss a midterm?", "maioklc@gmail.com", "Pham Tuyet Mai", "0296753186" },
+                    { 5, "Can I leave the course for the next semester too?", "thobeo8@gmail.com", "Le Quang Tho", "0364781029" }
                 });
 
             migrationBuilder.InsertData(
@@ -358,6 +370,18 @@ namespace SymphonyWebApp.Migrations
                     { 4, "Will there be any extra hidden charges? (Ans: Yes, you can use the lab sessions even after your class hours. There will be no charges during the course days (i.e., during the course period if you want to use the lab sessions after the class hours we do provide the lab session and the labs will be kept opened till 9 PM in the evening. But yes if you want to use the lab session after your course completion, then it will be charged based on the scenario (like 1000$ if opted at the time of registering and 1500$ if opted after the completion of the course)", "Can I use the Lab facilities after my class hours? " },
                     { 5, "Ans: once the entrance exams are entitled, one need to visit the centre for applying it through paper and fill all the necessary details through online. On the application form one should chose which course he/she wanted to pursue.", "How can I apply for the entrance exam? " },
                     { 7, "Ans: payment can be done through draft, or through cheque or through cash. For making the payment through cash, one needs to come to one of the centre of the institute, and make the payment there itself. Once the payment is done (through cash or through DD), the student will be provided with the receipt with a receipt number. This receipt number is to be inputted in the application form. For the payments done through cheque and DD, one need to enter the DD number and the cheque number, bank details, etc. are to be entered on the application form and the cheque is to be pinned to the application form. Only once the payment is received the student’s application will be accepted. Once the application is accepted, the student is mailed with the acknowledgement form along with the details of the examination, subject chosen, date and time of exam, and the roll number", "How to make the payment? " }
+                });
+
+            migrationBuilder.InsertData(
+                table: "RegistrationTests",
+                columns: new[] { "Id", "CourseName", "CustomerId", "RegistrationFee" },
+                values: new object[,]
+                {
+                    { 1, "Basic Java", 1, 100m },
+                    { 2, "Basic Python", 2, 100m },
+                    { 3, "Basic SQL", 3, 100m },
+                    { 4, "Basic JavaScript", 4, 100m },
+                    { 5, "Basic Network Security", 5, 100m }
                 });
 
             migrationBuilder.InsertData(

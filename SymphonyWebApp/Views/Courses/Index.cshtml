@@ -83,10 +83,10 @@
                         <td>
                             @Html.DisplayFor(modelItem => item.TrainingTime)
                         </td>
-                        <td style="min-width:170px;">
-                            <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                            <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                            <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                        <td style="min-width:240px;">
+                            <a asp-action="Edit" asp-route-id="@item.Id"class="btn btn-warning">Edit</a> 
+                            <a asp-action="Details" asp-route-id="@item.Id"class="btn btn-info">Details</a> 
+                            <a asp-action="Delete" asp-route-id="@item.Id"class="btn btn-danger">Delete</a>
                         </td>
                     </tr>
                 }
