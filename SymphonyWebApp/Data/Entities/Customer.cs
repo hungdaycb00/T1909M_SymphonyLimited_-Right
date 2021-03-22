@@ -14,8 +14,6 @@ namespace SymphonyWebApp.Data.Entities
 
         public string Gmail { get; set; }
 
-
-
         [DataType(DataType.PhoneNumber)]
         [Display(Name = "Phone Number")]
         public string PhoneNumber { get; set; }
@@ -24,6 +22,7 @@ namespace SymphonyWebApp.Data.Entities
 
         public RegistrationTest RegistrationTest { get; set; }
     }
+
     public class ClassCustomerValidator : AbstractValidator<Customer>
     {
         public ClassCustomerValidator()
@@ -31,8 +30,6 @@ namespace SymphonyWebApp.Data.Entities
             RuleFor(x => x.Name).NotNull();
             RuleFor(x => x.Gmail).NotNull().EmailAddress();
             RuleFor(x => x.PhoneNumber).NotEmpty();
-            RuleFor(x => x.Contents).Null();
         }
-
     }
 }
