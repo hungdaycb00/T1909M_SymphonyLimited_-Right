@@ -6,7 +6,7 @@
 }
 
 <h1>List question</h1>
-<div class="col-md-6 col-sm-12">
+<div class="col-md-6 col-sm-12 mb-4">
     <form asp-action="Index" method="get">
         <div class="row">
             <div class="col-md-8">
@@ -14,7 +14,7 @@
             </div>
             <div class="col-md-4">
                 <button class="btn btn-success" type="submit">Find</button>
-                <button class="btn btn-dark" type="button" onclick="window.location.href='Centres/Index'">Reset</button>
+                <button class="btn btn-dark" type="button" onclick="window.location.href='Questions/Index'">Reset</button>
             </div>
         </div>
     </form>
@@ -25,6 +25,9 @@
 <table class="table">
     <thead>
         <tr>
+            <th>
+                Number
+            </th>
             <th>
                 @Html.DisplayNameFor(model => model.Title)
             </th>
@@ -40,7 +43,7 @@
             if (Model.Count() < 0)
             {
                 <tr>
-                    <td colspan="11">
+                    <td colspan="11" class="text-center h2">
                         No data
                     </td>
                 </tr>

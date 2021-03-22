@@ -10,7 +10,7 @@
 <p>
     <a asp-action="Create">Create New</a>
 </p>
-<div class="col-md-6 col-sm-12">
+<div class="col-md-6 col-sm-12 mb-4">
     <form asp-action="Index" method="get">
         <div class="row">
             <div class="col-md-8">
@@ -26,6 +26,9 @@
 <table class="table">
     <thead>
         <tr>
+            <th>
+                Number
+            </th>
             <th>
                 @Html.DisplayNameFor(model => model.Name)
             </th>
@@ -44,10 +47,10 @@
     <tbody>
         @{
             int stt = 0;
-            if (Model.Count() < 0)
+            if (Model.Count() < 1)
             {
                 <tr>
-                    <td colspan="11">
+                    <td colspan="11" class="text-center h2">
                         No data
                     </td>
                 </tr>

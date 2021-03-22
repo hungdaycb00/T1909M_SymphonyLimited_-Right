@@ -1,11 +1,11 @@
-﻿@model IEnumerable<SymphonyWebApp.Data.Entities.ClassStudy>
+﻿@model IEnumerable<SymphonyWebApp.Data.Entities.RegistrationTest>
 
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h1>List class</h1>
+<h1>Index</h1>
 
 <p>
     <a asp-action="Create">Create New</a>
@@ -18,7 +18,7 @@
             </div>
             <div class="col-md-4">
                 <button class="btn btn-success" type="submit">Find</button>
-                <button class="btn btn-dark" type="button" onclick="window.location.href='ClassStudies/Index'">Reset</button>
+                <button class="btn btn-dark" type="button" onclick="window.location.href='RegistrationTests/Index'">Reset</button>
             </div>
         </div>
     </form>
@@ -30,16 +30,13 @@
                 Number
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ClassId)
+                @Html.DisplayNameFor(model => model.CourseName)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Name)
+                @Html.DisplayNameFor(model => model.RegistrationFee)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.StartTime)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.EndTime)
+                @Html.DisplayNameFor(model => model.Customer)
             </th>
             <th></th>
         </tr>
@@ -66,18 +63,15 @@
                             @stt
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.ClassId)
+                            @Html.DisplayFor(modelItem => item.CourseName)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.Name)
+                            @Html.DisplayFor(modelItem => item.RegistrationFee)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.StartTime)
+                            @Html.DisplayFor(modelItem => item.Customer.Contents)
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.EndTime)
-                        </td>
-                        <td style="min-width:170px;">
                             <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
                             <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
                             <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
