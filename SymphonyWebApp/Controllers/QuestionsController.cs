@@ -20,8 +20,14 @@ namespace SymphonyWebApp.Controllers
         }
 
         // GET: Questions
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string keyword)
         {
+            if (keyword != null)
+            {
+                ViewBag.Keyword = keyword;
+                var result = await _context.Questions.Where(x => x.Title.Contains(keyword) || x.Answer.Contains(keyword)).ToListAsync();
+                return View(result);
+            }
             return View(await _context.Questions.ToListAsync());
         }
 
