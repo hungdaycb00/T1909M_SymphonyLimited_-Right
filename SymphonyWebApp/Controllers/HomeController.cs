@@ -6,16 +6,20 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
+using SymphonyWebApp.Data;
+using SymphonyWebApp.Data.Entities;
 
 namespace SymphonyWebApp.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly ApplicationDbContext _context;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ApplicationDbContext context)
         {
-            _logger = logger;
+            _context = context;
         }
 
         public IActionResult Index()
@@ -28,9 +32,10 @@ namespace SymphonyWebApp.Controllers
             return View();
         }
 
-        public IActionResult Crouse()
+        public async Task<IActionResult> Crouse()
         {
-            return View();
+
+            return View(await _context.Courses.ToListAsync());
         }
 
         public IActionResult FAQ()
