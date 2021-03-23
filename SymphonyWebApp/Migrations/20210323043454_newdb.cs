@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace SymphonyWebApp.Migrations
 {
-    public partial class createInitial : Migration
+    public partial class newdb : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -85,6 +85,7 @@ namespace SymphonyWebApp.Migrations
                     CourseName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Fee = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     level = table.Column<int>(type: "int", nullable: false),
+                    UrlImage = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     TrainingTime = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -137,6 +138,25 @@ namespace SymphonyWebApp.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Questions", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Teacher",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    FirstName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    LastName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Gmail = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Dob = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Address = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    UrlImage = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Major = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Teacher", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -353,14 +373,14 @@ namespace SymphonyWebApp.Migrations
 
             migrationBuilder.InsertData(
                 table: "Courses",
-                columns: new[] { "Id", "CourseId", "CourseName", "Fee", "TrainingTime", "level" },
+                columns: new[] { "Id", "CourseId", "CourseName", "Fee", "TrainingTime", "UrlImage", "level" },
                 values: new object[,]
                 {
-                    { 5, "Security", "Basic Network Security", 4275m, 4, 0 },
-                    { 3, "SQL", " Basic SQL", 4275m, 4, 0 },
-                    { 4, "JavaScript", "Basic JavaScript", 6000m, 6, 0 },
-                    { 1, "Java", "Basic Java", 6000m, 6, 0 },
-                    { 2, "Python", "Basic Python", 6000m, 6, 0 }
+                    { 5, "Security", "Basic Network Security", 4275m, 4, null, 0 },
+                    { 3, "SQL", " Basic SQL", 4275m, 4, null, 0 },
+                    { 4, "JavaScript", "Basic JavaScript", 6000m, 6, null, 0 },
+                    { 1, "Java", "Basic Java", 6000m, 6, null, 0 },
+                    { 2, "Python", "Basic Python", 6000m, 6, null, 0 }
                 });
 
             migrationBuilder.InsertData(
@@ -508,6 +528,9 @@ namespace SymphonyWebApp.Migrations
 
             migrationBuilder.DropTable(
                 name: "Students");
+
+            migrationBuilder.DropTable(
+                name: "Teacher");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");

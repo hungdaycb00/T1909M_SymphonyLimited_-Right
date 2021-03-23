@@ -10,8 +10,8 @@ using SymphonyWebApp.Data;
 namespace SymphonyWebApp.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210323040005_addImageCourse")]
-    partial class addImageCourse
+    [Migration("20210323043454_newdb")]
+    partial class newdb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -833,6 +833,39 @@ namespace SymphonyWebApp.Migrations
                             StudentStatus = 0,
                             SubFee = 1000m
                         });
+                });
+
+            modelBuilder.Entity("SymphonyWebApp.Data.Entities.Teacher", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Address")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("Dob")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("FirstName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Gmail")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LastName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Major")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UrlImage")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Teacher");
                 });
 
             modelBuilder.Entity("ClassStudyCourse", b =>

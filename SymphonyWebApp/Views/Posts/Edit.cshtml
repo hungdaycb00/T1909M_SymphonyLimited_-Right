@@ -38,6 +38,7 @@
                 <img src="~/images/post/@Model.UrlImage" alt="Alternate Text" style="max-height:100px;" /><br />
 
                 <label asp-for="UrlImage" class="control-label"></label>
+                <input asp-for="UrlImage" class="form-control" hidden="hidden" />
                 <input asp-for="UrlImage" class="form-control" type="file" name="imageFile" />
                 <span asp-validation-for="UrlImage" class="text-danger"></span>
             </div>

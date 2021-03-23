@@ -39,5 +39,6 @@ namespace SymphonyWebApp.Data
         public DbSet<RegistrationTest> RegistrationTests { get; set; }
         public DbSet<Student> Students { get; set; }
         public DbSet<Post> Posts { get; set; }
+        public DbSet<SymphonyWebApp.Data.Entities.Teacher> Teacher { get; set; }
     }
 }
