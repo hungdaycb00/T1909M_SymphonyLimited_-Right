@@ -32,7 +32,6 @@ namespace SymphonyWebApp.Data.Entities
         {
             RuleFor(x => x.Title).NotNull();
             RuleFor(x => x.content).NotNull();
-            RuleFor(x => x.UrlImage).NotNull();
         }
     }
 }

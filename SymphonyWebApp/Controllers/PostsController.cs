@@ -64,9 +64,11 @@ namespace SymphonyWebApp.Controllers
         {
             if (ModelState.IsValid)
             {
-              
+                if (post.UrlImage == null)
+                {
                     post.UrlImage = await this.SaveFile(imageFile);
-              
+                }
+
                 _context.Add(post);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -95,7 +97,7 @@ namespace SymphonyWebApp.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,UrlImage,content,CreateDate,Author")] Post post)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Title,UrlImage,content,CreateDate,Author")] Post post, IFormFile imageFile)
         {
             if (id != post.Id)
             {
@@ -106,6 +108,8 @@ namespace SymphonyWebApp.Controllers
             {
                 try
                 {
+                    post.UrlImage = await this.SaveFile(imageFile);
+
                     _context.Update(post);
                     await _context.SaveChangesAsync();
                 }

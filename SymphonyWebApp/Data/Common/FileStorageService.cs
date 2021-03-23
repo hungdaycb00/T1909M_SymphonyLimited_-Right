@@ -10,7 +10,7 @@ namespace SymphonyWebApp.Data.Common
     public class FileStorageService : IStorageService
     {
         private readonly string _userContentFolder;
-        private const string USER_CONTENT_FOLDER_NAME = "img/Post/";
+        private const string USER_CONTENT_FOLDER_NAME = "images/post/";
 
         public FileStorageService(IWebHostEnvironment webHostEnvironment)
         {
