@@ -38,9 +38,10 @@ namespace SymphonyWebApp.Controllers
             return View(await _context.Courses.ToListAsync());
         }
 
-        public IActionResult FAQ()
+        public async Task<IActionResult> FAQ()
         {
-            return View();
+
+            return View(await _context.Questions.ToListAsync());
         }
 
         public IActionResult Entrance()
@@ -53,9 +54,10 @@ namespace SymphonyWebApp.Controllers
             return View();
         }
 
-        public IActionResult Instructor()
+        public async Task<IActionResult> Instructor()
         {
-            return View();
+
+            return View(await _context.Teacher.ToListAsync());
         }
 
         public IActionResult FinalResult()
