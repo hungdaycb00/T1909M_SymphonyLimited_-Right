@@ -32,9 +32,14 @@ namespace SymphonyWebApp.Controllers
             return View();
         }
 
-        public async Task<IActionResult> Course()
+        public async Task<IActionResult> Course(string courseId)
         {
-
+            if (courseId != null)
+            {
+                ViewBag.Keyword = courseId;
+                var result = await _context.Courses.Where(x => x.CourseId == courseId).ToListAsync();
+                return View(result);
+            }
             return View(await _context.Courses.ToListAsync());
         }
         public async Task<IActionResult> CourseDetail (int? id)
