@@ -13,11 +13,85 @@ namespace SymphonyWebApp.Data.Extensions
         public static void Seed(this ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Course>().HasData(
-                    new Course() { Id = 1, CourseId = "Java", CourseName = "Basic Java", level = Level.Basic, Fee = 6000, TrainingTime = 6 },
-                    new Course() { Id = 2, CourseId = "Python", CourseName = "Basic Python", level = Level.Basic, Fee = 6000, TrainingTime = 6 },
-                    new Course() { Id = 3, CourseId = "SQL", CourseName = " Basic SQL", level = Level.Basic, Fee = 4275, TrainingTime = 4 },
-                    new Course() { Id = 4, CourseId = "JavaScript", CourseName = "Basic JavaScript", level = Level.Basic, Fee = 6000, TrainingTime = 6 },
-                    new Course() { Id = 5, CourseId = "Security", CourseName = "Basic Network Security", level = Level.Basic, Fee = 4275, TrainingTime = 4 });
+                    new Course()
+                    {
+                        Id = 1,
+                        CourseId = "Java",
+                        CourseName = "Basic Java",
+                        level = Level.Basic,
+                        Fee = 6000,
+                        TrainingTime = 6,
+                        UrlImage = "java.jpg",
+                        Description = "How to write Java Programs from scratch and have loads of fun in the process" +
+                    "Gain enough experience to pass a core Java Programming interview and perform well on the job,Go from zero to hero in writing industry ready Java programs"
+                    },
+                    new Course()
+                    {
+                        Id = 6,
+                        CourseId = "Java",
+                        CourseName = "Advance Java",
+                        level = Level.Advance,
+                        Fee = 4275,
+                        TrainingTime = 4,
+                        UrlImage = "javaAd.jpg",
+                        Description = "How to navigate and use the NetBeans IDE to create Java projects, packages and programs." +
+                    "How to declare and use Java Datatypes & Identifiers, work with Java Operators,  work with Java Decision Making Constructs.How to work with Java repetition/Looping Constructs, declare and use Java Arrays, as well as work with the Java Exception Handling mechanism."
+                    },
+                    new Course()
+                    {
+                        Id = 2,
+                        CourseId = "Python",
+                        CourseName = "Basic Python",
+                        level = Level.Basic,
+                        Fee = 6000,
+                        TrainingTime = 6,
+                        UrlImage = "python.jpg",
+                        Description = "Install Python and write your first program." +
+                    "Describe the basics of the Python programming language." +
+                    "Use variables to store, retrieve and calculate information." +
+                    "Utilize core programming tools such as functions and loops"
+                    },
+                    new Course()
+                    {
+                        Id = 7,
+                        CourseId = "Python",
+                        CourseName = "Advance Python",
+                        level = Level.Advance,
+                        Fee = 4275,
+                        TrainingTime = 4,
+                        UrlImage = "pythonAd.png",
+                        Description = "How gradient descent and stochastic gradient descent algorithms work." +
+                    "How to apply gradient descent and stochastic gradient descent to minimize the loss function in machine learning." +
+                    "What the learning rate is, why it’s important, and how it impacts results"
+                    },
+                    new Course()
+                    {
+                        Id = 3,
+                        CourseId = "SQL",
+                        CourseName = "Basic SQL",
+                        level = Level.Basic,
+                        Fee = 6000,
+                        TrainingTime = 6,
+                        UrlImage = "sql.png",
+                        Description = "U​se SQL commands to filter, sort, & summarize data; manipulate strings, dates, & numerical data from different sources for analysis." +
+                    "U​se the collaborative Databricks workspace and create an end-to-end pipeline that reads data, transforms it, and saves the result." +
+                    "A​ssess and create datasets to solve your business questions and problems using SQL." +
+                    "Develop a project proposal & select your data, perform statistical analysis & develop metrics, and p​resent your findings & make recommendations"
+                    },
+                    new Course() { Id = 4, CourseId = "JavaScript", CourseName = "Basic JavaScript", level = Level.Basic, Fee = 6000, TrainingTime = 6, UrlImage = "javascript.jpg", Description = "You will learn programming fundamentals and basic object-oriented concepts using the latest JavaScript syntax. The concepts covered in these lessons lay the foundation for using JavaScript in any environment." },
+                    new Course() { Id = 5, CourseId = "JavaScript", CourseName = "Advance JavaScript", level = Level.Advance, Fee = 4275, TrainingTime = 4, UrlImage = "javascript.jpg", 
+                        Description = "Advanced JavaScript Practices." +
+                        "Functional Programming." +
+                        "Inheritance + Prototype Chain." +
+                        "JavaScript Modules." +
+                        "Object Oriented Programming." +
+                        "Scope and Execution Context." +
+                        "Latest features: ES6, ES7, ES8, ES9, ES10, ES2020." +
+                        "Asynchronous JavaScript + Event Loop." +
+                        "JavaScript Engine and Runtime." +
+                        "Composition vs Inheritance." +
+                        "Pass By Reference vs Pass by Value"
+                    });
           
             modelBuilder.Entity<Student>().HasData(
                 new Student() { Id = 1, RollNumber = "21304", FirstName = "Ha", LastName = "Van Vu", Address = "Gia Lai", Gmail = "havanvu18@gmail.com", IdentityCard = "001201303446", StudentStatus = StudentStatus.Active, PhoneNumber = "0825894329", Dob = new DateTime(2020, 02, 13), SubFee = 1000, FeeStatus = FeeStatus.Paid, ClassId = 1, CourseId = 1 },
@@ -31,7 +105,8 @@ namespace SymphonyWebApp.Data.Extensions
                 new ClassStudy() { Id = 2, ClassId = "CT208", Name = "Basic Python" },
                 new ClassStudy() { Id = 3, ClassId = "CT209", Name = "Basic SQL" },
                 new ClassStudy() { Id = 4, ClassId = "CT210", Name = "Basic JavaScript " },
-                new ClassStudy() { Id = 5, ClassId = "CT211", Name = "Bacic Network Security" });
+                new ClassStudy() { Id = 5, ClassId = "CT211", Name = "Advance JavaScript" },
+                new ClassStudy() { Id = 6, ClassId = "CT212", Name = "Advance Python" });
           
             modelBuilder.Entity<Centre>().HasData(
                 new Centre() { Id = 1, Address = "Phu Xuyen-Ha Noi" },
@@ -54,14 +129,24 @@ namespace SymphonyWebApp.Data.Extensions
                 new Customer() { Id = 2, Name = "Nguyen Van Ngoc", Gmail = "ngocdra@gmail.com", PhoneNumber = "0956137845", Contents = "What will I get during my studies? " },
                 new Customer() { Id = 3, Name = "Nguyen Hoai Nam", Gmail = "namot@gmail.com", PhoneNumber = "0986176340", Contents = "Can I take other experiential sessions outside the main school hours?" },
                 new Customer() { Id = 4, Name = "Pham Tuyet Mai", Gmail = "maioklc@gmail.com", PhoneNumber = "0296753186", Contents = "Can I make a reservation if I miss a midterm?" },
-                new Customer() { Id = 5, Name = "Le Quang Tho", Gmail = "thobeo8@gmail.com", PhoneNumber = "0364781029", Contents = "Can I leave the course for the next semester too?" });
+                new Customer() { Id = 5, Name = "Le Quang Tho", Gmail = "thobeo8@gmail.com", PhoneNumber = "0364781029", Contents = "Can I leave the course for the next semester too?" },
+                new Customer() { Id = 6, Name = "Tran Thi Tan", Gmail = "tuyettanl@gmail.com", PhoneNumber = "0395761111", Contents = "What is the school's facilities and teaching quality like?" },
+                new Customer() { Id = 7, Name = "Nguyen Van Thai", Gmail = "thaidra@gmail.com", PhoneNumber = "0956137222", Contents = "What will I get during my studies? " },
+                new Customer() { Id = 8, Name = "Nguyen Hoai Van", Gmail = "Vanot@gmail.com", PhoneNumber = "0986176333", Contents = "Can I take other experiential sessions outside the main school hours?" },
+                new Customer() { Id = 9, Name = "Pham Tuyet Tho", Gmail = "thoklc@gmail.com", PhoneNumber = "0296753144", Contents = "Can I make a reservation if I miss a midterm?" },
+                new Customer() { Id = 10, Name = "Le Quang Hai", Gmail = "haibeo8@gmail.com", PhoneNumber = "0364781055", Contents = "Can I leave the course for the next semester too?" });
            
             modelBuilder.Entity<RegistrationTest>().HasData(
                 new RegistrationTest() { Id = 1, CourseName = "Basic Java", RegistrationFee = 100, CustomerId = 1 },
-                new RegistrationTest() { Id = 2, CourseName = "Basic Python", RegistrationFee = 100, CustomerId = 2 },
+                new RegistrationTest() { Id = 2, CourseName = "Advance Python", RegistrationFee = 100, CustomerId = 2 },
                 new RegistrationTest() { Id = 3, CourseName = "Basic SQL", RegistrationFee = 100, CustomerId = 3 },
-                new RegistrationTest() { Id = 4, CourseName = "Basic JavaScript", RegistrationFee = 100, CustomerId = 4 },
-                new RegistrationTest() { Id = 5, CourseName = "Basic Network Security", RegistrationFee = 100, CustomerId = 5 });
+                new RegistrationTest() { Id = 4, CourseName = "Advance JavaScript", RegistrationFee = 100, CustomerId = 4 },
+                new RegistrationTest() { Id = 5, CourseName = "Basic Network Security", RegistrationFee = 100, CustomerId = 5 },
+                new RegistrationTest() { Id = 6, CourseName = "Basic Java", RegistrationFee = 100, CustomerId = 6 },
+                new RegistrationTest() { Id = 7, CourseName = "Advance Python", RegistrationFee = 100, CustomerId = 7 },
+                new RegistrationTest() { Id = 8, CourseName = "Basic SQL", RegistrationFee = 100, CustomerId = 8 },
+                new RegistrationTest() { Id = 9, CourseName = "Advance JavaScript", RegistrationFee = 100, CustomerId = 9 },
+                new RegistrationTest() { Id = 10, CourseName = "Basic Network Security", RegistrationFee = 100, CustomerId = 10 });
         }
     }
 }

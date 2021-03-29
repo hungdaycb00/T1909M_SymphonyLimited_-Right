@@ -19,6 +19,8 @@ namespace SymphonyWebApp.Data.Entities
         [Display(Name = "Course Name")]
         public string CourseName { get; set; }
 
+        public string Description { get; set; }
+
         [DataType(DataType.Currency)]
         [Column(TypeName = "decimal(18,2)")]
         public decimal Fee { get; set; }
