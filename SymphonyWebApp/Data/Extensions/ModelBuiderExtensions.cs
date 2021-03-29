@@ -79,7 +79,7 @@ namespace SymphonyWebApp.Data.Extensions
                     "Develop a project proposal & select your data, perform statistical analysis & develop metrics, and p​resent your findings & make recommendations"
                     },
                     new Course() { Id = 4, CourseId = "JavaScript", CourseName = "Basic JavaScript", level = Level.Basic, Fee = 6000, TrainingTime = 6, UrlImage = "javascript.jpg", Description = "You will learn programming fundamentals and basic object-oriented concepts using the latest JavaScript syntax. The concepts covered in these lessons lay the foundation for using JavaScript in any environment." },
-                    new Course() { Id = 5, CourseId = "JavaScript", CourseName = "Advance JavaScript", level = Level.Advance, Fee = 4275, TrainingTime = 4, UrlImage = "javascript.jpg", 
+                    new Course() { Id = 5, CourseId = "JavaScript", CourseName = "Advance JavaScript", level = Level.Advance, Fee = 4275, TrainingTime = 4, UrlImage = "javascriptAd.jpg", 
                         Description = "Advanced JavaScript Practices." +
                         "Functional Programming." +
                         "Inheritance + Prototype Chain." +

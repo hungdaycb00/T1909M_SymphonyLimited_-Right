@@ -1,0 +1,99 @@
+﻿@model IEnumerable<SymphonyWebApp.Data.Entities.Course>
+@{
+    Layout = "_PageLayout";
+    ViewData["Title"] = "Course";
+}
+
+
+<section class="hero-wrap hero-wrap-2" style="background-image: url('/images/bg_2.jpg');">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row no-gutters slider-text align-items-end justify-content-center">
+            <div class="col-md-9 ftco-animate pb-5 text-center">
+                <p class="breadcrumbs"><span class="mr-2"><a asp-area="" asp-action="Index" asp-controller="Home">Home <i class="fa fa-chevron-right"></i></a></span><a  asp-action="Course" asp-controller="Home"><span>Course Lists <i class="fa fa-chevron-right"></i></span></a> </p>
+                <h1 class="mb-0 bread">Course Lists</h1>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="ftco-section bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="row mb-15">
+                <div class="col-lg-8">
+                    <div class="properties__button mb-90">
+
+                        <nav>
+                            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                                <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">All</a>
+                                @{ List<string> list = new List<string>();
+                                    foreach (var p in Model)
+                                    {
+                                        list.Add(p.CourseId);
+
+                                    }
+                                    foreach (var p in list.Distinct())
+                                    {
+                                        <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">@p</a>
+
+                                    }
+
+                                }
+
+                           
+                            </div>
+                        </nav>
+
+                    </div>
+                </div>
+                <div class="col-lg-4 sidebar">
+                    <div class="sidebar-box bg-white ftco-animate">
+                        <form action="#" class="search-form">
+                            <div class="form-group">
+                                <span class="icon fa fa-search"></span>
+                                <input type="text" class="form-control" placeholder="Search...">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+
+                @foreach (var p in Model)
+                {
+                    <div class="col-4 mb-3">
+                        <div>
+                            <img src="~/images/post/@p.UrlImage" alt="Alternate Text" style="max-height:200px; max-width:300px; min-height:200px" />
+                        </div>
+                        <div class="">
+                            <h3><a asp-action="CourseDetail" asp-controller="Home" asp-route-id="@p.Id">@p.CourseName</a></h3>
+                            <ul class="d-flex justify-content-between">
+                                <li class="mr-5"><span class="flaticon-shower">Level: @p.level</span></li>
+                                <li class="mr-5"><span class="flaticon-shower">Traning time: @p.TrainingTime</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                }
+
+            </div>
+            <div class="row mt-5">
+                <div class="col">
+                    <div class="block-27">
+                        <ul>
+                            <li><a href="#">&lt;</a></li>
+                            <li class="active"><span>1</span></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li><a href="#">5</a></li>
+                            <li><a href="#">&gt;</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        </div>
+    </div>
+</section>

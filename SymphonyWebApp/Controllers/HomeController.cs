@@ -32,10 +32,27 @@ namespace SymphonyWebApp.Controllers
             return View();
         }
 
-        public async Task<IActionResult> Crouse()
+        public async Task<IActionResult> Course()
         {
 
             return View(await _context.Courses.ToListAsync());
+        }
+        public async Task<IActionResult> CourseDetail (int? id)
+        {
+
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var course = await _context.Courses
+                .FirstOrDefaultAsync(m => m.Id == id);
+            if (course == null)
+            {
+                return NotFound();
+            }
+
+            return View(course);
         }
 
         public async Task<IActionResult> FAQ()
