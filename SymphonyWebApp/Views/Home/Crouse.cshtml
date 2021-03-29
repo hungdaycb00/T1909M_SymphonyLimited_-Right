@@ -61,22 +61,23 @@
             <div class="row">
                 <div class="col-lg-9">
                     <div class="col-md-6 d-flex align-items-stretch ftco-animate">
-                        <div class="project-wrap" style="display:inline;">
+                        <div class="container">
                             @foreach (var p in Model)
-                            {
-                                <a href="#">
-                                    <h2 class="price">@p.CourseId</h2>
+                             {
+                                <a href="#" class="img">
+                                    <h3 class="price">@p.CourseId</h3>
+                                    <img src="/images/work-1.jpg" alt="Alternate Text" />
                                 </a>
-                                <div class="text p-4">
-                                    <a><img class="img" src="/images/work-1.jpg" /></a>
+                                                <div class="text p-4">
+                                                    <h3><a href="#"> @p.CourseName</a></h3>
+                                                    <p class="advisor">Traningtime: @p.TrainingTime</p>
+                                                    <ul class="d-flex justify-content-between">
+                                                        <li><span class="flaticon-shower">Level: @p.level</span></li>
+                                                        <li class="price">Fee: @p.Fee$</li>
+                                                    </ul>
+                                                </div>
 
-                                    <h3> @p.CourseName</h3>
-                                    <h4 class="flaticon-shower">Traningtime: @p.TrainingTime</h4>
-
-                                    <h4>Level: @p.level</h4>
-                                    <h4>Fee: @p.Fee</h4>
-                                </div>
-                            }
+                             }
                         </div>
                     </div>
                 </div>
