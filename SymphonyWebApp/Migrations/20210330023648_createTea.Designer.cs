@@ -10,8 +10,8 @@ using SymphonyWebApp.Data;
 namespace SymphonyWebApp.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210329140259_newdbCourse")]
-    partial class newdbCourse
+    [Migration("20210330023648_createTea")]
+    partial class createTea
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -348,7 +348,15 @@ namespace SymphonyWebApp.Migrations
                             Id = 5,
                             ClassId = "CT211",
                             EndTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Name = "Bacic Network Security",
+                            Name = "Advance JavaScript",
+                            StartTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 6,
+                            ClassId = "CT212",
+                            EndTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "Advance Python",
                             StartTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         });
                 });
@@ -370,6 +378,9 @@ namespace SymphonyWebApp.Migrations
 
                     b.Property<string>("CourseName")
                         .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<decimal>("Fee")
@@ -394,26 +405,54 @@ namespace SymphonyWebApp.Migrations
                             Id = 1,
                             CourseId = "Java",
                             CourseName = "Basic Java",
+                            Description = "How to write Java Programs from scratch and have loads of fun in the processGain enough experience to pass a core Java Programming interview and perform well on the job,Go from zero to hero in writing industry ready Java programs",
                             Fee = 6000m,
                             TrainingTime = 6,
+                            UrlImage = "java.jpg",
                             level = 0
+                        },
+                        new
+                        {
+                            Id = 6,
+                            CourseId = "Java",
+                            CourseName = "Advance Java",
+                            Description = "How to navigate and use the NetBeans IDE to create Java projects, packages and programs.How to declare and use Java Datatypes & Identifiers, work with Java Operators,  work with Java Decision Making Constructs.How to work with Java repetition/Looping Constructs, declare and use Java Arrays, as well as work with the Java Exception Handling mechanism.",
+                            Fee = 4275m,
+                            TrainingTime = 4,
+                            UrlImage = "javaAd.jpg",
+                            level = 1
                         },
                         new
                         {
                             Id = 2,
                             CourseId = "Python",
                             CourseName = "Basic Python",
+                            Description = "Install Python and write your first program.Describe the basics of the Python programming language.Use variables to store, retrieve and calculate information.Utilize core programming tools such as functions and loops",
                             Fee = 6000m,
                             TrainingTime = 6,
+                            UrlImage = "python.jpg",
                             level = 0
+                        },
+                        new
+                        {
+                            Id = 7,
+                            CourseId = "Python",
+                            CourseName = "Advance Python",
+                            Description = "How gradient descent and stochastic gradient descent algorithms work.How to apply gradient descent and stochastic gradient descent to minimize the loss function in machine learning.What the learning rate is, why it’s important, and how it impacts results",
+                            Fee = 4275m,
+                            TrainingTime = 4,
+                            UrlImage = "pythonAd.png",
+                            level = 1
                         },
                         new
                         {
                             Id = 3,
                             CourseId = "SQL",
-                            CourseName = " Basic SQL",
-                            Fee = 4275m,
-                            TrainingTime = 4,
+                            CourseName = "Basic SQL",
+                            Description = "U​se SQL commands to filter, sort, & summarize data; manipulate strings, dates, & numerical data from different sources for analysis.U​se the collaborative Databricks workspace and create an end-to-end pipeline that reads data, transforms it, and saves the result.A​ssess and create datasets to solve your business questions and problems using SQL.Develop a project proposal & select your data, perform statistical analysis & develop metrics, and p​resent your findings & make recommendations",
+                            Fee = 6000m,
+                            TrainingTime = 6,
+                            UrlImage = "sql.png",
                             level = 0
                         },
                         new
@@ -421,18 +460,22 @@ namespace SymphonyWebApp.Migrations
                             Id = 4,
                             CourseId = "JavaScript",
                             CourseName = "Basic JavaScript",
+                            Description = "You will learn programming fundamentals and basic object-oriented concepts using the latest JavaScript syntax. The concepts covered in these lessons lay the foundation for using JavaScript in any environment.",
                             Fee = 6000m,
                             TrainingTime = 6,
+                            UrlImage = "javascript.jpg",
                             level = 0
                         },
                         new
                         {
                             Id = 5,
-                            CourseId = "Security",
-                            CourseName = "Basic Network Security",
+                            CourseId = "JavaScript",
+                            CourseName = "Advance JavaScript",
+                            Description = "Advanced JavaScript Practices.Functional Programming.Inheritance + Prototype Chain.JavaScript Modules.Object Oriented Programming.Scope and Execution Context.Latest features: ES6, ES7, ES8, ES9, ES10, ES2020.Asynchronous JavaScript + Event Loop.JavaScript Engine and Runtime.Composition vs Inheritance.Pass By Reference vs Pass by Value",
                             Fee = 4275m,
                             TrainingTime = 4,
-                            level = 0
+                            UrlImage = "javascriptAd.jpg",
+                            level = 1
                         });
                 });
 
@@ -507,6 +550,46 @@ namespace SymphonyWebApp.Migrations
                             Gmail = "thobeo8@gmail.com",
                             Name = "Le Quang Tho",
                             PhoneNumber = "0364781029"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Contents = "What is the school's facilities and teaching quality like?",
+                            Gmail = "tuyettanl@gmail.com",
+                            Name = "Tran Thi Tan",
+                            PhoneNumber = "0395761111"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            Contents = "What will I get during my studies? ",
+                            Gmail = "thaidra@gmail.com",
+                            Name = "Nguyen Van Thai",
+                            PhoneNumber = "0956137222"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            Contents = "Can I take other experiential sessions outside the main school hours?",
+                            Gmail = "Vanot@gmail.com",
+                            Name = "Nguyen Hoai Van",
+                            PhoneNumber = "0986176333"
+                        },
+                        new
+                        {
+                            Id = 9,
+                            Contents = "Can I make a reservation if I miss a midterm?",
+                            Gmail = "thoklc@gmail.com",
+                            Name = "Pham Tuyet Tho",
+                            PhoneNumber = "0296753144"
+                        },
+                        new
+                        {
+                            Id = 10,
+                            Contents = "Can I leave the course for the next semester too?",
+                            Gmail = "haibeo8@gmail.com",
+                            Name = "Le Quang Hai",
+                            PhoneNumber = "0364781055"
                         });
                 });
 
@@ -525,7 +608,7 @@ namespace SymphonyWebApp.Migrations
                     b.Property<DateTime>("CreateDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2021, 3, 29, 0, 0, 0, 0, DateTimeKind.Local));
+                        .HasDefaultValue(new DateTime(2021, 3, 30, 0, 0, 0, 0, DateTimeKind.Local));
 
                     b.Property<string>("Title")
                         .HasColumnType("nvarchar(max)");
@@ -643,7 +726,7 @@ namespace SymphonyWebApp.Migrations
                         new
                         {
                             Id = 2,
-                            CourseName = "Basic Python",
+                            CourseName = "Advance Python",
                             CustomerId = 2,
                             RegistrationFee = 100m
                         },
@@ -657,7 +740,7 @@ namespace SymphonyWebApp.Migrations
                         new
                         {
                             Id = 4,
-                            CourseName = "Basic JavaScript",
+                            CourseName = "Advance JavaScript",
                             CustomerId = 4,
                             RegistrationFee = 100m
                         },
@@ -666,6 +749,41 @@ namespace SymphonyWebApp.Migrations
                             Id = 5,
                             CourseName = "Basic Network Security",
                             CustomerId = 5,
+                            RegistrationFee = 100m
+                        },
+                        new
+                        {
+                            Id = 6,
+                            CourseName = "Basic Java",
+                            CustomerId = 6,
+                            RegistrationFee = 100m
+                        },
+                        new
+                        {
+                            Id = 7,
+                            CourseName = "Advance Python",
+                            CustomerId = 7,
+                            RegistrationFee = 100m
+                        },
+                        new
+                        {
+                            Id = 8,
+                            CourseName = "Basic SQL",
+                            CustomerId = 8,
+                            RegistrationFee = 100m
+                        },
+                        new
+                        {
+                            Id = 9,
+                            CourseName = "Advance JavaScript",
+                            CustomerId = 9,
+                            RegistrationFee = 100m
+                        },
+                        new
+                        {
+                            Id = 10,
+                            CourseName = "Basic Network Security",
+                            CustomerId = 10,
                             RegistrationFee = 100m
                         });
                 });
@@ -866,6 +984,96 @@ namespace SymphonyWebApp.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Teacher");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Address = "Andheri East, Mumbai, Maharashtra, India",
+                            Dob = new DateTime(1964, 2, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FirstName = "Miranda",
+                            Gmail = "JudeMiranda@gmail.com",
+                            LastName = "Jude",
+                            Major = "Python, Data Science",
+                            UrlImage = "jude.jpg"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Address = "Islamabad Expressway, I 8/4 I-8, Islamabad, Islamabad Capital Territory, Pakistan",
+                            Dob = new DateTime(1974, 2, 23, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FirstName = "Nadeem",
+                            Gmail = "Nadeem@gmail.com",
+                            LastName = "Mehmood",
+                            Major = "JAVA, Mechanical Engineering",
+                            UrlImage = "nadeem.jpg"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Address = "Pune, Maharashtra, India",
+                            Dob = new DateTime(1984, 4, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FirstName = "Sagar",
+                            Gmail = "Yadav@gmail.com",
+                            LastName = "Yadav",
+                            Major = "JavaScript, Deep Learning, C++",
+                            UrlImage = "sagar.png"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Address = "Ameerpet, Hyderabad, Telangana, India",
+                            Dob = new DateTime(1978, 1, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FirstName = "Surya",
+                            Gmail = "Reddy@gmail.com",
+                            LastName = "Reddy",
+                            Major = "Core JAVA, Angular 2,Spring MVC, SQL",
+                            UrlImage = "surya.jpg"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Address = "Abbottabad, Khyber Pakhtunkhwa, Pakistan",
+                            Dob = new DateTime(1984, 12, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FirstName = "Muhammad",
+                            Gmail = "Ubaid@gmail.com",
+                            LastName = "Ubaid",
+                            Major = "Java Programming,Java Data Structures, Data Science",
+                            UrlImage = "ubaid.jpg"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Address = "BTM 2nd Stage, Bengaluru, Karnataka, India",
+                            Dob = new DateTime(1994, 12, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FirstName = "Arvind",
+                            Gmail = "Arvind@gmail.com",
+                            LastName = "Carpenter",
+                            Major = "JAVA ,SQL, Mongo DB, VueJS",
+                            UrlImage = "arvind.jpg"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            Address = "Vaniyambadi, Tamil Nadu, India",
+                            Dob = new DateTime(1991, 12, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FirstName = "Ks Sri",
+                            Gmail = "Nandhish@gmail.com",
+                            LastName = "Nandhish",
+                            Major = "Java, Python",
+                            UrlImage = "ks.jpg"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            Address = "Dwarka, New Delhi, Delhi, India",
+                            Dob = new DateTime(1989, 11, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FirstName = "Aakash",
+                            Gmail = "Madan@gmail.com",
+                            LastName = "Madan",
+                            Major = "Java Programming,Java Data Structures, Data Science",
+                            UrlImage = "aakash.jpg"
+                        });
                 });
 
             modelBuilder.Entity("ClassStudyCourse", b =>

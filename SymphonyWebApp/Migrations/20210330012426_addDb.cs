@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace SymphonyWebApp.Migrations
 {
-    public partial class newdb : Migration
+    public partial class addDb : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -83,6 +83,7 @@ namespace SymphonyWebApp.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     CourseId = table.Column<string>(type: "varchar(10)", unicode: false, maxLength: 10, nullable: false),
                     CourseName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Fee = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     level = table.Column<int>(type: "int", nullable: false),
                     UrlImage = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -118,7 +119,7 @@ namespace SymphonyWebApp.Migrations
                     Title = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     UrlImage = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     content = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CreateDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2021, 3, 23, 0, 0, 0, 0, DateTimeKind.Local)),
+                    CreateDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2021, 3, 30, 0, 0, 0, 0, DateTimeKind.Local)),
                     Author = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
@@ -368,19 +369,22 @@ namespace SymphonyWebApp.Migrations
                     { 2, "CT208", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Basic Python", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
                     { 3, "CT209", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Basic SQL", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
                     { 4, "CT210", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Basic JavaScript ", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
-                    { 5, "CT211", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Bacic Network Security", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) }
+                    { 5, "CT211", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Advance JavaScript", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 6, "CT212", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Advance Python", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified) }
                 });
 
             migrationBuilder.InsertData(
                 table: "Courses",
-                columns: new[] { "Id", "CourseId", "CourseName", "Fee", "TrainingTime", "UrlImage", "level" },
+                columns: new[] { "Id", "CourseId", "CourseName", "Description", "Fee", "TrainingTime", "UrlImage", "level" },
                 values: new object[,]
                 {
-                    { 5, "Security", "Basic Network Security", 4275m, 4, null, 0 },
-                    { 3, "SQL", " Basic SQL", 4275m, 4, null, 0 },
-                    { 4, "JavaScript", "Basic JavaScript", 6000m, 6, null, 0 },
-                    { 1, "Java", "Basic Java", 6000m, 6, null, 0 },
-                    { 2, "Python", "Basic Python", 6000m, 6, null, 0 }
+                    { 4, "JavaScript", "Basic JavaScript", "You will learn programming fundamentals and basic object-oriented concepts using the latest JavaScript syntax. The concepts covered in these lessons lay the foundation for using JavaScript in any environment.", 6000m, 6, "javascript.jpg", 0 },
+                    { 3, "SQL", "Basic SQL", "U​se SQL commands to filter, sort, & summarize data; manipulate strings, dates, & numerical data from different sources for analysis.U​se the collaborative Databricks workspace and create an end-to-end pipeline that reads data, transforms it, and saves the result.A​ssess and create datasets to solve your business questions and problems using SQL.Develop a project proposal & select your data, perform statistical analysis & develop metrics, and p​resent your findings & make recommendations", 6000m, 6, "sql.png", 0 },
+                    { 7, "Python", "Advance Python", "How gradient descent and stochastic gradient descent algorithms work.How to apply gradient descent and stochastic gradient descent to minimize the loss function in machine learning.What the learning rate is, why it’s important, and how it impacts results", 4275m, 4, "pythonAd.png", 1 },
+                    { 5, "JavaScript", "Advance JavaScript", "Advanced JavaScript Practices.Functional Programming.Inheritance + Prototype Chain.JavaScript Modules.Object Oriented Programming.Scope and Execution Context.Latest features: ES6, ES7, ES8, ES9, ES10, ES2020.Asynchronous JavaScript + Event Loop.JavaScript Engine and Runtime.Composition vs Inheritance.Pass By Reference vs Pass by Value", 4275m, 4, "javascriptAd.jpg", 1 },
+                    { 6, "Java", "Advance Java", "How to navigate and use the NetBeans IDE to create Java projects, packages and programs.How to declare and use Java Datatypes & Identifiers, work with Java Operators,  work with Java Decision Making Constructs.How to work with Java repetition/Looping Constructs, declare and use Java Arrays, as well as work with the Java Exception Handling mechanism.", 4275m, 4, "javaAd.jpg", 1 },
+                    { 1, "Java", "Basic Java", "How to write Java Programs from scratch and have loads of fun in the processGain enough experience to pass a core Java Programming interview and perform well on the job,Go from zero to hero in writing industry ready Java programs", 6000m, 6, "java.jpg", 0 },
+                    { 2, "Python", "Basic Python", "Install Python and write your first program.Describe the basics of the Python programming language.Use variables to store, retrieve and calculate information.Utilize core programming tools such as functions and loops", 6000m, 6, "python.jpg", 0 }
                 });
 
             migrationBuilder.InsertData(
@@ -388,10 +392,15 @@ namespace SymphonyWebApp.Migrations
                 columns: new[] { "Id", "Contents", "Gmail", "Name", "PhoneNumber" },
                 values: new object[,]
                 {
-                    { 1, "What is the school's facilities and teaching quality like?", "tuyettranlc4@gmail.com", "Tran Thi Tuyet", "0395761476" },
-                    { 2, "What will I get during my studies? ", "ngocdra@gmail.com", "Nguyen Van Ngoc", "0956137845" },
-                    { 3, "Can I take other experiential sessions outside the main school hours?", "namot@gmail.com", "Nguyen Hoai Nam", "0986176340" },
+                    { 10, "Can I leave the course for the next semester too?", "haibeo8@gmail.com", "Le Quang Hai", "0364781055" },
+                    { 9, "Can I make a reservation if I miss a midterm?", "thoklc@gmail.com", "Pham Tuyet Tho", "0296753144" },
+                    { 8, "Can I take other experiential sessions outside the main school hours?", "Vanot@gmail.com", "Nguyen Hoai Van", "0986176333" },
+                    { 6, "What is the school's facilities and teaching quality like?", "tuyettanl@gmail.com", "Tran Thi Tan", "0395761111" },
+                    { 7, "What will I get during my studies? ", "thaidra@gmail.com", "Nguyen Van Thai", "0956137222" },
                     { 4, "Can I make a reservation if I miss a midterm?", "maioklc@gmail.com", "Pham Tuyet Mai", "0296753186" },
+                    { 3, "Can I take other experiential sessions outside the main school hours?", "namot@gmail.com", "Nguyen Hoai Nam", "0986176340" },
+                    { 2, "What will I get during my studies? ", "ngocdra@gmail.com", "Nguyen Van Ngoc", "0956137845" },
+                    { 1, "What is the school's facilities and teaching quality like?", "tuyettranlc4@gmail.com", "Tran Thi Tuyet", "0395761476" },
                     { 5, "Can I leave the course for the next semester too?", "thobeo8@gmail.com", "Le Quang Tho", "0364781029" }
                 });
 
@@ -415,10 +424,15 @@ namespace SymphonyWebApp.Migrations
                 values: new object[,]
                 {
                     { 1, "Basic Java", 1, 100m },
-                    { 2, "Basic Python", 2, 100m },
+                    { 2, "Advance Python", 2, 100m },
                     { 3, "Basic SQL", 3, 100m },
-                    { 4, "Basic JavaScript", 4, 100m },
-                    { 5, "Basic Network Security", 5, 100m }
+                    { 4, "Advance JavaScript", 4, 100m },
+                    { 5, "Basic Network Security", 5, 100m },
+                    { 6, "Basic Java", 6, 100m },
+                    { 7, "Advance Python", 7, 100m },
+                    { 8, "Basic SQL", 8, 100m },
+                    { 9, "Advance JavaScript", 9, 100m },
+                    { 10, "Basic Network Security", 10, 100m }
                 });
 
             migrationBuilder.InsertData(
