@@ -188,7 +188,7 @@ namespace SymphonyWebApp.Data.Extensions
                   Gmail = "Yadav@gmail.com",
                   Major = "JavaScript, Deep Learning, C++",
                   Address = "Pune, Maharashtra, India",
-                  UrlImage = "sagar.jpg"
+                  UrlImage = "sagar.png"
               },
               new Teacher()
               {
@@ -211,6 +211,39 @@ namespace SymphonyWebApp.Data.Extensions
                   Gmail = "Ubaid@gmail.com",
                   Major = "Java Programming,Java Data Structures, Data Science",
                   UrlImage = "ubaid.jpg"
+              },
+              new Teacher()
+              {
+                  Id = 6,
+                  Dob = new DateTime(1994, 12, 28),
+                  Address = "BTM 2nd Stage, Bengaluru, Karnataka, India",
+                  FirstName = "Arvind",
+                  LastName = "Carpenter",
+                  Gmail = "Arvind@gmail.com",
+                  Major = "JAVA ,SQL, Mongo DB, VueJS",
+                  UrlImage = "arvind.jpg"
+              },
+              new Teacher()
+              {
+                  Id = 7,
+                  Dob = new DateTime(1991, 12, 18),
+                  Address = "Vaniyambadi, Tamil Nadu, India",
+                  FirstName = "Ks Sri",
+                  LastName = "Nandhish",
+                  Gmail = "Nandhish@gmail.com",
+                  Major = "Java, Python",
+                  UrlImage = "ks.jpg"
+              },
+              new Teacher()
+              {
+                  Id = 8,
+                  Dob = new DateTime(1989, 11, 18),
+                  Address = "Dwarka, New Delhi, Delhi, India",
+                  FirstName = "Aakash",
+                  LastName = "Madan",
+                  Gmail = "Madan@gmail.com",
+                  Major = "Java Programming,Java Data Structures, Data Science",
+                  UrlImage = "aakash.jpg"
               }
 
             );
