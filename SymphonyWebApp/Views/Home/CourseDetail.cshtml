@@ -1,0 +1,62 @@
+﻿@model SymphonyWebApp.Data.Entities.Course
+@{
+    Layout = "_PageLayout";
+    ViewData["Title"] = "CourseDetail";
+}
+
+
+<section class="hero-wrap hero-wrap-2" style="background-image: url('/images/bg_2.jpg');">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row no-gutters slider-text align-items-end justify-content-center">
+            <div class="col-md-9 ftco-animate pb-5 text-center">
+                <p class="breadcrumbs"><span class="mr-2"><a asp-area="" asp-action="Index" asp-controller="Home">Home <i class="fa fa-chevron-right"></i></a></span><a asp-action="Course" asp-controller="Home"><span>Course Lists <i class="fa fa-chevron-right"></i></span></a> </p>
+                <h1 class="mb-0 bread">Course Details</h1>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="ftco-section services-section">
+    <div class="container">
+        <div class="row d-flex">
+            <div class="col-md-5 heading-section pr-md-5 ftco-animate d-flex align-items-center">
+                <div class="w-100 mb-4 mb-md-0">
+                    <span class="subheading">Welcome to Course</span>
+                    <h2 class="mb-4">@Html.DisplayFor(model => model.CourseName)</h2>
+                    <img src="~/images/post/@Html.DisplayFor(model => model.UrlImage)" alt="Alternate Text" class="img-fluid" />
+                </div>
+            </div>
+            <div class="col-md-7">
+                <div class="row">
+                    <div class="col-md-12 col-lg-4 d-flex align-self-stretch ftco-animate">
+                        <div class="services">
+                            <div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-tools"></span></div>
+                            <div class="media-body">
+                                <h3 class="heading mb-3">Training Time </h3>
+                                <p>@Html.DisplayFor(model => model.TrainingTime)</p>
+                            </div>
+                            <div class="media-body">
+                                <h3 class="heading mb-3">Fee</h3>
+                                <p>@Html.DisplayFor(model => model.Fee)</p>
+                            </div>
+                            <div class="media-body">
+                                <h3 class="heading mb-3">Level</h3>
+                                <p>@Html.DisplayFor(model => model.level)</p>
+                            </div>
+                        </div>
+                    </div>
+   
+                    <div class="col-md-12 col-lg-8 d-flex align-self-stretch ftco-animate">
+                        <div class="services">
+                            <div class="icon icon-4 d-flex align-items-center justify-content-center"><span class="flaticon-browser"></span></div>
+                            <div class="media-body">
+                                <h3 class="heading mb-3">What you'll learn</h3>
+                                <p>@Html.DisplayFor(model => model.Description)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
