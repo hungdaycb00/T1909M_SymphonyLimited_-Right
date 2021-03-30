@@ -27,9 +27,10 @@ namespace SymphonyWebApp.Controllers
             return View();
         }
 
-        public IActionResult About()
+        public async Task<IActionResult> About()
         {
-            return View();
+
+            return View(await _context.Centres.ToListAsync());
         }
 
         public async Task<IActionResult> Course(string courseId)
