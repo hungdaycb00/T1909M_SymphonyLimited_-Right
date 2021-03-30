@@ -10,8 +10,8 @@ using SymphonyWebApp.Data;
 namespace SymphonyWebApp.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210329132842_updateCourse")]
-    partial class updateCourse
+    [Migration("20210330014607_addTeacher")]
+    partial class addTeacher
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -474,7 +474,7 @@ namespace SymphonyWebApp.Migrations
                             Description = "Advanced JavaScript Practices.Functional Programming.Inheritance + Prototype Chain.JavaScript Modules.Object Oriented Programming.Scope and Execution Context.Latest features: ES6, ES7, ES8, ES9, ES10, ES2020.Asynchronous JavaScript + Event Loop.JavaScript Engine and Runtime.Composition vs Inheritance.Pass By Reference vs Pass by Value",
                             Fee = 4275m,
                             TrainingTime = 4,
-                            UrlImage = "javascript.jpg",
+                            UrlImage = "javascriptAd.jpg",
                             level = 1
                         });
                 });
@@ -608,7 +608,7 @@ namespace SymphonyWebApp.Migrations
                     b.Property<DateTime>("CreateDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2021, 3, 29, 0, 0, 0, 0, DateTimeKind.Local));
+                        .HasDefaultValue(new DateTime(2021, 3, 30, 0, 0, 0, 0, DateTimeKind.Local));
 
                     b.Property<string>("Title")
                         .HasColumnType("nvarchar(max)");
@@ -984,6 +984,63 @@ namespace SymphonyWebApp.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Teacher");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Address = "Andheri East, Mumbai, Maharashtra, India",
+                            Dob = new DateTime(1964, 2, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FirstName = "Miranda",
+                            Gmail = "JudeMiranda@gmail.com",
+                            LastName = "Jude",
+                            Major = "Python, Data Science",
+                            UrlImage = "jude.jpg"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Address = "Islamabad Expressway, I 8/4 I-8, Islamabad, Islamabad Capital Territory, Pakistan",
+                            Dob = new DateTime(1974, 2, 23, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FirstName = "Nadeem",
+                            Gmail = "Nadeem@gmail.com",
+                            LastName = "Mehmood",
+                            Major = "JAVA, Mechanical Engineering",
+                            UrlImage = "nadeem.jpg"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Address = "Pune, Maharashtra, India",
+                            Dob = new DateTime(1984, 4, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FirstName = "Sagar",
+                            Gmail = "Yadav@gmail.com",
+                            LastName = "Yadav",
+                            Major = "JavaScript, Deep Learning, C++",
+                            UrlImage = "sagar.jpg"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Address = "Ameerpet, Hyderabad, Telangana, India",
+                            Dob = new DateTime(1978, 1, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FirstName = "Surya",
+                            Gmail = "Reddy@gmail.com",
+                            LastName = "Reddy",
+                            Major = "Core JAVA, Angular 2,Spring MVC, SQL",
+                            UrlImage = "surya.jpg"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Address = "Abbottabad, Khyber Pakhtunkhwa, Pakistan",
+                            Dob = new DateTime(1984, 12, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FirstName = "Muhammad",
+                            Gmail = "Ubaid@gmail.com",
+                            LastName = "Ubaid",
+                            Major = "Java Programming,Java Data Structures, Data Science",
+                            UrlImage = "ubaid.jpg"
+                        });
                 });
 
             modelBuilder.Entity("ClassStudyCourse", b =>
