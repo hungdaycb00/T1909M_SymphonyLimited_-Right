@@ -22,15 +22,13 @@ namespace SymphonyWebApp.Controllers
             _context = context;
         }
 
-        public async Task<IActionResult>Index()
+        public async Task<IActionResult> Index()
         {
-
-            return View(await _context.Courses.ToListAsync(6));
+            return View(await _context.Courses.Take(6).ToListAsync());
         }
 
         public async Task<IActionResult> About()
         {
-
             return View(await _context.Centres.ToListAsync());
         }
 
@@ -44,9 +42,9 @@ namespace SymphonyWebApp.Controllers
             }
             return View(await _context.Courses.ToListAsync());
         }
-        public async Task<IActionResult> CourseDetail (int? id)
-        {
 
+        public async Task<IActionResult> CourseDetail(int? id)
+        {
             if (id == null)
             {
                 return NotFound();
@@ -64,7 +62,6 @@ namespace SymphonyWebApp.Controllers
 
         public async Task<IActionResult> FAQ()
         {
-
             return View(await _context.Questions.ToListAsync());
         }
 
@@ -80,7 +77,6 @@ namespace SymphonyWebApp.Controllers
 
         public async Task<IActionResult> Instructor()
         {
-
             return View(await _context.Teacher.ToListAsync());
         }
 
