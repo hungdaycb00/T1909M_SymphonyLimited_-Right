@@ -15,7 +15,7 @@ namespace SymphonyWebApp.Data.Configurations
             builder.ToTable("Questions");
             builder.HasKey(x => x.Id);
             builder.Property(x => x.Title).IsRequired().HasMaxLength(100);
-            builder.Property(x => x.Answer).IsRequired().HasMaxLength(300);
+            builder.Property(x => x.Answer).IsRequired();
         }
     }
 }

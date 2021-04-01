@@ -19,11 +19,14 @@ namespace SymphonyWebApp.Data.Entities
         [Display(Name = "Course Name")]
         public string CourseName { get; set; }
 
+        public string Description { get; set; }
+
         [DataType(DataType.Currency)]
         [Column(TypeName = "decimal(18,2)")]
         public decimal Fee { get; set; }
 
         public Level level { get; set; }
+        public string UrlImage { get; set; }
 
         [Display(Name = "Training Time")]
         public int TrainingTime { get; set; }
@@ -31,17 +34,16 @@ namespace SymphonyWebApp.Data.Entities
         public ICollection<Student> Students { get; set; }
         public ICollection<ClassStudy> ClassStudies { get; set; }
     }
+
     public class ClassCourseValidator : AbstractValidator<Course>
     {
         public ClassCourseValidator()
         {
-            RuleFor(x => x.CourseId).MinimumLength(5).MaximumLength(10).NotNull();
+            RuleFor(x => x.CourseId).MinimumLength(3).MaximumLength(10).NotNull();
             RuleFor(x => x.CourseName).NotNull();
             RuleFor(x => x.Fee).NotNull().ScalePrecision(0, 4);
             RuleFor(x => x.level).NotNull();
             RuleFor(x => x.TrainingTime).NotNull();
-
         }
     }
-
 }

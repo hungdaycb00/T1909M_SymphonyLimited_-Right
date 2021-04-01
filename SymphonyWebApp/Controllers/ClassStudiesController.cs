@@ -20,8 +20,15 @@ namespace SymphonyWebApp.Controllers
         }
 
         // GET: ClassStudies
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string keyword)
         {
+            if (keyword != null)
+            {
+                ViewBag.Keyword = keyword;
+                var result = await _context.ClassStudies.Where(x => x.ClassId.Contains(keyword)
+                || x.Name.Contains(keyword)).ToListAsync();
+                return View(result);
+            }
             return View(await _context.ClassStudies.ToListAsync());
         }
 

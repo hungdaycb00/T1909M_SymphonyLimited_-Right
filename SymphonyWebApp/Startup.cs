@@ -10,6 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using SymphonyWebApp.Data;
+using SymphonyWebApp.Data.Common;
 using SymphonyWebApp.Data.Entities;
 using System;
 using System.Collections.Generic;
@@ -40,10 +41,20 @@ namespace SymphonyWebApp
             services.AddControllersWithViews().AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<ClassStudyValidator>());
 
             services.AddTransient<IValidator<ClassStudy>, ClassStudyValidator>();
-        }
+            services.AddTransient<IStorageService, FileStorageService>();
 
+            IMvcBuilder builder = services.AddRazorPages();
+            var environment = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
+
+            if (environment == Environments.Development)
+            {
+                builder.AddRazorRuntimeCompilation();
+            }
+
+        }
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+
         {
             if (env.IsDevelopment())
             {

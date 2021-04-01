@@ -6,36 +6,66 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.EntityFrameworkCore;
+using SymphonyWebApp.Data;
+using SymphonyWebApp.Data.Entities;
 
 namespace SymphonyWebApp.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly ApplicationDbContext _context;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ApplicationDbContext context)
         {
-            _logger = logger;
+            _context = context;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult>Index()
         {
-            return View();
+
+            return View(await _context.Courses.ToListAsync(6));
         }
 
-        public IActionResult About()
+        public async Task<IActionResult> About()
         {
-            return View();
+
+            return View(await _context.Centres.ToListAsync());
         }
 
-        public IActionResult Crouse()
+        public async Task<IActionResult> Course(string courseId)
         {
-            return View();
+            if (courseId != null)
+            {
+                ViewBag.Keyword = courseId;
+                var result = await _context.Courses.Where(x => x.CourseId == courseId).ToListAsync();
+                return View(result);
+            }
+            return View(await _context.Courses.ToListAsync());
+        }
+        public async Task<IActionResult> CourseDetail (int? id)
+        {
+
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var course = await _context.Courses
+                .FirstOrDefaultAsync(m => m.Id == id);
+            if (course == null)
+            {
+                return NotFound();
+            }
+
+            return View(course);
         }
 
-        public IActionResult FAQ()
+        public async Task<IActionResult> FAQ()
         {
-            return View();
+
+            return View(await _context.Questions.ToListAsync());
         }
 
         public IActionResult Entrance()
@@ -48,7 +78,13 @@ namespace SymphonyWebApp.Controllers
             return View();
         }
 
-        public IActionResult Instructor()
+        public async Task<IActionResult> Instructor()
+        {
+
+            return View(await _context.Teacher.ToListAsync());
+        }
+
+        public IActionResult FinalResult()
         {
             return View();
         }
