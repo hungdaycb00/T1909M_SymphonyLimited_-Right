@@ -1,0 +1,78 @@
+﻿@model IEnumerable<SymphonyWebApp.Data.Entities.ResultTest>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create"class="btn btn-primary" >Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.RollNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClassName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CourseName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fee)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastDayPayment)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.RollNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClassName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CourseName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fee)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastDayPayment)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning">Edit</a> 
+                <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info">Details</a> 
+                <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

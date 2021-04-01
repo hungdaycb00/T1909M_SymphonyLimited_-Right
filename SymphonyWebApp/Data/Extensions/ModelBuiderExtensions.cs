@@ -59,7 +59,7 @@ namespace SymphonyWebApp.Data.Extensions
                         level = Level.Advance,
                         Fee = 4275,
                         TrainingTime = 4,
-                        UrlImage = "pythonAd.png",
+                        UrlImage = "pythonAd.jpg",
                         Description = "How gradient descent and stochastic gradient descent algorithms work." +
                     "How to apply gradient descent and stochastic gradient descent to minimize the loss function in machine learning." +
                     "What the learning rate is, why it’s important, and how it impacts results"
@@ -72,7 +72,7 @@ namespace SymphonyWebApp.Data.Extensions
                         level = Level.Basic,
                         Fee = 6000,
                         TrainingTime = 6,
-                        UrlImage = "sql.png",
+                        UrlImage = "sql.jpg",
                         Description = "U​se SQL commands to filter, sort, & summarize data; manipulate strings, dates, & numerical data from different sources for analysis." +
                     "U​se the collaborative Databricks workspace and create an end-to-end pipeline that reads data, transforms it, and saves the result." +
                     "A​ssess and create datasets to solve your business questions and problems using SQL." +

@@ -32,7 +32,7 @@ namespace SymphonyWebApp.Controllers
             return View(await _context.Centres.ToListAsync());
         }
 
-        public async Task<IActionResult> Course(string courseId)
+        public async Task<IActionResult> Course(string courseId, int pageNumber = 1)
         {
             if (courseId != null)
             {
@@ -40,7 +40,7 @@ namespace SymphonyWebApp.Controllers
                 var result = await _context.Courses.Where(x => x.CourseId == courseId).ToListAsync();
                 return View(result);
             }
-            return View(await _context.Courses.ToListAsync());
+            return View(await PaginatedList<Course>.CreateAsync(_context.Courses, pageNumber, 6));
         }
 
         public async Task<IActionResult> CourseDetail(int? id)

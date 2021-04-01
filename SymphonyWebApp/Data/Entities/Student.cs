@@ -38,7 +38,6 @@ namespace SymphonyWebApp.Data.Entities
 
         [DataType(DataType.Currency)]
         [Column(TypeName = "decimal(18,2)")]
-
         [Display(Name = "Sub Fee")]
         public decimal SubFee { get; set; }
 
