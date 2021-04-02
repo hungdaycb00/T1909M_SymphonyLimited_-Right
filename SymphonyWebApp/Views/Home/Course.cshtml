@@ -1,5 +1,4 @@
-﻿@*@model IEnumerable<SymphonyWebApp.Data.Entities.Course>*@
-@model PaginatedList<SymphonyWebApp.Data.Entities.Course>
+﻿@model IEnumerable<SymphonyWebApp.Data.Entities.Course>
 
 @{
     Layout = "_PageLayout";
@@ -51,61 +50,29 @@
 
             <div class="row col-md-12 mt-5">
 
-                @foreach (var p in Model)
+                @foreach (var a in Model)
                 {
-                    <div class="col-4 mb-3">
-                        <div class="img-fluid">
-                            <img src="~/images/post/@p.UrlImage" alt="Alternate Text" style="max-height:200px; max-width:300px; min-height:200px" />
-                        </div>
-                        <div class="">
-                            <h3><a asp-action="CourseDetail" asp-controller="Home" asp-route-id="@p.Id">@p.CourseName</a></h3>
-                            <ul class=" justify-content-between">
-                                <li class=""><span class="flaticon-shower">Level: @p.level</span></li>
-                                <li class=""><span class="flaticon-shower">Traning time: @p.TrainingTime</span></li>
-                            </ul>
+                    <div class="col-md-4 ftco-animate">
+                        <div class="project-wrap">
+
+                            <a href="#" class="img" style="background-image: url(/images/post/@a.UrlImage);">
+                                <span class="price">@a.CourseName</span>
+                            </a>
+                            <div class=" p-4">
+                                <p class="advisor">TrainingTime : @a.TrainingTime</p>
+                                <ul class="d-flex justify-content-between">
+                                    <li><span class="flaticon-shower">Level : @a.level</span></li>
+                                    <li class="price">Fee: @a.Fee$</li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
                 }
 
             </div>
-            @*<div class="row mt-5">
-                    <div class="col">
-                        <div class="block-27">
-                            <ul>
-                                <li><a href="#">&lt;</a></li>
-                                <li class="active"><span>1</span></li>
-                                <li><a href="#">2</a></li>
-                                <li><a href="#">3</a></li>
-                                <li><a href="#">4</a></li>
-                                <li><a href="#">5</a></li>
-                                <li><a href="#">&gt;</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>*@
-            @{
-                var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
-                var nextDisabled = !Model.HasNextPage ? "disabled" : "";
-            }
-
-            <div class="text-center">
-                <a asp-action="Course"
-                   asp-route-sortOrder="@ViewData["CurrentSort"]"
-                   asp-route-pageNumber="@(Model.PageIndex - 1)"
-                   asp-route-currentFilter="@ViewData["CurrentFilter"]"
-                   class=" btn btn-default btn btn-outline-primary @prevDisabled">
-                    Previous
-                </a>
-                <a asp-action="Course"
-                   asp-route-sortOrder="@ViewData["CurrentSort"]"
-                   asp-route-pageNumber="@(Model.PageIndex + 1)"
-                   asp-route-currentFilter="@ViewData["CurrentFilter"]"
-                   class="btn btn-default btn btn-outline-primary @nextDisabled">
-                    Next
-                </a>
-            </div>
+         
         </div>
 
     </div>
-    </div>
+   
 </section>

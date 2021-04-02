@@ -23,6 +23,7 @@ namespace SymphonyWebApp
     {
         public Startup(IConfiguration configuration)
         {
+
             Configuration = configuration;
         }
 
@@ -31,9 +32,10 @@ namespace SymphonyWebApp
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            string connectionString = Configuration.GetConnectionString("DefaultConnection");
             services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(
-                    Configuration.GetConnectionString("DefaultConnection")));
+                        options.UseSqlServer(connectionString));
+
             services.AddDatabaseDeveloperPageExceptionFilter();
 
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
@@ -51,7 +53,7 @@ namespace SymphonyWebApp
                 builder.AddRazorRuntimeCompilation();
             }
 
-
+         
 
         }
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
