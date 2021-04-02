@@ -56,6 +56,11 @@ namespace SymphonyWebApp.Areas.Identity.Pages.Account
 
         public async Task OnGetAsync(string returnUrl = null)
         {
+            if (User.Identity.IsAuthenticated)
+            {
+                Response.Redirect("/");
+            }
+
             if (!string.IsNullOrEmpty(ErrorMessage))
             {
                 ModelState.AddModelError(string.Empty, ErrorMessage);
@@ -85,7 +90,7 @@ namespace SymphonyWebApp.Areas.Identity.Pages.Account
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User logged in.");
-                    return LocalRedirect(returnUrl);
+                    return LocalRedirect("~/admin");
                 }
                 if (result.RequiresTwoFactor)
                 {
