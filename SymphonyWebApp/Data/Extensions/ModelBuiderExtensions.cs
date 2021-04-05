@@ -109,12 +109,12 @@ namespace SymphonyWebApp.Data.Extensions
                 new Student() { Id = 5, RollNumber = "21704", FirstName = "Do", LastName = "Huu Cong", Address = "Ha Noi", Gmail = "huucong473@gmail.com", IdentityCard = "001201072112", StudentStatus = StudentStatus.Active, PhoneNumber = "0889567661", Dob = new DateTime(2020, 06, 15), SubFee = 1000, FeeStatus = FeeStatus.Paid, ClassId = 5, CourseId = 5 });
 
             modelBuilder.Entity<ClassStudy>().HasData(
-                new ClassStudy() { Id = 1, ClassId = "CT207", Name = "Basic Java" },
-                new ClassStudy() { Id = 2, ClassId = "CT208", Name = "Basic Python" },
-                new ClassStudy() { Id = 3, ClassId = "CT209", Name = "Basic SQL" },
-                new ClassStudy() { Id = 4, ClassId = "CT210", Name = "Basic JavaScript " },
-                new ClassStudy() { Id = 5, ClassId = "CT211", Name = "Advance JavaScript" },
-                new ClassStudy() { Id = 6, ClassId = "CT212", Name = "Advance Python" });
+                new ClassStudy() { Id = 1, ClassId = "CT207", Name = "Basic Java", StartTime = new DateTime(2021, 1, 10), EndTime = new DateTime(2021, 7, 10) },
+                new ClassStudy() { Id = 2, ClassId = "CT208", Name = "Basic Python", StartTime = new DateTime(2021, 2, 11), EndTime = new DateTime(2021, 8, 11) },
+                new ClassStudy() { Id = 3, ClassId = "CT209", Name = "Basic SQL", StartTime = new DateTime(2021, 4, 5), EndTime = new DateTime(2021, 10, 5) },
+                new ClassStudy() { Id = 4, ClassId = "CT210", Name = "Basic JavaScript ", StartTime = new DateTime(2021, 4, 10), EndTime = new DateTime(2021, 10, 10) },
+                new ClassStudy() { Id = 5, ClassId = "CT211", Name = "Advance JavaScript", StartTime = new DateTime(2021, 1, 15), EndTime = new DateTime(2021, 5, 15) },
+                new ClassStudy() { Id = 6, ClassId = "CT212", Name = "Advance Python", StartTime = new DateTime(2021, 5, 4), EndTime = new DateTime(2021, 9, 4) });
 
             modelBuilder.Entity<Centre>().HasData(
                 new Centre() { Id = 1, Address = "Phu Xuyen-Ha Noi" },
