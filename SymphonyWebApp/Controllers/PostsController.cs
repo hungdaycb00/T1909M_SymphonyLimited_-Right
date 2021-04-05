@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -14,6 +15,7 @@ using SymphonyWebApp.Data.Entities;
 
 namespace SymphonyWebApp.Controllers
 {
+    [Authorize]
     public class PostsController : Controller
     {
         private readonly IStorageService _storageService;
@@ -26,8 +28,14 @@ namespace SymphonyWebApp.Controllers
         }
 
         // GET: Posts
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string keyword)
         {
+            if (keyword != null)
+            {
+                ViewBag.Keyword = keyword;
+                var result = await _context.Posts.Where(x => x.Title.Contains(keyword) || x.Author.Contains(keyword)).ToListAsync();
+                return View(result);
+            }
             return View(await _context.Posts.ToListAsync());
         }
 

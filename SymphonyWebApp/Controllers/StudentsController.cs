@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -10,6 +11,7 @@ using SymphonyWebApp.Data.Entities;
 
 namespace SymphonyWebApp.Controllers
 {
+    [Authorize]
     public class StudentsController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -20,8 +22,14 @@ namespace SymphonyWebApp.Controllers
         }
 
         // GET: Students
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string keyword)
         {
+            if (keyword != null)
+            {
+                ViewBag.Keyword = keyword;
+                var result = await _context.Students.Where(x => x.Address.Contains(keyword) || x.FirstName.Contains(keyword) || x.LastName.Contains(keyword) || x.Course.CourseId.Contains(keyword)).ToListAsync();
+                return View(result);
+            }
             var applicationDbContext = _context.Students.Include(s => s.ClassStudy).Include(s => s.Course);
             return View(await applicationDbContext.ToListAsync());
         }

@@ -18,12 +18,11 @@ namespace SymphonyWebApp.Data.Configurations
             builder.Property(x => x.RollNumber).IsRequired().HasMaxLength(10).IsUnicode(false);
             builder.Property(x => x.FirstName).IsRequired().HasMaxLength(100);
             builder.Property(x => x.LastName).IsRequired().HasMaxLength(100);
-            builder.Property(x => x.Address).IsRequired().HasMaxLength(100);
+            builder.Property(x => x.Gmail).IsRequired().HasMaxLength(100);
             builder.Property(x => x.Fee).IsRequired();
 
             builder.Property(x => x.ClassName).IsRequired();
             builder.Property(x => x.CourseName).IsRequired();
-
         }
     }
 }

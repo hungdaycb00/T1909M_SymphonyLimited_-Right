@@ -247,6 +247,26 @@ namespace SymphonyWebApp.Data.Extensions
               }
 
             );
+
+            modelBuilder.Entity<ResultTest>().HasData(
+                new ResultTest() { Id = 1, RollNumber = "TH1907027", ClassName = "TM1909M", CourseName = "Basic Java", LastName = "Nguyen", FirstName = "Sang", Gmail = "sang@gmail.com", Dob = new DateTime(1999, 10, 1), Fee = 6000, SubFee = 0, LastDayPayment = new DateTime(2021, 4, 21) },
+                new ResultTest() { Id = 2, RollNumber = "TH1908028", ClassName = "TM1909M", CourseName = "Basic Java", LastName = "Nguyen", FirstName = "Hieu", Gmail = "hieu@gmail.com", Dob = new DateTime(1998, 11, 2), Fee = 6000, SubFee = 1000, LastDayPayment = new DateTime(2021, 4, 21) },
+                new ResultTest() { Id = 3, RollNumber = "TH1908029", ClassName = "TM1909M", CourseName = "Basic Java", LastName = "Nguyen", FirstName = "Ty", Gmail = "nguyenty@gmail.com", Dob = new DateTime(1998, 1, 3), Fee = 6000, SubFee = 1000, LastDayPayment = new DateTime(2021, 4, 21) },
+                new ResultTest() { Id = 4, RollNumber = "TH1908039", ClassName = "TM1909M", CourseName = "Basic Java", LastName = "Mai", FirstName = "Truong", Gmail = "truongmai@gmail.com", Dob = new DateTime(1999, 10, 4), Fee = 6000, SubFee = 0, LastDayPayment = new DateTime(2021, 4, 21) },
+                new ResultTest() { Id = 5, RollNumber = "TH1908045", ClassName = "TM1909M", CourseName = "Basic Java", LastName = "Pham", FirstName = "Tuan", Gmail = "phantuan@gmail.com", Dob = new DateTime(1999, 2, 1), Fee = 6000, SubFee = 1000, LastDayPayment = new DateTime(2021, 4, 21) },
+                new ResultTest() { Id = 6, RollNumber = "TH1908050", ClassName = "TM1909M", CourseName = "Basic Java", LastName = "Nong", FirstName = "Hung", Gmail = "nonghung@gmail.com", Dob = new DateTime(2000, 1, 15), Fee = 6000, SubFee = 0, LastDayPayment = new DateTime(2021, 4, 21) },
+                new ResultTest() { Id = 7, RollNumber = "TH1908052", ClassName = "TM1909M", CourseName = "Basic Java", LastName = "Nhu", FirstName = "Duc", Gmail = "nhuduc@gmail.com", Dob = new DateTime(1999, 5, 10), Fee = 6000, SubFee = 1000, LastDayPayment = new DateTime(2021, 4, 21) },
+                new ResultTest() { Id = 8, RollNumber = "TH1908054", ClassName = "TM1909M", CourseName = "Basic Java", LastName = "Pham", FirstName = "Tu", Gmail = "phamtu@gmail.com", Dob = new DateTime(2001, 4, 12), Fee = 6000, SubFee = 0, LastDayPayment = new DateTime(2021, 4, 21) },
+                new ResultTest() { Id = 9, RollNumber = "TH1908055", ClassName = "TM1909M", CourseName = "Basic Java", LastName = "Ha", FirstName = "Tung", Gmail = "hatung@gmail.com", Dob = new DateTime(2002, 3, 13), Fee = 6000, SubFee = 0, LastDayPayment = new DateTime(2021, 4, 21) },
+                new ResultTest() { Id = 10, RollNumber = "TH1908059", ClassName = "TM1909P", CourseName = "Basic Python", LastName = "Nguyen", FirstName = "Anh", Gmail = "nguyenanh@gmail.com", Dob = new DateTime(1999, 10, 6), Fee = 6000, SubFee = 0, LastDayPayment = new DateTime(2021, 4, 21) },
+                new ResultTest() { Id = 11, RollNumber = "TH1908060", ClassName = "TM1909P", CourseName = "Basic Python", LastName = "Truong", FirstName = "Tu", Gmail = "truongtu@gmail.com", Dob = new DateTime(1999, 7, 12), Fee = 6000, SubFee = 1000, LastDayPayment = new DateTime(2021, 4, 21) },
+                new ResultTest() { Id = 12, RollNumber = "TH1908062", ClassName = "TM1909P", CourseName = "Basic Python", LastName = "Do", FirstName = "Cong", Gmail = "dongcong@gmail.com", Dob = new DateTime(1999, 8, 18), Fee = 6000, SubFee = 1000, LastDayPayment = new DateTime(2021, 4, 21) },
+                new ResultTest() { Id = 13, RollNumber = "TH1908066", ClassName = "TM1909P", CourseName = "Basic Python", LastName = "Nguyen", FirstName = "Phong", Gmail = "nguyenphong@gmail.com", Dob = new DateTime(1999, 10, 4), Fee = 6000, SubFee = 1000, LastDayPayment = new DateTime(2021, 4, 21) },
+                new ResultTest() { Id = 14, RollNumber = "TH1909001", ClassName = "TM1909P", CourseName = "Basic Python", LastName = "Do", FirstName = "Hoa", Gmail = "dohoa@gmail.com", Dob = new DateTime(1999, 12, 20), Fee = 6000, SubFee = 1000, LastDayPayment = new DateTime(2021, 4, 21) },
+                new ResultTest() { Id = 15, RollNumber = "TH1909002", ClassName = "TM1909P", CourseName = "Basic Python", LastName = "Nguyen", FirstName = "Thuan", Gmail = "nguyenthuan@gmail.com", Dob = new DateTime(1996, 10, 11), Fee = 6000, SubFee = 1000, LastDayPayment = new DateTime(2021, 4, 21) },
+                new ResultTest() { Id = 16, RollNumber = "TH1909003", ClassName = "TM1909P", CourseName = "Basic Python", LastName = "Vu", FirstName = "Huy", Gmail = "vuhuy@gmail.com", Dob = new DateTime(1992, 11, 13), Fee = 6000, SubFee = 1000, LastDayPayment = new DateTime(2021, 4, 21) },
+                new ResultTest() { Id = 17, RollNumber = "TH1908046", ClassName = "TM1909P", CourseName = "Basic Python", LastName = "Pham", FirstName = "Vuong", Gmail = "phamvuong@gmail.com", Dob = new DateTime(1994, 10, 25), Fee = 6000, SubFee = 0, LastDayPayment = new DateTime(2021, 4, 21) }
+                );
         }
     }
 }

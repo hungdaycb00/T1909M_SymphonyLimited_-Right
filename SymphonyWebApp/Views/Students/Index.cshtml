@@ -8,9 +8,9 @@
 <h1>List student</h1>
 
 <p>
-    <a asp-action="Create"class="btn btn-primary" >Create New</a>
+    <a asp-action="Create" class="btn btn-primary">Create New</a>
 </p>
-<div class="col-md-6 col-sm-12">
+<div class="col-md-6 col-sm-12 mb-4">
     <form asp-action="Index" method="get">
         <div class="row">
             <div class="col-md-8">
@@ -18,7 +18,7 @@
             </div>
             <div class="col-md-4">
                 <button class="btn btn-success" type="submit">Find</button>
-                <button class="btn btn-dark" type="button" onclick="window.location.href='Centres/Index'">Reset</button>
+                <button class="btn btn-dark" type="button" onclick="window.location.href='Students/Index'">Reset</button>
             </div>
         </div>
     </form>
@@ -132,8 +132,8 @@
                             @Html.DisplayFor(modelItem => item.ClassStudy.ClassId)
                         </td>
                         <td style="min-width:240px;">
-                            <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning">Edit</a> 
-                            <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info">Details</a> 
+                            <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning">Edit</a>
+                            <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info">Details</a>
                             <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
                         </td>
                     </tr>

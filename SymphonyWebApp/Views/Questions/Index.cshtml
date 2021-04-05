@@ -6,6 +6,9 @@
 }
 
 <h1>List question</h1>
+<p>
+    <a asp-action="Create" class="btn btn-primary">Create New</a>
+</p>
 <div class="col-md-6 col-sm-12 mb-4">
     <form asp-action="Index" method="get">
         <div class="row">
@@ -19,9 +22,7 @@
         </div>
     </form>
 </div>
-<p>
-    <a asp-action="Create" class="btn btn-primary">Create New</a>
-</p>
+
 <table class="table">
     <thead>
         <tr>
@@ -65,9 +66,9 @@
                             @Html.DisplayFor(modelItem => item.Answer)
                         </td>
                         <td style="min-width:240px;">
-                            <a asp-action="Edit" asp-route-id="@item.Id"class="btn btn-warning">Edit</a> 
-                            <a asp-action="Details" asp-route-id="@item.Id"class="btn btn-info">Details</a> 
-                            <a asp-action="Delete" asp-route-id="@item.Id"class="btn btn-danger">Delete</a>
+                            <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning">Edit</a>
+                            <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info">Details</a>
+                            <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
                         </td>
                     </tr>
                 }

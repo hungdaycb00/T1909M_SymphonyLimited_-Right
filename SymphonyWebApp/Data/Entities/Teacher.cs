@@ -17,6 +17,7 @@ namespace SymphonyWebApp.Data.Entities
         [Display(Name = "Last Name")]
         public string LastName { get; set; }
 
+        [EmailAddress]
         public string Gmail { get; set; }
 
         [Display(Name = "Date Of Birth")]

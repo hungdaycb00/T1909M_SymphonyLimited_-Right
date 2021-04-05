@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -14,6 +15,7 @@ using SymphonyWebApp.Data.Entities;
 
 namespace SymphonyWebApp.Controllers
 {
+    [Authorize]
     public class TeachersController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -26,8 +28,14 @@ namespace SymphonyWebApp.Controllers
         }
 
         // GET: Teachers
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string keyword)
         {
+            if (keyword != null)
+            {
+                ViewBag.Keyword = keyword;
+                var result = await _context.Teacher.Where(x => x.FirstName.Contains(keyword) || x.Major.Contains(keyword) || x.LastName.Contains(keyword)).ToListAsync();
+                return View(result);
+            }
             return View(await _context.Teacher.ToListAsync());
         }
 
@@ -107,10 +115,9 @@ namespace SymphonyWebApp.Controllers
             {
                 try
                 {
-                    if(imageFile != null)
+                    if (imageFile != null)
                     {
                         teacher.UrlImage = await this.SaveFile(imageFile);
-
                     }
 
                     _context.Update(teacher);

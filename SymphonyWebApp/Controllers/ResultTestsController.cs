@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -10,6 +11,7 @@ using SymphonyWebApp.Data.Entities;
 
 namespace SymphonyWebApp.Controllers
 {
+    [Authorize]
     public class ResultTestsController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -20,8 +22,14 @@ namespace SymphonyWebApp.Controllers
         }
 
         // GET: ResultTests
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string keyword)
         {
+            if (keyword != null)
+            {
+                ViewBag.Keyword = keyword;
+                var result = await _context.ResultTests.Where(x => x.FirstName.Contains(keyword) || x.ClassName.Contains(keyword) || x.LastName.Contains(keyword) || x.CourseName.Contains(keyword)).ToListAsync();
+                return View(result);
+            }
             return View(await _context.ResultTests.ToListAsync());
         }
 
@@ -54,7 +62,7 @@ namespace SymphonyWebApp.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,RollNumber,FirstName,LastName,Address,ClassName,CourseName,Fee,LastDayPayment")] ResultTest resultTest)
+        public async Task<IActionResult> Create([Bind("Id,RollNumber,FirstName,LastName,Gmail,Dob,ClassName,CourseName,Fee,SubFee,LastDayPayment")] ResultTest resultTest)
         {
             if (ModelState.IsValid)
             {
@@ -86,7 +94,7 @@ namespace SymphonyWebApp.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,RollNumber,FirstName,LastName,Address,ClassName,CourseName,Fee,LastDayPayment")] ResultTest resultTest)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,RollNumber,FirstName,LastName,Gmail,Dob,ClassName,CourseName,Fee,SubFee,LastDayPayment")] ResultTest resultTest)
         {
             if (id != resultTest.Id)
             {

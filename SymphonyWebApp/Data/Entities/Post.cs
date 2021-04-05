@@ -23,7 +23,7 @@ namespace SymphonyWebApp.Data.Entities
         [DataType(DataType.Date)]
         public DateTime CreateDate { get; set; }
 
-        public string? Author { get; set; }
+        public string Author { get; set; }
     }
 
     public class PostValidator : AbstractValidator<Post>

@@ -313,49 +313,49 @@ namespace SymphonyWebApp.Migrations
                         {
                             Id = 1,
                             ClassId = "CT207",
-                            EndTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndTime = new DateTime(2021, 7, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Basic Java",
-                            StartTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            StartTime = new DateTime(2021, 1, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 2,
                             ClassId = "CT208",
-                            EndTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndTime = new DateTime(2021, 8, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Basic Python",
-                            StartTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            StartTime = new DateTime(2021, 2, 11, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 3,
                             ClassId = "CT209",
-                            EndTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndTime = new DateTime(2021, 10, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Basic SQL",
-                            StartTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            StartTime = new DateTime(2021, 4, 5, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 4,
                             ClassId = "CT210",
-                            EndTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndTime = new DateTime(2021, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Basic JavaScript ",
-                            StartTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            StartTime = new DateTime(2021, 4, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 5,
                             ClassId = "CT211",
-                            EndTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndTime = new DateTime(2021, 5, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Advance JavaScript",
-                            StartTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            StartTime = new DateTime(2021, 1, 15, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         },
                         new
                         {
                             Id = 6,
                             ClassId = "CT212",
-                            EndTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            EndTime = new DateTime(2021, 9, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Advance Python",
-                            StartTime = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            StartTime = new DateTime(2021, 5, 4, 0, 0, 0, 0, DateTimeKind.Unspecified)
                         });
                 });
 
@@ -606,7 +606,7 @@ namespace SymphonyWebApp.Migrations
                     b.Property<DateTime>("CreateDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2021, 4, 2, 0, 0, 0, 0, DateTimeKind.Local));
+                        .HasDefaultValue(new DateTime(2021, 4, 5, 0, 0, 0, 0, DateTimeKind.Local));
 
                     b.Property<string>("Title")
                         .HasColumnType("nvarchar(max)");
@@ -795,11 +795,6 @@ namespace SymphonyWebApp.Migrations
                         .HasAnnotation("SqlServer:IdentitySeed", 1)
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Address")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
-
                     b.Property<string>("ClassName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -808,10 +803,18 @@ namespace SymphonyWebApp.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<DateTime>("Dob")
+                        .HasColumnType("datetime2");
+
                     b.Property<decimal>("Fee")
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("Gmail")
                         .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
@@ -830,9 +833,252 @@ namespace SymphonyWebApp.Migrations
                         .IsUnicode(false)
                         .HasColumnType("varchar(10)");
 
+                    b.Property<decimal>("SubFee")
+                        .HasColumnType("decimal(18,2)");
+
                     b.HasKey("Id");
 
                     b.ToTable("ResultTests");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            ClassName = "TM1909M",
+                            CourseName = "Basic Java",
+                            Dob = new DateTime(1999, 10, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Fee = 6000m,
+                            FirstName = "Sang",
+                            Gmail = "sang@gmail.com",
+                            LastDayPayment = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LastName = "Nguyen",
+                            RollNumber = "TH1907027",
+                            SubFee = 0m
+                        },
+                        new
+                        {
+                            Id = 2,
+                            ClassName = "TM1909M",
+                            CourseName = "Basic Java",
+                            Dob = new DateTime(1998, 11, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Fee = 6000m,
+                            FirstName = "Hieu",
+                            Gmail = "hieu@gmail.com",
+                            LastDayPayment = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LastName = "Nguyen",
+                            RollNumber = "TH1908028",
+                            SubFee = 1000m
+                        },
+                        new
+                        {
+                            Id = 3,
+                            ClassName = "TM1909M",
+                            CourseName = "Basic Java",
+                            Dob = new DateTime(1998, 1, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Fee = 6000m,
+                            FirstName = "Ty",
+                            Gmail = "nguyenty@gmail.com",
+                            LastDayPayment = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LastName = "Nguyen",
+                            RollNumber = "TH1908029",
+                            SubFee = 1000m
+                        },
+                        new
+                        {
+                            Id = 4,
+                            ClassName = "TM1909M",
+                            CourseName = "Basic Java",
+                            Dob = new DateTime(1999, 10, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Fee = 6000m,
+                            FirstName = "Truong",
+                            Gmail = "truongmai@gmail.com",
+                            LastDayPayment = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LastName = "Mai",
+                            RollNumber = "TH1908039",
+                            SubFee = 0m
+                        },
+                        new
+                        {
+                            Id = 5,
+                            ClassName = "TM1909M",
+                            CourseName = "Basic Java",
+                            Dob = new DateTime(1999, 2, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Fee = 6000m,
+                            FirstName = "Tuan",
+                            Gmail = "phantuan@gmail.com",
+                            LastDayPayment = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LastName = "Pham",
+                            RollNumber = "TH1908045",
+                            SubFee = 1000m
+                        },
+                        new
+                        {
+                            Id = 6,
+                            ClassName = "TM1909M",
+                            CourseName = "Basic Java",
+                            Dob = new DateTime(2000, 1, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Fee = 6000m,
+                            FirstName = "Hung",
+                            Gmail = "nonghung@gmail.com",
+                            LastDayPayment = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LastName = "Nong",
+                            RollNumber = "TH1908050",
+                            SubFee = 0m
+                        },
+                        new
+                        {
+                            Id = 7,
+                            ClassName = "TM1909M",
+                            CourseName = "Basic Java",
+                            Dob = new DateTime(1999, 5, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Fee = 6000m,
+                            FirstName = "Duc",
+                            Gmail = "nhuduc@gmail.com",
+                            LastDayPayment = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LastName = "Nhu",
+                            RollNumber = "TH1908052",
+                            SubFee = 1000m
+                        },
+                        new
+                        {
+                            Id = 8,
+                            ClassName = "TM1909M",
+                            CourseName = "Basic Java",
+                            Dob = new DateTime(2001, 4, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Fee = 6000m,
+                            FirstName = "Tu",
+                            Gmail = "phamtu@gmail.com",
+                            LastDayPayment = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LastName = "Pham",
+                            RollNumber = "TH1908054",
+                            SubFee = 0m
+                        },
+                        new
+                        {
+                            Id = 9,
+                            ClassName = "TM1909M",
+                            CourseName = "Basic Java",
+                            Dob = new DateTime(2002, 3, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Fee = 6000m,
+                            FirstName = "Tung",
+                            Gmail = "hatung@gmail.com",
+                            LastDayPayment = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LastName = "Ha",
+                            RollNumber = "TH1908055",
+                            SubFee = 0m
+                        },
+                        new
+                        {
+                            Id = 10,
+                            ClassName = "TM1909P",
+                            CourseName = "Basic Python",
+                            Dob = new DateTime(1999, 10, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Fee = 6000m,
+                            FirstName = "Anh",
+                            Gmail = "nguyenanh@gmail.com",
+                            LastDayPayment = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LastName = "Nguyen",
+                            RollNumber = "TH1908059",
+                            SubFee = 0m
+                        },
+                        new
+                        {
+                            Id = 11,
+                            ClassName = "TM1909P",
+                            CourseName = "Basic Python",
+                            Dob = new DateTime(1999, 7, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Fee = 6000m,
+                            FirstName = "Tu",
+                            Gmail = "truongtu@gmail.com",
+                            LastDayPayment = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LastName = "Truong",
+                            RollNumber = "TH1908060",
+                            SubFee = 1000m
+                        },
+                        new
+                        {
+                            Id = 12,
+                            ClassName = "TM1909P",
+                            CourseName = "Basic Python",
+                            Dob = new DateTime(1999, 8, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Fee = 6000m,
+                            FirstName = "Cong",
+                            Gmail = "dongcong@gmail.com",
+                            LastDayPayment = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LastName = "Do",
+                            RollNumber = "TH1908062",
+                            SubFee = 1000m
+                        },
+                        new
+                        {
+                            Id = 13,
+                            ClassName = "TM1909P",
+                            CourseName = "Basic Python",
+                            Dob = new DateTime(1999, 10, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Fee = 6000m,
+                            FirstName = "Phong",
+                            Gmail = "nguyenphong@gmail.com",
+                            LastDayPayment = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LastName = "Nguyen",
+                            RollNumber = "TH1908066",
+                            SubFee = 1000m
+                        },
+                        new
+                        {
+                            Id = 14,
+                            ClassName = "TM1909P",
+                            CourseName = "Basic Python",
+                            Dob = new DateTime(1999, 12, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Fee = 6000m,
+                            FirstName = "Hoa",
+                            Gmail = "dohoa@gmail.com",
+                            LastDayPayment = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LastName = "Do",
+                            RollNumber = "TH1909001",
+                            SubFee = 1000m
+                        },
+                        new
+                        {
+                            Id = 15,
+                            ClassName = "TM1909P",
+                            CourseName = "Basic Python",
+                            Dob = new DateTime(1996, 10, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Fee = 6000m,
+                            FirstName = "Thuan",
+                            Gmail = "nguyenthuan@gmail.com",
+                            LastDayPayment = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LastName = "Nguyen",
+                            RollNumber = "TH1909002",
+                            SubFee = 1000m
+                        },
+                        new
+                        {
+                            Id = 16,
+                            ClassName = "TM1909P",
+                            CourseName = "Basic Python",
+                            Dob = new DateTime(1992, 11, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Fee = 6000m,
+                            FirstName = "Huy",
+                            Gmail = "vuhuy@gmail.com",
+                            LastDayPayment = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LastName = "Vu",
+                            RollNumber = "TH1909003",
+                            SubFee = 1000m
+                        },
+                        new
+                        {
+                            Id = 17,
+                            ClassName = "TM1909P",
+                            CourseName = "Basic Python",
+                            Dob = new DateTime(1994, 10, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Fee = 6000m,
+                            FirstName = "Vuong",
+                            Gmail = "phamvuong@gmail.com",
+                            LastDayPayment = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LastName = "Pham",
+                            RollNumber = "TH1908046",
+                            SubFee = 0m
+                        });
                 });
 
             modelBuilder.Entity("SymphonyWebApp.Data.Entities.Student", b =>
