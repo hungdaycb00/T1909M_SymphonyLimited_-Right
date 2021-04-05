@@ -80,8 +80,14 @@ namespace SymphonyWebApp.Controllers
             return View(await _context.Teacher.ToListAsync());
         }
 
-        public IActionResult FinalResult()
+        public async Task<IActionResult> FinalResult(string keyword)
         {
+            if (keyword != null)
+            {
+                ViewBag.Keyword = keyword;
+                var result = await _context.ResultTests.Where(x => x.RollNumber.Contains(keyword)).ToListAsync();
+                return View(result);
+            }
             return View();
         }
 

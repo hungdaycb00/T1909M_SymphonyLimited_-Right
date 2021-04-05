@@ -1,8 +1,8 @@
-﻿@{
+﻿@model IEnumerable<SymphonyWebApp.Data.Entities.ResultTest>
+
+@{
     Layout = "_PageLayout";
 }
-
-
 
 <section class="hero-wrap hero-wrap-2" style="background-image: url('/images/bg_2.jpg');">
     <div class="overlay"></div>
@@ -34,9 +34,18 @@
                             <div class="col-md-12 heading-section ftco-animate">
                                 <span class="subheading">Enhanced Your Skills</span>
                                 <h2 class="mb-4">Entrance Examination</h2>
-                                <p>
-                                    Next entrance exam we want to enroll in network related, Java related, database related courses like SQL server
-                                </p>
+                                <span>Enter rollnumber:</span><br />
+
+                                <form asp-action="FinalResult" method="get">
+                                    <div class="input-group mb-3">
+
+                                        <div class="input-group-prepend">
+
+                                            <button class="btn btn-outline-secondary" type="submit">Find</button>
+                                        </div>
+                                        <input name="keyword" formmethod="get" type="text" class="form-control" placeholder="" aria-label="" aria-describedby="basic-addon1">
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -46,36 +55,86 @@
     </div>
 </section>
 
-<section class="container">
-    <table class="table">
-        <thead class="thead-dark">
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>mdo</td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>fat</td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>twitter</td>
-            </tr>
-        </tbody>
-    </table>
+<div class="container">
+    <div class="row">
+        @{
+            if (Model != null)
+            {
 
-</section>
+                <table class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.RollNumber)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.FirstName)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.LastName)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Gmail)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Dob)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.ClassName)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.CourseName)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Fee)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.SubFee)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.LastDayPayment)
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @item.RollNumber
+                                </td>
+                                <td>
+                                    @item.FirstName
+                                </td>
+                                <td>
+                                    @item.LastName
+                                </td>
+                                <td>
+                                    @item.Gmail
+                                </td>
+                                <td>
+                                    @item.Dob.ToString("dd/MM/yyyy")
+                                </td>
+                                <td>
+                                    @item.ClassName
+                                </td>
+                                <td>
+                                    @item.CourseName
+                                </td>
+                                <td>
+                                    @item.Fee
+                                </td>
+                                <td>
+                                    @item.SubFee
+                                </td>
+                                <td>
+                                    @item.LastDayPayment.ToString("dd/MM/yyyy")
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
+        }
+    </div>
+</div>
