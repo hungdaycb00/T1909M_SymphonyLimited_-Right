@@ -28,10 +28,10 @@ namespace SymphonyWebApp.Controllers
             {
                 ViewBag.Keyword = keyword;
                 var result = await _context.Customers.Where(x => x.Name.Contains(keyword)
-                || x.Contents.Contains(keyword)).ToListAsync();
+                || x.Contents.Contains(keyword)).OrderByDescending(x => x.Id).ToListAsync();
                 return View(result);
             }
-            return View(await _context.Customers.ToListAsync());
+            return View(await _context.Customers.OrderByDescending(x => x.Id).ToListAsync());
         }
 
         // GET: Customers/Details/5

@@ -491,6 +491,11 @@ namespace SymphonyWebApp.Migrations
                         .HasMaxLength(200)
                         .HasColumnType("nvarchar(200)");
 
+                    b.Property<DateTime?>("CreatingDate")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValue(new DateTime(2021, 4, 6, 0, 51, 23, 318, DateTimeKind.Local).AddTicks(7757));
+
                     b.Property<string>("Gmail")
                         .IsRequired()
                         .HasMaxLength(50)
@@ -513,6 +518,7 @@ namespace SymphonyWebApp.Migrations
                         {
                             Id = 1,
                             Contents = "What is the school's facilities and teaching quality like?",
+                            CreatingDate = new DateTime(2021, 4, 6, 0, 51, 23, 331, DateTimeKind.Local).AddTicks(9732),
                             Gmail = "tuyettranlc4@gmail.com",
                             Name = "Tran Thi Tuyet",
                             PhoneNumber = "0395761476"
@@ -521,6 +527,7 @@ namespace SymphonyWebApp.Migrations
                         {
                             Id = 2,
                             Contents = "What will I get during my studies? ",
+                            CreatingDate = new DateTime(2021, 4, 6, 0, 51, 23, 332, DateTimeKind.Local).AddTicks(1081),
                             Gmail = "ngocdra@gmail.com",
                             Name = "Nguyen Van Ngoc",
                             PhoneNumber = "0956137845"
@@ -529,6 +536,7 @@ namespace SymphonyWebApp.Migrations
                         {
                             Id = 3,
                             Contents = "Can I take other experiential sessions outside the main school hours?",
+                            CreatingDate = new DateTime(2021, 4, 6, 0, 51, 23, 332, DateTimeKind.Local).AddTicks(1091),
                             Gmail = "namot@gmail.com",
                             Name = "Nguyen Hoai Nam",
                             PhoneNumber = "0986176340"
@@ -537,6 +545,7 @@ namespace SymphonyWebApp.Migrations
                         {
                             Id = 4,
                             Contents = "Can I make a reservation if I miss a midterm?",
+                            CreatingDate = new DateTime(2021, 4, 6, 0, 51, 23, 332, DateTimeKind.Local).AddTicks(1093),
                             Gmail = "maioklc@gmail.com",
                             Name = "Pham Tuyet Mai",
                             PhoneNumber = "0296753186"
@@ -545,6 +554,7 @@ namespace SymphonyWebApp.Migrations
                         {
                             Id = 5,
                             Contents = "Can I leave the course for the next semester too?",
+                            CreatingDate = new DateTime(2021, 4, 6, 0, 51, 23, 332, DateTimeKind.Local).AddTicks(1095),
                             Gmail = "thobeo8@gmail.com",
                             Name = "Le Quang Tho",
                             PhoneNumber = "0364781029"
@@ -553,6 +563,7 @@ namespace SymphonyWebApp.Migrations
                         {
                             Id = 6,
                             Contents = "What is the school's facilities and teaching quality like?",
+                            CreatingDate = new DateTime(2021, 4, 6, 0, 51, 23, 332, DateTimeKind.Local).AddTicks(1098),
                             Gmail = "tuyettanl@gmail.com",
                             Name = "Tran Thi Tan",
                             PhoneNumber = "0395761111"
@@ -561,6 +572,7 @@ namespace SymphonyWebApp.Migrations
                         {
                             Id = 7,
                             Contents = "What will I get during my studies? ",
+                            CreatingDate = new DateTime(2021, 4, 6, 0, 51, 23, 332, DateTimeKind.Local).AddTicks(1100),
                             Gmail = "thaidra@gmail.com",
                             Name = "Nguyen Van Thai",
                             PhoneNumber = "0956137222"
@@ -569,6 +581,7 @@ namespace SymphonyWebApp.Migrations
                         {
                             Id = 8,
                             Contents = "Can I take other experiential sessions outside the main school hours?",
+                            CreatingDate = new DateTime(2021, 4, 6, 0, 51, 23, 332, DateTimeKind.Local).AddTicks(1102),
                             Gmail = "Vanot@gmail.com",
                             Name = "Nguyen Hoai Van",
                             PhoneNumber = "0986176333"
@@ -577,6 +590,7 @@ namespace SymphonyWebApp.Migrations
                         {
                             Id = 9,
                             Contents = "Can I make a reservation if I miss a midterm?",
+                            CreatingDate = new DateTime(2021, 4, 6, 0, 51, 23, 332, DateTimeKind.Local).AddTicks(1105),
                             Gmail = "thoklc@gmail.com",
                             Name = "Pham Tuyet Tho",
                             PhoneNumber = "0296753144"
@@ -585,6 +599,7 @@ namespace SymphonyWebApp.Migrations
                         {
                             Id = 10,
                             Contents = "Can I leave the course for the next semester too?",
+                            CreatingDate = new DateTime(2021, 4, 6, 0, 51, 23, 332, DateTimeKind.Local).AddTicks(1108),
                             Gmail = "haibeo8@gmail.com",
                             Name = "Le Quang Hai",
                             PhoneNumber = "0364781055"
@@ -700,7 +715,7 @@ namespace SymphonyWebApp.Migrations
                     b.Property<DateTime>("CreateDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2021, 4, 5, 0, 0, 0, 0, DateTimeKind.Local));
+                        .HasDefaultValue(new DateTime(2021, 4, 6, 0, 0, 0, 0, DateTimeKind.Local));
 
                     b.Property<string>("Title")
                         .HasColumnType("nvarchar(max)");

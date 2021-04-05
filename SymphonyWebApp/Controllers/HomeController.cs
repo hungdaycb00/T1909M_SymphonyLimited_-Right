@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using SymphonyWebApp.Data;
 using SymphonyWebApp.Data.Entities;
+using System.Dynamic;
 
 namespace SymphonyWebApp.Controllers
 {
@@ -30,6 +31,22 @@ namespace SymphonyWebApp.Controllers
         public async Task<IActionResult> About()
         {
             return View(await _context.Centres.ToListAsync());
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> CreateCustomer(string name, string gmail, string phonenumber, string content)
+        {
+            var customer = new Customer();
+            customer.Name = name;
+            customer.Gmail = gmail;
+            customer.PhoneNumber = phonenumber;
+            customer.Contents = content;
+            _context.Add(customer);
+            await _context.SaveChangesAsync();
+            TempData["msg"] = "Submitted successfully!";
+            TempData["msg1"] = "We will contact you by mail or phone number.";
+            return RedirectToAction("Index", "Home");
         }
 
         public async Task<IActionResult> Course(string courseId, int? id)

@@ -18,6 +18,7 @@ namespace SymphonyWebApp.Data.Configurations
             builder.Property(x => x.Gmail).IsRequired().HasMaxLength(50);
             builder.Property(x => x.PhoneNumber).IsRequired().HasMaxLength(12);
             builder.Property(x => x.Contents).HasMaxLength(200).IsRequired();
+            builder.Property(x => x.CreatingDate).HasDefaultValue(DateTime.Now);
         }
     }
 }

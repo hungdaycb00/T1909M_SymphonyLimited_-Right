@@ -20,6 +20,10 @@ namespace SymphonyWebApp.Data.Entities
 
         public string Contents { get; set; }
 
+        [Display(Name = "Send Date")]
+        [DataType(DataType.Date)]
+        public DateTime? CreatingDate { get; set; }
+
         public RegistrationTest RegistrationTest { get; set; }
     }
 

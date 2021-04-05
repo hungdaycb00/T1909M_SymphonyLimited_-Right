@@ -2,7 +2,6 @@
     Layout = "_PageLayout";
 }
 
-
 <section class="hero-wrap hero-wrap-2" style="background-image: url('/images/bg_2.jpg');">
     <div class="overlay"></div>
     <div class="container">
@@ -24,30 +23,30 @@
                         <div class="col-lg-8 col-md-7 order-md-last d-flex align-items-stretch">
                             <div class="contact-wrap w-100 p-md-5 p-4">
                                 <h3 class="mb-4">Get in touch</h3>
-                                <form method="POST" id="contactForm" name="contactForm" class="contactForm">
+                                <form method="POST" id="contactForm" name="contactForm" class="contactForm" asp-action="CreateCustomer">
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label class="label" for="name">Full Name</label>
-                                                <input type="text" class="form-control" name="name" id="name" placeholder="Name">
+                                                <input name="name" type="text" class="form-control" placeholder="Name" required="">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label class="label" for="email">Email Address</label>
-                                                <input type="email" class="form-control" name="email" id="email" placeholder="Email">
+                                                <input type="email" class="form-control" name="gmail" id="email" placeholder="Email">
                                             </div>
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label class="label" for="subject">Subject</label>
-                                                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject">
+                                                <label class="label" for="subject">Phone Number</label>
+                                                <input type="number" class="form-control" name="phonenumber" id="subject" placeholder="Phone Number">
                                             </div>
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label class="label" for="#">Message</label>
-                                                <textarea name="message" class="form-control" id="message" cols="30" rows="4" placeholder="Message"></textarea>
+                                                <textarea name="content" class="form-control" id="message" cols="30" rows="4" placeholder="Message"></textarea>
                                             </div>
                                         </div>
                                         <div class="col-md-12">
@@ -60,7 +59,6 @@
                                 </form>
                             </div>
                         </div>
-                      
                     </div>
                 </div>
             </div>

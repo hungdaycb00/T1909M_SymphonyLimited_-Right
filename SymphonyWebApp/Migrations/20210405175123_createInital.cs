@@ -103,7 +103,8 @@ namespace SymphonyWebApp.Migrations
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Gmail = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     PhoneNumber = table.Column<string>(type: "nvarchar(12)", maxLength: 12, nullable: false),
-                    Contents = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false)
+                    Contents = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
+                    CreatingDate = table.Column<DateTime>(type: "datetime2", nullable: true, defaultValue: new DateTime(2021, 4, 6, 0, 51, 23, 318, DateTimeKind.Local).AddTicks(7757))
                 },
                 constraints: table =>
                 {
@@ -135,7 +136,7 @@ namespace SymphonyWebApp.Migrations
                     Title = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     UrlImage = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     content = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CreateDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2021, 4, 5, 0, 0, 0, 0, DateTimeKind.Local)),
+                    CreateDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2021, 4, 6, 0, 0, 0, 0, DateTimeKind.Local)),
                     Author = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
@@ -427,19 +428,19 @@ namespace SymphonyWebApp.Migrations
 
             migrationBuilder.InsertData(
                 table: "Customers",
-                columns: new[] { "Id", "Contents", "Gmail", "Name", "PhoneNumber" },
+                columns: new[] { "Id", "Contents", "CreatingDate", "Gmail", "Name", "PhoneNumber" },
                 values: new object[,]
                 {
-                    { 1, "What is the school's facilities and teaching quality like?", "tuyettranlc4@gmail.com", "Tran Thi Tuyet", "0395761476" },
-                    { 2, "What will I get during my studies? ", "ngocdra@gmail.com", "Nguyen Van Ngoc", "0956137845" },
-                    { 3, "Can I take other experiential sessions outside the main school hours?", "namot@gmail.com", "Nguyen Hoai Nam", "0986176340" },
-                    { 4, "Can I make a reservation if I miss a midterm?", "maioklc@gmail.com", "Pham Tuyet Mai", "0296753186" },
-                    { 5, "Can I leave the course for the next semester too?", "thobeo8@gmail.com", "Le Quang Tho", "0364781029" },
-                    { 6, "What is the school's facilities and teaching quality like?", "tuyettanl@gmail.com", "Tran Thi Tan", "0395761111" },
-                    { 7, "What will I get during my studies? ", "thaidra@gmail.com", "Nguyen Van Thai", "0956137222" },
-                    { 8, "Can I take other experiential sessions outside the main school hours?", "Vanot@gmail.com", "Nguyen Hoai Van", "0986176333" },
-                    { 9, "Can I make a reservation if I miss a midterm?", "thoklc@gmail.com", "Pham Tuyet Tho", "0296753144" },
-                    { 10, "Can I leave the course for the next semester too?", "haibeo8@gmail.com", "Le Quang Hai", "0364781055" }
+                    { 1, "What is the school's facilities and teaching quality like?", new DateTime(2021, 4, 6, 0, 51, 23, 331, DateTimeKind.Local).AddTicks(9732), "tuyettranlc4@gmail.com", "Tran Thi Tuyet", "0395761476" },
+                    { 2, "What will I get during my studies? ", new DateTime(2021, 4, 6, 0, 51, 23, 332, DateTimeKind.Local).AddTicks(1081), "ngocdra@gmail.com", "Nguyen Van Ngoc", "0956137845" },
+                    { 3, "Can I take other experiential sessions outside the main school hours?", new DateTime(2021, 4, 6, 0, 51, 23, 332, DateTimeKind.Local).AddTicks(1091), "namot@gmail.com", "Nguyen Hoai Nam", "0986176340" },
+                    { 4, "Can I make a reservation if I miss a midterm?", new DateTime(2021, 4, 6, 0, 51, 23, 332, DateTimeKind.Local).AddTicks(1093), "maioklc@gmail.com", "Pham Tuyet Mai", "0296753186" },
+                    { 5, "Can I leave the course for the next semester too?", new DateTime(2021, 4, 6, 0, 51, 23, 332, DateTimeKind.Local).AddTicks(1095), "thobeo8@gmail.com", "Le Quang Tho", "0364781029" },
+                    { 6, "What is the school's facilities and teaching quality like?", new DateTime(2021, 4, 6, 0, 51, 23, 332, DateTimeKind.Local).AddTicks(1098), "tuyettanl@gmail.com", "Tran Thi Tan", "0395761111" },
+                    { 7, "What will I get during my studies? ", new DateTime(2021, 4, 6, 0, 51, 23, 332, DateTimeKind.Local).AddTicks(1100), "thaidra@gmail.com", "Nguyen Van Thai", "0956137222" },
+                    { 8, "Can I take other experiential sessions outside the main school hours?", new DateTime(2021, 4, 6, 0, 51, 23, 332, DateTimeKind.Local).AddTicks(1102), "Vanot@gmail.com", "Nguyen Hoai Van", "0986176333" },
+                    { 9, "Can I make a reservation if I miss a midterm?", new DateTime(2021, 4, 6, 0, 51, 23, 332, DateTimeKind.Local).AddTicks(1105), "thoklc@gmail.com", "Pham Tuyet Tho", "0296753144" },
+                    { 10, "Can I leave the course for the next semester too?", new DateTime(2021, 4, 6, 0, 51, 23, 332, DateTimeKind.Local).AddTicks(1108), "haibeo8@gmail.com", "Le Quang Hai", "0364781055" }
                 });
 
             migrationBuilder.InsertData(
