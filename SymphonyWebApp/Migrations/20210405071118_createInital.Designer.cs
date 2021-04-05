@@ -10,8 +10,8 @@ using SymphonyWebApp.Data;
 namespace SymphonyWebApp.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210405032217_createdb")]
-    partial class createdb
+    [Migration("20210405071118_createInital")]
+    partial class createInital
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -593,6 +593,100 @@ namespace SymphonyWebApp.Migrations
                         });
                 });
 
+            modelBuilder.Entity("SymphonyWebApp.Data.Entities.Examination", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:IdentityIncrement", 1)
+                        .HasAnnotation("SqlServer:IdentitySeed", 1)
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("CourseId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("Fee")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("Note")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("TestDay")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Examinations");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CourseId = "Java",
+                            Fee = 0m,
+                            Note = "",
+                            TestDay = new DateTime(2021, 5, 20, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CourseId = "Python",
+                            Fee = 0m,
+                            Note = "",
+                            TestDay = new DateTime(2021, 5, 20, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CourseId = "SQL",
+                            Fee = 0m,
+                            Note = "",
+                            TestDay = new DateTime(2021, 5, 20, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 4,
+                            CourseId = "JavaScript",
+                            Fee = 0m,
+                            Note = "",
+                            TestDay = new DateTime(2021, 5, 20, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 5,
+                            CourseId = "Java",
+                            Fee = 0m,
+                            Note = "",
+                            TestDay = new DateTime(2021, 6, 20, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 6,
+                            CourseId = "Java",
+                            Fee = 0m,
+                            Note = "",
+                            TestDay = new DateTime(2021, 8, 20, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 7,
+                            CourseId = "JavaScript",
+                            Fee = 0m,
+                            Note = "",
+                            TestDay = new DateTime(2021, 6, 20, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 8,
+                            CourseId = "Python",
+                            Fee = 0m,
+                            Note = "",
+                            TestDay = new DateTime(2021, 6, 20, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        });
+                });
+
             modelBuilder.Entity("SymphonyWebApp.Data.Entities.Post", b =>
                 {
                     b.Property<int>("Id")
@@ -852,7 +946,7 @@ namespace SymphonyWebApp.Migrations
                             Fee = 6000m,
                             FirstName = "Sang",
                             Gmail = "sang@gmail.com",
-                            LastDayPayment = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LastDayPayment = new DateTime(2021, 4, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LastName = "Nguyen",
                             RollNumber = "TH1907027",
                             SubFee = 0m
@@ -866,7 +960,7 @@ namespace SymphonyWebApp.Migrations
                             Fee = 6000m,
                             FirstName = "Hieu",
                             Gmail = "hieu@gmail.com",
-                            LastDayPayment = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LastDayPayment = new DateTime(2021, 4, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LastName = "Nguyen",
                             RollNumber = "TH1908028",
                             SubFee = 1000m
@@ -880,7 +974,7 @@ namespace SymphonyWebApp.Migrations
                             Fee = 6000m,
                             FirstName = "Ty",
                             Gmail = "nguyenty@gmail.com",
-                            LastDayPayment = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LastDayPayment = new DateTime(2021, 4, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LastName = "Nguyen",
                             RollNumber = "TH1908029",
                             SubFee = 1000m
@@ -894,7 +988,7 @@ namespace SymphonyWebApp.Migrations
                             Fee = 6000m,
                             FirstName = "Truong",
                             Gmail = "truongmai@gmail.com",
-                            LastDayPayment = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LastDayPayment = new DateTime(2021, 4, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LastName = "Mai",
                             RollNumber = "TH1908039",
                             SubFee = 0m
@@ -908,7 +1002,7 @@ namespace SymphonyWebApp.Migrations
                             Fee = 6000m,
                             FirstName = "Tuan",
                             Gmail = "phantuan@gmail.com",
-                            LastDayPayment = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LastDayPayment = new DateTime(2021, 4, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LastName = "Pham",
                             RollNumber = "TH1908045",
                             SubFee = 1000m
@@ -922,7 +1016,7 @@ namespace SymphonyWebApp.Migrations
                             Fee = 6000m,
                             FirstName = "Hung",
                             Gmail = "nonghung@gmail.com",
-                            LastDayPayment = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LastDayPayment = new DateTime(2021, 4, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LastName = "Nong",
                             RollNumber = "TH1908050",
                             SubFee = 0m
@@ -936,7 +1030,7 @@ namespace SymphonyWebApp.Migrations
                             Fee = 6000m,
                             FirstName = "Duc",
                             Gmail = "nhuduc@gmail.com",
-                            LastDayPayment = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LastDayPayment = new DateTime(2021, 4, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LastName = "Nhu",
                             RollNumber = "TH1908052",
                             SubFee = 1000m
@@ -950,7 +1044,7 @@ namespace SymphonyWebApp.Migrations
                             Fee = 6000m,
                             FirstName = "Tu",
                             Gmail = "phamtu@gmail.com",
-                            LastDayPayment = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LastDayPayment = new DateTime(2021, 4, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LastName = "Pham",
                             RollNumber = "TH1908054",
                             SubFee = 0m
@@ -964,7 +1058,7 @@ namespace SymphonyWebApp.Migrations
                             Fee = 6000m,
                             FirstName = "Tung",
                             Gmail = "hatung@gmail.com",
-                            LastDayPayment = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LastDayPayment = new DateTime(2021, 4, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LastName = "Ha",
                             RollNumber = "TH1908055",
                             SubFee = 0m
@@ -978,7 +1072,7 @@ namespace SymphonyWebApp.Migrations
                             Fee = 6000m,
                             FirstName = "Anh",
                             Gmail = "nguyenanh@gmail.com",
-                            LastDayPayment = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LastDayPayment = new DateTime(2021, 4, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LastName = "Nguyen",
                             RollNumber = "TH1908059",
                             SubFee = 0m
@@ -992,7 +1086,7 @@ namespace SymphonyWebApp.Migrations
                             Fee = 6000m,
                             FirstName = "Tu",
                             Gmail = "truongtu@gmail.com",
-                            LastDayPayment = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LastDayPayment = new DateTime(2021, 4, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LastName = "Truong",
                             RollNumber = "TH1908060",
                             SubFee = 1000m
@@ -1006,7 +1100,7 @@ namespace SymphonyWebApp.Migrations
                             Fee = 6000m,
                             FirstName = "Cong",
                             Gmail = "dongcong@gmail.com",
-                            LastDayPayment = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LastDayPayment = new DateTime(2021, 4, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LastName = "Do",
                             RollNumber = "TH1908062",
                             SubFee = 1000m
@@ -1020,7 +1114,7 @@ namespace SymphonyWebApp.Migrations
                             Fee = 6000m,
                             FirstName = "Phong",
                             Gmail = "nguyenphong@gmail.com",
-                            LastDayPayment = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LastDayPayment = new DateTime(2021, 4, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LastName = "Nguyen",
                             RollNumber = "TH1908066",
                             SubFee = 1000m
@@ -1034,7 +1128,7 @@ namespace SymphonyWebApp.Migrations
                             Fee = 6000m,
                             FirstName = "Hoa",
                             Gmail = "dohoa@gmail.com",
-                            LastDayPayment = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LastDayPayment = new DateTime(2021, 4, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LastName = "Do",
                             RollNumber = "TH1909001",
                             SubFee = 1000m
@@ -1048,7 +1142,7 @@ namespace SymphonyWebApp.Migrations
                             Fee = 6000m,
                             FirstName = "Thuan",
                             Gmail = "nguyenthuan@gmail.com",
-                            LastDayPayment = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LastDayPayment = new DateTime(2021, 4, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LastName = "Nguyen",
                             RollNumber = "TH1909002",
                             SubFee = 1000m
@@ -1062,7 +1156,7 @@ namespace SymphonyWebApp.Migrations
                             Fee = 6000m,
                             FirstName = "Huy",
                             Gmail = "vuhuy@gmail.com",
-                            LastDayPayment = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LastDayPayment = new DateTime(2021, 4, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LastName = "Vu",
                             RollNumber = "TH1909003",
                             SubFee = 1000m
@@ -1076,7 +1170,7 @@ namespace SymphonyWebApp.Migrations
                             Fee = 6000m,
                             FirstName = "Vuong",
                             Gmail = "phamvuong@gmail.com",
-                            LastDayPayment = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LastDayPayment = new DateTime(2021, 4, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             LastName = "Pham",
                             RollNumber = "TH1908046",
                             SubFee = 0m

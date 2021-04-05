@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace SymphonyWebApp.Migrations
 {
-    public partial class createdb : Migration
+    public partial class createInital : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -108,6 +108,22 @@ namespace SymphonyWebApp.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Customers", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Examinations",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    CourseId = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Note = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Fee = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    TestDay = table.Column<DateTime>(type: "datetime2", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Examinations", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -427,48 +443,60 @@ namespace SymphonyWebApp.Migrations
                 });
 
             migrationBuilder.InsertData(
+                table: "Examinations",
+                columns: new[] { "Id", "CourseId", "Fee", "Note", "TestDay" },
+                values: new object[,]
+                {
+                    { 7, "JavaScript", 0m, "", new DateTime(2021, 6, 20, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 8, "Python", 0m, "", new DateTime(2021, 6, 20, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 5, "Java", 0m, "", new DateTime(2021, 6, 20, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 6, "Java", 0m, "", new DateTime(2021, 8, 20, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 3, "SQL", 0m, "", new DateTime(2021, 5, 20, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 2, "Python", 0m, "", new DateTime(2021, 5, 20, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 1, "Java", 0m, "", new DateTime(2021, 5, 20, 0, 0, 0, 0, DateTimeKind.Unspecified) },
+                    { 4, "JavaScript", 0m, "", new DateTime(2021, 5, 20, 0, 0, 0, 0, DateTimeKind.Unspecified) }
+                });
+
+            migrationBuilder.InsertData(
                 table: "Questions",
                 columns: new[] { "Id", "Answer", "Title" },
                 values: new object[,]
                 {
-                    { 6, "Ans: Yes there will be and it will be available on the application form", "Will there be any fees for the entrance exam? " },
                     { 7, "Ans: payment can be done through draft, or through cheque or through cash. For making the payment through cash, one needs to come to one of the centre of the institute, and make the payment there itself. Once the payment is done (through cash or through DD), the student will be provided with the receipt with a receipt number. This receipt number is to be inputted in the application form. For the payments done through cheque and DD, one need to enter the DD number and the cheque number, bank details, etc. are to be entered on the application form and the cheque is to be pinned to the application form. Only once the payment is received the student’s application will be accepted. Once the application is accepted, the student is mailed with the acknowledgement form along with the details of the examination, subject chosen, date and time of exam, and the roll number", "How to make the payment? " },
                     { 5, "Ans: once the entrance exams are entitled, one need to visit the centre for applying it through paper and fill all the necessary details through online. On the application form one should chose which course he/she wanted to pursue.", "How can I apply for the entrance exam? " },
+                    { 4, "Will there be any extra hidden charges? (Ans: Yes, you can use the lab sessions even after your class hours. There will be no charges during the course days (i.e., during the course period if you want to use the lab sessions after the class hours we do provide the lab session and the labs will be kept opened till 9 PM in the evening. But yes if you want to use the lab session after your course completion, then it will be charged based on the scenario (like 1000$ if opted at the time of registering and 1500$ if opted after the completion of the course)", "Can I use the Lab facilities after my class hours? " },
+                    { 6, "Ans: Yes there will be and it will be available on the application form", "Will there be any fees for the entrance exam? " },
                     { 2, "The various benefits that the student can gain by joining the institution is to be provided", "Why to join the institute? " },
-                    { 3, "Once in 6 months, and one need to check the website for knowing when is the entrance exam entitled, the fees for the entrance exam (admin will decide and displayed on the application form)", "When will be Entrance Examinations Conducted? " },
-                    { 1, "On this the admin should be able to enter or update the procedures for joining the course that the institute offers", "How to join the course?" },
-                    { 4, "Will there be any extra hidden charges? (Ans: Yes, you can use the lab sessions even after your class hours. There will be no charges during the course days (i.e., during the course period if you want to use the lab sessions after the class hours we do provide the lab session and the labs will be kept opened till 9 PM in the evening. But yes if you want to use the lab session after your course completion, then it will be charged based on the scenario (like 1000$ if opted at the time of registering and 1500$ if opted after the completion of the course)", "Can I use the Lab facilities after my class hours? " }
+                    { 1, "On this the admin should be able to enter or update the procedures for joining the course that the institute offers", "How to join the course?" }
                 });
+
+            migrationBuilder.InsertData(
+                table: "Questions",
+                columns: new[] { "Id", "Answer", "Title" },
+                values: new object[] { 3, "Once in 6 months, and one need to check the website for knowing when is the entrance exam entitled, the fees for the entrance exam (admin will decide and displayed on the application form)", "When will be Entrance Examinations Conducted? " });
 
             migrationBuilder.InsertData(
                 table: "ResultTests",
                 columns: new[] { "Id", "ClassName", "CourseName", "Dob", "Fee", "FirstName", "Gmail", "LastDayPayment", "LastName", "RollNumber", "SubFee" },
                 values: new object[,]
                 {
-                    { 17, "TM1909P", "Basic Python", new DateTime(1994, 10, 25, 0, 0, 0, 0, DateTimeKind.Unspecified), 6000m, "Vuong", "phamvuong@gmail.com", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Pham", "TH1908046", 0m },
-                    { 16, "TM1909P", "Basic Python", new DateTime(1992, 11, 13, 0, 0, 0, 0, DateTimeKind.Unspecified), 6000m, "Huy", "vuhuy@gmail.com", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Vu", "TH1909003", 1000m },
-                    { 15, "TM1909P", "Basic Python", new DateTime(1996, 10, 11, 0, 0, 0, 0, DateTimeKind.Unspecified), 6000m, "Thuan", "nguyenthuan@gmail.com", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Nguyen", "TH1909002", 1000m },
-                    { 14, "TM1909P", "Basic Python", new DateTime(1999, 12, 20, 0, 0, 0, 0, DateTimeKind.Unspecified), 6000m, "Hoa", "dohoa@gmail.com", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Do", "TH1909001", 1000m },
-                    { 13, "TM1909P", "Basic Python", new DateTime(1999, 10, 4, 0, 0, 0, 0, DateTimeKind.Unspecified), 6000m, "Phong", "nguyenphong@gmail.com", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Nguyen", "TH1908066", 1000m },
-                    { 12, "TM1909P", "Basic Python", new DateTime(1999, 8, 18, 0, 0, 0, 0, DateTimeKind.Unspecified), 6000m, "Cong", "dongcong@gmail.com", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Do", "TH1908062", 1000m },
-                    { 10, "TM1909P", "Basic Python", new DateTime(1999, 10, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), 6000m, "Anh", "nguyenanh@gmail.com", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Nguyen", "TH1908059", 0m }
-                });
-
-            migrationBuilder.InsertData(
-                table: "ResultTests",
-                columns: new[] { "Id", "ClassName", "CourseName", "Dob", "Fee", "FirstName", "Gmail", "LastDayPayment", "LastName", "RollNumber", "SubFee" },
-                values: new object[,]
-                {
-                    { 9, "TM1909M", "Basic Java", new DateTime(2002, 3, 13, 0, 0, 0, 0, DateTimeKind.Unspecified), 6000m, "Tung", "hatung@gmail.com", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Ha", "TH1908055", 0m },
-                    { 11, "TM1909P", "Basic Python", new DateTime(1999, 7, 12, 0, 0, 0, 0, DateTimeKind.Unspecified), 6000m, "Tu", "truongtu@gmail.com", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Truong", "TH1908060", 1000m },
-                    { 7, "TM1909M", "Basic Java", new DateTime(1999, 5, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), 6000m, "Duc", "nhuduc@gmail.com", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Nhu", "TH1908052", 1000m },
-                    { 6, "TM1909M", "Basic Java", new DateTime(2000, 1, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), 6000m, "Hung", "nonghung@gmail.com", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Nong", "TH1908050", 0m },
-                    { 5, "TM1909M", "Basic Java", new DateTime(1999, 2, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 6000m, "Tuan", "phantuan@gmail.com", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Pham", "TH1908045", 1000m },
-                    { 4, "TM1909M", "Basic Java", new DateTime(1999, 10, 4, 0, 0, 0, 0, DateTimeKind.Unspecified), 6000m, "Truong", "truongmai@gmail.com", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Mai", "TH1908039", 0m },
-                    { 3, "TM1909M", "Basic Java", new DateTime(1998, 1, 3, 0, 0, 0, 0, DateTimeKind.Unspecified), 6000m, "Ty", "nguyenty@gmail.com", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Nguyen", "TH1908029", 1000m },
-                    { 2, "TM1909M", "Basic Java", new DateTime(1998, 11, 2, 0, 0, 0, 0, DateTimeKind.Unspecified), 6000m, "Hieu", "hieu@gmail.com", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Nguyen", "TH1908028", 1000m },
-                    { 1, "TM1909M", "Basic Java", new DateTime(1999, 10, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 6000m, "Sang", "sang@gmail.com", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Nguyen", "TH1907027", 0m },
-                    { 8, "TM1909M", "Basic Java", new DateTime(2001, 4, 12, 0, 0, 0, 0, DateTimeKind.Unspecified), 6000m, "Tu", "phamtu@gmail.com", new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), "Pham", "TH1908054", 0m }
+                    { 17, "TM1909P", "Basic Python", new DateTime(1994, 10, 25, 0, 0, 0, 0, DateTimeKind.Unspecified), 6000m, "Vuong", "phamvuong@gmail.com", new DateTime(2021, 4, 21, 0, 0, 0, 0, DateTimeKind.Unspecified), "Pham", "TH1908046", 0m },
+                    { 16, "TM1909P", "Basic Python", new DateTime(1992, 11, 13, 0, 0, 0, 0, DateTimeKind.Unspecified), 6000m, "Huy", "vuhuy@gmail.com", new DateTime(2021, 4, 21, 0, 0, 0, 0, DateTimeKind.Unspecified), "Vu", "TH1909003", 1000m },
+                    { 15, "TM1909P", "Basic Python", new DateTime(1996, 10, 11, 0, 0, 0, 0, DateTimeKind.Unspecified), 6000m, "Thuan", "nguyenthuan@gmail.com", new DateTime(2021, 4, 21, 0, 0, 0, 0, DateTimeKind.Unspecified), "Nguyen", "TH1909002", 1000m },
+                    { 14, "TM1909P", "Basic Python", new DateTime(1999, 12, 20, 0, 0, 0, 0, DateTimeKind.Unspecified), 6000m, "Hoa", "dohoa@gmail.com", new DateTime(2021, 4, 21, 0, 0, 0, 0, DateTimeKind.Unspecified), "Do", "TH1909001", 1000m },
+                    { 13, "TM1909P", "Basic Python", new DateTime(1999, 10, 4, 0, 0, 0, 0, DateTimeKind.Unspecified), 6000m, "Phong", "nguyenphong@gmail.com", new DateTime(2021, 4, 21, 0, 0, 0, 0, DateTimeKind.Unspecified), "Nguyen", "TH1908066", 1000m },
+                    { 12, "TM1909P", "Basic Python", new DateTime(1999, 8, 18, 0, 0, 0, 0, DateTimeKind.Unspecified), 6000m, "Cong", "dongcong@gmail.com", new DateTime(2021, 4, 21, 0, 0, 0, 0, DateTimeKind.Unspecified), "Do", "TH1908062", 1000m },
+                    { 11, "TM1909P", "Basic Python", new DateTime(1999, 7, 12, 0, 0, 0, 0, DateTimeKind.Unspecified), 6000m, "Tu", "truongtu@gmail.com", new DateTime(2021, 4, 21, 0, 0, 0, 0, DateTimeKind.Unspecified), "Truong", "TH1908060", 1000m },
+                    { 10, "TM1909P", "Basic Python", new DateTime(1999, 10, 6, 0, 0, 0, 0, DateTimeKind.Unspecified), 6000m, "Anh", "nguyenanh@gmail.com", new DateTime(2021, 4, 21, 0, 0, 0, 0, DateTimeKind.Unspecified), "Nguyen", "TH1908059", 0m },
+                    { 7, "TM1909M", "Basic Java", new DateTime(1999, 5, 10, 0, 0, 0, 0, DateTimeKind.Unspecified), 6000m, "Duc", "nhuduc@gmail.com", new DateTime(2021, 4, 21, 0, 0, 0, 0, DateTimeKind.Unspecified), "Nhu", "TH1908052", 1000m },
+                    { 8, "TM1909M", "Basic Java", new DateTime(2001, 4, 12, 0, 0, 0, 0, DateTimeKind.Unspecified), 6000m, "Tu", "phamtu@gmail.com", new DateTime(2021, 4, 21, 0, 0, 0, 0, DateTimeKind.Unspecified), "Pham", "TH1908054", 0m },
+                    { 6, "TM1909M", "Basic Java", new DateTime(2000, 1, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), 6000m, "Hung", "nonghung@gmail.com", new DateTime(2021, 4, 21, 0, 0, 0, 0, DateTimeKind.Unspecified), "Nong", "TH1908050", 0m },
+                    { 5, "TM1909M", "Basic Java", new DateTime(1999, 2, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 6000m, "Tuan", "phantuan@gmail.com", new DateTime(2021, 4, 21, 0, 0, 0, 0, DateTimeKind.Unspecified), "Pham", "TH1908045", 1000m },
+                    { 4, "TM1909M", "Basic Java", new DateTime(1999, 10, 4, 0, 0, 0, 0, DateTimeKind.Unspecified), 6000m, "Truong", "truongmai@gmail.com", new DateTime(2021, 4, 21, 0, 0, 0, 0, DateTimeKind.Unspecified), "Mai", "TH1908039", 0m },
+                    { 3, "TM1909M", "Basic Java", new DateTime(1998, 1, 3, 0, 0, 0, 0, DateTimeKind.Unspecified), 6000m, "Ty", "nguyenty@gmail.com", new DateTime(2021, 4, 21, 0, 0, 0, 0, DateTimeKind.Unspecified), "Nguyen", "TH1908029", 1000m },
+                    { 2, "TM1909M", "Basic Java", new DateTime(1998, 11, 2, 0, 0, 0, 0, DateTimeKind.Unspecified), 6000m, "Hieu", "hieu@gmail.com", new DateTime(2021, 4, 21, 0, 0, 0, 0, DateTimeKind.Unspecified), "Nguyen", "TH1908028", 1000m },
+                    { 1, "TM1909M", "Basic Java", new DateTime(1999, 10, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 6000m, "Sang", "sang@gmail.com", new DateTime(2021, 4, 21, 0, 0, 0, 0, DateTimeKind.Unspecified), "Nguyen", "TH1907027", 0m },
+                    { 9, "TM1909M", "Basic Java", new DateTime(2002, 3, 13, 0, 0, 0, 0, DateTimeKind.Unspecified), 6000m, "Tung", "hatung@gmail.com", new DateTime(2021, 4, 21, 0, 0, 0, 0, DateTimeKind.Unspecified), "Ha", "TH1908055", 0m }
                 });
 
             migrationBuilder.InsertData(
@@ -598,6 +626,9 @@ namespace SymphonyWebApp.Migrations
 
             migrationBuilder.DropTable(
                 name: "ClassStudyCourse");
+
+            migrationBuilder.DropTable(
+                name: "Examinations");
 
             migrationBuilder.DropTable(
                 name: "Posts");

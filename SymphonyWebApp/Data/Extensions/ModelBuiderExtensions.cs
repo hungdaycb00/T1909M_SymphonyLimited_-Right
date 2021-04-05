@@ -267,6 +267,17 @@ namespace SymphonyWebApp.Data.Extensions
                 new ResultTest() { Id = 16, RollNumber = "TH1909003", ClassName = "TM1909P", CourseName = "Basic Python", LastName = "Vu", FirstName = "Huy", Gmail = "vuhuy@gmail.com", Dob = new DateTime(1992, 11, 13), Fee = 6000, SubFee = 1000, LastDayPayment = new DateTime(2021, 4, 21) },
                 new ResultTest() { Id = 17, RollNumber = "TH1908046", ClassName = "TM1909P", CourseName = "Basic Python", LastName = "Pham", FirstName = "Vuong", Gmail = "phamvuong@gmail.com", Dob = new DateTime(1994, 10, 25), Fee = 6000, SubFee = 0, LastDayPayment = new DateTime(2021, 4, 21) }
                 );
+
+            modelBuilder.Entity<Examination>().HasData(
+                new Examination() { Id = 1, CourseId = "Java", Fee = 0, TestDay = new DateTime(2021, 5, 20), Note = "" },
+                new Examination() { Id = 2, CourseId = "Python", Fee = 0, TestDay = new DateTime(2021, 5, 20), Note = "" },
+                new Examination() { Id = 3, CourseId = "SQL", Fee = 0, TestDay = new DateTime(2021, 5, 20), Note = "" },
+                new Examination() { Id = 4, CourseId = "JavaScript", Fee = 0, TestDay = new DateTime(2021, 5, 20), Note = "" },
+                new Examination() { Id = 5, CourseId = "Java", Fee = 0, TestDay = new DateTime(2021, 6, 20), Note = "" },
+                new Examination() { Id = 6, CourseId = "Java", Fee = 0, TestDay = new DateTime(2021, 8, 20), Note = "" },
+                new Examination() { Id = 7, CourseId = "JavaScript", Fee = 0, TestDay = new DateTime(2021, 6, 20), Note = "" },
+                new Examination() { Id = 8, CourseId = "Python", Fee = 0, TestDay = new DateTime(2021, 6, 20), Note = "" }
+                );
         }
     }
 }

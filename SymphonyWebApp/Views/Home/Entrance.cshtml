@@ -1,7 +1,8 @@
-﻿@{
+﻿@model IEnumerable<SymphonyWebApp.Data.Entities.Examination>
+
+@{
     Layout = "_PageLayout";
 }
-
 
 <section class="hero-wrap hero-wrap-2" style="background-image: url('/images/bg_2.jpg');">
     <div class="overlay"></div>
@@ -34,7 +35,7 @@
                                 <span class="subheading">Enhanced Your Skills</span>
                                 <h2 class="mb-4">Entrance Examination</h2>
                                 <p>
-                                    Next entrance exam we want to enroll in network related, Java related, database related courses like SQL server
+                                    Next entrance exam we want to enroll in Python,JavaScript, Java related, database related courses like SQL server
                                 </p>
                             </div>
                         </div>
@@ -45,66 +46,67 @@
     </div>
 </section>
 
-<section class="container">
-    <table class="table">
-        <thead class="thead-dark">
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>mdo</td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>fat</td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>twitter</td>
-            </tr>
-        </tbody>
-    </table>
+<div class="container">
+    <div class="row">
 
-    <table class="table">
-        <thead class="thead-light">
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">First</th>
-                <th scope="col">Last</th>
-                <th scope="col">Handle</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>mdo</td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>fat</td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>twitter</td>
-            </tr>
-        </tbody>
-    </table>
-</section>
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th>
+                        Number
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.CourseId)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.TestDay)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Fee)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Note)
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    int stt = 0;
+                    if (Model.Count() < 0)
+                    {
+                        <tr>
+                            <td colspan="11">
+                                No data
+                            </td>
+                        </tr>
+                    }
+                    else
+                    {
+                        foreach (var item in Model)
+                        {
+
+                            <tr>
+                                <td>
+                                    @if (item != null) { stt += 1; }
+                                    @stt
+                                </td>
+                                <td>
+                                    @item.CourseId
+                                </td>
+                                <td>
+                                    @item.TestDay.ToString("dd/MM/yyyy")
+                                </td>
+                                <td>
+                                    @item.Fee
+                                </td>
+                                <td>
+                                    @item.Note
+                                </td>
+                            </tr>
+                        }
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

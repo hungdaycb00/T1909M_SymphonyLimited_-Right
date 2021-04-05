@@ -65,9 +65,9 @@ namespace SymphonyWebApp.Controllers
             return View(await _context.Questions.ToListAsync());
         }
 
-        public IActionResult Entrance()
+        public async Task<IActionResult> Entrance()
         {
-            return View();
+            return View(await _context.Examinations.ToListAsync());
         }
 
         public IActionResult Contact()

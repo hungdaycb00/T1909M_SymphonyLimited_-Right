@@ -27,9 +27,12 @@ namespace SymphonyWebApp.Data
             modelBuilder.ApplyConfiguration(new CentreConfiguration());
             modelBuilder.ApplyConfiguration(new PostConfiguration());
             modelBuilder.ApplyConfiguration(new ResultTestConfiguration());
+            modelBuilder.ApplyConfiguration(new ExaminationConfiguration());
+
             modelBuilder.Seed();
             base.OnModelCreating(modelBuilder);
         }
+
         public DbSet<ResultTest> ResultTests { get; set; }
         public DbSet<Centre> Centres { get; set; }
         public DbSet<ClassStudy> ClassStudies { get; set; }
@@ -40,5 +43,6 @@ namespace SymphonyWebApp.Data
         public DbSet<Student> Students { get; set; }
         public DbSet<Post> Posts { get; set; }
         public DbSet<Teacher> Teacher { get; set; }
+        public DbSet<Examination> Examinations { get; set; }
     }
 }
