@@ -5,10 +5,10 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h1>List centres</h1>
+<h1> Central list</h1>
 
 <p>
-    <a asp-action="Create"class="btn btn-primary" >Create New</a>
+    <a asp-action="Create" class="btn btn-primary">Create New</a>
 </p>
 <div class="col-md-6 col-sm-12 mb-4">
     <form asp-action="Index" method="get">
@@ -60,9 +60,9 @@
                             @Html.DisplayFor(modelItem => item.Address)
                         </td>
                         <td style="min-width:240px;">
-                            <a asp-action="Edit" asp-route-id="@item.Id"class="btn btn-warning">Edit</a> 
-                            <a asp-action="Details" asp-route-id="@item.Id"class="btn btn-info">Details</a> 
-                            <a asp-action="Delete" asp-route-id="@item.Id"class="btn btn-danger">Delete</a>
+                            <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning">Edit</a>
+                            <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info">Details</a>
+                            <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
                         </td>
                     </tr>
                 }

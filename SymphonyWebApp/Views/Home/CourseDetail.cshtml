@@ -4,7 +4,6 @@
     ViewData["Title"] = "CourseDetail";
 }
 
-
 <section class="hero-wrap hero-wrap-2" style="background-image: url('/images/bg_2.jpg');">
     <div class="overlay"></div>
     <div class="container">
@@ -45,13 +44,16 @@
                             </div>
                         </div>
                     </div>
-   
+
                     <div class="col-md-12 col-lg-8 d-flex align-self-stretch ftco-animate">
                         <div class="services">
                             <div class="icon icon-4 d-flex align-items-center justify-content-center"><span class="flaticon-browser"></span></div>
                             <div class="media-body">
                                 <h3 class="heading mb-3">What you'll learn</h3>
                                 <p>@Html.DisplayFor(model => model.Description)</p>
+                                <div class="mt-3">
+                                    <a class="btn btn-outline-success">Enroll</a>
+                                </div>
                             </div>
                         </div>
                     </div>
