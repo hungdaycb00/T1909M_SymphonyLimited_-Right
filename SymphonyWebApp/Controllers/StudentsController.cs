@@ -59,6 +59,8 @@ namespace SymphonyWebApp.Controllers
         {
             ViewData["ClassId"] = new SelectList(_context.ClassStudies, "Id", "ClassId");
             ViewData["CourseId"] = new SelectList(_context.Courses, "Id", "CourseId");
+            ViewData["idStudent"] = _context.Students.Count() + 1;
+
             return View();
         }
 
@@ -75,8 +77,11 @@ namespace SymphonyWebApp.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["idStudent"] = _context.Students.Count() + 1;
+
             ViewData["ClassId"] = new SelectList(_context.ClassStudies, "Id", "ClassId", student.ClassId);
             ViewData["CourseId"] = new SelectList(_context.Courses, "Id", "CourseId", student.CourseId);
+
             return View(student);
         }
 
@@ -132,6 +137,7 @@ namespace SymphonyWebApp.Controllers
             }
             ViewData["ClassId"] = new SelectList(_context.ClassStudies, "Id", "ClassId", student.ClassId);
             ViewData["CourseId"] = new SelectList(_context.Courses, "Id", "CourseId", student.CourseId);
+
             return View(student);
         }
 
