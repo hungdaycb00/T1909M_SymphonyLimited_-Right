@@ -88,9 +88,9 @@ namespace SymphonyWebApp.Controllers
             return View(await _context.Examinations.ToListAsync());
         }
 
-        public IActionResult Contact()
+        public async Task<IActionResult> Contact()
         {
-            return View();
+            return View(await _context.Centres.ToListAsync());
         }
 
         public async Task<IActionResult> Instructor()
@@ -109,10 +109,6 @@ namespace SymphonyWebApp.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
-        {
-            return View();
-        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

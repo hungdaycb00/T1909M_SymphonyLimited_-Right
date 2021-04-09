@@ -12,7 +12,6 @@ using Microsoft.Extensions.Hosting;
 using SymphonyWebApp.Data;
 using SymphonyWebApp.Data.Common;
 using SymphonyWebApp.Data.Entities;
-using SymphonyWebApp.Models.Mail;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -44,10 +43,6 @@ namespace SymphonyWebApp
 
             services.AddTransient<IValidator<ClassStudy>, ClassStudyValidator>();
             services.AddTransient<IStorageService, FileStorageService>();
-            services.AddTransient<IMessageService, MessageService>();
-            services.AddOptions();                                         // Kích hoạt Options
-            var mailsettings = Configuration.GetSection("MailSettings");  // đọc config
-            services.Configure<MailSettings>(mailsettings);                // đăng ký để Inject
 
             IMvcBuilder builder = services.AddRazorPages();
             var environment = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");

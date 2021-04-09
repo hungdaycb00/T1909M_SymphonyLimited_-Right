@@ -42,12 +42,16 @@ namespace SymphonyWebApp.Controllers
                 return NotFound();
             }
 
-            var classStudy = await _context.ClassStudies
-                .FirstOrDefaultAsync(m => m.Id == id);
+            //var classStudy = await _context.ClassStudies
+            //    .FirstOrDefaultAsync(m => m.Id == id);
+
+
+            var classStudy = await _context.ClassStudies.Include(s => s.Students).Where(x => x.Id == id).ToListAsync();
             if (classStudy == null)
             {
                 return NotFound();
             }
+            TempData["classId"] = id;
 
             return View(classStudy);
         }
