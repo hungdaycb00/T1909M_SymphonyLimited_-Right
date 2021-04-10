@@ -249,6 +249,33 @@ namespace SymphonyWebApp.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Centres");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Address = "Phu Xuyen-Ha Noi"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Address = "5 Nguyen Van Loc- Ha Dong- Ha Noi"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Address = "56-Van Phu-Ha Dong"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Address = "119 Thanh Xuan-Ha Dong "
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Address = "5 Pham Hung- My Dinh-Ha Noi"
+                        });
                 });
 
             modelBuilder.Entity("SymphonyWebApp.Data.Entities.ClassStudy", b =>
@@ -280,6 +307,56 @@ namespace SymphonyWebApp.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("ClassStudies");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            ClassId = "CT207",
+                            EndTime = new DateTime(2021, 7, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "Basic Java",
+                            StartTime = new DateTime(2021, 1, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 2,
+                            ClassId = "CT208",
+                            EndTime = new DateTime(2021, 8, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "Basic Python",
+                            StartTime = new DateTime(2021, 2, 11, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 3,
+                            ClassId = "CT209",
+                            EndTime = new DateTime(2021, 10, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "Basic SQL",
+                            StartTime = new DateTime(2021, 4, 5, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 4,
+                            ClassId = "CT210",
+                            EndTime = new DateTime(2021, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "Basic JavaScript ",
+                            StartTime = new DateTime(2021, 4, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 5,
+                            ClassId = "CT211",
+                            EndTime = new DateTime(2021, 5, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "Advance JavaScript",
+                            StartTime = new DateTime(2021, 1, 15, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 6,
+                            ClassId = "CT212",
+                            EndTime = new DateTime(2021, 9, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "Advance Python",
+                            StartTime = new DateTime(2021, 5, 4, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        });
                 });
 
             modelBuilder.Entity("SymphonyWebApp.Data.Entities.Course", b =>
@@ -301,11 +378,17 @@ namespace SymphonyWebApp.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<decimal>("Fee")
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<int>("TrainingTime")
                         .HasColumnType("int");
+
+                    b.Property<string>("UrlImage")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("level")
                         .HasColumnType("int");
@@ -320,18 +403,77 @@ namespace SymphonyWebApp.Migrations
                             Id = 1,
                             CourseId = "Java",
                             CourseName = "Basic Java",
+                            Description = "How to write Java Programs from scratch and have loads of fun in the processGain enough experience to pass a core Java Programming interview and perform well on the job,Go from zero to hero in writing industry ready Java programs",
                             Fee = 6000m,
                             TrainingTime = 6,
+                            UrlImage = "java.jpg",
                             level = 0
+                        },
+                        new
+                        {
+                            Id = 6,
+                            CourseId = "Java",
+                            CourseName = "Advance Java",
+                            Description = "How to navigate and use the NetBeans IDE to create Java projects, packages and programs.How to declare and use Java Datatypes & Identifiers, work with Java Operators,  work with Java Decision Making Constructs.How to work with Java repetition/Looping Constructs, declare and use Java Arrays, as well as work with the Java Exception Handling mechanism.",
+                            Fee = 4275m,
+                            TrainingTime = 4,
+                            UrlImage = "javaAd.jpg",
+                            level = 1
                         },
                         new
                         {
                             Id = 2,
                             CourseId = "Python",
                             CourseName = "Basic Python",
+                            Description = "Install Python and write your first program.Describe the basics of the Python programming language.Use variables to store, retrieve and calculate information.Utilize core programming tools such as functions and loops",
                             Fee = 6000m,
                             TrainingTime = 6,
+                            UrlImage = "python.jpg",
                             level = 0
+                        },
+                        new
+                        {
+                            Id = 7,
+                            CourseId = "Python",
+                            CourseName = "Advance Python",
+                            Description = "How gradient descent and stochastic gradient descent algorithms work.How to apply gradient descent and stochastic gradient descent to minimize the loss function in machine learning.What the learning rate is, why it’s important, and how it impacts results",
+                            Fee = 4275m,
+                            TrainingTime = 4,
+                            UrlImage = "pythonAd.jpg",
+                            level = 1
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CourseId = "SQL",
+                            CourseName = "Basic SQL",
+                            Description = "U​se SQL commands to filter, sort, & summarize data; manipulate strings, dates, & numerical data from different sources for analysis.U​se the collaborative Databricks workspace and create an end-to-end pipeline that reads data, transforms it, and saves the result.A​ssess and create datasets to solve your business questions and problems using SQL.Develop a project proposal & select your data, perform statistical analysis & develop metrics, and p​resent your findings & make recommendations",
+                            Fee = 6000m,
+                            TrainingTime = 6,
+                            UrlImage = "sql.jpg",
+                            level = 0
+                        },
+                        new
+                        {
+                            Id = 4,
+                            CourseId = "JavaScript",
+                            CourseName = "Basic JavaScript",
+                            Description = "You will learn programming fundamentals and basic object-oriented concepts using the latest JavaScript syntax. The concepts covered in these lessons lay the foundation for using JavaScript in any environment.",
+                            Fee = 6000m,
+                            TrainingTime = 6,
+                            UrlImage = "javascript.jpg",
+                            level = 0
+                        },
+                        new
+                        {
+                            Id = 5,
+                            CourseId = "JavaScript",
+                            CourseName = "Advance JavaScript",
+                            Description = "Advanced JavaScript Practices.Functional Programming.Inheritance + Prototype Chain.JavaScript Modules.Object Oriented Programming.Scope and Execution Context.Latest features: ES6, ES7, ES8, ES9, ES10, ES2020.Asynchronous JavaScript + Event Loop.JavaScript Engine and Runtime.Composition vs Inheritance.Pass By Reference vs Pass by Value",
+                            Fee = 4275m,
+                            TrainingTime = 4,
+                            UrlImage = "javascriptAd.jpg",
+                            level = 1
                         });
                 });
 
@@ -349,6 +491,11 @@ namespace SymphonyWebApp.Migrations
                         .HasMaxLength(200)
                         .HasColumnType("nvarchar(200)");
 
+                    b.Property<DateTime?>("CreatingDate")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValue(new DateTime(2021, 4, 10, 22, 50, 3, 850, DateTimeKind.Local).AddTicks(5404));
+
                     b.Property<string>("Gmail")
                         .IsRequired()
                         .HasMaxLength(50)
@@ -362,9 +509,246 @@ namespace SymphonyWebApp.Migrations
                         .HasMaxLength(12)
                         .HasColumnType("nvarchar(12)");
 
+                    b.Property<int?>("TestRoomId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("customerStatus")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasDefaultValue(1);
+
                     b.HasKey("Id");
 
+                    b.HasIndex("TestRoomId");
+
                     b.ToTable("Customers");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Contents = "What is the school's facilities and teaching quality like?",
+                            CreatingDate = new DateTime(2021, 4, 10, 22, 50, 3, 870, DateTimeKind.Local).AddTicks(9022),
+                            Gmail = "tuyettranlc4@gmail.com",
+                            Name = "Tran Thi Tuyet",
+                            PhoneNumber = "0395761476",
+                            customerStatus = 1
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Contents = "What will I get during my studies? ",
+                            CreatingDate = new DateTime(2021, 4, 10, 22, 50, 3, 871, DateTimeKind.Local).AddTicks(1080),
+                            Gmail = "ngocdra@gmail.com",
+                            Name = "Nguyen Van Ngoc",
+                            PhoneNumber = "0956137845",
+                            customerStatus = 1
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Contents = "Can I take other experiential sessions outside the main school hours?",
+                            CreatingDate = new DateTime(2021, 4, 10, 22, 50, 3, 871, DateTimeKind.Local).AddTicks(1090),
+                            Gmail = "namot@gmail.com",
+                            Name = "Nguyen Hoai Nam",
+                            PhoneNumber = "0986176340",
+                            customerStatus = 1
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Contents = "Can I make a reservation if I miss a midterm?",
+                            CreatingDate = new DateTime(2021, 4, 10, 22, 50, 3, 871, DateTimeKind.Local).AddTicks(1093),
+                            Gmail = "maioklc@gmail.com",
+                            Name = "Pham Tuyet Mai",
+                            PhoneNumber = "0296753186",
+                            customerStatus = 1
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Contents = "Can I leave the course for the next semester too?",
+                            CreatingDate = new DateTime(2021, 4, 10, 22, 50, 3, 871, DateTimeKind.Local).AddTicks(1095),
+                            Gmail = "thobeo8@gmail.com",
+                            Name = "Le Quang Tho",
+                            PhoneNumber = "0364781029",
+                            customerStatus = 1
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Contents = "What is the school's facilities and teaching quality like?",
+                            CreatingDate = new DateTime(2021, 4, 10, 22, 50, 3, 871, DateTimeKind.Local).AddTicks(1096),
+                            Gmail = "tuyettanl@gmail.com",
+                            Name = "Tran Thi Tan",
+                            PhoneNumber = "0395761111",
+                            customerStatus = 1
+                        },
+                        new
+                        {
+                            Id = 7,
+                            Contents = "What will I get during my studies? ",
+                            CreatingDate = new DateTime(2021, 4, 10, 22, 50, 3, 871, DateTimeKind.Local).AddTicks(1099),
+                            Gmail = "thaidra@gmail.com",
+                            Name = "Nguyen Van Thai",
+                            PhoneNumber = "0956137222",
+                            customerStatus = 1
+                        },
+                        new
+                        {
+                            Id = 8,
+                            Contents = "Can I take other experiential sessions outside the main school hours?",
+                            CreatingDate = new DateTime(2021, 4, 10, 22, 50, 3, 871, DateTimeKind.Local).AddTicks(1101),
+                            Gmail = "Vanot@gmail.com",
+                            Name = "Nguyen Hoai Van",
+                            PhoneNumber = "0986176333",
+                            customerStatus = 1
+                        },
+                        new
+                        {
+                            Id = 9,
+                            Contents = "Can I make a reservation if I miss a midterm?",
+                            CreatingDate = new DateTime(2021, 4, 10, 22, 50, 3, 871, DateTimeKind.Local).AddTicks(1106),
+                            Gmail = "thoklc@gmail.com",
+                            Name = "Pham Tuyet Tho",
+                            PhoneNumber = "0296753144",
+                            customerStatus = 1
+                        },
+                        new
+                        {
+                            Id = 10,
+                            Contents = "Can I leave the course for the next semester too?",
+                            CreatingDate = new DateTime(2021, 4, 10, 22, 50, 3, 871, DateTimeKind.Local).AddTicks(1108),
+                            Gmail = "haibeo8@gmail.com",
+                            Name = "Le Quang Hai",
+                            PhoneNumber = "0364781055",
+                            customerStatus = 1
+                        });
+                });
+
+            modelBuilder.Entity("SymphonyWebApp.Data.Entities.Examination", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:IdentityIncrement", 1)
+                        .HasAnnotation("SqlServer:IdentitySeed", 1)
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("CourseId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("Fee")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("Note")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("TestDay")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Examinations");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CourseId = "Java",
+                            Fee = 0m,
+                            Note = "",
+                            TestDay = new DateTime(2021, 5, 20, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CourseId = "Python",
+                            Fee = 0m,
+                            Note = "",
+                            TestDay = new DateTime(2021, 5, 20, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CourseId = "SQL",
+                            Fee = 0m,
+                            Note = "",
+                            TestDay = new DateTime(2021, 5, 20, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 4,
+                            CourseId = "JavaScript",
+                            Fee = 0m,
+                            Note = "",
+                            TestDay = new DateTime(2021, 5, 20, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 5,
+                            CourseId = "Java",
+                            Fee = 0m,
+                            Note = "",
+                            TestDay = new DateTime(2021, 6, 20, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 6,
+                            CourseId = "Java",
+                            Fee = 0m,
+                            Note = "",
+                            TestDay = new DateTime(2021, 8, 20, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 7,
+                            CourseId = "JavaScript",
+                            Fee = 0m,
+                            Note = "",
+                            TestDay = new DateTime(2021, 6, 20, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        },
+                        new
+                        {
+                            Id = 8,
+                            CourseId = "Python",
+                            Fee = 0m,
+                            Note = "",
+                            TestDay = new DateTime(2021, 6, 20, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                        });
+                });
+
+            modelBuilder.Entity("SymphonyWebApp.Data.Entities.Post", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:IdentityIncrement", 1)
+                        .HasAnnotation("SqlServer:IdentitySeed", 1)
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Author")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreateDate")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValue(new DateTime(2021, 4, 10, 0, 0, 0, 0, DateTimeKind.Local));
+
+                    b.Property<string>("Title")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UrlImage")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("content")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Posts");
                 });
 
             modelBuilder.Entity("SymphonyWebApp.Data.Entities.Question", b =>
@@ -376,8 +760,7 @@ namespace SymphonyWebApp.Migrations
 
                     b.Property<string>("Answer")
                         .IsRequired()
-                        .HasMaxLength(300)
-                        .HasColumnType("nvarchar(300)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Title")
                         .IsRequired()
@@ -387,6 +770,50 @@ namespace SymphonyWebApp.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Questions");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Answer = "On this the admin should be able to enter or update the procedures for joining the course that the institute offers",
+                            Title = "How to join the course?"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Answer = "The various benefits that the student can gain by joining the institution is to be provided",
+                            Title = "Why to join the institute? "
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Answer = "Once in 6 months, and one need to check the website for knowing when is the entrance exam entitled, the fees for the entrance exam (admin will decide and displayed on the application form)",
+                            Title = "When will be Entrance Examinations Conducted? "
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Answer = "Will there be any extra hidden charges? (Ans: Yes, you can use the lab sessions even after your class hours. There will be no charges during the course days (i.e., during the course period if you want to use the lab sessions after the class hours we do provide the lab session and the labs will be kept opened till 9 PM in the evening. But yes if you want to use the lab session after your course completion, then it will be charged based on the scenario (like 1000$ if opted at the time of registering and 1500$ if opted after the completion of the course)",
+                            Title = "Can I use the Lab facilities after my class hours? "
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Answer = "Ans: once the entrance exams are entitled, one need to visit the centre for applying it through paper and fill all the necessary details through online. On the application form one should chose which course he/she wanted to pursue.",
+                            Title = "How can I apply for the entrance exam? "
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Answer = "Ans: Yes there will be and it will be available on the application form",
+                            Title = "Will there be any fees for the entrance exam? "
+                        },
+                        new
+                        {
+                            Id = 7,
+                            Answer = "Ans: payment can be done through draft, or through cheque or through cash. For making the payment through cash, one needs to come to one of the centre of the institute, and make the payment there itself. Once the payment is done (through cash or through DD), the student will be provided with the receipt with a receipt number. This receipt number is to be inputted in the application form. For the payments done through cheque and DD, one need to enter the DD number and the cheque number, bank details, etc. are to be entered on the application form and the cheque is to be pinned to the application form. Only once the payment is received the student’s application will be accepted. Once the application is accepted, the student is mailed with the acknowledgement form along with the details of the examination, subject chosen, date and time of exam, and the roll number",
+                            Title = "How to make the payment? "
+                        });
                 });
 
             modelBuilder.Entity("SymphonyWebApp.Data.Entities.RegistrationTest", b =>
@@ -414,6 +841,373 @@ namespace SymphonyWebApp.Migrations
                         .IsUnique();
 
                     b.ToTable("RegistrationTests");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CourseName = "Basic Java",
+                            CustomerId = 1,
+                            RegistrationFee = 100m
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CourseName = "Advance Python",
+                            CustomerId = 2,
+                            RegistrationFee = 100m
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CourseName = "Basic SQL",
+                            CustomerId = 3,
+                            RegistrationFee = 100m
+                        },
+                        new
+                        {
+                            Id = 4,
+                            CourseName = "Advance JavaScript",
+                            CustomerId = 4,
+                            RegistrationFee = 100m
+                        },
+                        new
+                        {
+                            Id = 5,
+                            CourseName = "Basic Network Security",
+                            CustomerId = 5,
+                            RegistrationFee = 100m
+                        },
+                        new
+                        {
+                            Id = 6,
+                            CourseName = "Basic Java",
+                            CustomerId = 6,
+                            RegistrationFee = 100m
+                        },
+                        new
+                        {
+                            Id = 7,
+                            CourseName = "Advance Python",
+                            CustomerId = 7,
+                            RegistrationFee = 100m
+                        },
+                        new
+                        {
+                            Id = 8,
+                            CourseName = "Basic SQL",
+                            CustomerId = 8,
+                            RegistrationFee = 100m
+                        },
+                        new
+                        {
+                            Id = 9,
+                            CourseName = "Advance JavaScript",
+                            CustomerId = 9,
+                            RegistrationFee = 100m
+                        },
+                        new
+                        {
+                            Id = 10,
+                            CourseName = "Basic Network Security",
+                            CustomerId = 10,
+                            RegistrationFee = 100m
+                        });
+                });
+
+            modelBuilder.Entity("SymphonyWebApp.Data.Entities.ResultTest", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:IdentityIncrement", 1)
+                        .HasAnnotation("SqlServer:IdentitySeed", 1)
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("ClassName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CourseName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("Dob")
+                        .HasColumnType("datetime2");
+
+                    b.Property<decimal>("Fee")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("FirstName")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("Gmail")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<DateTime>("LastDayPayment")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("LastName")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("RollNumber")
+                        .IsRequired()
+                        .HasMaxLength(10)
+                        .IsUnicode(false)
+                        .HasColumnType("varchar(10)");
+
+                    b.Property<decimal>("SubFee")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ResultTests");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            ClassName = "TM1909M",
+                            CourseName = "Basic Java",
+                            Dob = new DateTime(1999, 10, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Fee = 6000m,
+                            FirstName = "Sang",
+                            Gmail = "sang@gmail.com",
+                            LastDayPayment = new DateTime(2021, 4, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LastName = "Nguyen",
+                            RollNumber = "TH1907027",
+                            SubFee = 0m
+                        },
+                        new
+                        {
+                            Id = 2,
+                            ClassName = "TM1909M",
+                            CourseName = "Basic Java",
+                            Dob = new DateTime(1998, 11, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Fee = 6000m,
+                            FirstName = "Hieu",
+                            Gmail = "hieu@gmail.com",
+                            LastDayPayment = new DateTime(2021, 4, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LastName = "Nguyen",
+                            RollNumber = "TH1908028",
+                            SubFee = 1000m
+                        },
+                        new
+                        {
+                            Id = 3,
+                            ClassName = "TM1909M",
+                            CourseName = "Basic Java",
+                            Dob = new DateTime(1998, 1, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Fee = 6000m,
+                            FirstName = "Ty",
+                            Gmail = "nguyenty@gmail.com",
+                            LastDayPayment = new DateTime(2021, 4, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LastName = "Nguyen",
+                            RollNumber = "TH1908029",
+                            SubFee = 1000m
+                        },
+                        new
+                        {
+                            Id = 4,
+                            ClassName = "TM1909M",
+                            CourseName = "Basic Java",
+                            Dob = new DateTime(1999, 10, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Fee = 6000m,
+                            FirstName = "Truong",
+                            Gmail = "truongmai@gmail.com",
+                            LastDayPayment = new DateTime(2021, 4, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LastName = "Mai",
+                            RollNumber = "TH1908039",
+                            SubFee = 0m
+                        },
+                        new
+                        {
+                            Id = 5,
+                            ClassName = "TM1909M",
+                            CourseName = "Basic Java",
+                            Dob = new DateTime(1999, 2, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Fee = 6000m,
+                            FirstName = "Tuan",
+                            Gmail = "phantuan@gmail.com",
+                            LastDayPayment = new DateTime(2021, 4, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LastName = "Pham",
+                            RollNumber = "TH1908045",
+                            SubFee = 1000m
+                        },
+                        new
+                        {
+                            Id = 6,
+                            ClassName = "TM1909M",
+                            CourseName = "Basic Java",
+                            Dob = new DateTime(2000, 1, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Fee = 6000m,
+                            FirstName = "Hung",
+                            Gmail = "nonghung@gmail.com",
+                            LastDayPayment = new DateTime(2021, 4, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LastName = "Nong",
+                            RollNumber = "TH1908050",
+                            SubFee = 0m
+                        },
+                        new
+                        {
+                            Id = 7,
+                            ClassName = "TM1909M",
+                            CourseName = "Basic Java",
+                            Dob = new DateTime(1999, 5, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Fee = 6000m,
+                            FirstName = "Duc",
+                            Gmail = "nhuduc@gmail.com",
+                            LastDayPayment = new DateTime(2021, 4, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LastName = "Nhu",
+                            RollNumber = "TH1908052",
+                            SubFee = 1000m
+                        },
+                        new
+                        {
+                            Id = 8,
+                            ClassName = "TM1909M",
+                            CourseName = "Basic Java",
+                            Dob = new DateTime(2001, 4, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Fee = 6000m,
+                            FirstName = "Tu",
+                            Gmail = "phamtu@gmail.com",
+                            LastDayPayment = new DateTime(2021, 4, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LastName = "Pham",
+                            RollNumber = "TH1908054",
+                            SubFee = 0m
+                        },
+                        new
+                        {
+                            Id = 9,
+                            ClassName = "TM1909M",
+                            CourseName = "Basic Java",
+                            Dob = new DateTime(2002, 3, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Fee = 6000m,
+                            FirstName = "Tung",
+                            Gmail = "hatung@gmail.com",
+                            LastDayPayment = new DateTime(2021, 4, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LastName = "Ha",
+                            RollNumber = "TH1908055",
+                            SubFee = 0m
+                        },
+                        new
+                        {
+                            Id = 10,
+                            ClassName = "TM1909P",
+                            CourseName = "Basic Python",
+                            Dob = new DateTime(1999, 10, 6, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Fee = 6000m,
+                            FirstName = "Anh",
+                            Gmail = "nguyenanh@gmail.com",
+                            LastDayPayment = new DateTime(2021, 4, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LastName = "Nguyen",
+                            RollNumber = "TH1908059",
+                            SubFee = 0m
+                        },
+                        new
+                        {
+                            Id = 11,
+                            ClassName = "TM1909P",
+                            CourseName = "Basic Python",
+                            Dob = new DateTime(1999, 7, 12, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Fee = 6000m,
+                            FirstName = "Tu",
+                            Gmail = "truongtu@gmail.com",
+                            LastDayPayment = new DateTime(2021, 4, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LastName = "Truong",
+                            RollNumber = "TH1908060",
+                            SubFee = 1000m
+                        },
+                        new
+                        {
+                            Id = 12,
+                            ClassName = "TM1909P",
+                            CourseName = "Basic Python",
+                            Dob = new DateTime(1999, 8, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Fee = 6000m,
+                            FirstName = "Cong",
+                            Gmail = "dongcong@gmail.com",
+                            LastDayPayment = new DateTime(2021, 4, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LastName = "Do",
+                            RollNumber = "TH1908062",
+                            SubFee = 1000m
+                        },
+                        new
+                        {
+                            Id = 13,
+                            ClassName = "TM1909P",
+                            CourseName = "Basic Python",
+                            Dob = new DateTime(1999, 10, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Fee = 6000m,
+                            FirstName = "Phong",
+                            Gmail = "nguyenphong@gmail.com",
+                            LastDayPayment = new DateTime(2021, 4, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LastName = "Nguyen",
+                            RollNumber = "TH1908066",
+                            SubFee = 1000m
+                        },
+                        new
+                        {
+                            Id = 14,
+                            ClassName = "TM1909P",
+                            CourseName = "Basic Python",
+                            Dob = new DateTime(1999, 12, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Fee = 6000m,
+                            FirstName = "Hoa",
+                            Gmail = "dohoa@gmail.com",
+                            LastDayPayment = new DateTime(2021, 4, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LastName = "Do",
+                            RollNumber = "TH1909001",
+                            SubFee = 1000m
+                        },
+                        new
+                        {
+                            Id = 15,
+                            ClassName = "TM1909P",
+                            CourseName = "Basic Python",
+                            Dob = new DateTime(1996, 10, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Fee = 6000m,
+                            FirstName = "Thuan",
+                            Gmail = "nguyenthuan@gmail.com",
+                            LastDayPayment = new DateTime(2021, 4, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LastName = "Nguyen",
+                            RollNumber = "TH1909002",
+                            SubFee = 1000m
+                        },
+                        new
+                        {
+                            Id = 16,
+                            ClassName = "TM1909P",
+                            CourseName = "Basic Python",
+                            Dob = new DateTime(1992, 11, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Fee = 6000m,
+                            FirstName = "Huy",
+                            Gmail = "vuhuy@gmail.com",
+                            LastDayPayment = new DateTime(2021, 4, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LastName = "Vu",
+                            RollNumber = "TH1909003",
+                            SubFee = 1000m
+                        },
+                        new
+                        {
+                            Id = 17,
+                            ClassName = "TM1909P",
+                            CourseName = "Basic Python",
+                            Dob = new DateTime(1994, 10, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Fee = 6000m,
+                            FirstName = "Vuong",
+                            Gmail = "phamvuong@gmail.com",
+                            LastDayPayment = new DateTime(2021, 4, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            LastName = "Pham",
+                            RollNumber = "TH1908046",
+                            SubFee = 0m
+                        });
                 });
 
             modelBuilder.Entity("SymphonyWebApp.Data.Entities.Student", b =>
@@ -492,6 +1286,489 @@ namespace SymphonyWebApp.Migrations
                     b.HasIndex("CourseId");
 
                     b.ToTable("Students");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Address = "Gia Lai",
+                            ClassId = 1,
+                            CourseId = 1,
+                            Dob = new DateTime(2020, 2, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FeeStatus = 0,
+                            FirstName = "Ha",
+                            Gmail = "havanvu18@gmail.com",
+                            IdentityCard = "001201303446",
+                            LastName = "Van Vu",
+                            PhoneNumber = "0825894329",
+                            RollNumber = "213004",
+                            StudentStatus = 0,
+                            SubFee = 1000m
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Address = "Lao Cai",
+                            ClassId = 1,
+                            CourseId = 2,
+                            Dob = new DateTime(2020, 3, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FeeStatus = 0,
+                            FirstName = "Pham",
+                            Gmail = "phamlamlc14@gmail.com",
+                            IdentityCard = "002302446301",
+                            LastName = "Tung Lam",
+                            PhoneNumber = "0328658580",
+                            RollNumber = "214004",
+                            StudentStatus = 0,
+                            SubFee = 1000m
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Address = "Cao Bang",
+                            ClassId = 1,
+                            CourseId = 3,
+                            Dob = new DateTime(2020, 4, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FeeStatus = 0,
+                            FirstName = "Nong",
+                            Gmail = "nongphanmanhhung93@gmail.com",
+                            IdentityCard = "0002304664303",
+                            LastName = "Manh Hung",
+                            PhoneNumber = "0654871956",
+                            RollNumber = "215004",
+                            StudentStatus = 0,
+                            SubFee = 1000m
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Address = "Ha Noi",
+                            ClassId = 1,
+                            CourseId = 4,
+                            Dob = new DateTime(2020, 5, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FeeStatus = 0,
+                            FirstName = "Nguyen",
+                            Gmail = "nguyentrunganh@gmail.com",
+                            IdentityCard = "002404356766",
+                            LastName = "Trung Anh",
+                            PhoneNumber = "0546871264",
+                            RollNumber = "216004",
+                            StudentStatus = 0,
+                            SubFee = 1000m
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Address = "Ha Noi",
+                            ClassId = 1,
+                            CourseId = 5,
+                            Dob = new DateTime(2020, 6, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FeeStatus = 0,
+                            FirstName = "Do",
+                            Gmail = "huucong473@gmail.com",
+                            IdentityCard = "001201072112",
+                            LastName = "Huu Cong",
+                            PhoneNumber = "0889567661",
+                            RollNumber = "217004",
+                            StudentStatus = 0,
+                            SubFee = 1000m
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Address = "Gia Lai",
+                            ClassId = 1,
+                            CourseId = 1,
+                            Dob = new DateTime(2020, 2, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FeeStatus = 0,
+                            FirstName = "Nam",
+                            Gmail = "havanvu18@gmail.com",
+                            IdentityCard = "001201303433",
+                            LastName = "Van Va",
+                            PhoneNumber = "0825894329",
+                            RollNumber = "213005",
+                            StudentStatus = 0,
+                            SubFee = 1000m
+                        },
+                        new
+                        {
+                            Id = 7,
+                            Address = "Lao Cai",
+                            ClassId = 1,
+                            CourseId = 2,
+                            Dob = new DateTime(2020, 3, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FeeStatus = 0,
+                            FirstName = "Pha",
+                            Gmail = "phamlamlc@gmail.com",
+                            IdentityCard = "002302446321",
+                            LastName = "Tung Lang",
+                            PhoneNumber = "0328658581",
+                            RollNumber = "214006",
+                            StudentStatus = 0,
+                            SubFee = 1000m
+                        },
+                        new
+                        {
+                            Id = 8,
+                            Address = "Cao Bang",
+                            ClassId = 1,
+                            CourseId = 3,
+                            Dob = new DateTime(2020, 4, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FeeStatus = 0,
+                            FirstName = "Nog",
+                            Gmail = "nongphanmanhhung@gmail.com",
+                            IdentityCard = "0002304664323",
+                            LastName = "Manh Hong",
+                            PhoneNumber = "0654871952",
+                            RollNumber = "215007",
+                            StudentStatus = 0,
+                            SubFee = 1000m
+                        },
+                        new
+                        {
+                            Id = 9,
+                            Address = "Ha Noi",
+                            ClassId = 2,
+                            CourseId = 4,
+                            Dob = new DateTime(2020, 5, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FeeStatus = 0,
+                            FirstName = "Nguy",
+                            Gmail = "nguyentrung@gmail.com",
+                            IdentityCard = "002404356266",
+                            LastName = "Trung Tanh",
+                            PhoneNumber = "0546871263",
+                            RollNumber = "216008",
+                            StudentStatus = 0,
+                            SubFee = 1000m
+                        },
+                        new
+                        {
+                            Id = 10,
+                            Address = "Ha Noi",
+                            ClassId = 2,
+                            CourseId = 5,
+                            Dob = new DateTime(2020, 6, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FeeStatus = 0,
+                            FirstName = "Don",
+                            Gmail = "huucong47@gmail.com",
+                            IdentityCard = "001201072132",
+                            LastName = "Huu Conh",
+                            PhoneNumber = "0889567664",
+                            RollNumber = "217009",
+                            StudentStatus = 0,
+                            SubFee = 1000m
+                        },
+                        new
+                        {
+                            Id = 11,
+                            Address = "Gia Lai",
+                            ClassId = 2,
+                            CourseId = 1,
+                            Dob = new DateTime(2020, 2, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FeeStatus = 0,
+                            FirstName = "Han",
+                            Gmail = "havanvu1@gmail.com",
+                            IdentityCard = "001201303456",
+                            LastName = "Van Nat",
+                            PhoneNumber = "0825894325",
+                            RollNumber = "213010",
+                            StudentStatus = 0,
+                            SubFee = 1000m
+                        },
+                        new
+                        {
+                            Id = 12,
+                            Address = "Lao Cai",
+                            ClassId = 2,
+                            CourseId = 2,
+                            Dob = new DateTime(2020, 3, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FeeStatus = 0,
+                            FirstName = "Phan",
+                            Gmail = "phamlamlc1@gmail.com",
+                            IdentityCard = "002302446304",
+                            LastName = "Tung Lang",
+                            PhoneNumber = "0328658586",
+                            RollNumber = "214011",
+                            StudentStatus = 0,
+                            SubFee = 1000m
+                        },
+                        new
+                        {
+                            Id = 13,
+                            Address = "Cao Bang",
+                            ClassId = 3,
+                            CourseId = 3,
+                            Dob = new DateTime(2020, 4, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FeeStatus = 0,
+                            FirstName = "Non",
+                            Gmail = "nongphanhhung93@gmail.com",
+                            IdentityCard = "0002304664305",
+                            LastName = "Manh Ganh",
+                            PhoneNumber = "0654871957",
+                            RollNumber = "215012",
+                            StudentStatus = 0,
+                            SubFee = 1000m
+                        },
+                        new
+                        {
+                            Id = 14,
+                            Address = "Ha Noi",
+                            ClassId = 3,
+                            CourseId = 4,
+                            Dob = new DateTime(2020, 5, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FeeStatus = 0,
+                            FirstName = "Nguy",
+                            Gmail = "nguyenunganh@gmail.com",
+                            IdentityCard = "002404356446",
+                            LastName = "Trung",
+                            PhoneNumber = "0546871268",
+                            RollNumber = "216013",
+                            StudentStatus = 0,
+                            SubFee = 1000m
+                        },
+                        new
+                        {
+                            Id = 15,
+                            Address = "Ha Noi",
+                            ClassId = 3,
+                            CourseId = 5,
+                            Dob = new DateTime(2020, 6, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FeeStatus = 0,
+                            FirstName = "Dom",
+                            Gmail = "huucong473@gmail.com",
+                            IdentityCard = "001201072119",
+                            LastName = "Huu",
+                            PhoneNumber = "0889567669",
+                            RollNumber = "217014",
+                            StudentStatus = 0,
+                            SubFee = 1000m
+                        },
+                        new
+                        {
+                            Id = 16,
+                            Address = "Gia Lai",
+                            ClassId = 3,
+                            CourseId = 1,
+                            Dob = new DateTime(2020, 2, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FeeStatus = 0,
+                            FirstName = "Ham",
+                            Gmail = "havau18@gmail.com",
+                            IdentityCard = "001201303447",
+                            LastName = "Van",
+                            PhoneNumber = "0825894311",
+                            RollNumber = "213015",
+                            StudentStatus = 0,
+                            SubFee = 1000m
+                        },
+                        new
+                        {
+                            Id = 17,
+                            Address = "Lao Cai",
+                            ClassId = 3,
+                            CourseId = 2,
+                            Dob = new DateTime(2020, 3, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FeeStatus = 0,
+                            FirstName = "Phat",
+                            Gmail = "phlamlc14@gmail.com",
+                            IdentityCard = "002302446311",
+                            LastName = "Tung",
+                            PhoneNumber = "0328658512",
+                            RollNumber = "214016",
+                            StudentStatus = 0,
+                            SubFee = 1000m
+                        },
+                        new
+                        {
+                            Id = 18,
+                            Address = "Cao Bang",
+                            ClassId = 4,
+                            CourseId = 3,
+                            Dob = new DateTime(2020, 4, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FeeStatus = 0,
+                            FirstName = "Nong",
+                            Gmail = "nonhanmanhhung93@gmail.com",
+                            IdentityCard = "0002304664312",
+                            LastName = "Manh",
+                            PhoneNumber = "0654871913",
+                            RollNumber = "215017",
+                            StudentStatus = 0,
+                            SubFee = 1000m
+                        },
+                        new
+                        {
+                            Id = 19,
+                            Address = "Ha Noi",
+                            ClassId = 4,
+                            CourseId = 4,
+                            Dob = new DateTime(2020, 5, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FeeStatus = 0,
+                            FirstName = "Nguyen",
+                            Gmail = "ngentrunganh@gmail.com",
+                            IdentityCard = "002404356713",
+                            LastName = "Anh",
+                            PhoneNumber = "0546871214",
+                            RollNumber = "216018",
+                            StudentStatus = 0,
+                            SubFee = 1000m
+                        },
+                        new
+                        {
+                            Id = 20,
+                            Address = "Ha Noi",
+                            ClassId = 5,
+                            CourseId = 5,
+                            Dob = new DateTime(2020, 6, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FeeStatus = 0,
+                            FirstName = "Do",
+                            Gmail = "hcong473@gmail.com",
+                            IdentityCard = "001201072114",
+                            LastName = "Cong",
+                            PhoneNumber = "0889567615",
+                            RollNumber = "217019",
+                            StudentStatus = 0,
+                            SubFee = 1000m
+                        });
+                });
+
+            modelBuilder.Entity("SymphonyWebApp.Data.Entities.Teacher", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Address")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("Dob")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("FirstName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Gmail")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LastName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Major")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UrlImage")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Teacher");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Address = "Andheri East, Mumbai, Maharashtra, India",
+                            Dob = new DateTime(1964, 2, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FirstName = "Miranda",
+                            Gmail = "JudeMiranda@gmail.com",
+                            LastName = "Jude",
+                            Major = "Python, Data Science",
+                            UrlImage = "jude.jpg"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Address = "Islamabad Expressway, I 8/4 I-8, Islamabad, Islamabad Capital Territory, Pakistan",
+                            Dob = new DateTime(1974, 2, 23, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FirstName = "Nadeem",
+                            Gmail = "Nadeem@gmail.com",
+                            LastName = "Mehmood",
+                            Major = "JAVA, Mechanical Engineering",
+                            UrlImage = "nadeem.jpg"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Address = "Pune, Maharashtra, India",
+                            Dob = new DateTime(1984, 4, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FirstName = "Sagar",
+                            Gmail = "Yadav@gmail.com",
+                            LastName = "Yadav",
+                            Major = "JavaScript, Deep Learning, C++",
+                            UrlImage = "sagar.png"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Address = "Ameerpet, Hyderabad, Telangana, India",
+                            Dob = new DateTime(1978, 1, 3, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FirstName = "Surya",
+                            Gmail = "Reddy@gmail.com",
+                            LastName = "Reddy",
+                            Major = "Core JAVA, Angular 2,Spring MVC, SQL",
+                            UrlImage = "surya.jpg"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            Address = "Abbottabad, Khyber Pakhtunkhwa, Pakistan",
+                            Dob = new DateTime(1984, 12, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FirstName = "Muhammad",
+                            Gmail = "Ubaid@gmail.com",
+                            LastName = "Ubaid",
+                            Major = "Java Programming,Java Data Structures, Data Science",
+                            UrlImage = "ubaid.jpg"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Address = "BTM 2nd Stage, Bengaluru, Karnataka, India",
+                            Dob = new DateTime(1994, 12, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FirstName = "Arvind",
+                            Gmail = "Arvind@gmail.com",
+                            LastName = "Carpenter",
+                            Major = "JAVA ,SQL, Mongo DB, VueJS",
+                            UrlImage = "arvind.jpg"
+                        },
+                        new
+                        {
+                            Id = 7,
+                            Address = "Vaniyambadi, Tamil Nadu, India",
+                            Dob = new DateTime(1991, 12, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FirstName = "Ks Sri",
+                            Gmail = "Nandhish@gmail.com",
+                            LastName = "Nandhish",
+                            Major = "Java, Python",
+                            UrlImage = "ks.jpg"
+                        },
+                        new
+                        {
+                            Id = 8,
+                            Address = "Dwarka, New Delhi, Delhi, India",
+                            Dob = new DateTime(1989, 11, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FirstName = "Aakash",
+                            Gmail = "Madan@gmail.com",
+                            LastName = "Madan",
+                            Major = "Java Programming,Java Data Structures, Data Science",
+                            UrlImage = "aakash.jpg"
+                        });
+                });
+
+            modelBuilder.Entity("SymphonyWebApp.Data.Entities.TestRoom", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:IdentityIncrement", 1)
+                        .HasAnnotation("SqlServer:IdentitySeed", 1)
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("TestRooms");
                 });
 
             modelBuilder.Entity("ClassStudyCourse", b =>
@@ -560,6 +1837,15 @@ namespace SymphonyWebApp.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("SymphonyWebApp.Data.Entities.Customer", b =>
+                {
+                    b.HasOne("SymphonyWebApp.Data.Entities.TestRoom", "TestRoom")
+                        .WithMany("Customers")
+                        .HasForeignKey("TestRoomId");
+
+                    b.Navigation("TestRoom");
+                });
+
             modelBuilder.Entity("SymphonyWebApp.Data.Entities.RegistrationTest", b =>
                 {
                     b.HasOne("SymphonyWebApp.Data.Entities.Customer", "Customer")
@@ -603,6 +1889,11 @@ namespace SymphonyWebApp.Migrations
             modelBuilder.Entity("SymphonyWebApp.Data.Entities.Customer", b =>
                 {
                     b.Navigation("RegistrationTest");
+                });
+
+            modelBuilder.Entity("SymphonyWebApp.Data.Entities.TestRoom", b =>
+                {
+                    b.Navigation("Customers");
                 });
 #pragma warning restore 612, 618
         }

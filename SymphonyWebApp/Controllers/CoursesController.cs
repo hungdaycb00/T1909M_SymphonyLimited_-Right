@@ -1,27 +1,41 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Net.Http.Headers;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using SymphonyWebApp.Data;
+using SymphonyWebApp.Data.Common;
 using SymphonyWebApp.Data.Entities;
 
 namespace SymphonyWebApp.Controllers
 {
+    [Authorize]
     public class CoursesController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly IStorageService _storageService;
 
-        public CoursesController(ApplicationDbContext context)
+        public CoursesController(ApplicationDbContext context, IStorageService storageService)
         {
             _context = context;
+            _storageService = storageService;
         }
 
         // GET: Courses
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string keyword)
         {
+            if (keyword != null)
+            {
+                ViewBag.Keyword = keyword;
+                var result = await _context.Courses.Where(x => x.CourseName.Contains(keyword)).OrderByDescending(x => x.Id).ToListAsync();
+                return View(result);
+            }
             return View(await _context.Courses.ToListAsync());
         }
 
@@ -54,10 +68,14 @@ namespace SymphonyWebApp.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,CourseId,CourseName,Fee,level,TrainingTime")] Course course)
+        public async Task<IActionResult> Create([Bind("Id,CourseId,CourseName,Fee,level,TrainingTime")] Course course, IFormFile imageFile)
         {
             if (ModelState.IsValid)
             {
+                if (course.UrlImage == null)
+                {
+                    course.UrlImage = await this.SaveFile(imageFile);
+                }
                 _context.Add(course);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -86,7 +104,7 @@ namespace SymphonyWebApp.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,CourseId,CourseName,Fee,level,TrainingTime")] Course course)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,CourseId,CourseName,Fee,level,TrainingTime")] Course course, IFormFile imageFile)
         {
             if (id != course.Id)
             {
@@ -97,7 +115,13 @@ namespace SymphonyWebApp.Controllers
             {
                 try
                 {
-                    _context.Update(course);
+                    if (imageFile != null)
+                    {
+                        course.UrlImage = await this.SaveFile(imageFile);
+                    }
+
+
+                        _context.Update(course);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
@@ -148,6 +172,14 @@ namespace SymphonyWebApp.Controllers
         private bool CourseExists(int id)
         {
             return _context.Courses.Any(e => e.Id == id);
+        }
+
+        private async Task<string> SaveFile(IFormFile file)
+        {
+            var originalFileName = ContentDispositionHeaderValue.Parse(file.ContentDisposition).FileName.Trim('"');
+            var fileName = $"{Guid.NewGuid()}{Path.GetExtension(originalFileName)}";
+            await _storageService.SaveFileAsync(file.OpenReadStream(), fileName);
+            return fileName;
         }
     }
 }

@@ -5,16 +5,29 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h1>List centres</h1>
+<h1> Central list</h1>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create" class="btn btn-primary">Create New</a>
 </p>
+<div class="col-md-6 col-sm-12 mb-4">
+    <form asp-action="Index" method="get">
+        <div class="row">
+            <div class="col-md-8">
+                <input method="get" type="text" name="keyword" class="form-control" value="@ViewBag.Keyword" />
+            </div>
+            <div class="col-md-4">
+                <button class="btn btn-success" type="submit">Find</button>
+                <button class="btn btn-dark" type="button" onclick="window.location.href='Centres/Index'">Reset</button>
+            </div>
+        </div>
+    </form>
+</div>
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Id)
+                Number
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Address)
@@ -23,21 +36,38 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Id)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Address)
-                </td>
-                <td>
-                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-                </td>
-            </tr>
+        @{
+            int stt = 0;
+            if (Model.Count() < 0)
+            {
+                <tr>
+                    <td colspan="11" class="text-center h2">
+                        No data
+                    </td>
+                </tr>
+            }
+            else
+            {
+                foreach (var item in Model)
+                {
+
+                    <tr>
+                        <td>
+                            @if (item != null) { stt += 1; }
+                            @stt
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Address)
+                        </td>
+                        <td style="min-width:240px;">
+                            <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning">Edit</a>
+                            <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info">Details</a>
+                            <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
+                        </td>
+                    </tr>
+                }
+            }
+
         }
     </tbody>
 </table>

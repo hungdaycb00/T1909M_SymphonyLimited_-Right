@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -10,6 +11,7 @@ using SymphonyWebApp.Data.Entities;
 
 namespace SymphonyWebApp.Controllers
 {
+    [Authorize]
     public class ClassStudiesController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -20,9 +22,16 @@ namespace SymphonyWebApp.Controllers
         }
 
         // GET: ClassStudies
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string keyword)
         {
-            return View(await _context.ClassStudies.ToListAsync());
+            if (keyword != null)
+            {
+                ViewBag.Keyword = keyword;
+                var result = await _context.ClassStudies.Where(x => x.ClassId.Contains(keyword)
+                || x.Name.Contains(keyword)).OrderByDescending(x => x.Id).ToListAsync();
+                return View(result);
+            }
+            return View(await _context.ClassStudies.OrderByDescending(x => x.Id).ToListAsync());
         }
 
         // GET: ClassStudies/Details/5
@@ -33,12 +42,16 @@ namespace SymphonyWebApp.Controllers
                 return NotFound();
             }
 
-            var classStudy = await _context.ClassStudies
-                .FirstOrDefaultAsync(m => m.Id == id);
+            //var classStudy = await _context.ClassStudies
+            //    .FirstOrDefaultAsync(m => m.Id == id);
+
+
+            var classStudy = await _context.ClassStudies.Include(s => s.Students).Where(x => x.Id == id).ToListAsync();
             if (classStudy == null)
             {
                 return NotFound();
             }
+            TempData["classId"] = id;
 
             return View(classStudy);
         }

@@ -1,4 +1,171 @@
-﻿@{
+﻿
+@{
     Layout = "_AdminLayout";
 
 }
+@{
+
+    IEnumerable<Teacher> teachers = ViewData["Teachers"] as IEnumerable<Teacher>;
+    IEnumerable<Student> students = ViewData["Students"] as IEnumerable<Student>;
+    IEnumerable<Course> courses = ViewData["Courses"] as IEnumerable<Course>;
+    IEnumerable<ClassStudy> classStudies = ViewData["ClassStudies"] as IEnumerable<ClassStudy>;
+}
+<main>
+    <div class="container-fluid">
+        <h1 class="mt-4">Dashboard</h1>
+        <div class="row h4">
+            <div class="col-xl-3 col-md-6">
+                <div class="card bg-primary text-white mb-4">
+                    <div class="card-body">Total Course : @courses.Count()</div>
+                    <div class="card-footer d-flex align-items-center justify-content-between">
+                        <a class="small text-white stretched-link" asp-action="Index" asp-controller="Courses">View details</a>
+                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-6">
+                <div class="card bg-warning text-white mb-4">
+                    <div class="card-body">Total Class : @classStudies.Count()</div>
+                    <div class="card-footer d-flex align-items-center justify-content-between">
+                        <a class="small text-white stretched-link" asp-action="Index" asp-controller="ClassStudies">View details</a>
+                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-6">
+                <div class="card bg-success text-white mb-4">
+                    <div class="card-body">Total Student : @students.Count()</div>
+                    <div class="card-footer d-flex align-items-center justify-content-between">
+                        <a class="small text-white stretched-link" asp-action="Index" asp-controller="Students">View details</a>
+                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-6">
+                <div class="card bg-danger text-white mb-4">
+                    <div class="card-body">Total Teacher : @teachers.Count()</div>
+                    <div class="card-footer d-flex align-items-center justify-content-between">
+                        <a class="small text-white stretched-link" asp-action="Index" asp-controller="Teachers">View details</a>
+                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xl-6">
+                <div class="card mb-4">
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <i class="fas fa-table mr-1"></i>
+                            Teacher list
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>Course Id</th>
+                                            <th>Course Name</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+                                        @foreach (var course in courses)
+                                        {
+                                            <tr>
+                                                <td>@course.CourseId</td>
+                                                <td>@course.CourseName</td>
+                                            </tr>
+                                        }
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-6">
+                <div class="card mb-4">
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <i class="fas fa-table mr-1"></i>
+                            Class list
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>ClassId</th>
+                                            <th>Name</th>
+                                            <th>Start</th>
+                                            <th>End</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+                                        @foreach (var c in classStudies)
+                                        {
+                                            <tr>
+                                                <td>@c.ClassId</td>
+                                                <td>@c.Name</td>
+                                                <td>@c.StartTime.ToShortDateString()</td>
+                                                <td>@c.EndTime.ToShortDateString()</td>
+                                            </tr>
+                                        }
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card mb-4">
+            <div class="card-header">
+                <i class="fas fa-table mr-1"></i>
+                Teacher list
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Gmail</th>
+                                <th>Major</th>
+                                <th>Image</th>
+                            </tr>
+                        </thead>
+                        <tfoot>
+                            <tr>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Gmail</th>
+                                <th>Major</th>
+                                <th>Image</th>
+                            </tr>
+                        </tfoot>
+                        <tbody>
+
+                            @foreach (var teacher in teachers)
+                            {
+                                <tr>
+                                    <td>@teacher.LastName</td>
+                                    <td>@teacher.FirstName</td>
+                                    <td>@teacher.Gmail</td>
+                                    <td>@teacher.Major</td>
+                                    <td class="img"><img src="~/images/post/@teacher.UrlImage" alt="Alternate Text" style="max-height:200px;" /></td>
+                                </tr>
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

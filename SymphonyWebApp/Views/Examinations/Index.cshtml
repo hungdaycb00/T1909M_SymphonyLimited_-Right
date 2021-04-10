@@ -1,0 +1,71 @@
+﻿@model IEnumerable<SymphonyWebApp.Data.Entities.Examination>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Test date list</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Create New</a>
+</p>
+<div class="col-md-6 col-sm-12 mb-4">
+    <form asp-action="Index" method="get">
+        <div class="row">
+            <div class="col-md-8">
+                <input method="get" type="text" name="keyword" class="form-control" value="@ViewBag.Keyword" />
+            </div>
+            <div class="col-md-4">
+                <button class="btn btn-success" type="submit">Find</button>
+                <button class="btn btn-dark" type="button" onclick="window.location.href='Examinations/Index'">Reset</button>
+            </div>
+        </div>
+    </form>
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CourseId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TestDay)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Fee)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Note)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CourseId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TestDay)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Fee)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Note)
+                </td>
+
+                <td style="min-width:240px;">
+                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning">Edit</a>
+                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info">Details</a>
+                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

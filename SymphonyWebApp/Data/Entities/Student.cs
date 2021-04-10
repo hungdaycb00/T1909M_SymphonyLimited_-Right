@@ -21,6 +21,8 @@ namespace SymphonyWebApp.Data.Entities
 
         [Display(Name = "First Name")]
         public string FirstName { get; set; }
+
+        [EmailAddress]
         public string Gmail { get; set; }
 
         [Display(Name = "Date Of Birth")]
@@ -38,7 +40,6 @@ namespace SymphonyWebApp.Data.Entities
 
         [DataType(DataType.Currency)]
         [Column(TypeName = "decimal(18,2)")]
-
         [Display(Name = "Sub Fee")]
         public decimal SubFee { get; set; }
 
@@ -48,14 +49,13 @@ namespace SymphonyWebApp.Data.Entities
         [Display(Name = "Student Status")]
         public StudentStatus StudentStatus { get; set; }
 
-
         public int CourseId { get; set; }
         public Course Course { get; set; }
-
 
         public int ClassId { get; set; }
         public ClassStudy ClassStudy { get; set; }
     }
+
     public class ClassStudentValidator : AbstractValidator<Student>
     {
         public ClassStudentValidator()
@@ -63,16 +63,15 @@ namespace SymphonyWebApp.Data.Entities
             RuleFor(x => x.RollNumber).NotNull().MinimumLength(5).MaximumLength(10);
             RuleFor(x => x.LastName).NotNull();
             RuleFor(x => x.FirstName).NotNull();
-            RuleFor(x => x.Gmail).EmailAddress();
+            RuleFor(x => x.Gmail).NotEmpty().EmailAddress();
             RuleFor(x => x.Dob).LessThan(DateTime.Now.AddYears(10));
             RuleFor(x => x.IdentityCard).Length(10);
             RuleFor(x => x.PhoneNumber).NotNull();
             RuleFor(x => x.Address).NotEmpty();
-            RuleFor(x => x.SubFee).ScalePrecision(0, 4);
+            RuleFor(x => x.SubFee).GreaterThan(0);
             RuleFor(x => x.FeeStatus).NotNull();
             RuleFor(x => x.CourseId).NotNull();
             RuleFor(x => x.ClassId).NotNull();
-
         }
     }
 }

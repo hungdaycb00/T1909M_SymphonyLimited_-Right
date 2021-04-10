@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -10,6 +11,7 @@ using SymphonyWebApp.Data.Entities;
 
 namespace SymphonyWebApp.Controllers
 {
+    [Authorize]
     public class CentresController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -20,9 +22,15 @@ namespace SymphonyWebApp.Controllers
         }
 
         // GET: Centres
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string keyword)
         {
-            return View(await _context.Centres.ToListAsync());
+            if (keyword != null)
+            {
+                ViewBag.Keyword = keyword;
+                var result = await _context.Centres.Where(x => x.Address.Contains(keyword)).OrderByDescending(x => x.Id).ToListAsync();
+                return View(result);
+            }
+            return View(await _context.Centres.OrderByDescending(x => x.Id).ToListAsync());
         }
 
         // GET: Centres/Details/5

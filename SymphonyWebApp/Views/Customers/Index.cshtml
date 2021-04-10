@@ -1,0 +1,120 @@
+﻿@model IEnumerable<SymphonyWebApp.Data.Entities.Customer>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Customer list</h1>
+
+<p>
+    <a asp-action="Create"  class="btn btn-primary">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Number
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Gmail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PhoneNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Contents)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreatingDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.customerStatus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TestRoom)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            int stt = 0;
+            if (Model.Count() < 0)
+            {
+                <tr>
+                    <td colspan="11" class="text-center h2">
+                        No data
+                    </td>
+                </tr>
+            }
+            else
+            {
+                foreach (var item in Model)
+                {
+
+    <tr>
+        <td>
+            @if (item != null) { stt += 1; }
+            @stt
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Gmail)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PhoneNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Contents)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreatingDate)
+        </td>
+
+        @if (item.customerStatus.ToString() == "Confirm")
+        {
+            <td class=" btn-success">
+                @Html.DisplayFor(modelItem => item.customerStatus)
+            </td>
+        }
+        else
+        {
+            <td class=" btn-warning">
+                @Html.DisplayFor(modelItem => item.customerStatus)
+            </td>
+        }
+
+        @{
+            if (item.TestRoom != null)
+            {
+                <td class=" btn-success">
+                    @Html.DisplayFor(modelItem => item.TestRoom.Name)
+                </td>
+            }
+            else
+            {
+                <td >
+                    @Html.DisplayFor(modelItem => item.TestRoom.Name)
+                </td>
+            }
+
+        }
+
+
+        <td style="min-width:240px;">
+            <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning">Edit</a>
+            <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info">Details</a>
+            <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
+        </td>
+    </tr>
+                    }
+                }
+            }
+            </tbody>
+</table>
