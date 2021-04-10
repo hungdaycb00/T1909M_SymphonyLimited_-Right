@@ -1,4 +1,5 @@
 ﻿using FluentValidation;
+using SymphonyWebApp.Data.Entities.Enums;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -24,6 +25,13 @@ namespace SymphonyWebApp.Data.Entities
         [DataType(DataType.Date)]
         public DateTime? CreatingDate { get; set; }
 
+        [Display(Name = "Status")]
+        public CustomerStatus customerStatus { get; set; }
+
+        public int? TestRoomId { get; set; }
+        [Display(Name = "Room")]
+        public TestRoom TestRoom { get; set; }
+
         public RegistrationTest RegistrationTest { get; set; }
     }
 
@@ -36,8 +44,6 @@ namespace SymphonyWebApp.Data.Entities
             RuleFor(x => x.PhoneNumber).NotEmpty().Length(10, 12);
             RuleFor(x => x.Contents).NotNull();
             RuleFor(x => x.CreatingDate).NotNull();
-
-
         }
     }
 }

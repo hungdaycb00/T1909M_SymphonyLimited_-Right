@@ -494,7 +494,7 @@ namespace SymphonyWebApp.Migrations
                     b.Property<DateTime?>("CreatingDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2021, 4, 6, 0, 51, 23, 318, DateTimeKind.Local).AddTicks(7757));
+                        .HasDefaultValue(new DateTime(2021, 4, 10, 22, 50, 3, 850, DateTimeKind.Local).AddTicks(5404));
 
                     b.Property<string>("Gmail")
                         .IsRequired()
@@ -509,7 +509,17 @@ namespace SymphonyWebApp.Migrations
                         .HasMaxLength(12)
                         .HasColumnType("nvarchar(12)");
 
+                    b.Property<int?>("TestRoomId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("customerStatus")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasDefaultValue(1);
+
                     b.HasKey("Id");
+
+                    b.HasIndex("TestRoomId");
 
                     b.ToTable("Customers");
 
@@ -518,91 +528,101 @@ namespace SymphonyWebApp.Migrations
                         {
                             Id = 1,
                             Contents = "What is the school's facilities and teaching quality like?",
-                            CreatingDate = new DateTime(2021, 4, 6, 0, 51, 23, 331, DateTimeKind.Local).AddTicks(9732),
+                            CreatingDate = new DateTime(2021, 4, 10, 22, 50, 3, 870, DateTimeKind.Local).AddTicks(9022),
                             Gmail = "tuyettranlc4@gmail.com",
                             Name = "Tran Thi Tuyet",
-                            PhoneNumber = "0395761476"
+                            PhoneNumber = "0395761476",
+                            customerStatus = 1
                         },
                         new
                         {
                             Id = 2,
                             Contents = "What will I get during my studies? ",
-                            CreatingDate = new DateTime(2021, 4, 6, 0, 51, 23, 332, DateTimeKind.Local).AddTicks(1081),
+                            CreatingDate = new DateTime(2021, 4, 10, 22, 50, 3, 871, DateTimeKind.Local).AddTicks(1080),
                             Gmail = "ngocdra@gmail.com",
                             Name = "Nguyen Van Ngoc",
-                            PhoneNumber = "0956137845"
+                            PhoneNumber = "0956137845",
+                            customerStatus = 1
                         },
                         new
                         {
                             Id = 3,
                             Contents = "Can I take other experiential sessions outside the main school hours?",
-                            CreatingDate = new DateTime(2021, 4, 6, 0, 51, 23, 332, DateTimeKind.Local).AddTicks(1091),
+                            CreatingDate = new DateTime(2021, 4, 10, 22, 50, 3, 871, DateTimeKind.Local).AddTicks(1090),
                             Gmail = "namot@gmail.com",
                             Name = "Nguyen Hoai Nam",
-                            PhoneNumber = "0986176340"
+                            PhoneNumber = "0986176340",
+                            customerStatus = 1
                         },
                         new
                         {
                             Id = 4,
                             Contents = "Can I make a reservation if I miss a midterm?",
-                            CreatingDate = new DateTime(2021, 4, 6, 0, 51, 23, 332, DateTimeKind.Local).AddTicks(1093),
+                            CreatingDate = new DateTime(2021, 4, 10, 22, 50, 3, 871, DateTimeKind.Local).AddTicks(1093),
                             Gmail = "maioklc@gmail.com",
                             Name = "Pham Tuyet Mai",
-                            PhoneNumber = "0296753186"
+                            PhoneNumber = "0296753186",
+                            customerStatus = 1
                         },
                         new
                         {
                             Id = 5,
                             Contents = "Can I leave the course for the next semester too?",
-                            CreatingDate = new DateTime(2021, 4, 6, 0, 51, 23, 332, DateTimeKind.Local).AddTicks(1095),
+                            CreatingDate = new DateTime(2021, 4, 10, 22, 50, 3, 871, DateTimeKind.Local).AddTicks(1095),
                             Gmail = "thobeo8@gmail.com",
                             Name = "Le Quang Tho",
-                            PhoneNumber = "0364781029"
+                            PhoneNumber = "0364781029",
+                            customerStatus = 1
                         },
                         new
                         {
                             Id = 6,
                             Contents = "What is the school's facilities and teaching quality like?",
-                            CreatingDate = new DateTime(2021, 4, 6, 0, 51, 23, 332, DateTimeKind.Local).AddTicks(1098),
+                            CreatingDate = new DateTime(2021, 4, 10, 22, 50, 3, 871, DateTimeKind.Local).AddTicks(1096),
                             Gmail = "tuyettanl@gmail.com",
                             Name = "Tran Thi Tan",
-                            PhoneNumber = "0395761111"
+                            PhoneNumber = "0395761111",
+                            customerStatus = 1
                         },
                         new
                         {
                             Id = 7,
                             Contents = "What will I get during my studies? ",
-                            CreatingDate = new DateTime(2021, 4, 6, 0, 51, 23, 332, DateTimeKind.Local).AddTicks(1100),
+                            CreatingDate = new DateTime(2021, 4, 10, 22, 50, 3, 871, DateTimeKind.Local).AddTicks(1099),
                             Gmail = "thaidra@gmail.com",
                             Name = "Nguyen Van Thai",
-                            PhoneNumber = "0956137222"
+                            PhoneNumber = "0956137222",
+                            customerStatus = 1
                         },
                         new
                         {
                             Id = 8,
                             Contents = "Can I take other experiential sessions outside the main school hours?",
-                            CreatingDate = new DateTime(2021, 4, 6, 0, 51, 23, 332, DateTimeKind.Local).AddTicks(1102),
+                            CreatingDate = new DateTime(2021, 4, 10, 22, 50, 3, 871, DateTimeKind.Local).AddTicks(1101),
                             Gmail = "Vanot@gmail.com",
                             Name = "Nguyen Hoai Van",
-                            PhoneNumber = "0986176333"
+                            PhoneNumber = "0986176333",
+                            customerStatus = 1
                         },
                         new
                         {
                             Id = 9,
                             Contents = "Can I make a reservation if I miss a midterm?",
-                            CreatingDate = new DateTime(2021, 4, 6, 0, 51, 23, 332, DateTimeKind.Local).AddTicks(1105),
+                            CreatingDate = new DateTime(2021, 4, 10, 22, 50, 3, 871, DateTimeKind.Local).AddTicks(1106),
                             Gmail = "thoklc@gmail.com",
                             Name = "Pham Tuyet Tho",
-                            PhoneNumber = "0296753144"
+                            PhoneNumber = "0296753144",
+                            customerStatus = 1
                         },
                         new
                         {
                             Id = 10,
                             Contents = "Can I leave the course for the next semester too?",
-                            CreatingDate = new DateTime(2021, 4, 6, 0, 51, 23, 332, DateTimeKind.Local).AddTicks(1108),
+                            CreatingDate = new DateTime(2021, 4, 10, 22, 50, 3, 871, DateTimeKind.Local).AddTicks(1108),
                             Gmail = "haibeo8@gmail.com",
                             Name = "Le Quang Hai",
-                            PhoneNumber = "0364781055"
+                            PhoneNumber = "0364781055",
+                            customerStatus = 1
                         });
                 });
 
@@ -715,7 +735,7 @@ namespace SymphonyWebApp.Migrations
                     b.Property<DateTime>("CreateDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2021, 4, 6, 0, 0, 0, 0, DateTimeKind.Local));
+                        .HasDefaultValue(new DateTime(2021, 4, 10, 0, 0, 0, 0, DateTimeKind.Local));
 
                     b.Property<string>("Title")
                         .HasColumnType("nvarchar(max)");
@@ -1281,7 +1301,7 @@ namespace SymphonyWebApp.Migrations
                             IdentityCard = "001201303446",
                             LastName = "Van Vu",
                             PhoneNumber = "0825894329",
-                            RollNumber = "21304",
+                            RollNumber = "213004",
                             StudentStatus = 0,
                             SubFee = 1000m
                         },
@@ -1289,7 +1309,7 @@ namespace SymphonyWebApp.Migrations
                         {
                             Id = 2,
                             Address = "Lao Cai",
-                            ClassId = 2,
+                            ClassId = 1,
                             CourseId = 2,
                             Dob = new DateTime(2020, 3, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FeeStatus = 0,
@@ -1298,7 +1318,7 @@ namespace SymphonyWebApp.Migrations
                             IdentityCard = "002302446301",
                             LastName = "Tung Lam",
                             PhoneNumber = "0328658580",
-                            RollNumber = "21404",
+                            RollNumber = "214004",
                             StudentStatus = 0,
                             SubFee = 1000m
                         },
@@ -1306,7 +1326,7 @@ namespace SymphonyWebApp.Migrations
                         {
                             Id = 3,
                             Address = "Cao Bang",
-                            ClassId = 3,
+                            ClassId = 1,
                             CourseId = 3,
                             Dob = new DateTime(2020, 4, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FeeStatus = 0,
@@ -1315,7 +1335,7 @@ namespace SymphonyWebApp.Migrations
                             IdentityCard = "0002304664303",
                             LastName = "Manh Hung",
                             PhoneNumber = "0654871956",
-                            RollNumber = "21504",
+                            RollNumber = "215004",
                             StudentStatus = 0,
                             SubFee = 1000m
                         },
@@ -1323,7 +1343,7 @@ namespace SymphonyWebApp.Migrations
                         {
                             Id = 4,
                             Address = "Ha Noi",
-                            ClassId = 4,
+                            ClassId = 1,
                             CourseId = 4,
                             Dob = new DateTime(2020, 5, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FeeStatus = 0,
@@ -1332,7 +1352,7 @@ namespace SymphonyWebApp.Migrations
                             IdentityCard = "002404356766",
                             LastName = "Trung Anh",
                             PhoneNumber = "0546871264",
-                            RollNumber = "21604",
+                            RollNumber = "216004",
                             StudentStatus = 0,
                             SubFee = 1000m
                         },
@@ -1340,7 +1360,7 @@ namespace SymphonyWebApp.Migrations
                         {
                             Id = 5,
                             Address = "Ha Noi",
-                            ClassId = 5,
+                            ClassId = 1,
                             CourseId = 5,
                             Dob = new DateTime(2020, 6, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FeeStatus = 0,
@@ -1349,7 +1369,262 @@ namespace SymphonyWebApp.Migrations
                             IdentityCard = "001201072112",
                             LastName = "Huu Cong",
                             PhoneNumber = "0889567661",
-                            RollNumber = "21704",
+                            RollNumber = "217004",
+                            StudentStatus = 0,
+                            SubFee = 1000m
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Address = "Gia Lai",
+                            ClassId = 1,
+                            CourseId = 1,
+                            Dob = new DateTime(2020, 2, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FeeStatus = 0,
+                            FirstName = "Nam",
+                            Gmail = "havanvu18@gmail.com",
+                            IdentityCard = "001201303433",
+                            LastName = "Van Va",
+                            PhoneNumber = "0825894329",
+                            RollNumber = "213005",
+                            StudentStatus = 0,
+                            SubFee = 1000m
+                        },
+                        new
+                        {
+                            Id = 7,
+                            Address = "Lao Cai",
+                            ClassId = 1,
+                            CourseId = 2,
+                            Dob = new DateTime(2020, 3, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FeeStatus = 0,
+                            FirstName = "Pha",
+                            Gmail = "phamlamlc@gmail.com",
+                            IdentityCard = "002302446321",
+                            LastName = "Tung Lang",
+                            PhoneNumber = "0328658581",
+                            RollNumber = "214006",
+                            StudentStatus = 0,
+                            SubFee = 1000m
+                        },
+                        new
+                        {
+                            Id = 8,
+                            Address = "Cao Bang",
+                            ClassId = 1,
+                            CourseId = 3,
+                            Dob = new DateTime(2020, 4, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FeeStatus = 0,
+                            FirstName = "Nog",
+                            Gmail = "nongphanmanhhung@gmail.com",
+                            IdentityCard = "0002304664323",
+                            LastName = "Manh Hong",
+                            PhoneNumber = "0654871952",
+                            RollNumber = "215007",
+                            StudentStatus = 0,
+                            SubFee = 1000m
+                        },
+                        new
+                        {
+                            Id = 9,
+                            Address = "Ha Noi",
+                            ClassId = 2,
+                            CourseId = 4,
+                            Dob = new DateTime(2020, 5, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FeeStatus = 0,
+                            FirstName = "Nguy",
+                            Gmail = "nguyentrung@gmail.com",
+                            IdentityCard = "002404356266",
+                            LastName = "Trung Tanh",
+                            PhoneNumber = "0546871263",
+                            RollNumber = "216008",
+                            StudentStatus = 0,
+                            SubFee = 1000m
+                        },
+                        new
+                        {
+                            Id = 10,
+                            Address = "Ha Noi",
+                            ClassId = 2,
+                            CourseId = 5,
+                            Dob = new DateTime(2020, 6, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FeeStatus = 0,
+                            FirstName = "Don",
+                            Gmail = "huucong47@gmail.com",
+                            IdentityCard = "001201072132",
+                            LastName = "Huu Conh",
+                            PhoneNumber = "0889567664",
+                            RollNumber = "217009",
+                            StudentStatus = 0,
+                            SubFee = 1000m
+                        },
+                        new
+                        {
+                            Id = 11,
+                            Address = "Gia Lai",
+                            ClassId = 2,
+                            CourseId = 1,
+                            Dob = new DateTime(2020, 2, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FeeStatus = 0,
+                            FirstName = "Han",
+                            Gmail = "havanvu1@gmail.com",
+                            IdentityCard = "001201303456",
+                            LastName = "Van Nat",
+                            PhoneNumber = "0825894325",
+                            RollNumber = "213010",
+                            StudentStatus = 0,
+                            SubFee = 1000m
+                        },
+                        new
+                        {
+                            Id = 12,
+                            Address = "Lao Cai",
+                            ClassId = 2,
+                            CourseId = 2,
+                            Dob = new DateTime(2020, 3, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FeeStatus = 0,
+                            FirstName = "Phan",
+                            Gmail = "phamlamlc1@gmail.com",
+                            IdentityCard = "002302446304",
+                            LastName = "Tung Lang",
+                            PhoneNumber = "0328658586",
+                            RollNumber = "214011",
+                            StudentStatus = 0,
+                            SubFee = 1000m
+                        },
+                        new
+                        {
+                            Id = 13,
+                            Address = "Cao Bang",
+                            ClassId = 3,
+                            CourseId = 3,
+                            Dob = new DateTime(2020, 4, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FeeStatus = 0,
+                            FirstName = "Non",
+                            Gmail = "nongphanhhung93@gmail.com",
+                            IdentityCard = "0002304664305",
+                            LastName = "Manh Ganh",
+                            PhoneNumber = "0654871957",
+                            RollNumber = "215012",
+                            StudentStatus = 0,
+                            SubFee = 1000m
+                        },
+                        new
+                        {
+                            Id = 14,
+                            Address = "Ha Noi",
+                            ClassId = 3,
+                            CourseId = 4,
+                            Dob = new DateTime(2020, 5, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FeeStatus = 0,
+                            FirstName = "Nguy",
+                            Gmail = "nguyenunganh@gmail.com",
+                            IdentityCard = "002404356446",
+                            LastName = "Trung",
+                            PhoneNumber = "0546871268",
+                            RollNumber = "216013",
+                            StudentStatus = 0,
+                            SubFee = 1000m
+                        },
+                        new
+                        {
+                            Id = 15,
+                            Address = "Ha Noi",
+                            ClassId = 3,
+                            CourseId = 5,
+                            Dob = new DateTime(2020, 6, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FeeStatus = 0,
+                            FirstName = "Dom",
+                            Gmail = "huucong473@gmail.com",
+                            IdentityCard = "001201072119",
+                            LastName = "Huu",
+                            PhoneNumber = "0889567669",
+                            RollNumber = "217014",
+                            StudentStatus = 0,
+                            SubFee = 1000m
+                        },
+                        new
+                        {
+                            Id = 16,
+                            Address = "Gia Lai",
+                            ClassId = 3,
+                            CourseId = 1,
+                            Dob = new DateTime(2020, 2, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FeeStatus = 0,
+                            FirstName = "Ham",
+                            Gmail = "havau18@gmail.com",
+                            IdentityCard = "001201303447",
+                            LastName = "Van",
+                            PhoneNumber = "0825894311",
+                            RollNumber = "213015",
+                            StudentStatus = 0,
+                            SubFee = 1000m
+                        },
+                        new
+                        {
+                            Id = 17,
+                            Address = "Lao Cai",
+                            ClassId = 3,
+                            CourseId = 2,
+                            Dob = new DateTime(2020, 3, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FeeStatus = 0,
+                            FirstName = "Phat",
+                            Gmail = "phlamlc14@gmail.com",
+                            IdentityCard = "002302446311",
+                            LastName = "Tung",
+                            PhoneNumber = "0328658512",
+                            RollNumber = "214016",
+                            StudentStatus = 0,
+                            SubFee = 1000m
+                        },
+                        new
+                        {
+                            Id = 18,
+                            Address = "Cao Bang",
+                            ClassId = 4,
+                            CourseId = 3,
+                            Dob = new DateTime(2020, 4, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FeeStatus = 0,
+                            FirstName = "Nong",
+                            Gmail = "nonhanmanhhung93@gmail.com",
+                            IdentityCard = "0002304664312",
+                            LastName = "Manh",
+                            PhoneNumber = "0654871913",
+                            RollNumber = "215017",
+                            StudentStatus = 0,
+                            SubFee = 1000m
+                        },
+                        new
+                        {
+                            Id = 19,
+                            Address = "Ha Noi",
+                            ClassId = 4,
+                            CourseId = 4,
+                            Dob = new DateTime(2020, 5, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FeeStatus = 0,
+                            FirstName = "Nguyen",
+                            Gmail = "ngentrunganh@gmail.com",
+                            IdentityCard = "002404356713",
+                            LastName = "Anh",
+                            PhoneNumber = "0546871214",
+                            RollNumber = "216018",
+                            StudentStatus = 0,
+                            SubFee = 1000m
+                        },
+                        new
+                        {
+                            Id = 20,
+                            Address = "Ha Noi",
+                            ClassId = 5,
+                            CourseId = 5,
+                            Dob = new DateTime(2020, 6, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FeeStatus = 0,
+                            FirstName = "Do",
+                            Gmail = "hcong473@gmail.com",
+                            IdentityCard = "001201072114",
+                            LastName = "Cong",
+                            PhoneNumber = "0889567615",
+                            RollNumber = "217019",
                             StudentStatus = 0,
                             SubFee = 1000m
                         });
@@ -1478,6 +1753,24 @@ namespace SymphonyWebApp.Migrations
                         });
                 });
 
+            modelBuilder.Entity("SymphonyWebApp.Data.Entities.TestRoom", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:IdentityIncrement", 1)
+                        .HasAnnotation("SqlServer:IdentitySeed", 1)
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("TestRooms");
+                });
+
             modelBuilder.Entity("ClassStudyCourse", b =>
                 {
                     b.HasOne("SymphonyWebApp.Data.Entities.ClassStudy", null)
@@ -1544,6 +1837,15 @@ namespace SymphonyWebApp.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("SymphonyWebApp.Data.Entities.Customer", b =>
+                {
+                    b.HasOne("SymphonyWebApp.Data.Entities.TestRoom", "TestRoom")
+                        .WithMany("Customers")
+                        .HasForeignKey("TestRoomId");
+
+                    b.Navigation("TestRoom");
+                });
+
             modelBuilder.Entity("SymphonyWebApp.Data.Entities.RegistrationTest", b =>
                 {
                     b.HasOne("SymphonyWebApp.Data.Entities.Customer", "Customer")
@@ -1587,6 +1889,11 @@ namespace SymphonyWebApp.Migrations
             modelBuilder.Entity("SymphonyWebApp.Data.Entities.Customer", b =>
                 {
                     b.Navigation("RegistrationTest");
+                });
+
+            modelBuilder.Entity("SymphonyWebApp.Data.Entities.TestRoom", b =>
+                {
+                    b.Navigation("Customers");
                 });
 #pragma warning restore 612, 618
         }

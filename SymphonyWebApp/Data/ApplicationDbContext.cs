@@ -28,6 +28,7 @@ namespace SymphonyWebApp.Data
             modelBuilder.ApplyConfiguration(new PostConfiguration());
             modelBuilder.ApplyConfiguration(new ResultTestConfiguration());
             modelBuilder.ApplyConfiguration(new ExaminationConfiguration());
+            modelBuilder.ApplyConfiguration(new TestRoomConfiguration());
 
             modelBuilder.Seed();
             base.OnModelCreating(modelBuilder);
@@ -44,5 +45,6 @@ namespace SymphonyWebApp.Data
         public DbSet<Post> Posts { get; set; }
         public DbSet<Teacher> Teacher { get; set; }
         public DbSet<Examination> Examinations { get; set; }
+        public DbSet<TestRoom> TestRooms { get; set; }
     }
 }

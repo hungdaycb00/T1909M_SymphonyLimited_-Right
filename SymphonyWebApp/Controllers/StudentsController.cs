@@ -27,11 +27,11 @@ namespace SymphonyWebApp.Controllers
             if (keyword != null)
             {
                 ViewBag.Keyword = keyword;
-                var result = await _context.Students.Where(x => x.Address.Contains(keyword) || x.FirstName.Contains(keyword) || x.LastName.Contains(keyword) || x.Course.CourseId.Contains(keyword)).ToListAsync();
+                var result = await _context.Students.Where(x => x.Address.Contains(keyword) || x.FirstName.Contains(keyword) || x.LastName.Contains(keyword) || x.Course.CourseId.Contains(keyword)).OrderByDescending(x => x.Id).ToListAsync();
                 return View(result);
             }
             var applicationDbContext = _context.Students.Include(s => s.ClassStudy).Include(s => s.Course);
-            return View(await applicationDbContext.ToListAsync());
+            return View(await applicationDbContext.OrderByDescending(x => x.Id).ToListAsync());
         }
 
         // GET: Students/Details/5

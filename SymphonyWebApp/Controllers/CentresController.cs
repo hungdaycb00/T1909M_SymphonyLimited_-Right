@@ -27,10 +27,10 @@ namespace SymphonyWebApp.Controllers
             if (keyword != null)
             {
                 ViewBag.Keyword = keyword;
-                var result = await _context.Centres.Where(x => x.Address.Contains(keyword)).ToListAsync();
+                var result = await _context.Centres.Where(x => x.Address.Contains(keyword)).OrderByDescending(x => x.Id).ToListAsync();
                 return View(result);
             }
-            return View(await _context.Centres.ToListAsync());
+            return View(await _context.Centres.OrderByDescending(x => x.Id).ToListAsync());
         }
 
         // GET: Centres/Details/5

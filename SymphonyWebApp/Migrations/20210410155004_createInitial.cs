@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace SymphonyWebApp.Migrations
 {
-    public partial class createInital : Migration
+    public partial class createInitial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -95,23 +95,6 @@ namespace SymphonyWebApp.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Customers",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Gmail = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    PhoneNumber = table.Column<string>(type: "nvarchar(12)", maxLength: 12, nullable: false),
-                    Contents = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
-                    CreatingDate = table.Column<DateTime>(type: "datetime2", nullable: true, defaultValue: new DateTime(2021, 4, 6, 0, 51, 23, 318, DateTimeKind.Local).AddTicks(7757))
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Customers", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Examinations",
                 columns: table => new
                 {
@@ -136,7 +119,7 @@ namespace SymphonyWebApp.Migrations
                     Title = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     UrlImage = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     content = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CreateDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2021, 4, 6, 0, 0, 0, 0, DateTimeKind.Local)),
+                    CreateDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2021, 4, 10, 0, 0, 0, 0, DateTimeKind.Local)),
                     Author = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
@@ -197,6 +180,19 @@ namespace SymphonyWebApp.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Teacher", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "TestRooms",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_TestRooms", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -367,6 +363,31 @@ namespace SymphonyWebApp.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Customers",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Gmail = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    PhoneNumber = table.Column<string>(type: "nvarchar(12)", maxLength: 12, nullable: false),
+                    Contents = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
+                    CreatingDate = table.Column<DateTime>(type: "datetime2", nullable: true, defaultValue: new DateTime(2021, 4, 10, 22, 50, 3, 850, DateTimeKind.Local).AddTicks(5404)),
+                    customerStatus = table.Column<int>(type: "int", nullable: false, defaultValue: 1),
+                    TestRoomId = table.Column<int>(type: "int", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Customers", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Customers_TestRooms_TestRoomId",
+                        column: x => x.TestRoomId,
+                        principalTable: "TestRooms",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "RegistrationTests",
                 columns: table => new
                 {
@@ -428,19 +449,19 @@ namespace SymphonyWebApp.Migrations
 
             migrationBuilder.InsertData(
                 table: "Customers",
-                columns: new[] { "Id", "Contents", "CreatingDate", "Gmail", "Name", "PhoneNumber" },
+                columns: new[] { "Id", "Contents", "CreatingDate", "Gmail", "Name", "PhoneNumber", "TestRoomId", "customerStatus" },
                 values: new object[,]
                 {
-                    { 1, "What is the school's facilities and teaching quality like?", new DateTime(2021, 4, 6, 0, 51, 23, 331, DateTimeKind.Local).AddTicks(9732), "tuyettranlc4@gmail.com", "Tran Thi Tuyet", "0395761476" },
-                    { 2, "What will I get during my studies? ", new DateTime(2021, 4, 6, 0, 51, 23, 332, DateTimeKind.Local).AddTicks(1081), "ngocdra@gmail.com", "Nguyen Van Ngoc", "0956137845" },
-                    { 3, "Can I take other experiential sessions outside the main school hours?", new DateTime(2021, 4, 6, 0, 51, 23, 332, DateTimeKind.Local).AddTicks(1091), "namot@gmail.com", "Nguyen Hoai Nam", "0986176340" },
-                    { 4, "Can I make a reservation if I miss a midterm?", new DateTime(2021, 4, 6, 0, 51, 23, 332, DateTimeKind.Local).AddTicks(1093), "maioklc@gmail.com", "Pham Tuyet Mai", "0296753186" },
-                    { 5, "Can I leave the course for the next semester too?", new DateTime(2021, 4, 6, 0, 51, 23, 332, DateTimeKind.Local).AddTicks(1095), "thobeo8@gmail.com", "Le Quang Tho", "0364781029" },
-                    { 6, "What is the school's facilities and teaching quality like?", new DateTime(2021, 4, 6, 0, 51, 23, 332, DateTimeKind.Local).AddTicks(1098), "tuyettanl@gmail.com", "Tran Thi Tan", "0395761111" },
-                    { 7, "What will I get during my studies? ", new DateTime(2021, 4, 6, 0, 51, 23, 332, DateTimeKind.Local).AddTicks(1100), "thaidra@gmail.com", "Nguyen Van Thai", "0956137222" },
-                    { 8, "Can I take other experiential sessions outside the main school hours?", new DateTime(2021, 4, 6, 0, 51, 23, 332, DateTimeKind.Local).AddTicks(1102), "Vanot@gmail.com", "Nguyen Hoai Van", "0986176333" },
-                    { 9, "Can I make a reservation if I miss a midterm?", new DateTime(2021, 4, 6, 0, 51, 23, 332, DateTimeKind.Local).AddTicks(1105), "thoklc@gmail.com", "Pham Tuyet Tho", "0296753144" },
-                    { 10, "Can I leave the course for the next semester too?", new DateTime(2021, 4, 6, 0, 51, 23, 332, DateTimeKind.Local).AddTicks(1108), "haibeo8@gmail.com", "Le Quang Hai", "0364781055" }
+                    { 1, "What is the school's facilities and teaching quality like?", new DateTime(2021, 4, 10, 22, 50, 3, 870, DateTimeKind.Local).AddTicks(9022), "tuyettranlc4@gmail.com", "Tran Thi Tuyet", "0395761476", null, 1 },
+                    { 2, "What will I get during my studies? ", new DateTime(2021, 4, 10, 22, 50, 3, 871, DateTimeKind.Local).AddTicks(1080), "ngocdra@gmail.com", "Nguyen Van Ngoc", "0956137845", null, 1 },
+                    { 3, "Can I take other experiential sessions outside the main school hours?", new DateTime(2021, 4, 10, 22, 50, 3, 871, DateTimeKind.Local).AddTicks(1090), "namot@gmail.com", "Nguyen Hoai Nam", "0986176340", null, 1 },
+                    { 4, "Can I make a reservation if I miss a midterm?", new DateTime(2021, 4, 10, 22, 50, 3, 871, DateTimeKind.Local).AddTicks(1093), "maioklc@gmail.com", "Pham Tuyet Mai", "0296753186", null, 1 },
+                    { 5, "Can I leave the course for the next semester too?", new DateTime(2021, 4, 10, 22, 50, 3, 871, DateTimeKind.Local).AddTicks(1095), "thobeo8@gmail.com", "Le Quang Tho", "0364781029", null, 1 },
+                    { 6, "What is the school's facilities and teaching quality like?", new DateTime(2021, 4, 10, 22, 50, 3, 871, DateTimeKind.Local).AddTicks(1096), "tuyettanl@gmail.com", "Tran Thi Tan", "0395761111", null, 1 },
+                    { 7, "What will I get during my studies? ", new DateTime(2021, 4, 10, 22, 50, 3, 871, DateTimeKind.Local).AddTicks(1099), "thaidra@gmail.com", "Nguyen Van Thai", "0956137222", null, 1 },
+                    { 8, "Can I take other experiential sessions outside the main school hours?", new DateTime(2021, 4, 10, 22, 50, 3, 871, DateTimeKind.Local).AddTicks(1101), "Vanot@gmail.com", "Nguyen Hoai Van", "0986176333", null, 1 },
+                    { 9, "Can I make a reservation if I miss a midterm?", new DateTime(2021, 4, 10, 22, 50, 3, 871, DateTimeKind.Local).AddTicks(1106), "thoklc@gmail.com", "Pham Tuyet Tho", "0296753144", null, 1 },
+                    { 10, "Can I leave the course for the next semester too?", new DateTime(2021, 4, 10, 22, 50, 3, 871, DateTimeKind.Local).AddTicks(1108), "haibeo8@gmail.com", "Le Quang Hai", "0364781055", null, 1 }
                 });
 
             migrationBuilder.InsertData(
@@ -520,16 +541,16 @@ namespace SymphonyWebApp.Migrations
                 columns: new[] { "Id", "CourseName", "CustomerId", "RegistrationFee" },
                 values: new object[,]
                 {
-                    { 1, "Basic Java", 1, 100m },
-                    { 2, "Advance Python", 2, 100m },
-                    { 3, "Basic SQL", 3, 100m },
-                    { 4, "Advance JavaScript", 4, 100m },
-                    { 5, "Basic Network Security", 5, 100m },
-                    { 6, "Basic Java", 6, 100m },
-                    { 7, "Advance Python", 7, 100m },
+                    { 10, "Basic Network Security", 10, 100m },
                     { 8, "Basic SQL", 8, 100m },
-                    { 9, "Advance JavaScript", 9, 100m },
-                    { 10, "Basic Network Security", 10, 100m }
+                    { 7, "Advance Python", 7, 100m },
+                    { 6, "Basic Java", 6, 100m },
+                    { 5, "Basic Network Security", 5, 100m },
+                    { 4, "Advance JavaScript", 4, 100m },
+                    { 3, "Basic SQL", 3, 100m },
+                    { 2, "Advance Python", 2, 100m },
+                    { 1, "Basic Java", 1, 100m },
+                    { 9, "Advance JavaScript", 9, 100m }
                 });
 
             migrationBuilder.InsertData(
@@ -537,11 +558,26 @@ namespace SymphonyWebApp.Migrations
                 columns: new[] { "Id", "Address", "ClassId", "CourseId", "Dob", "FeeStatus", "FirstName", "Gmail", "IdentityCard", "LastName", "PhoneNumber", "RollNumber", "SubFee" },
                 values: new object[,]
                 {
-                    { 1, "Gia Lai", 1, 1, new DateTime(2020, 2, 13, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "Ha", "havanvu18@gmail.com", "001201303446", "Van Vu", "0825894329", "21304", 1000m },
-                    { 2, "Lao Cai", 2, 2, new DateTime(2020, 3, 14, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "Pham", "phamlamlc14@gmail.com", "002302446301", "Tung Lam", "0328658580", "21404", 1000m },
-                    { 3, "Cao Bang", 3, 3, new DateTime(2020, 4, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "Nong", "nongphanmanhhung93@gmail.com", "0002304664303", "Manh Hung", "0654871956", "21504", 1000m },
-                    { 4, "Ha Noi", 4, 4, new DateTime(2020, 5, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "Nguyen", "nguyentrunganh@gmail.com", "002404356766", "Trung Anh", "0546871264", "21604", 1000m },
-                    { 5, "Ha Noi", 5, 5, new DateTime(2020, 6, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "Do", "huucong473@gmail.com", "001201072112", "Huu Cong", "0889567661", "21704", 1000m }
+                    { 20, "Ha Noi", 5, 5, new DateTime(2020, 6, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "Do", "hcong473@gmail.com", "001201072114", "Cong", "0889567615", "217019", 1000m },
+                    { 15, "Ha Noi", 3, 5, new DateTime(2020, 6, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "Dom", "huucong473@gmail.com", "001201072119", "Huu", "0889567669", "217014", 1000m },
+                    { 10, "Ha Noi", 2, 5, new DateTime(2020, 6, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "Don", "huucong47@gmail.com", "001201072132", "Huu Conh", "0889567664", "217009", 1000m },
+                    { 5, "Ha Noi", 1, 5, new DateTime(2020, 6, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "Do", "huucong473@gmail.com", "001201072112", "Huu Cong", "0889567661", "217004", 1000m },
+                    { 19, "Ha Noi", 4, 4, new DateTime(2020, 5, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "Nguyen", "ngentrunganh@gmail.com", "002404356713", "Anh", "0546871214", "216018", 1000m },
+                    { 14, "Ha Noi", 3, 4, new DateTime(2020, 5, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "Nguy", "nguyenunganh@gmail.com", "002404356446", "Trung", "0546871268", "216013", 1000m },
+                    { 4, "Ha Noi", 1, 4, new DateTime(2020, 5, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "Nguyen", "nguyentrunganh@gmail.com", "002404356766", "Trung Anh", "0546871264", "216004", 1000m },
+                    { 18, "Cao Bang", 4, 3, new DateTime(2020, 4, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "Nong", "nonhanmanhhung93@gmail.com", "0002304664312", "Manh", "0654871913", "215017", 1000m },
+                    { 13, "Cao Bang", 3, 3, new DateTime(2020, 4, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "Non", "nongphanhhung93@gmail.com", "0002304664305", "Manh Ganh", "0654871957", "215012", 1000m },
+                    { 8, "Cao Bang", 1, 3, new DateTime(2020, 4, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "Nog", "nongphanmanhhung@gmail.com", "0002304664323", "Manh Hong", "0654871952", "215007", 1000m },
+                    { 3, "Cao Bang", 1, 3, new DateTime(2020, 4, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "Nong", "nongphanmanhhung93@gmail.com", "0002304664303", "Manh Hung", "0654871956", "215004", 1000m },
+                    { 17, "Lao Cai", 3, 2, new DateTime(2020, 3, 14, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "Phat", "phlamlc14@gmail.com", "002302446311", "Tung", "0328658512", "214016", 1000m },
+                    { 12, "Lao Cai", 2, 2, new DateTime(2020, 3, 14, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "Phan", "phamlamlc1@gmail.com", "002302446304", "Tung Lang", "0328658586", "214011", 1000m },
+                    { 7, "Lao Cai", 1, 2, new DateTime(2020, 3, 14, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "Pha", "phamlamlc@gmail.com", "002302446321", "Tung Lang", "0328658581", "214006", 1000m },
+                    { 2, "Lao Cai", 1, 2, new DateTime(2020, 3, 14, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "Pham", "phamlamlc14@gmail.com", "002302446301", "Tung Lam", "0328658580", "214004", 1000m },
+                    { 16, "Gia Lai", 3, 1, new DateTime(2020, 2, 13, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "Ham", "havau18@gmail.com", "001201303447", "Van", "0825894311", "213015", 1000m },
+                    { 11, "Gia Lai", 2, 1, new DateTime(2020, 2, 13, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "Han", "havanvu1@gmail.com", "001201303456", "Van Nat", "0825894325", "213010", 1000m },
+                    { 6, "Gia Lai", 1, 1, new DateTime(2020, 2, 13, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "Nam", "havanvu18@gmail.com", "001201303433", "Van Va", "0825894329", "213005", 1000m },
+                    { 9, "Ha Noi", 2, 4, new DateTime(2020, 5, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "Nguy", "nguyentrung@gmail.com", "002404356266", "Trung Tanh", "0546871263", "216008", 1000m },
+                    { 1, "Gia Lai", 1, 1, new DateTime(2020, 2, 13, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "Ha", "havanvu18@gmail.com", "001201303446", "Van Vu", "0825894329", "213004", 1000m }
                 });
 
             migrationBuilder.CreateIndex(
@@ -587,6 +623,11 @@ namespace SymphonyWebApp.Migrations
                 name: "IX_ClassStudyCourse_CoursesId",
                 table: "ClassStudyCourse",
                 column: "CoursesId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Customers_TestRoomId",
+                table: "Customers",
+                column: "TestRoomId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_RegistrationTests_CustomerId",
@@ -663,6 +704,9 @@ namespace SymphonyWebApp.Migrations
 
             migrationBuilder.DropTable(
                 name: "Courses");
+
+            migrationBuilder.DropTable(
+                name: "TestRooms");
         }
     }
 }

@@ -36,6 +36,24 @@
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Contents)
         </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.CreatingDate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.CreatingDate)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.customerStatus)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.customerStatus)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.TestRoom)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.TestRoom.Name)
+        </dd class>
     </dl>
     
     <form asp-action="Delete">

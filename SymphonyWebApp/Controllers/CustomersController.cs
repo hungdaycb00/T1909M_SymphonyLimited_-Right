@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -11,7 +10,6 @@ using SymphonyWebApp.Data.Entities;
 
 namespace SymphonyWebApp.Controllers
 {
-    [Authorize]
     public class CustomersController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -22,16 +20,10 @@ namespace SymphonyWebApp.Controllers
         }
 
         // GET: Customers
-        public async Task<IActionResult> Index(string keyword)
+        public async Task<IActionResult> Index()
         {
-            if (keyword != null)
-            {
-                ViewBag.Keyword = keyword;
-                var result = await _context.Customers.Where(x => x.Name.Contains(keyword)
-                || x.Contents.Contains(keyword)).OrderByDescending(x => x.Id).ToListAsync();
-                return View(result);
-            }
-            return View(await _context.Customers.OrderByDescending(x => x.Id).ToListAsync());
+            var applicationDbContext = _context.Customers.Include(c => c.TestRoom);
+            return View(await applicationDbContext.OrderByDescending(x => x.Id).ToListAsync());
         }
 
         // GET: Customers/Details/5
@@ -43,6 +35,7 @@ namespace SymphonyWebApp.Controllers
             }
 
             var customer = await _context.Customers
+                .Include(c => c.TestRoom)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (customer == null)
             {
@@ -55,6 +48,7 @@ namespace SymphonyWebApp.Controllers
         // GET: Customers/Create
         public IActionResult Create()
         {
+            ViewData["TestRoomId"] = new SelectList(_context.TestRooms, "Id", "Name");
             return View();
         }
 
@@ -63,15 +57,15 @@ namespace SymphonyWebApp.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,Gmail,PhoneNumber,Contents")] Customer customer)
+        public async Task<IActionResult> Create([Bind("Id,Name,Gmail,PhoneNumber,Contents,CreatingDate,customerStatus,TestRoomId")] Customer customer)
         {
             if (ModelState.IsValid)
             {
-                customer.CreatingDate = DateTime.Now;
                 _context.Add(customer);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["TestRoomId"] = new SelectList(_context.TestRooms, "Id", "Name", customer.TestRoomId);
             return View(customer);
         }
 
@@ -88,6 +82,7 @@ namespace SymphonyWebApp.Controllers
             {
                 return NotFound();
             }
+            ViewData["TestRoomId"] = new SelectList(_context.TestRooms, "Id", "Name", customer.TestRoomId);
             return View(customer);
         }
 
@@ -96,7 +91,7 @@ namespace SymphonyWebApp.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Gmail,PhoneNumber,Contents")] Customer customer)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Gmail,PhoneNumber,Contents,CreatingDate,customerStatus,TestRoomId")] Customer customer)
         {
             if (id != customer.Id)
             {
@@ -107,8 +102,6 @@ namespace SymphonyWebApp.Controllers
             {
                 try
                 {
-                    customer.CreatingDate = DateTime.Now;
-
                     _context.Update(customer);
                     await _context.SaveChangesAsync();
                 }
@@ -125,6 +118,7 @@ namespace SymphonyWebApp.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["TestRoomId"] = new SelectList(_context.TestRooms, "Id", "Name", customer.TestRoomId);
             return View(customer);
         }
 
@@ -137,6 +131,7 @@ namespace SymphonyWebApp.Controllers
             }
 
             var customer = await _context.Customers
+                .Include(c => c.TestRoom)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (customer == null)
             {

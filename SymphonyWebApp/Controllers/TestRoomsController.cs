@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -11,24 +10,22 @@ using SymphonyWebApp.Data.Entities;
 
 namespace SymphonyWebApp.Controllers
 {
-    [Authorize]
-    public class RegistrationTestsController : Controller
+    public class TestRoomsController : Controller
     {
         private readonly ApplicationDbContext _context;
 
-        public RegistrationTestsController(ApplicationDbContext context)
+        public TestRoomsController(ApplicationDbContext context)
         {
             _context = context;
         }
 
-        // GET: RegistrationTests
+        // GET: TestRooms
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.RegistrationTests.Include(r => r.Customer);
-            return View(await applicationDbContext.OrderByDescending(x => x.Id).ToListAsync());
+            return View(await _context.TestRooms.ToListAsync());
         }
 
-        // GET: RegistrationTests/Details/5
+        // GET: TestRooms/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -36,42 +33,40 @@ namespace SymphonyWebApp.Controllers
                 return NotFound();
             }
 
-            var registrationTest = await _context.RegistrationTests
-                .Include(r => r.Customer)
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (registrationTest == null)
+            var testRoom = await _context.TestRooms.Include(x => x.Customers).Where(x => x.Id == id).ToListAsync();
+            if (testRoom == null)
             {
                 return NotFound();
             }
-
-            return View(registrationTest);
+            TempData["TestRoomId"] = id;
+            return View(testRoom);
         }
 
-        // GET: RegistrationTests/Create
+        // GET: TestRooms/Create
         public IActionResult Create()
         {
-            ViewData["CustomerId"] = new SelectList(_context.Customers, "Id", "Contents");
             return View();
         }
+  
 
-        // POST: RegistrationTests/Create
+
+        // POST: TestRooms/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,CourseName,RegistrationFee,CustomerId")] RegistrationTest registrationTest)
+        public async Task<IActionResult> Create([Bind("Id,Name")] TestRoom testRoom)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(registrationTest);
+                _context.Add(testRoom);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CustomerId"] = new SelectList(_context.Customers, "Id", "Contents", registrationTest.CustomerId);
-            return View(registrationTest);
+            return View(testRoom);
         }
 
-        // GET: RegistrationTests/Edit/5
+        // GET: TestRooms/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -79,23 +74,22 @@ namespace SymphonyWebApp.Controllers
                 return NotFound();
             }
 
-            var registrationTest = await _context.RegistrationTests.FindAsync(id);
-            if (registrationTest == null)
+            var testRoom = await _context.TestRooms.FindAsync(id);
+            if (testRoom == null)
             {
                 return NotFound();
             }
-            ViewData["CustomerId"] = new SelectList(_context.Customers, "Id", "Contents", registrationTest.CustomerId);
-            return View(registrationTest);
+            return View(testRoom);
         }
 
-        // POST: RegistrationTests/Edit/5
+        // POST: TestRooms/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,CourseName,RegistrationFee,CustomerId")] RegistrationTest registrationTest)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name")] TestRoom testRoom)
         {
-            if (id != registrationTest.Id)
+            if (id != testRoom.Id)
             {
                 return NotFound();
             }
@@ -104,12 +98,12 @@ namespace SymphonyWebApp.Controllers
             {
                 try
                 {
-                    _context.Update(registrationTest);
+                    _context.Update(testRoom);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!RegistrationTestExists(registrationTest.Id))
+                    if (!TestRoomExists(testRoom.Id))
                     {
                         return NotFound();
                     }
@@ -120,11 +114,10 @@ namespace SymphonyWebApp.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CustomerId"] = new SelectList(_context.Customers, "Id", "Contents", registrationTest.CustomerId);
-            return View(registrationTest);
+            return View(testRoom);
         }
 
-        // GET: RegistrationTests/Delete/5
+        // GET: TestRooms/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -132,31 +125,30 @@ namespace SymphonyWebApp.Controllers
                 return NotFound();
             }
 
-            var registrationTest = await _context.RegistrationTests
-                .Include(r => r.Customer)
+            var testRoom = await _context.TestRooms
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (registrationTest == null)
+            if (testRoom == null)
             {
                 return NotFound();
             }
 
-            return View(registrationTest);
+            return View(testRoom);
         }
 
-        // POST: RegistrationTests/Delete/5
+        // POST: TestRooms/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var registrationTest = await _context.RegistrationTests.FindAsync(id);
-            _context.RegistrationTests.Remove(registrationTest);
+            var testRoom = await _context.TestRooms.FindAsync(id);
+            _context.TestRooms.Remove(testRoom);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool RegistrationTestExists(int id)
+        private bool TestRoomExists(int id)
         {
-            return _context.RegistrationTests.Any(e => e.Id == id);
+            return _context.TestRooms.Any(e => e.Id == id);
         }
     }
 }

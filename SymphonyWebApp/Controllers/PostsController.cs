@@ -33,10 +33,10 @@ namespace SymphonyWebApp.Controllers
             if (keyword != null)
             {
                 ViewBag.Keyword = keyword;
-                var result = await _context.Posts.Where(x => x.Title.Contains(keyword) || x.Author.Contains(keyword)).ToListAsync();
+                var result = await _context.Posts.Where(x => x.Title.Contains(keyword) || x.Author.Contains(keyword)).OrderByDescending(x => x.Id).ToListAsync();
                 return View(result);
             }
-            return View(await _context.Posts.ToListAsync());
+            return View(await _context.Posts.OrderByDescending(x => x.Id).ToListAsync());
         }
 
         // GET: Posts/Details/5
