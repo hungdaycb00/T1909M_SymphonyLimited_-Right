@@ -42,6 +42,7 @@ namespace SymphonyWebApp.Controllers
             customer.Gmail = gmail;
             customer.PhoneNumber = phonenumber;
             customer.Contents = content;
+            customer.CreatingDate = DateTime.Now;
             _context.Add(customer);
             await _context.SaveChangesAsync();
             TempData["msg"] = "Submitted successfully!";

@@ -33,10 +33,7 @@ namespace SymphonyWebApp.Controllers
 
             return View();
         }
-        public void OnGet()
-        {
-            
-        }
+  
         public IEnumerable<Teacher> Teachers { get; set; }
         public IEnumerable<ClassStudy> ClassStudies { get; set; }
         public IEnumerable<Course> Courses { get; set; }

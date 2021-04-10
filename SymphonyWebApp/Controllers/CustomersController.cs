@@ -67,6 +67,7 @@ namespace SymphonyWebApp.Controllers
         {
             if (ModelState.IsValid)
             {
+                customer.CreatingDate = DateTime.Now;
                 _context.Add(customer);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -106,6 +107,8 @@ namespace SymphonyWebApp.Controllers
             {
                 try
                 {
+                    customer.CreatingDate = DateTime.Now;
+
                     _context.Update(customer);
                     await _context.SaveChangesAsync();
                 }

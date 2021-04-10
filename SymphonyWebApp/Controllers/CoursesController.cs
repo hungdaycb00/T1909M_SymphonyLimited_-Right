@@ -115,9 +115,13 @@ namespace SymphonyWebApp.Controllers
             {
                 try
                 {
-                    course.UrlImage = await this.SaveFile(imageFile);
+                    if (imageFile != null)
+                    {
+                        course.UrlImage = await this.SaveFile(imageFile);
+                    }
 
-                    _context.Update(course);
+
+                        _context.Update(course);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)

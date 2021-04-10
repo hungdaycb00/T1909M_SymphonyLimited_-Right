@@ -41,9 +41,9 @@ namespace SymphonyWebApp.Data.Entities
         {
             RuleFor(x => x.CourseId).MinimumLength(3).MaximumLength(10).NotNull();
             RuleFor(x => x.CourseName).NotNull();
-            RuleFor(x => x.Fee).NotNull().ScalePrecision(0, 4);
+            RuleFor(x => x.Fee).NotNull().GreaterThan(0);
             RuleFor(x => x.level).NotNull();
-            RuleFor(x => x.TrainingTime).NotNull();
+            RuleFor(x => x.TrainingTime).NotNull().GreaterThan(0);
         }
     }
 }

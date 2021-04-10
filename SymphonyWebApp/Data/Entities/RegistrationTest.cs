@@ -29,7 +29,7 @@ namespace SymphonyWebApp.Data.Entities
         public ClassRegistrationTestValidator()
         {
             RuleFor(x => x.CourseName).NotNull();
-            RuleFor(x => x.RegistrationFee).ScalePrecision(0, 4);
+            RuleFor(x => x.RegistrationFee).GreaterThan(0);
             RuleFor(x => x.CustomerId).NotNull();
         }
     }

@@ -76,7 +76,7 @@ namespace SymphonyWebApp.Controllers
                 {
                     post.UrlImage = await this.SaveFile(imageFile);
                 }
-
+                post.CreateDate = DateTime.Now;
                 _context.Add(post);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -116,7 +116,12 @@ namespace SymphonyWebApp.Controllers
             {
                 try
                 {
-                    post.UrlImage = await this.SaveFile(imageFile);
+                    if(imageFile != null)
+                    {
+                        post.UrlImage = await this.SaveFile(imageFile);
+
+                    }
+                    post.CreateDate = DateTime.Now;
 
                     _context.Update(post);
                     await _context.SaveChangesAsync();

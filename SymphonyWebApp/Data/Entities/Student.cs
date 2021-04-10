@@ -68,7 +68,7 @@ namespace SymphonyWebApp.Data.Entities
             RuleFor(x => x.IdentityCard).Length(10);
             RuleFor(x => x.PhoneNumber).NotNull();
             RuleFor(x => x.Address).NotEmpty();
-            RuleFor(x => x.SubFee).ScalePrecision(0, 4);
+            RuleFor(x => x.SubFee).GreaterThan(0);
             RuleFor(x => x.FeeStatus).NotNull();
             RuleFor(x => x.CourseId).NotNull();
             RuleFor(x => x.ClassId).NotNull();

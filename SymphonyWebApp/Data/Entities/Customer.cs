@@ -33,7 +33,11 @@ namespace SymphonyWebApp.Data.Entities
         {
             RuleFor(x => x.Name).NotNull();
             RuleFor(x => x.Gmail).NotNull().EmailAddress();
-            RuleFor(x => x.PhoneNumber).NotEmpty();
+            RuleFor(x => x.PhoneNumber).NotEmpty().Length(10, 12);
+            RuleFor(x => x.Contents).NotNull();
+            RuleFor(x => x.CreatingDate).NotNull();
+
+
         }
     }
 }
