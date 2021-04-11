@@ -56,15 +56,15 @@ namespace SymphonyWebApp.Data.Entities
         public ClassStudy ClassStudy { get; set; }
     }
 
-    public class ClassStudentValidator : AbstractValidator<Student>
+    public class StudentValidator : AbstractValidator<Student>
     {
-        public ClassStudentValidator()
+        public StudentValidator()
         {
             RuleFor(x => x.RollNumber).NotNull().MinimumLength(5).MaximumLength(10);
             RuleFor(x => x.LastName).NotNull();
             RuleFor(x => x.FirstName).NotNull();
             RuleFor(x => x.Gmail).NotEmpty().EmailAddress();
-            RuleFor(x => x.Dob).LessThan(DateTime.Now.AddYears(10));
+            RuleFor(x => x.Dob).NotNull().LessThan(DateTime.Now.AddYears(-12));
             RuleFor(x => x.IdentityCard).Length(10);
             RuleFor(x => x.PhoneNumber).NotNull();
             RuleFor(x => x.Address).NotEmpty();

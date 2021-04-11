@@ -85,7 +85,7 @@
             @customer.Gmail
         </td>
         <td>
-            @customer.CreatingDate
+            @customer.CreatingDate.Value.ToShortDateString()
         </td>
         <td style="min-width:240px;">
             <a asp-action="Edit" asp-controller="Customers" asp-route-id="@customer.Id" class="btn btn-warning">Edit</a>
