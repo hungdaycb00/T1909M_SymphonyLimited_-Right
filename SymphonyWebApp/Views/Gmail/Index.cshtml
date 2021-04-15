@@ -1,0 +1,45 @@
+﻿@model SymphonyWebApp.Models.Gmail
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h3>Send Mail</h3>
+@ViewBag.msg
+<form method="post" enctype="multipart/form-data" asp-controller="Gmail" asp-action="Send">
+    <table>
+        <tr class="form-group">
+            <td class="control-label">Name</td>
+            <td><input type="text" asp-for="Name" class="form-control" value="@ViewData["CName"]" required /></td>
+        </tr>
+        <tr class="form-group">
+            <td class="control-label">Phone</td>
+            <td><input type="text" asp-for="Phone" class="form-control" value="@ViewData["CPhoneNumber"]" required /></td>
+        </tr>
+        <tr class="form-group">
+            <td class="control-label">Email</td>
+            <td><input type="text" asp-for="Email" class="form-control" value="@ViewData["CGmail"]" required /></td>
+        </tr>
+        <tr class="form-group">
+            <td class="control-label">Address</td>
+            <td><input type="text" asp-for="Address" class="form-control" /></td>
+        </tr>
+        <tr class="form-group">
+            <td class="control-label">Subject</td>
+            <td><input type="text" asp-for="Subject" class="form-control" required /></td>
+        </tr>
+        <tr class="form-group">
+            <td valign="top" class="control-label">Content</td>
+            <td><textarea type="text" asp-for="Content" rows="5" cols="20" class="form-control" required> </textarea></td>
+        </tr>
+        <tr class="form-group">
+            <td class="control-label">Attachments</td>
+            <td><input type="file" name="attachments" multiple="multiple" class="form-control" /></td>
+        </tr>
+    </table>
+    <div class="mt-5">
+        <button type="submit" class="btn btn-primary mb-3">Send</button> <br />
+        <a asp-action="Index" asp-controller="Customer">Back to List </a>
+    </div>
+</form>
