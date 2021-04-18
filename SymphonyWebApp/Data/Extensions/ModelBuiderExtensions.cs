@@ -148,7 +148,7 @@ namespace SymphonyWebApp.Data.Extensions
                 new Question() { Id = 7, Title = "How to make the payment? ", Answer = "Ans: payment can be done through draft, or through cheque or through cash. For making the payment through cash, one needs to come to one of the centre of the institute, and make the payment there itself. Once the payment is done (through cash or through DD), the student will be provided with the receipt with a receipt number. This receipt number is to be inputted in the application form. For the payments done through cheque and DD, one need to enter the DD number and the cheque number, bank details, etc. are to be entered on the application form and the cheque is to be pinned to the application form. Only once the payment is received the student’s application will be accepted. Once the application is accepted, the student is mailed with the acknowledgement form along with the details of the examination, subject chosen, date and time of exam, and the roll number" });
 
             modelBuilder.Entity<Customer>().HasData(
-                new Customer() { Id = 1, Name = "Tran Thi Tuyet", Gmail = "tuyettranlc4@gmail.com", PhoneNumber = "0395761476", Contents = "What is the school's facilities and teaching quality like?", CreatingDate = DateTime.Now, customerStatus = CustomerStatus.Confirm , TestRoomId = 1},
+                new Customer() { Id = 1, Name = "Tran Thi Tuyet", Gmail = "tuyettranlc4@gmail.com", PhoneNumber = "0395761476", Contents = "What is the school's facilities and teaching quality like?", CreatingDate = DateTime.Now, customerStatus = CustomerStatus.Confirm, TestRoomId = 1 },
                 new Customer() { Id = 2, Name = "Nguyen Van Ngoc", Gmail = "ngocdra@gmail.com", PhoneNumber = "0956137845", Contents = "What will I get during my studies? ", CreatingDate = DateTime.Now, customerStatus = CustomerStatus.Confirm, TestRoomId = 1 },
                 new Customer() { Id = 3, Name = "Nguyen Hoai Nam", Gmail = "namot@gmail.com", PhoneNumber = "0986176340", Contents = "Can I take other experiential sessions outside the main school hours?", CreatingDate = DateTime.Now, customerStatus = CustomerStatus.Confirm, TestRoomId = 1 },
                 new Customer() { Id = 4, Name = "Pham Tuyet Mai", Gmail = "maioklc@gmail.com", PhoneNumber = "0296753186", Contents = "Can I make a reservation if I miss a midterm?", CreatingDate = DateTime.Now, customerStatus = CustomerStatus.Confirm, TestRoomId = 1 },
@@ -296,7 +296,9 @@ namespace SymphonyWebApp.Data.Extensions
             modelBuilder.Entity<TestRoom>().HasData(
           new TestRoom() { Id = 1, Name = "Room 1" },
           new TestRoom() { Id = 2, Name = "Room 2" }
-          );
+          ); modelBuilder.Entity<Post>().HasData(
+           new Post() { Id = 1, Title = "We Are Symphony Learning Center", content = "Symphony Ltd. is private institute, which generally conducts the classes and training materials for the various certifications that are related to IT and Software industries like networking related, Java related, database related like for SQL Servers, oracle, etc. They are one of the famous institutions which have spread in to various branches situated at different location in the state. They provide various resources like the preparation materials, lab facilities based on the subject, extra lab hours or sessions (offered after the course duration), 24 hours faculty guidance is provided for the lab sessions, assignments, Library facilities, etc.", Author = " ", CreateDate = DateTime.Now.Date, UrlImage = "about.jpg" }
+           );
         }
     }
 }

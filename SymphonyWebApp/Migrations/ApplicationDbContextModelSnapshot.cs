@@ -494,7 +494,7 @@ namespace SymphonyWebApp.Migrations
                     b.Property<DateTime?>("CreatingDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2021, 4, 10, 22, 50, 3, 850, DateTimeKind.Local).AddTicks(5404));
+                        .HasDefaultValue(new DateTime(2021, 4, 18, 23, 3, 27, 385, DateTimeKind.Local).AddTicks(8204));
 
                     b.Property<string>("Gmail")
                         .IsRequired()
@@ -528,57 +528,62 @@ namespace SymphonyWebApp.Migrations
                         {
                             Id = 1,
                             Contents = "What is the school's facilities and teaching quality like?",
-                            CreatingDate = new DateTime(2021, 4, 10, 22, 50, 3, 870, DateTimeKind.Local).AddTicks(9022),
+                            CreatingDate = new DateTime(2021, 4, 18, 23, 3, 27, 398, DateTimeKind.Local).AddTicks(9158),
                             Gmail = "tuyettranlc4@gmail.com",
                             Name = "Tran Thi Tuyet",
                             PhoneNumber = "0395761476",
-                            customerStatus = 1
+                            TestRoomId = 1,
+                            customerStatus = 0
                         },
                         new
                         {
                             Id = 2,
                             Contents = "What will I get during my studies? ",
-                            CreatingDate = new DateTime(2021, 4, 10, 22, 50, 3, 871, DateTimeKind.Local).AddTicks(1080),
+                            CreatingDate = new DateTime(2021, 4, 18, 23, 3, 27, 399, DateTimeKind.Local).AddTicks(548),
                             Gmail = "ngocdra@gmail.com",
                             Name = "Nguyen Van Ngoc",
                             PhoneNumber = "0956137845",
-                            customerStatus = 1
+                            TestRoomId = 1,
+                            customerStatus = 0
                         },
                         new
                         {
                             Id = 3,
                             Contents = "Can I take other experiential sessions outside the main school hours?",
-                            CreatingDate = new DateTime(2021, 4, 10, 22, 50, 3, 871, DateTimeKind.Local).AddTicks(1090),
+                            CreatingDate = new DateTime(2021, 4, 18, 23, 3, 27, 399, DateTimeKind.Local).AddTicks(554),
                             Gmail = "namot@gmail.com",
                             Name = "Nguyen Hoai Nam",
                             PhoneNumber = "0986176340",
-                            customerStatus = 1
+                            TestRoomId = 1,
+                            customerStatus = 0
                         },
                         new
                         {
                             Id = 4,
                             Contents = "Can I make a reservation if I miss a midterm?",
-                            CreatingDate = new DateTime(2021, 4, 10, 22, 50, 3, 871, DateTimeKind.Local).AddTicks(1093),
+                            CreatingDate = new DateTime(2021, 4, 18, 23, 3, 27, 399, DateTimeKind.Local).AddTicks(556),
                             Gmail = "maioklc@gmail.com",
                             Name = "Pham Tuyet Mai",
                             PhoneNumber = "0296753186",
-                            customerStatus = 1
+                            TestRoomId = 1,
+                            customerStatus = 0
                         },
                         new
                         {
                             Id = 5,
                             Contents = "Can I leave the course for the next semester too?",
-                            CreatingDate = new DateTime(2021, 4, 10, 22, 50, 3, 871, DateTimeKind.Local).AddTicks(1095),
+                            CreatingDate = new DateTime(2021, 4, 18, 23, 3, 27, 399, DateTimeKind.Local).AddTicks(557),
                             Gmail = "thobeo8@gmail.com",
                             Name = "Le Quang Tho",
                             PhoneNumber = "0364781029",
-                            customerStatus = 1
+                            TestRoomId = 1,
+                            customerStatus = 0
                         },
                         new
                         {
                             Id = 6,
                             Contents = "What is the school's facilities and teaching quality like?",
-                            CreatingDate = new DateTime(2021, 4, 10, 22, 50, 3, 871, DateTimeKind.Local).AddTicks(1096),
+                            CreatingDate = new DateTime(2021, 4, 18, 23, 3, 27, 399, DateTimeKind.Local).AddTicks(559),
                             Gmail = "tuyettanl@gmail.com",
                             Name = "Tran Thi Tan",
                             PhoneNumber = "0395761111",
@@ -588,7 +593,7 @@ namespace SymphonyWebApp.Migrations
                         {
                             Id = 7,
                             Contents = "What will I get during my studies? ",
-                            CreatingDate = new DateTime(2021, 4, 10, 22, 50, 3, 871, DateTimeKind.Local).AddTicks(1099),
+                            CreatingDate = new DateTime(2021, 4, 18, 23, 3, 27, 399, DateTimeKind.Local).AddTicks(560),
                             Gmail = "thaidra@gmail.com",
                             Name = "Nguyen Van Thai",
                             PhoneNumber = "0956137222",
@@ -598,7 +603,7 @@ namespace SymphonyWebApp.Migrations
                         {
                             Id = 8,
                             Contents = "Can I take other experiential sessions outside the main school hours?",
-                            CreatingDate = new DateTime(2021, 4, 10, 22, 50, 3, 871, DateTimeKind.Local).AddTicks(1101),
+                            CreatingDate = new DateTime(2021, 4, 18, 23, 3, 27, 399, DateTimeKind.Local).AddTicks(562),
                             Gmail = "Vanot@gmail.com",
                             Name = "Nguyen Hoai Van",
                             PhoneNumber = "0986176333",
@@ -608,7 +613,7 @@ namespace SymphonyWebApp.Migrations
                         {
                             Id = 9,
                             Contents = "Can I make a reservation if I miss a midterm?",
-                            CreatingDate = new DateTime(2021, 4, 10, 22, 50, 3, 871, DateTimeKind.Local).AddTicks(1106),
+                            CreatingDate = new DateTime(2021, 4, 18, 23, 3, 27, 399, DateTimeKind.Local).AddTicks(563),
                             Gmail = "thoklc@gmail.com",
                             Name = "Pham Tuyet Tho",
                             PhoneNumber = "0296753144",
@@ -618,7 +623,7 @@ namespace SymphonyWebApp.Migrations
                         {
                             Id = 10,
                             Contents = "Can I leave the course for the next semester too?",
-                            CreatingDate = new DateTime(2021, 4, 10, 22, 50, 3, 871, DateTimeKind.Local).AddTicks(1108),
+                            CreatingDate = new DateTime(2021, 4, 18, 23, 3, 27, 399, DateTimeKind.Local).AddTicks(564),
                             Gmail = "haibeo8@gmail.com",
                             Name = "Le Quang Hai",
                             PhoneNumber = "0364781055",
@@ -735,7 +740,7 @@ namespace SymphonyWebApp.Migrations
                     b.Property<DateTime>("CreateDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2021, 4, 10, 0, 0, 0, 0, DateTimeKind.Local));
+                        .HasDefaultValue(new DateTime(2021, 4, 18, 0, 0, 0, 0, DateTimeKind.Local));
 
                     b.Property<string>("Title")
                         .HasColumnType("nvarchar(max)");
@@ -749,6 +754,17 @@ namespace SymphonyWebApp.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Posts");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Author = " ",
+                            CreateDate = new DateTime(2021, 4, 18, 0, 0, 0, 0, DateTimeKind.Local),
+                            Title = "Learn Anything You Want Today",
+                            UrlImage = "about.jpg",
+                            content = "Symphony Ltd. is private institute, which generally conducts the classes and training materials for the various certifications that are related to IT and Software industries like networking related, Java related, database related like for SQL Servers, oracle, etc. They are one of the famous institutions which have spread in to various branches situated at different location in the state."
+                        });
                 });
 
             modelBuilder.Entity("SymphonyWebApp.Data.Entities.Question", b =>
@@ -1294,7 +1310,7 @@ namespace SymphonyWebApp.Migrations
                             Address = "Gia Lai",
                             ClassId = 1,
                             CourseId = 1,
-                            Dob = new DateTime(2020, 2, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Dob = new DateTime(1990, 2, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FeeStatus = 0,
                             FirstName = "Ha",
                             Gmail = "havanvu18@gmail.com",
@@ -1311,7 +1327,7 @@ namespace SymphonyWebApp.Migrations
                             Address = "Lao Cai",
                             ClassId = 1,
                             CourseId = 2,
-                            Dob = new DateTime(2020, 3, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Dob = new DateTime(1990, 3, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FeeStatus = 0,
                             FirstName = "Pham",
                             Gmail = "phamlamlc14@gmail.com",
@@ -1328,7 +1344,7 @@ namespace SymphonyWebApp.Migrations
                             Address = "Cao Bang",
                             ClassId = 1,
                             CourseId = 3,
-                            Dob = new DateTime(2020, 4, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Dob = new DateTime(1990, 4, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FeeStatus = 0,
                             FirstName = "Nong",
                             Gmail = "nongphanmanhhung93@gmail.com",
@@ -1345,7 +1361,7 @@ namespace SymphonyWebApp.Migrations
                             Address = "Ha Noi",
                             ClassId = 1,
                             CourseId = 4,
-                            Dob = new DateTime(2020, 5, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Dob = new DateTime(1990, 5, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FeeStatus = 0,
                             FirstName = "Nguyen",
                             Gmail = "nguyentrunganh@gmail.com",
@@ -1362,7 +1378,7 @@ namespace SymphonyWebApp.Migrations
                             Address = "Ha Noi",
                             ClassId = 1,
                             CourseId = 5,
-                            Dob = new DateTime(2020, 6, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Dob = new DateTime(1998, 6, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FeeStatus = 0,
                             FirstName = "Do",
                             Gmail = "huucong473@gmail.com",
@@ -1379,7 +1395,7 @@ namespace SymphonyWebApp.Migrations
                             Address = "Gia Lai",
                             ClassId = 1,
                             CourseId = 1,
-                            Dob = new DateTime(2020, 2, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Dob = new DateTime(1998, 2, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FeeStatus = 0,
                             FirstName = "Nam",
                             Gmail = "havanvu18@gmail.com",
@@ -1396,7 +1412,7 @@ namespace SymphonyWebApp.Migrations
                             Address = "Lao Cai",
                             ClassId = 1,
                             CourseId = 2,
-                            Dob = new DateTime(2020, 3, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Dob = new DateTime(1998, 3, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FeeStatus = 0,
                             FirstName = "Pha",
                             Gmail = "phamlamlc@gmail.com",
@@ -1413,7 +1429,7 @@ namespace SymphonyWebApp.Migrations
                             Address = "Cao Bang",
                             ClassId = 1,
                             CourseId = 3,
-                            Dob = new DateTime(2020, 4, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Dob = new DateTime(1998, 4, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FeeStatus = 0,
                             FirstName = "Nog",
                             Gmail = "nongphanmanhhung@gmail.com",
@@ -1430,7 +1446,7 @@ namespace SymphonyWebApp.Migrations
                             Address = "Ha Noi",
                             ClassId = 2,
                             CourseId = 4,
-                            Dob = new DateTime(2020, 5, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Dob = new DateTime(2000, 5, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FeeStatus = 0,
                             FirstName = "Nguy",
                             Gmail = "nguyentrung@gmail.com",
@@ -1447,7 +1463,7 @@ namespace SymphonyWebApp.Migrations
                             Address = "Ha Noi",
                             ClassId = 2,
                             CourseId = 5,
-                            Dob = new DateTime(2020, 6, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Dob = new DateTime(1998, 6, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FeeStatus = 0,
                             FirstName = "Don",
                             Gmail = "huucong47@gmail.com",
@@ -1464,7 +1480,7 @@ namespace SymphonyWebApp.Migrations
                             Address = "Gia Lai",
                             ClassId = 2,
                             CourseId = 1,
-                            Dob = new DateTime(2020, 2, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Dob = new DateTime(2000, 2, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FeeStatus = 0,
                             FirstName = "Han",
                             Gmail = "havanvu1@gmail.com",
@@ -1481,7 +1497,7 @@ namespace SymphonyWebApp.Migrations
                             Address = "Lao Cai",
                             ClassId = 2,
                             CourseId = 2,
-                            Dob = new DateTime(2020, 3, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Dob = new DateTime(2003, 3, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FeeStatus = 0,
                             FirstName = "Phan",
                             Gmail = "phamlamlc1@gmail.com",
@@ -1498,7 +1514,7 @@ namespace SymphonyWebApp.Migrations
                             Address = "Cao Bang",
                             ClassId = 3,
                             CourseId = 3,
-                            Dob = new DateTime(2020, 4, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Dob = new DateTime(1998, 4, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FeeStatus = 0,
                             FirstName = "Non",
                             Gmail = "nongphanhhung93@gmail.com",
@@ -1515,7 +1531,7 @@ namespace SymphonyWebApp.Migrations
                             Address = "Ha Noi",
                             ClassId = 3,
                             CourseId = 4,
-                            Dob = new DateTime(2020, 5, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Dob = new DateTime(1998, 5, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FeeStatus = 0,
                             FirstName = "Nguy",
                             Gmail = "nguyenunganh@gmail.com",
@@ -1532,7 +1548,7 @@ namespace SymphonyWebApp.Migrations
                             Address = "Ha Noi",
                             ClassId = 3,
                             CourseId = 5,
-                            Dob = new DateTime(2020, 6, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Dob = new DateTime(2002, 6, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FeeStatus = 0,
                             FirstName = "Dom",
                             Gmail = "huucong473@gmail.com",
@@ -1549,7 +1565,7 @@ namespace SymphonyWebApp.Migrations
                             Address = "Gia Lai",
                             ClassId = 3,
                             CourseId = 1,
-                            Dob = new DateTime(2020, 2, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Dob = new DateTime(1998, 2, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FeeStatus = 0,
                             FirstName = "Ham",
                             Gmail = "havau18@gmail.com",
@@ -1566,7 +1582,7 @@ namespace SymphonyWebApp.Migrations
                             Address = "Lao Cai",
                             ClassId = 3,
                             CourseId = 2,
-                            Dob = new DateTime(2020, 3, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Dob = new DateTime(1997, 3, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FeeStatus = 0,
                             FirstName = "Phat",
                             Gmail = "phlamlc14@gmail.com",
@@ -1583,7 +1599,7 @@ namespace SymphonyWebApp.Migrations
                             Address = "Cao Bang",
                             ClassId = 4,
                             CourseId = 3,
-                            Dob = new DateTime(2020, 4, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Dob = new DateTime(1998, 4, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FeeStatus = 0,
                             FirstName = "Nong",
                             Gmail = "nonhanmanhhung93@gmail.com",
@@ -1600,7 +1616,7 @@ namespace SymphonyWebApp.Migrations
                             Address = "Ha Noi",
                             ClassId = 4,
                             CourseId = 4,
-                            Dob = new DateTime(2020, 5, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Dob = new DateTime(1999, 5, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FeeStatus = 0,
                             FirstName = "Nguyen",
                             Gmail = "ngentrunganh@gmail.com",
@@ -1617,7 +1633,7 @@ namespace SymphonyWebApp.Migrations
                             Address = "Ha Noi",
                             ClassId = 5,
                             CourseId = 5,
-                            Dob = new DateTime(2020, 6, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Dob = new DateTime(1999, 6, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FeeStatus = 0,
                             FirstName = "Do",
                             Gmail = "hcong473@gmail.com",
@@ -1769,6 +1785,18 @@ namespace SymphonyWebApp.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("TestRooms");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Name = "Room 1"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Name = "Room 2"
+                        });
                 });
 
             modelBuilder.Entity("ClassStudyCourse", b =>

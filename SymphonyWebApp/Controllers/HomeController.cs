@@ -28,9 +28,16 @@ namespace SymphonyWebApp.Controllers
             return View(await _context.Courses.Take(6).ToListAsync());
         }
 
+        public IEnumerable<Teacher> Teachers { get; set; }
+
         public async Task<IActionResult> About()
         {
-            return View(await _context.Centres.ToListAsync());
+            var about = await _context.Posts.Where(x => x.Id == 1).ToListAsync();
+            Teachers = _context.Teacher.Take(4).ToList();
+
+            ViewData["Teacher"] = Teachers;
+
+            return View(about);
         }
 
         [HttpPost]
@@ -109,7 +116,6 @@ namespace SymphonyWebApp.Controllers
             }
             return View();
         }
-
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
