@@ -68,7 +68,7 @@ namespace SymphonyWebApp.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,CourseId,CourseName,Fee,level,TrainingTime")] Course course, IFormFile imageFile)
+        public async Task<IActionResult> Create([Bind("Id,CourseId,CourseName,Description,Fee,level,UrlImage,TrainingTime")] Course course, IFormFile imageFile)
         {
             if (ModelState.IsValid)
             {
@@ -104,7 +104,7 @@ namespace SymphonyWebApp.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,CourseId,CourseName,Fee,level,TrainingTime")] Course course, IFormFile imageFile)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,CourseId,CourseName,Description,Fee,level,UrlImage,TrainingTime")] Course course, IFormFile imageFile)
         {
             if (id != course.Id)
             {
@@ -120,8 +120,7 @@ namespace SymphonyWebApp.Controllers
                         course.UrlImage = await this.SaveFile(imageFile);
                     }
 
-
-                        _context.Update(course);
+                    _context.Update(course);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
