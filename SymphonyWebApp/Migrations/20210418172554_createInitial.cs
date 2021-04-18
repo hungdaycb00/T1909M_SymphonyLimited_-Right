@@ -119,7 +119,7 @@ namespace SymphonyWebApp.Migrations
                     Title = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     UrlImage = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     content = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CreateDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2021, 4, 18, 0, 0, 0, 0, DateTimeKind.Local)),
+                    CreateDate = table.Column<DateTime>(type: "datetime2", nullable: false, defaultValue: new DateTime(2021, 4, 19, 0, 0, 0, 0, DateTimeKind.Local)),
                     Author = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
@@ -372,7 +372,7 @@ namespace SymphonyWebApp.Migrations
                     Gmail = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     PhoneNumber = table.Column<string>(type: "nvarchar(12)", maxLength: 12, nullable: false),
                     Contents = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: false),
-                    CreatingDate = table.Column<DateTime>(type: "datetime2", nullable: true, defaultValue: new DateTime(2021, 4, 18, 23, 3, 27, 385, DateTimeKind.Local).AddTicks(8204)),
+                    CreatingDate = table.Column<DateTime>(type: "datetime2", nullable: true, defaultValue: new DateTime(2021, 4, 19, 0, 0, 0, 0, DateTimeKind.Local)),
                     customerStatus = table.Column<int>(type: "int", nullable: false, defaultValue: 1),
                     TestRoomId = table.Column<int>(type: "int", nullable: true)
                 },
@@ -452,11 +452,11 @@ namespace SymphonyWebApp.Migrations
                 columns: new[] { "Id", "Contents", "CreatingDate", "Gmail", "Name", "PhoneNumber", "TestRoomId", "customerStatus" },
                 values: new object[,]
                 {
-                    { 6, "What is the school's facilities and teaching quality like?", new DateTime(2021, 4, 18, 23, 3, 27, 399, DateTimeKind.Local).AddTicks(559), "tuyettanl@gmail.com", "Tran Thi Tan", "0395761111", null, 1 },
-                    { 7, "What will I get during my studies? ", new DateTime(2021, 4, 18, 23, 3, 27, 399, DateTimeKind.Local).AddTicks(560), "thaidra@gmail.com", "Nguyen Van Thai", "0956137222", null, 1 },
-                    { 8, "Can I take other experiential sessions outside the main school hours?", new DateTime(2021, 4, 18, 23, 3, 27, 399, DateTimeKind.Local).AddTicks(562), "Vanot@gmail.com", "Nguyen Hoai Van", "0986176333", null, 1 },
-                    { 9, "Can I make a reservation if I miss a midterm?", new DateTime(2021, 4, 18, 23, 3, 27, 399, DateTimeKind.Local).AddTicks(563), "thoklc@gmail.com", "Pham Tuyet Tho", "0296753144", null, 1 },
-                    { 10, "Can I leave the course for the next semester too?", new DateTime(2021, 4, 18, 23, 3, 27, 399, DateTimeKind.Local).AddTicks(564), "haibeo8@gmail.com", "Le Quang Hai", "0364781055", null, 1 }
+                    { 6, "What is the school's facilities and teaching quality like?", new DateTime(2021, 4, 19, 0, 25, 53, 858, DateTimeKind.Local).AddTicks(354), "tuyettanl@gmail.com", "Tran Thi Tan", "0395761111", null, 1 },
+                    { 7, "What will I get during my studies? ", new DateTime(2021, 4, 19, 0, 25, 53, 858, DateTimeKind.Local).AddTicks(356), "thaidra@gmail.com", "Nguyen Van Thai", "0956137222", null, 1 },
+                    { 8, "Can I take other experiential sessions outside the main school hours?", new DateTime(2021, 4, 19, 0, 25, 53, 858, DateTimeKind.Local).AddTicks(358), "Vanot@gmail.com", "Nguyen Hoai Van", "0986176333", null, 1 },
+                    { 9, "Can I make a reservation if I miss a midterm?", new DateTime(2021, 4, 19, 0, 25, 53, 858, DateTimeKind.Local).AddTicks(359), "thoklc@gmail.com", "Pham Tuyet Tho", "0296753144", null, 1 },
+                    { 10, "Can I leave the course for the next semester too?", new DateTime(2021, 4, 19, 0, 25, 53, 858, DateTimeKind.Local).AddTicks(361), "haibeo8@gmail.com", "Le Quang Hai", "0364781055", null, 1 }
                 });
 
             migrationBuilder.InsertData(
@@ -477,7 +477,7 @@ namespace SymphonyWebApp.Migrations
             migrationBuilder.InsertData(
                 table: "Posts",
                 columns: new[] { "Id", "Author", "CreateDate", "Title", "UrlImage", "content" },
-                values: new object[] { 1, " ", new DateTime(2021, 4, 18, 0, 0, 0, 0, DateTimeKind.Local), "Learn Anything You Want Today", "about.jpg", "Symphony Ltd. is private institute, which generally conducts the classes and training materials for the various certifications that are related to IT and Software industries like networking related, Java related, database related like for SQL Servers, oracle, etc. They are one of the famous institutions which have spread in to various branches situated at different location in the state." });
+                values: new object[] { 1, " ", new DateTime(2021, 4, 19, 0, 0, 0, 0, DateTimeKind.Local), "We Are Symphony Learning Center", "about.jpg", "Symphony Ltd. is private institute, which generally conducts the classes and training materials for the various certifications that are related to IT and Software industries like networking related, Java related, database related like for SQL Servers, oracle, etc. They are one of the famous institutions which have spread in to various branches situated at different location in the state. They provide various resources like the preparation materials, lab facilities based on the subject, extra lab hours or sessions (offered after the course duration), 24 hours faculty guidance is provided for the lab sessions, assignments, Library facilities, etc." });
 
             migrationBuilder.InsertData(
                 table: "Questions",
@@ -553,11 +553,11 @@ namespace SymphonyWebApp.Migrations
                 columns: new[] { "Id", "Contents", "CreatingDate", "Gmail", "Name", "PhoneNumber", "TestRoomId" },
                 values: new object[,]
                 {
-                    { 5, "Can I leave the course for the next semester too?", new DateTime(2021, 4, 18, 23, 3, 27, 399, DateTimeKind.Local).AddTicks(557), "thobeo8@gmail.com", "Le Quang Tho", "0364781029", 1 },
-                    { 3, "Can I take other experiential sessions outside the main school hours?", new DateTime(2021, 4, 18, 23, 3, 27, 399, DateTimeKind.Local).AddTicks(554), "namot@gmail.com", "Nguyen Hoai Nam", "0986176340", 1 },
-                    { 2, "What will I get during my studies? ", new DateTime(2021, 4, 18, 23, 3, 27, 399, DateTimeKind.Local).AddTicks(548), "ngocdra@gmail.com", "Nguyen Van Ngoc", "0956137845", 1 },
-                    { 1, "What is the school's facilities and teaching quality like?", new DateTime(2021, 4, 18, 23, 3, 27, 398, DateTimeKind.Local).AddTicks(9158), "tuyettranlc4@gmail.com", "Tran Thi Tuyet", "0395761476", 1 },
-                    { 4, "Can I make a reservation if I miss a midterm?", new DateTime(2021, 4, 18, 23, 3, 27, 399, DateTimeKind.Local).AddTicks(556), "maioklc@gmail.com", "Pham Tuyet Mai", "0296753186", 1 }
+                    { 5, "Can I leave the course for the next semester too?", new DateTime(2021, 4, 19, 0, 25, 53, 858, DateTimeKind.Local).AddTicks(352), "thobeo8@gmail.com", "Le Quang Tho", "0364781029", 1 },
+                    { 3, "Can I take other experiential sessions outside the main school hours?", new DateTime(2021, 4, 19, 0, 25, 53, 858, DateTimeKind.Local).AddTicks(347), "namot@gmail.com", "Nguyen Hoai Nam", "0986176340", 1 },
+                    { 2, "What will I get during my studies? ", new DateTime(2021, 4, 19, 0, 25, 53, 858, DateTimeKind.Local).AddTicks(335), "ngocdra@gmail.com", "Nguyen Van Ngoc", "0956137845", 1 },
+                    { 1, "What is the school's facilities and teaching quality like?", new DateTime(2021, 4, 19, 0, 25, 53, 857, DateTimeKind.Local).AddTicks(8446), "tuyettranlc4@gmail.com", "Tran Thi Tuyet", "0395761476", 1 },
+                    { 4, "Can I make a reservation if I miss a midterm?", new DateTime(2021, 4, 19, 0, 25, 53, 858, DateTimeKind.Local).AddTicks(349), "maioklc@gmail.com", "Pham Tuyet Mai", "0296753186", 1 }
                 });
 
             migrationBuilder.InsertData(

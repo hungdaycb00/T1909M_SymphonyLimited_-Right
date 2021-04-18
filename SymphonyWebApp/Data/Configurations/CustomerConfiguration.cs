@@ -19,7 +19,7 @@ namespace SymphonyWebApp.Data.Configurations
             builder.Property(x => x.Gmail).IsRequired().HasMaxLength(50);
             builder.Property(x => x.PhoneNumber).IsRequired().HasMaxLength(12);
             builder.Property(x => x.Contents).HasMaxLength(200).IsRequired();
-            builder.Property(x => x.CreatingDate).HasDefaultValue(DateTime.Now);
+            builder.Property(x => x.CreatingDate).HasDefaultValue(DateTime.Now.Date);
             builder.Property(x => x.customerStatus).HasDefaultValue(CustomerStatus.Uncomfirm);
 
             builder.HasOne(r => r.TestRoom).WithMany(c => c.Customers).HasForeignKey(f => f.TestRoomId);

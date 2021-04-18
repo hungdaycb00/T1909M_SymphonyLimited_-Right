@@ -494,7 +494,7 @@ namespace SymphonyWebApp.Migrations
                     b.Property<DateTime?>("CreatingDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2021, 4, 18, 23, 3, 27, 385, DateTimeKind.Local).AddTicks(8204));
+                        .HasDefaultValue(new DateTime(2021, 4, 19, 0, 0, 0, 0, DateTimeKind.Local));
 
                     b.Property<string>("Gmail")
                         .IsRequired()
@@ -528,7 +528,7 @@ namespace SymphonyWebApp.Migrations
                         {
                             Id = 1,
                             Contents = "What is the school's facilities and teaching quality like?",
-                            CreatingDate = new DateTime(2021, 4, 18, 23, 3, 27, 398, DateTimeKind.Local).AddTicks(9158),
+                            CreatingDate = new DateTime(2021, 4, 19, 0, 25, 53, 857, DateTimeKind.Local).AddTicks(8446),
                             Gmail = "tuyettranlc4@gmail.com",
                             Name = "Tran Thi Tuyet",
                             PhoneNumber = "0395761476",
@@ -539,7 +539,7 @@ namespace SymphonyWebApp.Migrations
                         {
                             Id = 2,
                             Contents = "What will I get during my studies? ",
-                            CreatingDate = new DateTime(2021, 4, 18, 23, 3, 27, 399, DateTimeKind.Local).AddTicks(548),
+                            CreatingDate = new DateTime(2021, 4, 19, 0, 25, 53, 858, DateTimeKind.Local).AddTicks(335),
                             Gmail = "ngocdra@gmail.com",
                             Name = "Nguyen Van Ngoc",
                             PhoneNumber = "0956137845",
@@ -550,7 +550,7 @@ namespace SymphonyWebApp.Migrations
                         {
                             Id = 3,
                             Contents = "Can I take other experiential sessions outside the main school hours?",
-                            CreatingDate = new DateTime(2021, 4, 18, 23, 3, 27, 399, DateTimeKind.Local).AddTicks(554),
+                            CreatingDate = new DateTime(2021, 4, 19, 0, 25, 53, 858, DateTimeKind.Local).AddTicks(347),
                             Gmail = "namot@gmail.com",
                             Name = "Nguyen Hoai Nam",
                             PhoneNumber = "0986176340",
@@ -561,7 +561,7 @@ namespace SymphonyWebApp.Migrations
                         {
                             Id = 4,
                             Contents = "Can I make a reservation if I miss a midterm?",
-                            CreatingDate = new DateTime(2021, 4, 18, 23, 3, 27, 399, DateTimeKind.Local).AddTicks(556),
+                            CreatingDate = new DateTime(2021, 4, 19, 0, 25, 53, 858, DateTimeKind.Local).AddTicks(349),
                             Gmail = "maioklc@gmail.com",
                             Name = "Pham Tuyet Mai",
                             PhoneNumber = "0296753186",
@@ -572,7 +572,7 @@ namespace SymphonyWebApp.Migrations
                         {
                             Id = 5,
                             Contents = "Can I leave the course for the next semester too?",
-                            CreatingDate = new DateTime(2021, 4, 18, 23, 3, 27, 399, DateTimeKind.Local).AddTicks(557),
+                            CreatingDate = new DateTime(2021, 4, 19, 0, 25, 53, 858, DateTimeKind.Local).AddTicks(352),
                             Gmail = "thobeo8@gmail.com",
                             Name = "Le Quang Tho",
                             PhoneNumber = "0364781029",
@@ -583,7 +583,7 @@ namespace SymphonyWebApp.Migrations
                         {
                             Id = 6,
                             Contents = "What is the school's facilities and teaching quality like?",
-                            CreatingDate = new DateTime(2021, 4, 18, 23, 3, 27, 399, DateTimeKind.Local).AddTicks(559),
+                            CreatingDate = new DateTime(2021, 4, 19, 0, 25, 53, 858, DateTimeKind.Local).AddTicks(354),
                             Gmail = "tuyettanl@gmail.com",
                             Name = "Tran Thi Tan",
                             PhoneNumber = "0395761111",
@@ -593,7 +593,7 @@ namespace SymphonyWebApp.Migrations
                         {
                             Id = 7,
                             Contents = "What will I get during my studies? ",
-                            CreatingDate = new DateTime(2021, 4, 18, 23, 3, 27, 399, DateTimeKind.Local).AddTicks(560),
+                            CreatingDate = new DateTime(2021, 4, 19, 0, 25, 53, 858, DateTimeKind.Local).AddTicks(356),
                             Gmail = "thaidra@gmail.com",
                             Name = "Nguyen Van Thai",
                             PhoneNumber = "0956137222",
@@ -603,7 +603,7 @@ namespace SymphonyWebApp.Migrations
                         {
                             Id = 8,
                             Contents = "Can I take other experiential sessions outside the main school hours?",
-                            CreatingDate = new DateTime(2021, 4, 18, 23, 3, 27, 399, DateTimeKind.Local).AddTicks(562),
+                            CreatingDate = new DateTime(2021, 4, 19, 0, 25, 53, 858, DateTimeKind.Local).AddTicks(358),
                             Gmail = "Vanot@gmail.com",
                             Name = "Nguyen Hoai Van",
                             PhoneNumber = "0986176333",
@@ -613,7 +613,7 @@ namespace SymphonyWebApp.Migrations
                         {
                             Id = 9,
                             Contents = "Can I make a reservation if I miss a midterm?",
-                            CreatingDate = new DateTime(2021, 4, 18, 23, 3, 27, 399, DateTimeKind.Local).AddTicks(563),
+                            CreatingDate = new DateTime(2021, 4, 19, 0, 25, 53, 858, DateTimeKind.Local).AddTicks(359),
                             Gmail = "thoklc@gmail.com",
                             Name = "Pham Tuyet Tho",
                             PhoneNumber = "0296753144",
@@ -623,7 +623,7 @@ namespace SymphonyWebApp.Migrations
                         {
                             Id = 10,
                             Contents = "Can I leave the course for the next semester too?",
-                            CreatingDate = new DateTime(2021, 4, 18, 23, 3, 27, 399, DateTimeKind.Local).AddTicks(564),
+                            CreatingDate = new DateTime(2021, 4, 19, 0, 25, 53, 858, DateTimeKind.Local).AddTicks(361),
                             Gmail = "haibeo8@gmail.com",
                             Name = "Le Quang Hai",
                             PhoneNumber = "0364781055",
@@ -740,7 +740,7 @@ namespace SymphonyWebApp.Migrations
                     b.Property<DateTime>("CreateDate")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2021, 4, 18, 0, 0, 0, 0, DateTimeKind.Local));
+                        .HasDefaultValue(new DateTime(2021, 4, 19, 0, 0, 0, 0, DateTimeKind.Local));
 
                     b.Property<string>("Title")
                         .HasColumnType("nvarchar(max)");
@@ -760,10 +760,10 @@ namespace SymphonyWebApp.Migrations
                         {
                             Id = 1,
                             Author = " ",
-                            CreateDate = new DateTime(2021, 4, 18, 0, 0, 0, 0, DateTimeKind.Local),
-                            Title = "Learn Anything You Want Today",
+                            CreateDate = new DateTime(2021, 4, 19, 0, 0, 0, 0, DateTimeKind.Local),
+                            Title = "We Are Symphony Learning Center",
                             UrlImage = "about.jpg",
-                            content = "Symphony Ltd. is private institute, which generally conducts the classes and training materials for the various certifications that are related to IT and Software industries like networking related, Java related, database related like for SQL Servers, oracle, etc. They are one of the famous institutions which have spread in to various branches situated at different location in the state."
+                            content = "Symphony Ltd. is private institute, which generally conducts the classes and training materials for the various certifications that are related to IT and Software industries like networking related, Java related, database related like for SQL Servers, oracle, etc. They are one of the famous institutions which have spread in to various branches situated at different location in the state. They provide various resources like the preparation materials, lab facilities based on the subject, extra lab hours or sessions (offered after the course duration), 24 hours faculty guidance is provided for the lab sessions, assignments, Library facilities, etc."
                         });
                 });
 

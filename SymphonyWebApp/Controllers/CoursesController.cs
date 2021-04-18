@@ -72,7 +72,7 @@ namespace SymphonyWebApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (course.UrlImage == null)
+                if (course.UrlImage == null && imageFile != null)
                 {
                     course.UrlImage = await this.SaveFile(imageFile);
                 }

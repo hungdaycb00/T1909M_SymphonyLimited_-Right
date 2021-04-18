@@ -59,8 +59,11 @@ namespace SymphonyWebApp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Name,Gmail,PhoneNumber,Contents,CreatingDate,customerStatus,TestRoomId")] Customer customer)
         {
+            customer.CreatingDate = DateTime.Now.Date;
+
             if (ModelState.IsValid)
             {
+
                 _context.Add(customer);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -97,6 +100,7 @@ namespace SymphonyWebApp.Controllers
             {
                 return NotFound();
             }
+            customer.CreatingDate = DateTime.Now;
 
             if (ModelState.IsValid)
             {
