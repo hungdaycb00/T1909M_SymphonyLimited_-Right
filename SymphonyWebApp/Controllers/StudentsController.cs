@@ -27,7 +27,7 @@ namespace SymphonyWebApp.Controllers
             if (keyword != null)
             {
                 ViewBag.Keyword = keyword;
-                var result = await _context.Students.Where(x => x.Address.Contains(keyword) || x.FirstName.Contains(keyword) || x.LastName.Contains(keyword) || x.Course.CourseId.Contains(keyword)|| x.Course.CourseName.Contains(keyword)).OrderByDescending(x => x.Id).Include(s => s.ClassStudy).Include(s => s.Course).ToListAsync();
+                var result = await _context.Students.Where(x => x.Address.Contains(keyword) || x.FirstName.Contains(keyword) || x.LastName.Contains(keyword) || x.Course.CourseId.Contains(keyword) || x.Course.CourseName.Contains(keyword)).OrderByDescending(x => x.Id).Include(s => s.ClassStudy).Include(s => s.Course).ToListAsync();
                 return View(result);
             }
             var applicationDbContext = _context.Students.Include(s => s.ClassStudy).Include(s => s.Course);
@@ -69,7 +69,7 @@ namespace SymphonyWebApp.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,RollNumber,LastName,FirstName,Gmail,Dob,IdentityCard,PhoneNumber,Address,SubFee,FeeStatus,StudentStatus,CourseId,ClassId")] Student student)
+        public async Task<IActionResult> Create([Bind("Id,RollNumber,LastName,FirstName,Gmail,Dob,IdentityCard,PhoneNumber,Address,SubFee,FeeStatus,StudentStatus,RankedAcademic,CourseId,ClassId")] Student student)
         {
             if (ModelState.IsValid)
             {
@@ -108,7 +108,7 @@ namespace SymphonyWebApp.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,RollNumber,LastName,FirstName,Gmail,Dob,IdentityCard,PhoneNumber,Address,SubFee,FeeStatus,StudentStatus,CourseId,ClassId")] Student student)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,RollNumber,LastName,FirstName,Gmail,Dob,IdentityCard,PhoneNumber,Address,SubFee,FeeStatus,StudentStatus,RankedAcademic,CourseId,ClassId")] Student student)
         {
             if (id != student.Id)
             {

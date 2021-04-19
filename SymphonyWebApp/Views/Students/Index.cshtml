@@ -122,9 +122,31 @@
                         <td>
                             @Html.DisplayFor(modelItem => item.FeeStatus)
                         </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.StudentStatus)
-                        </td>
+                        @if (item.StudentStatus == StudentStatus.Dropout)
+                        {
+                            <td class="alert-danger">
+                                @Html.DisplayFor(modelItem => item.StudentStatus)
+                            </td>
+                        }
+                        else if (item.StudentStatus == StudentStatus.Graduated)
+                        {
+                            <td class="alert-primary">
+                                @Html.DisplayFor(modelItem => item.StudentStatus)
+                            </td>
+                        }
+                        else if (item.StudentStatus == StudentStatus.Studying)
+                        {
+                            <td class="alert-success">
+                                @Html.DisplayFor(modelItem => item.StudentStatus)
+                            </td>
+                        }
+                        else if (item.StudentStatus == StudentStatus.Retention)
+                        {
+                            <td class="alert-warning">
+                                @Html.DisplayFor(modelItem => item.StudentStatus)
+                            </td>
+                        }
+
                         <td>
                             @Html.DisplayFor(modelItem => item.Course.CourseName)
                         </td>

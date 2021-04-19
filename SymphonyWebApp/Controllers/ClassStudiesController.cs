@@ -112,7 +112,8 @@ namespace SymphonyWebApp.Controllers
             {
                 return NotFound();
             }
-
+            ModelState.Remove("StartTime");
+            ModelState.Remove("EndTime");
             if (ModelState.IsValid)
             {
                 try

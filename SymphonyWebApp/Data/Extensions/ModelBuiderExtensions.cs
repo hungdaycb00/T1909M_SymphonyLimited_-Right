@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using SymphonyWebApp.Data.Entities;
 using SymphonyWebApp.Data.Entities.Enums;
 using System;
@@ -316,8 +317,9 @@ namespace SymphonyWebApp.Data.Extensions
                 );
             modelBuilder.Entity<TestRoom>().HasData(
           new TestRoom() { Id = 1, Name = "Room 1" },
-          new TestRoom() { Id = 2, Name = "Room 2" }
-          ); modelBuilder.Entity<Post>().HasData(
+          new TestRoom() { Id = 2, Name = "Room 2" });
+
+            modelBuilder.Entity<Post>().HasData(
            new Post() { Id = 1, Title = "We Are Symphony Learning Center", content = "Symphony Ltd. is private institute, which generally conducts the classes and training materials for the various certifications that are related to IT and Software industries like networking related, Java related, database related like for SQL Servers, oracle, etc. They are one of the famous institutions which have spread in to various branches situated at different location in the state. They provide various resources like the preparation materials, lab facilities based on the subject, extra lab hours or sessions (offered after the course duration), 24 hours faculty guidance is provided for the lab sessions, assignments, Library facilities, etc.", Author = " ", CreateDate = DateTime.Now.Date, UrlImage = "about.jpg" }
            );
         }

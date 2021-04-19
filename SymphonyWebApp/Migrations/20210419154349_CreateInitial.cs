@@ -374,6 +374,7 @@ namespace SymphonyWebApp.Migrations
                     SubFee = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     FeeStatus = table.Column<int>(type: "int", nullable: false),
                     StudentStatus = table.Column<int>(type: "int", nullable: false, defaultValue: 0),
+                    RankedAcademic = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     CourseId = table.Column<int>(type: "int", unicode: false, maxLength: 10, nullable: false),
                     ClassId = table.Column<int>(type: "int", unicode: false, maxLength: 10, nullable: false)
                 },
@@ -446,11 +447,11 @@ namespace SymphonyWebApp.Migrations
                 columns: new[] { "Id", "Contents", "CreatingDate", "Gmail", "Name", "PhoneNumber", "TestRoomId", "customerStatus" },
                 values: new object[,]
                 {
-                    { 10, "Can I leave the course for the next semester too?", new DateTime(2021, 4, 19, 16, 36, 1, 792, DateTimeKind.Local).AddTicks(7113), "haibeo8@gmail.com", "Le Quang Hai", "0364781055", null, 1 },
-                    { 9, "Can I make a reservation if I miss a midterm?", new DateTime(2021, 4, 19, 16, 36, 1, 792, DateTimeKind.Local).AddTicks(7112), "thoklc@gmail.com", "Pham Tuyet Tho", "0296753144", null, 1 },
-                    { 8, "Can I take other experiential sessions outside the main school hours?", new DateTime(2021, 4, 19, 16, 36, 1, 792, DateTimeKind.Local).AddTicks(7110), "Vanot@gmail.com", "Nguyen Hoai Van", "0986176333", null, 1 },
-                    { 7, "What will I get during my studies? ", new DateTime(2021, 4, 19, 16, 36, 1, 792, DateTimeKind.Local).AddTicks(7109), "thaidra@gmail.com", "Nguyen Van Thai", "0956137222", null, 1 },
-                    { 6, "What is the school's facilities and teaching quality like?", new DateTime(2021, 4, 19, 16, 36, 1, 792, DateTimeKind.Local).AddTicks(7108), "tuyettanl@gmail.com", "Tran Thi Tan", "0395761111", null, 1 }
+                    { 10, "Can I leave the course for the next semester too?", new DateTime(2021, 4, 19, 22, 43, 49, 141, DateTimeKind.Local).AddTicks(7256), "haibeo8@gmail.com", "Le Quang Hai", "0364781055", null, 1 },
+                    { 9, "Can I make a reservation if I miss a midterm?", new DateTime(2021, 4, 19, 22, 43, 49, 141, DateTimeKind.Local).AddTicks(7254), "thoklc@gmail.com", "Pham Tuyet Tho", "0296753144", null, 1 },
+                    { 8, "Can I take other experiential sessions outside the main school hours?", new DateTime(2021, 4, 19, 22, 43, 49, 141, DateTimeKind.Local).AddTicks(7253), "Vanot@gmail.com", "Nguyen Hoai Van", "0986176333", null, 1 },
+                    { 7, "What will I get during my studies? ", new DateTime(2021, 4, 19, 22, 43, 49, 141, DateTimeKind.Local).AddTicks(7251), "thaidra@gmail.com", "Nguyen Van Thai", "0956137222", null, 1 },
+                    { 6, "What is the school's facilities and teaching quality like?", new DateTime(2021, 4, 19, 22, 43, 49, 141, DateTimeKind.Local).AddTicks(7250), "tuyettanl@gmail.com", "Tran Thi Tan", "0395761111", null, 1 }
                 });
 
             migrationBuilder.InsertData(
@@ -560,11 +561,11 @@ namespace SymphonyWebApp.Migrations
                 columns: new[] { "Id", "Contents", "CreatingDate", "Gmail", "Name", "PhoneNumber", "TestRoomId" },
                 values: new object[,]
                 {
-                    { 1, "What is the school's facilities and teaching quality like?", new DateTime(2021, 4, 19, 16, 36, 1, 792, DateTimeKind.Local).AddTicks(5653), "tuyettranlc4@gmail.com", "Tran Thi Tuyet", "0395761476", 1 },
-                    { 2, "What will I get during my studies? ", new DateTime(2021, 4, 19, 16, 36, 1, 792, DateTimeKind.Local).AddTicks(7092), "ngocdra@gmail.com", "Nguyen Van Ngoc", "0956137845", 1 },
-                    { 3, "Can I take other experiential sessions outside the main school hours?", new DateTime(2021, 4, 19, 16, 36, 1, 792, DateTimeKind.Local).AddTicks(7100), "namot@gmail.com", "Nguyen Hoai Nam", "0986176340", 1 },
-                    { 4, "Can I make a reservation if I miss a midterm?", new DateTime(2021, 4, 19, 16, 36, 1, 792, DateTimeKind.Local).AddTicks(7103), "maioklc@gmail.com", "Pham Tuyet Mai", "0296753186", 1 },
-                    { 5, "Can I leave the course for the next semester too?", new DateTime(2021, 4, 19, 16, 36, 1, 792, DateTimeKind.Local).AddTicks(7106), "thobeo8@gmail.com", "Le Quang Tho", "0364781029", 1 }
+                    { 1, "What is the school's facilities and teaching quality like?", new DateTime(2021, 4, 19, 22, 43, 49, 141, DateTimeKind.Local).AddTicks(5775), "tuyettranlc4@gmail.com", "Tran Thi Tuyet", "0395761476", 1 },
+                    { 2, "What will I get during my studies? ", new DateTime(2021, 4, 19, 22, 43, 49, 141, DateTimeKind.Local).AddTicks(7208), "ngocdra@gmail.com", "Nguyen Van Ngoc", "0956137845", 1 },
+                    { 3, "Can I take other experiential sessions outside the main school hours?", new DateTime(2021, 4, 19, 22, 43, 49, 141, DateTimeKind.Local).AddTicks(7244), "namot@gmail.com", "Nguyen Hoai Nam", "0986176340", 1 },
+                    { 4, "Can I make a reservation if I miss a midterm?", new DateTime(2021, 4, 19, 22, 43, 49, 141, DateTimeKind.Local).AddTicks(7246), "maioklc@gmail.com", "Pham Tuyet Mai", "0296753186", 1 },
+                    { 5, "Can I leave the course for the next semester too?", new DateTime(2021, 4, 19, 22, 43, 49, 141, DateTimeKind.Local).AddTicks(7248), "thobeo8@gmail.com", "Le Quang Tho", "0364781029", 1 }
                 });
 
             migrationBuilder.InsertData(
@@ -593,62 +594,62 @@ namespace SymphonyWebApp.Migrations
 
             migrationBuilder.InsertData(
                 table: "Students",
-                columns: new[] { "Id", "Address", "ClassId", "CourseId", "Dob", "FeeStatus", "FirstName", "Gmail", "IdentityCard", "LastName", "PhoneNumber", "RollNumber", "SubFee" },
+                columns: new[] { "Id", "Address", "ClassId", "CourseId", "Dob", "FeeStatus", "FirstName", "Gmail", "IdentityCard", "LastName", "PhoneNumber", "RankedAcademic", "RollNumber", "SubFee" },
                 values: new object[,]
                 {
-                    { 25, "Ha Noi", 2, 2, new DateTime(1998, 6, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "Do", "huuconuo73@gmail.com", "001201072122", "Huu Cong", "0889567662", "217154", 1000m },
-                    { 26, "Gia Lai", 2, 2, new DateTime(1998, 2, 13, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "Nam", "havanvuo8@gmail.com", "001201303434", "Van Va", "0825894325", "213155", 1000m },
-                    { 27, "Lao Cai", 2, 2, new DateTime(1998, 3, 14, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "Pha", "phauoamlc@gmail.com", "002302446521", "Tung Lang", "0328658511", "214156", 1000m },
-                    { 28, "Cao Bang", 2, 2, new DateTime(1998, 4, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "Nog", "nouophanmanhhung@gmail.com", "0012304664323", "Manh Hong", "0654871915", "215157", 1000m },
-                    { 29, "Ha Noi", 2, 2, new DateTime(2000, 5, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "Nguy", "nguoentrung@gmail.com", "102404356266", "Trung Tanh", "0546871222", "216158", 1000m },
-                    { 30, "Ha Noi", 2, 2, new DateTime(1998, 6, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "Don", "huucouo47@gmail.com", "101201072132", "Huu Conh", "0889567644", "217159", 1000m },
-                    { 31, "Gia Lai", 2, 2, new DateTime(2000, 2, 13, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "Han", "havanuo1@gmail.com", "101201303456", "Van Nat", "0825894377", "213150", 1000m },
-                    { 32, "Lao Cai", 2, 2, new DateTime(2003, 3, 14, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "Phan", "phuolamlc1@gmail.com", "102302446304", "Tung Lang", "0328658555", "214151", 1000m },
-                    { 24, "Ha Noi", 2, 2, new DateTime(1990, 5, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "Nguyen", "nuoyentrunganh@gmail.com", "002404356798", "Trung Anh", "0546871260", "216154", 1000m },
-                    { 35, "Ha Noi", 2, 2, new DateTime(2002, 6, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "Dom", "huucouyen73@gmail.com", "101201072119", "Huu", "0889567619", "217154", 1000m },
-                    { 36, "Gia Lai", 2, 2, new DateTime(1998, 2, 13, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "Ham", "havauyen@gmail.com", "011201303447", "Van", "0825894315", "213155", 1000m },
-                    { 37, "Lao Cai", 2, 2, new DateTime(1997, 3, 14, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "Phat", "phuyenlc14@gmail.com", "102302446311", "Tung", "0328658514", "214156", 1000m },
-                    { 38, "Cao Bang", 2, 2, new DateTime(1998, 4, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "Nong", "nuyenanmanhhung93@gmail.com", "0012304664312", "Manh", "0654871913", "215157", 1000m },
-                    { 39, "Ha Noi", 2, 2, new DateTime(1999, 5, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "Nguyen", "nguyenrunganh@gmail.com", "012404356713", "Anh", "0546871212", "216158", 1000m },
-                    { 40, "Ha Noi", 2, 2, new DateTime(1999, 6, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "Do", "hconguyen@gmail.com", "011201072114", "Cong", "0889567611", "217159", 1000m },
-                    { 33, "Cao Bang", 2, 2, new DateTime(1998, 4, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "Non", "nouophanhhung93@gmail.com", "0102304664305", "Manh Ganh", "0654871955", "215152", 1000m },
-                    { 34, "Ha Noi", 2, 2, new DateTime(1998, 5, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "Nguy", "nguyennuuoanh@gmail.com", "102404356446", "Trung", "0546871268", "216153", 1000m },
-                    { 23, "Cao Bang", 2, 2, new DateTime(1990, 4, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "Nong", "nuogphanmanhhung93@gmail.com", "0003304664389", "Manh Hung", "0654871950", "215154", 1000m },
-                    { 21, "Gia Lai", 2, 2, new DateTime(1990, 2, 13, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "Ha", "havanvuuo@gmail.com", "001201301146", "Van Vu", "0825894300", "213154", 1000m },
-                    { 2, "Lao Cai", 1, 1, new DateTime(1990, 3, 14, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "Pham", "phamlamlc14@gmail.com", "002302446301", "Tung Lam", "0328658580", "214004", 1000m },
-                    { 3, "Cao Bang", 1, 1, new DateTime(1990, 4, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "Nong", "nongphanmanhhung93@gmail.com", "0002304664303", "Manh Hung", "0654871956", "215004", 1000m },
-                    { 4, "Ha Noi", 1, 1, new DateTime(1990, 5, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "Nguyen", "nguyentrunganh@gmail.com", "002404356766", "Trung Anh", "0546871264", "216004", 1000m },
-                    { 5, "Ha Noi", 1, 1, new DateTime(1998, 6, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "Do", "huucong473@gmail.com", "001201072112", "Huu Cong", "0889567661", "217004", 1000m },
-                    { 6, "Gia Lai", 1, 1, new DateTime(1998, 2, 13, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "Nam", "havanvu18@gmail.com", "001201303433", "Van Va", "0825894329", "213005", 1000m },
-                    { 7, "Lao Cai", 1, 1, new DateTime(1998, 3, 14, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "Pha", "phamlamlc@gmail.com", "002302446321", "Tung Lang", "0328658581", "214006", 1000m },
-                    { 8, "Cao Bang", 1, 1, new DateTime(1998, 4, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "Nog", "nongphanmanhhung@gmail.com", "0002304664323", "Manh Hong", "0654871952", "215007", 1000m },
-                    { 9, "Ha Noi", 1, 1, new DateTime(2000, 5, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "Nguy", "nguyentrung@gmail.com", "002404356266", "Trung Tanh", "0546871263", "216008", 1000m },
-                    { 10, "Ha Noi", 1, 1, new DateTime(1998, 6, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "Don", "huucong47@gmail.com", "001201072132", "Huu Conh", "0889567664", "217009", 1000m },
-                    { 11, "Gia Lai", 1, 1, new DateTime(2000, 2, 13, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "Han", "havanvu1@gmail.com", "001201303456", "Van Nat", "0825894325", "213010", 1000m },
-                    { 12, "Lao Cai", 1, 1, new DateTime(2003, 3, 14, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "Phan", "phamlamlc1@gmail.com", "002302446304", "Tung Lang", "0328658586", "214011", 1000m },
-                    { 13, "Cao Bang", 1, 1, new DateTime(1998, 4, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "Non", "nongphanhhung93@gmail.com", "0002304664305", "Manh Ganh", "0654871957", "215012", 1000m },
-                    { 14, "Ha Noi", 1, 1, new DateTime(1998, 5, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "Nguy", "nguyenunganh@gmail.com", "002404356446", "Trung", "0546871268", "216013", 1000m },
-                    { 15, "Ha Noi", 1, 1, new DateTime(2002, 6, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "Dom", "huucong473@gmail.com", "001201072119", "Huu", "0889567669", "217014", 1000m },
-                    { 16, "Gia Lai", 1, 1, new DateTime(1998, 2, 13, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "Ham", "havau18@gmail.com", "001201303447", "Van", "0825894311", "213015", 1000m },
-                    { 17, "Lao Cai", 1, 1, new DateTime(1997, 3, 14, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "Phat", "phlamlc14@gmail.com", "002302446311", "Tung", "0328658512", "214016", 1000m },
-                    { 18, "Cao Bang", 1, 1, new DateTime(1998, 4, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "Nong", "nonhanmanhhung93@gmail.com", "0002304664312", "Manh", "0654871913", "215017", 1000m },
-                    { 19, "Ha Noi", 1, 1, new DateTime(1999, 5, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "Nguyen", "ngentrunganh@gmail.com", "002404356713", "Anh", "0546871214", "216018", 1000m }
+                    { 25, "Ha Noi", 2, 2, new DateTime(1998, 6, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "Do", "huuconuo73@gmail.com", "001201072122", "Huu Cong", "0889567662", null, "217154", 1000m },
+                    { 26, "Gia Lai", 2, 2, new DateTime(1998, 2, 13, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "Nam", "havanvuo8@gmail.com", "001201303434", "Van Va", "0825894325", null, "213155", 1000m },
+                    { 27, "Lao Cai", 2, 2, new DateTime(1998, 3, 14, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "Pha", "phauoamlc@gmail.com", "002302446521", "Tung Lang", "0328658511", null, "214156", 1000m },
+                    { 28, "Cao Bang", 2, 2, new DateTime(1998, 4, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "Nog", "nouophanmanhhung@gmail.com", "0012304664323", "Manh Hong", "0654871915", null, "215157", 1000m },
+                    { 29, "Ha Noi", 2, 2, new DateTime(2000, 5, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "Nguy", "nguoentrung@gmail.com", "102404356266", "Trung Tanh", "0546871222", null, "216158", 1000m },
+                    { 30, "Ha Noi", 2, 2, new DateTime(1998, 6, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "Don", "huucouo47@gmail.com", "101201072132", "Huu Conh", "0889567644", null, "217159", 1000m },
+                    { 31, "Gia Lai", 2, 2, new DateTime(2000, 2, 13, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "Han", "havanuo1@gmail.com", "101201303456", "Van Nat", "0825894377", null, "213150", 1000m },
+                    { 32, "Lao Cai", 2, 2, new DateTime(2003, 3, 14, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "Phan", "phuolamlc1@gmail.com", "102302446304", "Tung Lang", "0328658555", null, "214151", 1000m },
+                    { 24, "Ha Noi", 2, 2, new DateTime(1990, 5, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "Nguyen", "nuoyentrunganh@gmail.com", "002404356798", "Trung Anh", "0546871260", null, "216154", 1000m },
+                    { 35, "Ha Noi", 2, 2, new DateTime(2002, 6, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "Dom", "huucouyen73@gmail.com", "101201072119", "Huu", "0889567619", null, "217154", 1000m },
+                    { 36, "Gia Lai", 2, 2, new DateTime(1998, 2, 13, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "Ham", "havauyen@gmail.com", "011201303447", "Van", "0825894315", null, "213155", 1000m },
+                    { 37, "Lao Cai", 2, 2, new DateTime(1997, 3, 14, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "Phat", "phuyenlc14@gmail.com", "102302446311", "Tung", "0328658514", null, "214156", 1000m },
+                    { 38, "Cao Bang", 2, 2, new DateTime(1998, 4, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "Nong", "nuyenanmanhhung93@gmail.com", "0012304664312", "Manh", "0654871913", null, "215157", 1000m },
+                    { 39, "Ha Noi", 2, 2, new DateTime(1999, 5, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "Nguyen", "nguyenrunganh@gmail.com", "012404356713", "Anh", "0546871212", null, "216158", 1000m },
+                    { 40, "Ha Noi", 2, 2, new DateTime(1999, 6, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "Do", "hconguyen@gmail.com", "011201072114", "Cong", "0889567611", null, "217159", 1000m },
+                    { 33, "Cao Bang", 2, 2, new DateTime(1998, 4, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "Non", "nouophanhhung93@gmail.com", "0102304664305", "Manh Ganh", "0654871955", null, "215152", 1000m },
+                    { 34, "Ha Noi", 2, 2, new DateTime(1998, 5, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "Nguy", "nguyennuuoanh@gmail.com", "102404356446", "Trung", "0546871268", null, "216153", 1000m },
+                    { 23, "Cao Bang", 2, 2, new DateTime(1990, 4, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "Nong", "nuogphanmanhhung93@gmail.com", "0003304664389", "Manh Hung", "0654871950", null, "215154", 1000m },
+                    { 21, "Gia Lai", 2, 2, new DateTime(1990, 2, 13, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "Ha", "havanvuuo@gmail.com", "001201301146", "Van Vu", "0825894300", null, "213154", 1000m },
+                    { 2, "Lao Cai", 1, 1, new DateTime(1990, 3, 14, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "Pham", "phamlamlc14@gmail.com", "002302446301", "Tung Lam", "0328658580", null, "214004", 1000m },
+                    { 3, "Cao Bang", 1, 1, new DateTime(1990, 4, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "Nong", "nongphanmanhhung93@gmail.com", "0002304664303", "Manh Hung", "0654871956", null, "215004", 1000m },
+                    { 4, "Ha Noi", 1, 1, new DateTime(1990, 5, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "Nguyen", "nguyentrunganh@gmail.com", "002404356766", "Trung Anh", "0546871264", null, "216004", 1000m },
+                    { 5, "Ha Noi", 1, 1, new DateTime(1998, 6, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "Do", "huucong473@gmail.com", "001201072112", "Huu Cong", "0889567661", null, "217004", 1000m },
+                    { 6, "Gia Lai", 1, 1, new DateTime(1998, 2, 13, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "Nam", "havanvu18@gmail.com", "001201303433", "Van Va", "0825894329", null, "213005", 1000m },
+                    { 7, "Lao Cai", 1, 1, new DateTime(1998, 3, 14, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "Pha", "phamlamlc@gmail.com", "002302446321", "Tung Lang", "0328658581", null, "214006", 1000m },
+                    { 8, "Cao Bang", 1, 1, new DateTime(1998, 4, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "Nog", "nongphanmanhhung@gmail.com", "0002304664323", "Manh Hong", "0654871952", null, "215007", 1000m },
+                    { 9, "Ha Noi", 1, 1, new DateTime(2000, 5, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "Nguy", "nguyentrung@gmail.com", "002404356266", "Trung Tanh", "0546871263", null, "216008", 1000m },
+                    { 10, "Ha Noi", 1, 1, new DateTime(1998, 6, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "Don", "huucong47@gmail.com", "001201072132", "Huu Conh", "0889567664", null, "217009", 1000m },
+                    { 11, "Gia Lai", 1, 1, new DateTime(2000, 2, 13, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "Han", "havanvu1@gmail.com", "001201303456", "Van Nat", "0825894325", null, "213010", 1000m },
+                    { 12, "Lao Cai", 1, 1, new DateTime(2003, 3, 14, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "Phan", "phamlamlc1@gmail.com", "002302446304", "Tung Lang", "0328658586", null, "214011", 1000m },
+                    { 13, "Cao Bang", 1, 1, new DateTime(1998, 4, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "Non", "nongphanhhung93@gmail.com", "0002304664305", "Manh Ganh", "0654871957", null, "215012", 1000m },
+                    { 14, "Ha Noi", 1, 1, new DateTime(1998, 5, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "Nguy", "nguyenunganh@gmail.com", "002404356446", "Trung", "0546871268", null, "216013", 1000m },
+                    { 15, "Ha Noi", 1, 1, new DateTime(2002, 6, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "Dom", "huucong473@gmail.com", "001201072119", "Huu", "0889567669", null, "217014", 1000m },
+                    { 16, "Gia Lai", 1, 1, new DateTime(1998, 2, 13, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "Ham", "havau18@gmail.com", "001201303447", "Van", "0825894311", null, "213015", 1000m },
+                    { 17, "Lao Cai", 1, 1, new DateTime(1997, 3, 14, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "Phat", "phlamlc14@gmail.com", "002302446311", "Tung", "0328658512", null, "214016", 1000m },
+                    { 18, "Cao Bang", 1, 1, new DateTime(1998, 4, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "Nong", "nonhanmanhhung93@gmail.com", "0002304664312", "Manh", "0654871913", null, "215017", 1000m },
+                    { 19, "Ha Noi", 1, 1, new DateTime(1999, 5, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "Nguyen", "ngentrunganh@gmail.com", "002404356713", "Anh", "0546871214", null, "216018", 1000m }
                 });
 
             migrationBuilder.InsertData(
                 table: "Students",
-                columns: new[] { "Id", "Address", "ClassId", "CourseId", "Dob", "FeeStatus", "FirstName", "Gmail", "IdentityCard", "LastName", "PhoneNumber", "RollNumber", "SubFee" },
-                values: new object[] { 20, "Ha Noi", 1, 1, new DateTime(1999, 6, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "Do", "hcong473@gmail.com", "001201072114", "Cong", "0889567615", "217019", 1000m });
+                columns: new[] { "Id", "Address", "ClassId", "CourseId", "Dob", "FeeStatus", "FirstName", "Gmail", "IdentityCard", "LastName", "PhoneNumber", "RankedAcademic", "RollNumber", "SubFee" },
+                values: new object[] { 20, "Ha Noi", 1, 1, new DateTime(1999, 6, 15, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "Do", "hcong473@gmail.com", "001201072114", "Cong", "0889567615", null, "217019", 1000m });
 
             migrationBuilder.InsertData(
                 table: "Students",
-                columns: new[] { "Id", "Address", "ClassId", "CourseId", "Dob", "FeeStatus", "FirstName", "Gmail", "IdentityCard", "LastName", "PhoneNumber", "RollNumber", "SubFee" },
-                values: new object[] { 22, "Lao Cai", 2, 2, new DateTime(1990, 3, 14, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "Pham", "phauoamlc14@gmail.com", "002322446399", "Tung Lam", "0328658500", "214154", 1000m });
+                columns: new[] { "Id", "Address", "ClassId", "CourseId", "Dob", "FeeStatus", "FirstName", "Gmail", "IdentityCard", "LastName", "PhoneNumber", "RankedAcademic", "RollNumber", "SubFee" },
+                values: new object[] { 22, "Lao Cai", 2, 2, new DateTime(1990, 3, 14, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "Pham", "phauoamlc14@gmail.com", "002322446399", "Tung Lam", "0328658500", null, "214154", 1000m });
 
             migrationBuilder.InsertData(
                 table: "Students",
-                columns: new[] { "Id", "Address", "ClassId", "CourseId", "Dob", "FeeStatus", "FirstName", "Gmail", "IdentityCard", "LastName", "PhoneNumber", "RollNumber", "SubFee" },
-                values: new object[] { 1, "Gia Lai", 1, 1, new DateTime(1990, 2, 13, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "Ha", "havanvu18@gmail.com", "001201303446", "Van Vu", "0825894329", "213004", 1000m });
+                columns: new[] { "Id", "Address", "ClassId", "CourseId", "Dob", "FeeStatus", "FirstName", "Gmail", "IdentityCard", "LastName", "PhoneNumber", "RankedAcademic", "RollNumber", "SubFee" },
+                values: new object[] { 1, "Gia Lai", 1, 1, new DateTime(1990, 2, 13, 0, 0, 0, 0, DateTimeKind.Unspecified), 0, "Ha", "havanvu18@gmail.com", "001201303446", "Van Vu", "0825894329", null, "213004", 1000m });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",

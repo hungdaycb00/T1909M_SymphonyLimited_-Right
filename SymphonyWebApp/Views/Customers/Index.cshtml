@@ -6,7 +6,12 @@
 }
 
 <h1>Customer list</h1>
-
+@if (ViewBag.msg != null)
+{
+    <label class="alert alert-success" role="alert">
+        @ViewBag.msg
+    </label>
+}
 <p>
     <a asp-action="Create" class="btn btn-primary">Create New</a>
 </p>
@@ -79,13 +84,13 @@
 
                         @if (item.customerStatus.ToString() == "Confirm")
                         {
-                            <td class=" btn-success">
+                            <td class=" alert-success">
                                 @Html.DisplayFor(modelItem => item.customerStatus)
                             </td>
                         }
                         else
                         {
-                            <td class=" btn-warning">
+                            <td class=" alert-warning">
                                 @Html.DisplayFor(modelItem => item.customerStatus)
                             </td>
                         }
@@ -93,14 +98,14 @@
                         @{
                             if (item.TestRoom != null)
                             {
-                                <td class=" btn-success">
+                                <td class=" btn-success text-center">
                                     @Html.DisplayFor(modelItem => item.TestRoom.Name)
                                 </td>
                             }
                             else
                             {
-                                <td>
-                                    @Html.DisplayFor(modelItem => item.TestRoom.Name)
+                                <td class=" btn-secondary">
+                                    None
                                 </td>
                             }
 
@@ -112,8 +117,14 @@
                             <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
                         </td>
                         <td>
-                            <a asp-action="Index" asp-controller="Gmail" asp-route-id="@item.Id" class="btn btn-success">Send Mail</a>
+                            <a asp-action="Index" asp-controller="Gmail" asp-route-id="@item.Id" class="btn btn-outline-success">Send Mail</a>
                         </td>
+                        <form asp-action="SendDefault" asp-controller="Gmail" method="get">
+                            <input formmethod="get" type="text" name="id" value="@item.Id" hidden="hidden" />
+                            <td>
+                                <button class="btn btn-outline-info" type="submit">Send Default</button>
+                            </td>
+                        </form>
                     </tr>
                 }
             }

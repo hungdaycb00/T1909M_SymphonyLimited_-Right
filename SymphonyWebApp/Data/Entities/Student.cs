@@ -49,6 +49,9 @@ namespace SymphonyWebApp.Data.Entities
         [Display(Name = "Student Status")]
         public StudentStatus StudentStatus { get; set; }
 
+        [Display(Name = "Ranked Academic")]
+        public string? RankedAcademic { get; set; }
+
         public int CourseId { get; set; }
         public Course Course { get; set; }
 

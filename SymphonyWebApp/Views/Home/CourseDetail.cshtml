@@ -50,7 +50,9 @@
                             <div class="icon icon-4 d-flex align-items-center justify-content-center"><span class="flaticon-browser"></span></div>
                             <div class="media-body">
                                 <h3 class="heading mb-3">What you'll learn</h3>
-                                <p>@Html.DisplayFor(model => model.Description)</p>
+                                <p>
+                                    @Html.Raw(Model.Description)
+                                </p>
                                 <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModalCenter">
                                     Enroll
                                 </button>

@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,6 +36,7 @@ namespace SymphonyWebApp.Models
                 };
 
                 var mailMessage = new MailMessage(from, to);
+             
                 mailMessage.Subject = subjet;
                 mailMessage.Body = content;
                 mailMessage.IsBodyHtml = true;
@@ -45,7 +47,6 @@ namespace SymphonyWebApp.Models
                         mailMessage.Attachments.Add(new Attachment(attachment));
                     }
                 }
-
                 smtpClient.Send(mailMessage);
                 return true;
             }
