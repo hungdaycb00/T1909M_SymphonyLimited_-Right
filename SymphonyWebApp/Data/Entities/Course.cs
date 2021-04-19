@@ -26,6 +26,8 @@ namespace SymphonyWebApp.Data.Entities
         public decimal Fee { get; set; }
 
         public Level level { get; set; }
+
+        [Display(Name = "Image")]
         public string UrlImage { get; set; }
 
         [Display(Name = "Training Time")]

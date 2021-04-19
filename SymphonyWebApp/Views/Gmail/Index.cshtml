@@ -6,7 +6,13 @@
 }
 
 <h3>Send Mail</h3>
-@ViewBag.msg
+@if (ViewBag.msg != null)
+{
+    <label class="alert alert-success" role="alert">
+        @ViewBag.msg
+    </label>
+}
+
 <form method="post" enctype="multipart/form-data" asp-controller="Gmail" asp-action="Send">
     <table>
         <tr class="form-group">
@@ -21,10 +27,7 @@
             <td class="control-label">Email</td>
             <td><input type="text" asp-for="Email" class="form-control" value="@ViewData["CGmail"]" required /></td>
         </tr>
-        <tr class="form-group">
-            <td class="control-label">Address</td>
-            <td><input type="text" asp-for="Address" class="form-control" /></td>
-        </tr>
+
         <tr class="form-group">
             <td class="control-label">Subject</td>
             <td><input type="text" asp-for="Subject" class="form-control" required /></td>
@@ -40,6 +43,6 @@
     </table>
     <div class="mt-5">
         <button type="submit" class="btn btn-primary mb-3">Send</button> <br />
-        <a asp-action="Index" asp-controller="Customer">Back to List </a>
+        <a asp-action="Index" asp-controller="Customers">Back to List </a>
     </div>
 </form>

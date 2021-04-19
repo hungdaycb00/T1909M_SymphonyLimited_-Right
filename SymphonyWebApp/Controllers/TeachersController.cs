@@ -36,7 +36,7 @@ namespace SymphonyWebApp.Controllers
                 var result = await _context.Teacher.Where(x => x.FirstName.Contains(keyword) || x.Major.Contains(keyword) || x.LastName.Contains(keyword)).OrderByDescending(x => x.Id).ToListAsync();
                 return View(result);
             }
-            return View(await _context.Teacher.OrderByDescending(x => x.Id).ToListAsync());
+            return View(await _context.Teacher.Include(c => c.Classes).OrderByDescending(x => x.Id).ToListAsync());
         }
 
         // GET: Teachers/Details/5
@@ -47,7 +47,7 @@ namespace SymphonyWebApp.Controllers
                 return NotFound();
             }
 
-            var teacher = await _context.Teacher
+            var teacher = await _context.Teacher.Include(x => x.Classes)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (teacher == null)
             {
@@ -60,6 +60,8 @@ namespace SymphonyWebApp.Controllers
         // GET: Teachers/Create
         public IActionResult Create()
         {
+            ViewData["ClassId"] = new SelectList(_context.ClassStudies, "Id", "ClassId");
+
             return View();
         }
 
@@ -70,16 +72,19 @@ namespace SymphonyWebApp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,FirstName,LastName,Gmail,Dob,Address,UrlImage,Major")] Teacher teacher, IFormFile imageFile)
         {
+            if (teacher.UrlImage == null)
+            {
+                teacher.UrlImage = await this.SaveFile(imageFile);
+            }
+
             if (ModelState.IsValid)
             {
-                if (teacher.UrlImage == null)
-                {
-                    teacher.UrlImage = await this.SaveFile(imageFile);
-                }
                 _context.Add(teacher);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["ClassId"] = new SelectList(_context.ClassStudies, "Id", "ClassId", teacher.Classes);
+
             return View(teacher);
         }
 

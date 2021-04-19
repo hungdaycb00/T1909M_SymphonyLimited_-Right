@@ -28,7 +28,9 @@ namespace SymphonyWebApp.Data.Entities
         [Display(Name = "Status")]
         public CustomerStatus customerStatus { get; set; }
 
+        [Display(Name = "Room")]
         public int? TestRoomId { get; set; }
+
         [Display(Name = "Room")]
         public TestRoom TestRoom { get; set; }
 

@@ -22,7 +22,7 @@ namespace SymphonyWebApp.Data.Configurations
             builder.Property(x => x.Address).IsRequired().HasMaxLength(100);
             builder.Property(x => x.Gmail).IsRequired().HasMaxLength(100);
             builder.Property(x => x.IdentityCard).IsRequired().HasMaxLength(20);
-            builder.Property(x => x.StudentStatus).IsRequired().HasDefaultValue(StudentStatus.Active);
+            builder.Property(x => x.StudentStatus).IsRequired().HasDefaultValue(StudentStatus.Studying);
             builder.Property(x => x.PhoneNumber).IsRequired().HasMaxLength(12);
             builder.Property(x => x.Dob).IsRequired();
             builder.Property(x => x.SubFee).IsRequired();

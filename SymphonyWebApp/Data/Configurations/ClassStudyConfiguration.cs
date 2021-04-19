@@ -20,6 +20,7 @@ namespace SymphonyWebApp.Data.Configurations
             builder.Property(x => x.Name).IsRequired().HasMaxLength(50);
 
             builder.HasMany<Course>(x => x.Courses).WithMany(x => x.ClassStudies);
+            builder.HasOne(r => r.Teacher).WithMany(c => c.Classes).HasForeignKey(f => f.TeacherId);
         }
     }
 }

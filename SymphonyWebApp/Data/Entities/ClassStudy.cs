@@ -28,6 +28,11 @@ namespace SymphonyWebApp.Data.Entities
         public ICollection<Student> Students { get; set; }
 
         public ICollection<Course> Courses { get; set; }
+
+        [Display(Name = "Teacher")]
+        public int? TeacherId { get; set; }
+
+        public Teacher Teacher { get; set; }
     }
 
     public class ClassStudyValidator : AbstractValidator<ClassStudy>

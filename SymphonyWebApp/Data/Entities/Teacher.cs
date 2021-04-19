@@ -30,6 +30,7 @@ namespace SymphonyWebApp.Data.Entities
         public string UrlImage { get; set; }
 
         public string Major { get; set; }
+        public ICollection<ClassStudy> Classes { get; set; }
     }
 
     public class TeacherValidator : AbstractValidator<Teacher>
@@ -41,6 +42,7 @@ namespace SymphonyWebApp.Data.Entities
             RuleFor(x => x.Major).NotNull();
             RuleFor(x => x.Dob).LessThan(DateTime.Now.AddYears(10));
             RuleFor(x => x.Gmail).EmailAddress();
+            RuleFor(x => x.UrlImage).NotEmpty();
         }
     }
 }

@@ -65,10 +65,10 @@ namespace SymphonyWebApp.Data.Entities
             RuleFor(x => x.FirstName).NotNull();
             RuleFor(x => x.Gmail).NotEmpty().EmailAddress();
             RuleFor(x => x.Dob).NotNull().LessThan(DateTime.Now.AddYears(-12));
-            RuleFor(x => x.IdentityCard).Length(10);
+            RuleFor(x => x.IdentityCard).MaximumLength(20);
             RuleFor(x => x.PhoneNumber).NotNull();
             RuleFor(x => x.Address).NotEmpty();
-            RuleFor(x => x.SubFee).GreaterThan(0);
+            RuleFor(x => x.SubFee).GreaterThanOrEqualTo(0);
             RuleFor(x => x.FeeStatus).NotNull();
             RuleFor(x => x.CourseId).NotNull();
             RuleFor(x => x.ClassId).NotNull();

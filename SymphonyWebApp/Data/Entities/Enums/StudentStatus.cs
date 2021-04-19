@@ -7,7 +7,9 @@ namespace SymphonyWebApp.Data.Entities.Enums
 {
     public enum StudentStatus
     {
-        Active,
-        InActive
+        Studying,
+        Retention,
+        Graduated,
+        Dropout
     }
 }

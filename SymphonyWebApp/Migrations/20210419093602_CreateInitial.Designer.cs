@@ -10,8 +10,8 @@ using SymphonyWebApp.Data;
 namespace SymphonyWebApp.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210418172554_createInitial")]
-    partial class createInitial
+    [Migration("20210419093602_CreateInitial")]
+    partial class CreateInitial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -306,7 +306,12 @@ namespace SymphonyWebApp.Migrations
                     b.Property<DateTime>("StartTime")
                         .HasColumnType("datetime2");
 
+                    b.Property<int?>("TeacherId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("TeacherId");
 
                     b.ToTable("ClassStudies");
 
@@ -317,7 +322,8 @@ namespace SymphonyWebApp.Migrations
                             ClassId = "CT207",
                             EndTime = new DateTime(2021, 7, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Basic Java",
-                            StartTime = new DateTime(2021, 1, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            StartTime = new DateTime(2021, 1, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TeacherId = 1
                         },
                         new
                         {
@@ -325,7 +331,8 @@ namespace SymphonyWebApp.Migrations
                             ClassId = "CT208",
                             EndTime = new DateTime(2021, 8, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Basic Python",
-                            StartTime = new DateTime(2021, 2, 11, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            StartTime = new DateTime(2021, 2, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TeacherId = 2
                         },
                         new
                         {
@@ -333,7 +340,8 @@ namespace SymphonyWebApp.Migrations
                             ClassId = "CT209",
                             EndTime = new DateTime(2021, 10, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Basic SQL",
-                            StartTime = new DateTime(2021, 4, 5, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            StartTime = new DateTime(2021, 4, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TeacherId = 3
                         },
                         new
                         {
@@ -341,7 +349,8 @@ namespace SymphonyWebApp.Migrations
                             ClassId = "CT210",
                             EndTime = new DateTime(2021, 10, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Basic JavaScript ",
-                            StartTime = new DateTime(2021, 4, 10, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            StartTime = new DateTime(2021, 4, 10, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TeacherId = 4
                         },
                         new
                         {
@@ -349,7 +358,8 @@ namespace SymphonyWebApp.Migrations
                             ClassId = "CT211",
                             EndTime = new DateTime(2021, 5, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Advance JavaScript",
-                            StartTime = new DateTime(2021, 1, 15, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            StartTime = new DateTime(2021, 1, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TeacherId = 5
                         },
                         new
                         {
@@ -357,7 +367,8 @@ namespace SymphonyWebApp.Migrations
                             ClassId = "CT212",
                             EndTime = new DateTime(2021, 9, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Name = "Advance Python",
-                            StartTime = new DateTime(2021, 5, 4, 0, 0, 0, 0, DateTimeKind.Unspecified)
+                            StartTime = new DateTime(2021, 5, 4, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            TeacherId = 6
                         });
                 });
 
@@ -530,7 +541,7 @@ namespace SymphonyWebApp.Migrations
                         {
                             Id = 1,
                             Contents = "What is the school's facilities and teaching quality like?",
-                            CreatingDate = new DateTime(2021, 4, 19, 0, 25, 53, 857, DateTimeKind.Local).AddTicks(8446),
+                            CreatingDate = new DateTime(2021, 4, 19, 16, 36, 1, 792, DateTimeKind.Local).AddTicks(5653),
                             Gmail = "tuyettranlc4@gmail.com",
                             Name = "Tran Thi Tuyet",
                             PhoneNumber = "0395761476",
@@ -541,7 +552,7 @@ namespace SymphonyWebApp.Migrations
                         {
                             Id = 2,
                             Contents = "What will I get during my studies? ",
-                            CreatingDate = new DateTime(2021, 4, 19, 0, 25, 53, 858, DateTimeKind.Local).AddTicks(335),
+                            CreatingDate = new DateTime(2021, 4, 19, 16, 36, 1, 792, DateTimeKind.Local).AddTicks(7092),
                             Gmail = "ngocdra@gmail.com",
                             Name = "Nguyen Van Ngoc",
                             PhoneNumber = "0956137845",
@@ -552,7 +563,7 @@ namespace SymphonyWebApp.Migrations
                         {
                             Id = 3,
                             Contents = "Can I take other experiential sessions outside the main school hours?",
-                            CreatingDate = new DateTime(2021, 4, 19, 0, 25, 53, 858, DateTimeKind.Local).AddTicks(347),
+                            CreatingDate = new DateTime(2021, 4, 19, 16, 36, 1, 792, DateTimeKind.Local).AddTicks(7100),
                             Gmail = "namot@gmail.com",
                             Name = "Nguyen Hoai Nam",
                             PhoneNumber = "0986176340",
@@ -563,7 +574,7 @@ namespace SymphonyWebApp.Migrations
                         {
                             Id = 4,
                             Contents = "Can I make a reservation if I miss a midterm?",
-                            CreatingDate = new DateTime(2021, 4, 19, 0, 25, 53, 858, DateTimeKind.Local).AddTicks(349),
+                            CreatingDate = new DateTime(2021, 4, 19, 16, 36, 1, 792, DateTimeKind.Local).AddTicks(7103),
                             Gmail = "maioklc@gmail.com",
                             Name = "Pham Tuyet Mai",
                             PhoneNumber = "0296753186",
@@ -574,7 +585,7 @@ namespace SymphonyWebApp.Migrations
                         {
                             Id = 5,
                             Contents = "Can I leave the course for the next semester too?",
-                            CreatingDate = new DateTime(2021, 4, 19, 0, 25, 53, 858, DateTimeKind.Local).AddTicks(352),
+                            CreatingDate = new DateTime(2021, 4, 19, 16, 36, 1, 792, DateTimeKind.Local).AddTicks(7106),
                             Gmail = "thobeo8@gmail.com",
                             Name = "Le Quang Tho",
                             PhoneNumber = "0364781029",
@@ -585,7 +596,7 @@ namespace SymphonyWebApp.Migrations
                         {
                             Id = 6,
                             Contents = "What is the school's facilities and teaching quality like?",
-                            CreatingDate = new DateTime(2021, 4, 19, 0, 25, 53, 858, DateTimeKind.Local).AddTicks(354),
+                            CreatingDate = new DateTime(2021, 4, 19, 16, 36, 1, 792, DateTimeKind.Local).AddTicks(7108),
                             Gmail = "tuyettanl@gmail.com",
                             Name = "Tran Thi Tan",
                             PhoneNumber = "0395761111",
@@ -595,7 +606,7 @@ namespace SymphonyWebApp.Migrations
                         {
                             Id = 7,
                             Contents = "What will I get during my studies? ",
-                            CreatingDate = new DateTime(2021, 4, 19, 0, 25, 53, 858, DateTimeKind.Local).AddTicks(356),
+                            CreatingDate = new DateTime(2021, 4, 19, 16, 36, 1, 792, DateTimeKind.Local).AddTicks(7109),
                             Gmail = "thaidra@gmail.com",
                             Name = "Nguyen Van Thai",
                             PhoneNumber = "0956137222",
@@ -605,7 +616,7 @@ namespace SymphonyWebApp.Migrations
                         {
                             Id = 8,
                             Contents = "Can I take other experiential sessions outside the main school hours?",
-                            CreatingDate = new DateTime(2021, 4, 19, 0, 25, 53, 858, DateTimeKind.Local).AddTicks(358),
+                            CreatingDate = new DateTime(2021, 4, 19, 16, 36, 1, 792, DateTimeKind.Local).AddTicks(7110),
                             Gmail = "Vanot@gmail.com",
                             Name = "Nguyen Hoai Van",
                             PhoneNumber = "0986176333",
@@ -615,7 +626,7 @@ namespace SymphonyWebApp.Migrations
                         {
                             Id = 9,
                             Contents = "Can I make a reservation if I miss a midterm?",
-                            CreatingDate = new DateTime(2021, 4, 19, 0, 25, 53, 858, DateTimeKind.Local).AddTicks(359),
+                            CreatingDate = new DateTime(2021, 4, 19, 16, 36, 1, 792, DateTimeKind.Local).AddTicks(7112),
                             Gmail = "thoklc@gmail.com",
                             Name = "Pham Tuyet Tho",
                             PhoneNumber = "0296753144",
@@ -625,7 +636,7 @@ namespace SymphonyWebApp.Migrations
                         {
                             Id = 10,
                             Contents = "Can I leave the course for the next semester too?",
-                            CreatingDate = new DateTime(2021, 4, 19, 0, 25, 53, 858, DateTimeKind.Local).AddTicks(361),
+                            CreatingDate = new DateTime(2021, 4, 19, 16, 36, 1, 792, DateTimeKind.Local).AddTicks(7113),
                             Gmail = "haibeo8@gmail.com",
                             Name = "Le Quang Hai",
                             PhoneNumber = "0364781055",
@@ -1328,7 +1339,7 @@ namespace SymphonyWebApp.Migrations
                             Id = 2,
                             Address = "Lao Cai",
                             ClassId = 1,
-                            CourseId = 2,
+                            CourseId = 1,
                             Dob = new DateTime(1990, 3, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FeeStatus = 0,
                             FirstName = "Pham",
@@ -1345,7 +1356,7 @@ namespace SymphonyWebApp.Migrations
                             Id = 3,
                             Address = "Cao Bang",
                             ClassId = 1,
-                            CourseId = 3,
+                            CourseId = 1,
                             Dob = new DateTime(1990, 4, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FeeStatus = 0,
                             FirstName = "Nong",
@@ -1362,7 +1373,7 @@ namespace SymphonyWebApp.Migrations
                             Id = 4,
                             Address = "Ha Noi",
                             ClassId = 1,
-                            CourseId = 4,
+                            CourseId = 1,
                             Dob = new DateTime(1990, 5, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FeeStatus = 0,
                             FirstName = "Nguyen",
@@ -1379,7 +1390,7 @@ namespace SymphonyWebApp.Migrations
                             Id = 5,
                             Address = "Ha Noi",
                             ClassId = 1,
-                            CourseId = 5,
+                            CourseId = 1,
                             Dob = new DateTime(1998, 6, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FeeStatus = 0,
                             FirstName = "Do",
@@ -1413,7 +1424,7 @@ namespace SymphonyWebApp.Migrations
                             Id = 7,
                             Address = "Lao Cai",
                             ClassId = 1,
-                            CourseId = 2,
+                            CourseId = 1,
                             Dob = new DateTime(1998, 3, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FeeStatus = 0,
                             FirstName = "Pha",
@@ -1430,7 +1441,7 @@ namespace SymphonyWebApp.Migrations
                             Id = 8,
                             Address = "Cao Bang",
                             ClassId = 1,
-                            CourseId = 3,
+                            CourseId = 1,
                             Dob = new DateTime(1998, 4, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FeeStatus = 0,
                             FirstName = "Nog",
@@ -1446,8 +1457,8 @@ namespace SymphonyWebApp.Migrations
                         {
                             Id = 9,
                             Address = "Ha Noi",
-                            ClassId = 2,
-                            CourseId = 4,
+                            ClassId = 1,
+                            CourseId = 1,
                             Dob = new DateTime(2000, 5, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FeeStatus = 0,
                             FirstName = "Nguy",
@@ -1463,8 +1474,8 @@ namespace SymphonyWebApp.Migrations
                         {
                             Id = 10,
                             Address = "Ha Noi",
-                            ClassId = 2,
-                            CourseId = 5,
+                            ClassId = 1,
+                            CourseId = 1,
                             Dob = new DateTime(1998, 6, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FeeStatus = 0,
                             FirstName = "Don",
@@ -1480,7 +1491,7 @@ namespace SymphonyWebApp.Migrations
                         {
                             Id = 11,
                             Address = "Gia Lai",
-                            ClassId = 2,
+                            ClassId = 1,
                             CourseId = 1,
                             Dob = new DateTime(2000, 2, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FeeStatus = 0,
@@ -1497,8 +1508,8 @@ namespace SymphonyWebApp.Migrations
                         {
                             Id = 12,
                             Address = "Lao Cai",
-                            ClassId = 2,
-                            CourseId = 2,
+                            ClassId = 1,
+                            CourseId = 1,
                             Dob = new DateTime(2003, 3, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FeeStatus = 0,
                             FirstName = "Phan",
@@ -1514,8 +1525,8 @@ namespace SymphonyWebApp.Migrations
                         {
                             Id = 13,
                             Address = "Cao Bang",
-                            ClassId = 3,
-                            CourseId = 3,
+                            ClassId = 1,
+                            CourseId = 1,
                             Dob = new DateTime(1998, 4, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FeeStatus = 0,
                             FirstName = "Non",
@@ -1531,8 +1542,8 @@ namespace SymphonyWebApp.Migrations
                         {
                             Id = 14,
                             Address = "Ha Noi",
-                            ClassId = 3,
-                            CourseId = 4,
+                            ClassId = 1,
+                            CourseId = 1,
                             Dob = new DateTime(1998, 5, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FeeStatus = 0,
                             FirstName = "Nguy",
@@ -1548,8 +1559,8 @@ namespace SymphonyWebApp.Migrations
                         {
                             Id = 15,
                             Address = "Ha Noi",
-                            ClassId = 3,
-                            CourseId = 5,
+                            ClassId = 1,
+                            CourseId = 1,
                             Dob = new DateTime(2002, 6, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FeeStatus = 0,
                             FirstName = "Dom",
@@ -1565,7 +1576,7 @@ namespace SymphonyWebApp.Migrations
                         {
                             Id = 16,
                             Address = "Gia Lai",
-                            ClassId = 3,
+                            ClassId = 1,
                             CourseId = 1,
                             Dob = new DateTime(1998, 2, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FeeStatus = 0,
@@ -1582,8 +1593,8 @@ namespace SymphonyWebApp.Migrations
                         {
                             Id = 17,
                             Address = "Lao Cai",
-                            ClassId = 3,
-                            CourseId = 2,
+                            ClassId = 1,
+                            CourseId = 1,
                             Dob = new DateTime(1997, 3, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FeeStatus = 0,
                             FirstName = "Phat",
@@ -1599,8 +1610,8 @@ namespace SymphonyWebApp.Migrations
                         {
                             Id = 18,
                             Address = "Cao Bang",
-                            ClassId = 4,
-                            CourseId = 3,
+                            ClassId = 1,
+                            CourseId = 1,
                             Dob = new DateTime(1998, 4, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FeeStatus = 0,
                             FirstName = "Nong",
@@ -1616,8 +1627,8 @@ namespace SymphonyWebApp.Migrations
                         {
                             Id = 19,
                             Address = "Ha Noi",
-                            ClassId = 4,
-                            CourseId = 4,
+                            ClassId = 1,
+                            CourseId = 1,
                             Dob = new DateTime(1999, 5, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FeeStatus = 0,
                             FirstName = "Nguyen",
@@ -1633,8 +1644,8 @@ namespace SymphonyWebApp.Migrations
                         {
                             Id = 20,
                             Address = "Ha Noi",
-                            ClassId = 5,
-                            CourseId = 5,
+                            ClassId = 1,
+                            CourseId = 1,
                             Dob = new DateTime(1999, 6, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             FeeStatus = 0,
                             FirstName = "Do",
@@ -1643,6 +1654,346 @@ namespace SymphonyWebApp.Migrations
                             LastName = "Cong",
                             PhoneNumber = "0889567615",
                             RollNumber = "217019",
+                            StudentStatus = 0,
+                            SubFee = 1000m
+                        },
+                        new
+                        {
+                            Id = 21,
+                            Address = "Gia Lai",
+                            ClassId = 2,
+                            CourseId = 2,
+                            Dob = new DateTime(1990, 2, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FeeStatus = 0,
+                            FirstName = "Ha",
+                            Gmail = "havanvuuo@gmail.com",
+                            IdentityCard = "001201301146",
+                            LastName = "Van Vu",
+                            PhoneNumber = "0825894300",
+                            RollNumber = "213154",
+                            StudentStatus = 0,
+                            SubFee = 1000m
+                        },
+                        new
+                        {
+                            Id = 22,
+                            Address = "Lao Cai",
+                            ClassId = 2,
+                            CourseId = 2,
+                            Dob = new DateTime(1990, 3, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FeeStatus = 0,
+                            FirstName = "Pham",
+                            Gmail = "phauoamlc14@gmail.com",
+                            IdentityCard = "002322446399",
+                            LastName = "Tung Lam",
+                            PhoneNumber = "0328658500",
+                            RollNumber = "214154",
+                            StudentStatus = 0,
+                            SubFee = 1000m
+                        },
+                        new
+                        {
+                            Id = 23,
+                            Address = "Cao Bang",
+                            ClassId = 2,
+                            CourseId = 2,
+                            Dob = new DateTime(1990, 4, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FeeStatus = 0,
+                            FirstName = "Nong",
+                            Gmail = "nuogphanmanhhung93@gmail.com",
+                            IdentityCard = "0003304664389",
+                            LastName = "Manh Hung",
+                            PhoneNumber = "0654871950",
+                            RollNumber = "215154",
+                            StudentStatus = 0,
+                            SubFee = 1000m
+                        },
+                        new
+                        {
+                            Id = 24,
+                            Address = "Ha Noi",
+                            ClassId = 2,
+                            CourseId = 2,
+                            Dob = new DateTime(1990, 5, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FeeStatus = 0,
+                            FirstName = "Nguyen",
+                            Gmail = "nuoyentrunganh@gmail.com",
+                            IdentityCard = "002404356798",
+                            LastName = "Trung Anh",
+                            PhoneNumber = "0546871260",
+                            RollNumber = "216154",
+                            StudentStatus = 0,
+                            SubFee = 1000m
+                        },
+                        new
+                        {
+                            Id = 25,
+                            Address = "Ha Noi",
+                            ClassId = 2,
+                            CourseId = 2,
+                            Dob = new DateTime(1998, 6, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FeeStatus = 0,
+                            FirstName = "Do",
+                            Gmail = "huuconuo73@gmail.com",
+                            IdentityCard = "001201072122",
+                            LastName = "Huu Cong",
+                            PhoneNumber = "0889567662",
+                            RollNumber = "217154",
+                            StudentStatus = 0,
+                            SubFee = 1000m
+                        },
+                        new
+                        {
+                            Id = 26,
+                            Address = "Gia Lai",
+                            ClassId = 2,
+                            CourseId = 2,
+                            Dob = new DateTime(1998, 2, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FeeStatus = 0,
+                            FirstName = "Nam",
+                            Gmail = "havanvuo8@gmail.com",
+                            IdentityCard = "001201303434",
+                            LastName = "Van Va",
+                            PhoneNumber = "0825894325",
+                            RollNumber = "213155",
+                            StudentStatus = 0,
+                            SubFee = 1000m
+                        },
+                        new
+                        {
+                            Id = 27,
+                            Address = "Lao Cai",
+                            ClassId = 2,
+                            CourseId = 2,
+                            Dob = new DateTime(1998, 3, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FeeStatus = 0,
+                            FirstName = "Pha",
+                            Gmail = "phauoamlc@gmail.com",
+                            IdentityCard = "002302446521",
+                            LastName = "Tung Lang",
+                            PhoneNumber = "0328658511",
+                            RollNumber = "214156",
+                            StudentStatus = 0,
+                            SubFee = 1000m
+                        },
+                        new
+                        {
+                            Id = 28,
+                            Address = "Cao Bang",
+                            ClassId = 2,
+                            CourseId = 2,
+                            Dob = new DateTime(1998, 4, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FeeStatus = 0,
+                            FirstName = "Nog",
+                            Gmail = "nouophanmanhhung@gmail.com",
+                            IdentityCard = "0012304664323",
+                            LastName = "Manh Hong",
+                            PhoneNumber = "0654871915",
+                            RollNumber = "215157",
+                            StudentStatus = 0,
+                            SubFee = 1000m
+                        },
+                        new
+                        {
+                            Id = 29,
+                            Address = "Ha Noi",
+                            ClassId = 2,
+                            CourseId = 2,
+                            Dob = new DateTime(2000, 5, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FeeStatus = 0,
+                            FirstName = "Nguy",
+                            Gmail = "nguoentrung@gmail.com",
+                            IdentityCard = "102404356266",
+                            LastName = "Trung Tanh",
+                            PhoneNumber = "0546871222",
+                            RollNumber = "216158",
+                            StudentStatus = 0,
+                            SubFee = 1000m
+                        },
+                        new
+                        {
+                            Id = 30,
+                            Address = "Ha Noi",
+                            ClassId = 2,
+                            CourseId = 2,
+                            Dob = new DateTime(1998, 6, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FeeStatus = 0,
+                            FirstName = "Don",
+                            Gmail = "huucouo47@gmail.com",
+                            IdentityCard = "101201072132",
+                            LastName = "Huu Conh",
+                            PhoneNumber = "0889567644",
+                            RollNumber = "217159",
+                            StudentStatus = 0,
+                            SubFee = 1000m
+                        },
+                        new
+                        {
+                            Id = 31,
+                            Address = "Gia Lai",
+                            ClassId = 2,
+                            CourseId = 2,
+                            Dob = new DateTime(2000, 2, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FeeStatus = 0,
+                            FirstName = "Han",
+                            Gmail = "havanuo1@gmail.com",
+                            IdentityCard = "101201303456",
+                            LastName = "Van Nat",
+                            PhoneNumber = "0825894377",
+                            RollNumber = "213150",
+                            StudentStatus = 0,
+                            SubFee = 1000m
+                        },
+                        new
+                        {
+                            Id = 32,
+                            Address = "Lao Cai",
+                            ClassId = 2,
+                            CourseId = 2,
+                            Dob = new DateTime(2003, 3, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FeeStatus = 0,
+                            FirstName = "Phan",
+                            Gmail = "phuolamlc1@gmail.com",
+                            IdentityCard = "102302446304",
+                            LastName = "Tung Lang",
+                            PhoneNumber = "0328658555",
+                            RollNumber = "214151",
+                            StudentStatus = 0,
+                            SubFee = 1000m
+                        },
+                        new
+                        {
+                            Id = 33,
+                            Address = "Cao Bang",
+                            ClassId = 2,
+                            CourseId = 2,
+                            Dob = new DateTime(1998, 4, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FeeStatus = 0,
+                            FirstName = "Non",
+                            Gmail = "nouophanhhung93@gmail.com",
+                            IdentityCard = "0102304664305",
+                            LastName = "Manh Ganh",
+                            PhoneNumber = "0654871955",
+                            RollNumber = "215152",
+                            StudentStatus = 0,
+                            SubFee = 1000m
+                        },
+                        new
+                        {
+                            Id = 34,
+                            Address = "Ha Noi",
+                            ClassId = 2,
+                            CourseId = 2,
+                            Dob = new DateTime(1998, 5, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FeeStatus = 0,
+                            FirstName = "Nguy",
+                            Gmail = "nguyennuuoanh@gmail.com",
+                            IdentityCard = "102404356446",
+                            LastName = "Trung",
+                            PhoneNumber = "0546871268",
+                            RollNumber = "216153",
+                            StudentStatus = 0,
+                            SubFee = 1000m
+                        },
+                        new
+                        {
+                            Id = 35,
+                            Address = "Ha Noi",
+                            ClassId = 2,
+                            CourseId = 2,
+                            Dob = new DateTime(2002, 6, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FeeStatus = 0,
+                            FirstName = "Dom",
+                            Gmail = "huucouyen73@gmail.com",
+                            IdentityCard = "101201072119",
+                            LastName = "Huu",
+                            PhoneNumber = "0889567619",
+                            RollNumber = "217154",
+                            StudentStatus = 0,
+                            SubFee = 1000m
+                        },
+                        new
+                        {
+                            Id = 36,
+                            Address = "Gia Lai",
+                            ClassId = 2,
+                            CourseId = 2,
+                            Dob = new DateTime(1998, 2, 13, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FeeStatus = 0,
+                            FirstName = "Ham",
+                            Gmail = "havauyen@gmail.com",
+                            IdentityCard = "011201303447",
+                            LastName = "Van",
+                            PhoneNumber = "0825894315",
+                            RollNumber = "213155",
+                            StudentStatus = 0,
+                            SubFee = 1000m
+                        },
+                        new
+                        {
+                            Id = 37,
+                            Address = "Lao Cai",
+                            ClassId = 2,
+                            CourseId = 2,
+                            Dob = new DateTime(1997, 3, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FeeStatus = 0,
+                            FirstName = "Phat",
+                            Gmail = "phuyenlc14@gmail.com",
+                            IdentityCard = "102302446311",
+                            LastName = "Tung",
+                            PhoneNumber = "0328658514",
+                            RollNumber = "214156",
+                            StudentStatus = 0,
+                            SubFee = 1000m
+                        },
+                        new
+                        {
+                            Id = 38,
+                            Address = "Cao Bang",
+                            ClassId = 2,
+                            CourseId = 2,
+                            Dob = new DateTime(1998, 4, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FeeStatus = 0,
+                            FirstName = "Nong",
+                            Gmail = "nuyenanmanhhung93@gmail.com",
+                            IdentityCard = "0012304664312",
+                            LastName = "Manh",
+                            PhoneNumber = "0654871913",
+                            RollNumber = "215157",
+                            StudentStatus = 0,
+                            SubFee = 1000m
+                        },
+                        new
+                        {
+                            Id = 39,
+                            Address = "Ha Noi",
+                            ClassId = 2,
+                            CourseId = 2,
+                            Dob = new DateTime(1999, 5, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FeeStatus = 0,
+                            FirstName = "Nguyen",
+                            Gmail = "nguyenrunganh@gmail.com",
+                            IdentityCard = "012404356713",
+                            LastName = "Anh",
+                            PhoneNumber = "0546871212",
+                            RollNumber = "216158",
+                            StudentStatus = 0,
+                            SubFee = 1000m
+                        },
+                        new
+                        {
+                            Id = 40,
+                            Address = "Ha Noi",
+                            ClassId = 2,
+                            CourseId = 2,
+                            Dob = new DateTime(1999, 6, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            FeeStatus = 0,
+                            FirstName = "Do",
+                            Gmail = "hconguyen@gmail.com",
+                            IdentityCard = "011201072114",
+                            LastName = "Cong",
+                            PhoneNumber = "0889567611",
+                            RollNumber = "217159",
                             StudentStatus = 0,
                             SubFee = 1000m
                         });
@@ -1867,6 +2218,15 @@ namespace SymphonyWebApp.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("SymphonyWebApp.Data.Entities.ClassStudy", b =>
+                {
+                    b.HasOne("SymphonyWebApp.Data.Entities.Teacher", "Teacher")
+                        .WithMany("Classes")
+                        .HasForeignKey("TeacherId");
+
+                    b.Navigation("Teacher");
+                });
+
             modelBuilder.Entity("SymphonyWebApp.Data.Entities.Customer", b =>
                 {
                     b.HasOne("SymphonyWebApp.Data.Entities.TestRoom", "TestRoom")
@@ -1919,6 +2279,11 @@ namespace SymphonyWebApp.Migrations
             modelBuilder.Entity("SymphonyWebApp.Data.Entities.Customer", b =>
                 {
                     b.Navigation("RegistrationTest");
+                });
+
+            modelBuilder.Entity("SymphonyWebApp.Data.Entities.Teacher", b =>
+                {
+                    b.Navigation("Classes");
                 });
 
             modelBuilder.Entity("SymphonyWebApp.Data.Entities.TestRoom", b =>

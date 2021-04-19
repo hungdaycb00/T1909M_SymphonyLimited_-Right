@@ -20,7 +20,9 @@ namespace SymphonyWebApp.Data.Entities
         [Display(Name = "Registration Fee")]
         public decimal RegistrationFee { get; set; }
 
+        [Display(Name = "Registration Fee")]
         public int CustomerId { get; set; }
+
         public Customer Customer { get; set; }
     }
 

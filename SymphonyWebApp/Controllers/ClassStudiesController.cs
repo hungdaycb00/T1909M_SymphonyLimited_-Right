@@ -27,11 +27,11 @@ namespace SymphonyWebApp.Controllers
             if (keyword != null)
             {
                 ViewBag.Keyword = keyword;
-                var result = await _context.ClassStudies.Where(x => x.ClassId.Contains(keyword)
-                || x.Name.Contains(keyword)).OrderByDescending(x => x.Id).ToListAsync();
+                var result = await _context.ClassStudies.Include(c => c.Teacher).Where(x => x.ClassId.Contains(keyword)
+                || x.Name.Contains(keyword)).ToListAsync();
                 return View(result);
             }
-            return View(await _context.ClassStudies.OrderByDescending(x => x.Id).ToListAsync());
+            return View(await _context.ClassStudies.Include(c => c.Teacher).ToListAsync());
         }
 
         // GET: ClassStudies/Details/5
@@ -45,8 +45,7 @@ namespace SymphonyWebApp.Controllers
             //var classStudy = await _context.ClassStudies
             //    .FirstOrDefaultAsync(m => m.Id == id);
 
-
-            var classStudy = await _context.ClassStudies.Include(s => s.Students).Where(x => x.Id == id).ToListAsync();
+            var classStudy = await _context.ClassStudies.Include(s => s.Students).Include(c => c.Teacher).Where(x => x.Id == id).ToListAsync();
             if (classStudy == null)
             {
                 return NotFound();
@@ -59,6 +58,8 @@ namespace SymphonyWebApp.Controllers
         // GET: ClassStudies/Create
         public IActionResult Create()
         {
+            ViewData["TeacherId"] = new SelectList(_context.Teacher, "Id", "FirstName");
+
             return View();
         }
 
@@ -67,7 +68,7 @@ namespace SymphonyWebApp.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,ClassId,Name,StartTime,EndTime")] ClassStudy classStudy)
+        public async Task<IActionResult> Create([Bind("Id,ClassId,Name,StartTime,EndTime,TeacherId")] ClassStudy classStudy)
         {
             if (!ModelState.IsValid)
             {
@@ -77,6 +78,7 @@ namespace SymphonyWebApp.Controllers
             _context.Add(classStudy);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
+            ViewData["TeacherId"] = new SelectList(_context.Teacher, "Id", "FirstName", classStudy.TeacherId);
 
             return View(classStudy);
         }
@@ -94,6 +96,8 @@ namespace SymphonyWebApp.Controllers
             {
                 return NotFound();
             }
+            ViewData["TeacherId"] = new SelectList(_context.Teacher, "Id", "FirstName", classStudy.TeacherId);
+
             return View(classStudy);
         }
 
@@ -102,7 +106,7 @@ namespace SymphonyWebApp.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,ClassId,Name,StartTime,EndTime")] ClassStudy classStudy)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,ClassId,Name,StartTime,EndTime,TeacherId")] ClassStudy classStudy)
         {
             if (id != classStudy.Id)
             {
@@ -129,6 +133,8 @@ namespace SymphonyWebApp.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["TeacherId"] = new SelectList(_context.Teacher, "Id", "FirstName", classStudy.TeacherId);
+
             return View(classStudy);
         }
 
